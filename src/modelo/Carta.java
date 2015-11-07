@@ -7,10 +7,10 @@ package modelo;
  */
 public abstract class Carta {
     private int valorEnvido;
-    private String palo;
+
 
     public Carta(int valorenvido) {
-        this.valorEnvido = valorenvido;
+        this.valorEnvido = new Integer(valorenvido);
     }
 
     public int obtenerValorEnvido() {
@@ -23,11 +23,9 @@ public abstract class Carta {
         return Integer.max(this.obtenerValorEnvido(), unaCarta.obtenerValorEnvido());
     }
 
-    public String obtenerPalo() {
-        return this.palo;
-    }
 
-    public void setearPalo(String palo) {
-        this.palo = palo;
-    }
+    public abstract int devolverEnvido(Oro carta);
+    public abstract int devolverEnvido(Basto carta);
+    public abstract int devolverEnvido(Copa carta);
+    public abstract int devolverEnvido(Espada carta);
 }

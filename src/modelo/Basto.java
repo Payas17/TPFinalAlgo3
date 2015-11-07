@@ -8,19 +8,21 @@ public class Basto extends Carta{
     public Basto(int valorenvido) {
 
         super(valorenvido);
-        setearPalo("basto");
     }
 
     @Override
     public int sumarEnvido(Carta unaCarta) {
 
-        if (unaCarta.obtenerPalo().equals("basto")){
-            return this.obtenerValorEnvido() + unaCarta.obtenerValorEnvido() + 20;
-        }
-        return super.sumarEnvido(unaCarta);
+        return unaCarta.devolverEnvido(this);
     }
 
+    public  int devolverEnvido(Basto carta) {
+        return this.obtenerValorEnvido() + carta.obtenerValorEnvido() + 20;
+    }
 
+    public  int devolverEnvido(Oro carta){return super.sumarEnvido(carta);}
+    public  int devolverEnvido(Copa carta){return super.sumarEnvido(carta);}
+    public  int devolverEnvido(Espada carta){return super.sumarEnvido(carta);}
 
 
 }

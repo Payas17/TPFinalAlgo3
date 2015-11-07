@@ -14,7 +14,7 @@ public class PruebasEnvidoTest {
     @Test
     public void testTengo1DeEspada7DeEspadaY5DeBastoYCuenta28DeEnvido(){
         Jugador jugador = new Jugador();
-        Carta oro7 = new Oro(5);
+        Carta oro7 = new Oro(7);
         Carta oro1 = new Oro(1);
         Carta espada1 = new Espada(7);
 
@@ -22,8 +22,7 @@ public class PruebasEnvidoTest {
         jugador.agregarCarta(oro1);
         jugador.agregarCarta(espada1);
 
-        Assert.assertEquals(jugador.cantarEnvido(), 26);
+        Assert.assertEquals(jugador.cantarEnvido(), 28);
 
     }
-
 }
