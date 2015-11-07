@@ -10,7 +10,7 @@ public class Jugador {
     private List<Carta> cartas;
 
     public Jugador(){
-        this.cartas = new ArrayList ();
+        this.cartas = new ArrayList<>();
     }
 
     public void agregarCarta(Carta unaCarta) {
@@ -19,7 +19,7 @@ public class Jugador {
     }
 
     public int cantarEnvido() {
-        return Integer.max(Integer.max(sumarEnvido(0,1), sumarEnvido(0, 2)),sumarEnvido(1,2));
+        return Integer.max(Integer.max(sumarEnvido(0,1), sumarEnvido(0, 2)),sumarEnvido(1, 2));
     }
 
     private int sumarEnvido(int pos1, int pos2) {
