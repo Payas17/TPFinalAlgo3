@@ -12,4 +12,8 @@ public class PruebasEnvidoTest {
     public void testTengo1DeEspada7DeEspadaY5DeBastoYCuenta28DeEnvido(){
 
     }
+    @Test
+    public void testDEMIERDA(){
+
+    }
 }
