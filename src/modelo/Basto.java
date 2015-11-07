@@ -11,7 +11,7 @@ public class Basto extends Carta{
         setearPalo("basto");
     }
 
-
+    @Override
     public int sumarEnvido(Carta unaCarta) {
 
         if (unaCarta.obtenerPalo().equals("basto")){

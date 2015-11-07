@@ -11,7 +11,7 @@ public class Oro extends Carta {
         setearPalo("oro");
     }
 
-
+    @Override
     public int sumarEnvido(Carta unaCarta) {
 
         if (unaCarta.obtenerPalo().equals("oro")){

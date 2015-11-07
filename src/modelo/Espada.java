@@ -10,6 +10,7 @@ public class Espada extends Carta {
         setearPalo("espada");
     }
 
+    @Override
     public int sumarEnvido(Carta unaCarta) {
 
         if (unaCarta.obtenerPalo().equals("espada")){

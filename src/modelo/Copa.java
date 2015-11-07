@@ -12,6 +12,7 @@ public class Copa extends Carta{
     }
 
 
+    @Override
     public int sumarEnvido(Carta unaCarta) {
 
         if (unaCarta.obtenerPalo().equals("copa")){
