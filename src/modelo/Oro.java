@@ -6,13 +6,20 @@ package modelo;
 public class Oro extends Carta {
 
     public Oro(int valorenvido) {
+
         super(valorenvido);
+        setearPalo("oro");
     }
 
 
-    public int sumarEnvido(Oro unaCarta) {
+    public int sumarEnvido(Carta unaCarta) {
 
-        return this.obtenerValorEnvido() + unaCarta.obtenerValorEnvido() + 20;
+        if (unaCarta.obtenerPalo().equals("oro")){
+            return this.obtenerValorEnvido() + unaCarta.obtenerValorEnvido() + 20;
+        }
+        return super.sumarEnvido(unaCarta);
     }
+
+
 
 }

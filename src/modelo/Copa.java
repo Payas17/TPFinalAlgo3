@@ -6,14 +6,21 @@ package modelo;
 public class Copa extends Carta{
 
     public Copa(int valorenvido) {
+
         super(valorenvido);
+        setearPalo("copa");
     }
 
 
-    public int sumarEnvido(Copa unaCarta) {
+    public int sumarEnvido(Carta unaCarta) {
 
-        return this.obtenerValorEnvido() + unaCarta.obtenerValorEnvido() + 20;
+        if (unaCarta.obtenerPalo().equals("copa")){
+            return this.obtenerValorEnvido() + unaCarta.obtenerValorEnvido() + 20;
+        }
+        return super.sumarEnvido(unaCarta);
     }
+
+
 
 }
 

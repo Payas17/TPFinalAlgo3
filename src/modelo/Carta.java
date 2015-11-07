@@ -1,10 +1,13 @@
 package modelo;
 
+import com.sun.org.apache.xerces.internal.xni.XMLString;
+
 /**
  * Created by Payas on 07/11/2015.
  */
 public abstract class Carta {
     private int valorEnvido;
+    private String palo;
 
     public Carta(int valorenvido) {
         this.valorEnvido = valorenvido;
@@ -14,8 +17,17 @@ public abstract class Carta {
         return this.valorEnvido;
     }
 
+
     public int sumarEnvido(Carta unaCarta){
 
         return Integer.max(this.obtenerValorEnvido(), unaCarta.obtenerValorEnvido());
+    }
+
+    public String obtenerPalo() {
+        return this.palo;
+    }
+
+    public void setearPalo(String palo) {
+        this.palo = palo;
     }
 }

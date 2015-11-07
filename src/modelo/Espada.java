@@ -7,11 +7,16 @@ public class Espada extends Carta {
 
     public Espada(int valorenvido) {
         super(valorenvido);
+        setearPalo("espada");
     }
 
-    public int sumarEnvido(Espada unaCarta) {
+    public int sumarEnvido(Carta unaCarta) {
 
-        return this.obtenerValorEnvido() + unaCarta.obtenerValorEnvido() + 20;
-
+        if (unaCarta.obtenerPalo().equals("espada")){
+            return this.obtenerValorEnvido() + unaCarta.obtenerValorEnvido() + 20;
+        }
+        return super.sumarEnvido(unaCarta);
     }
+
+
 }

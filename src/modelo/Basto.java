@@ -6,14 +6,20 @@ package modelo;
 public class Basto extends Carta{
 
     public Basto(int valorenvido) {
+
         super(valorenvido);
+        setearPalo("basto");
     }
 
 
-    public int sumarEnvido(Basto unaCarta) {
+    public int sumarEnvido(Carta unaCarta) {
 
-        return this.obtenerValorEnvido() + unaCarta.obtenerValorEnvido() + 20;
+        if (unaCarta.obtenerPalo().equals("basto")){
+            return this.obtenerValorEnvido() + unaCarta.obtenerValorEnvido() + 20;
+        }
+        return super.sumarEnvido(unaCarta);
     }
+
 
 
 
