@@ -25,8 +25,5 @@ public class PruebasEnvidoTest {
         Assert.assertEquals(jugador.cantarEnvido(), 26);
 
     }
-    @Test
-    public void testDEMIERDA(){
 
-    }
 }
