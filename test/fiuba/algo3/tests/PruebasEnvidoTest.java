@@ -24,37 +24,26 @@ public class PruebasEnvidoTest {
         jugador.agregarCarta(oro1);
         jugador.agregarCarta(espada1);
 
+        jugador.calcularEnvido();
+
         Assert.assertEquals(jugador.cantarEnvido(), 28);
+
     }
 
     @Test
     public void testTengo1DeEspada10DeEspadaY5DeBastoYCuenta28DeEnvido(){
         Jugador jugador = new Jugador();
         Carta espada1 = new Espada(1,14);
-        Carta espada10 = new Espada(0,10);
-        Carta basto5 = new Basto(5,5);
+        Carta espada10 = new Espada(0,5);
+        Carta basto5 = new Basto(5,2);
 
         jugador.agregarCarta(espada10);
         jugador.agregarCarta(basto5);
         jugador.agregarCarta(espada1);
 
+        jugador.calcularEnvido();
+
         Assert.assertEquals(jugador.cantarEnvido(), 21);
 
     }
-
-    @Test
-    public void testTengoCartasDeDistintoPaloYCuenta20DeEnvido(){
-        Jugador jugador = new Jugador();
-        Carta espada1 = new Espada(1,14);
-        Carta oro10 = new Oro(0,10);
-        Carta basto5 = new Basto(5,5);
-
-        jugador.agregarCarta(oro10);
-        jugador.agregarCarta(basto5);
-        jugador.agregarCarta(espada1);
-
-        Assert.assertEquals(jugador.cantarEnvido(), 5);
-    }
-
-
 }

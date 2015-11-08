@@ -18,7 +18,7 @@ public class Espada extends Carta {
     }
 
     public  int devolverEnvido(Espada carta) {
-        return this.obtenerValorEnvido() + carta.obtenerValorEnvido() + 20;
+        return this.obtenerValorEnvido() + carta.obtenerValorEnvido() + TANTO;
     }
 
     public  int devolverEnvido(Basto carta){return super.sumarEnvido(carta);}

@@ -17,7 +17,7 @@ public class Oro extends Carta {
     }
 
     public  int devolverEnvido(Oro carta) {
-        return this.obtenerValorEnvido() + carta.obtenerValorEnvido() + 20;
+        return this.obtenerValorEnvido() + carta.obtenerValorEnvido() + TANTO;
     }
 
     public  int devolverEnvido(Basto carta){return super.sumarEnvido(carta);}

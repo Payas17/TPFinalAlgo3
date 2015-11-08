@@ -18,14 +18,12 @@ public class Copa extends Carta{
     }
 
     public  int devolverEnvido(Copa carta) {
-        return this.obtenerValorEnvido() + carta.obtenerValorEnvido() + 20;
+        return this.obtenerValorEnvido() + carta.obtenerValorEnvido() + TANTO;
     }
 
     public  int devolverEnvido(Basto carta){return super.sumarEnvido(carta);}
     public  int devolverEnvido(Oro carta){return super.sumarEnvido(carta);}
     public  int devolverEnvido(Espada carta){return super.sumarEnvido(carta);}
-
-
 
 }
 

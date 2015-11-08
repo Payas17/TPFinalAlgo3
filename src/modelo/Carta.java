@@ -6,6 +6,8 @@ package modelo;
  * Created by Payas on 07/11/2015.
  */
 public abstract class Carta {
+
+    final int TANTO = 20;
     private int valorEnvido;
     private int valorTruco;
 
