@@ -27,7 +27,7 @@ public abstract class Carta {
     }
 
     public int sumarEnvido(Carta unaCarta){
-        return Integer.max(this.obtenerValorEnvido(), unaCarta.obtenerValorEnvido());
+        return Math.max(this.obtenerValorEnvido(), unaCarta.obtenerValorEnvido());
     }
 
 

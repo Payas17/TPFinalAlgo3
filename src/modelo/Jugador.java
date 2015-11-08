@@ -27,7 +27,7 @@ public class Jugador {
     }
 
     public void calcularEnvido(){
-        this.cantidadEnvido = Integer.max(Integer.max(sumarEnvido(0,1), sumarEnvido(0, 2)),sumarEnvido(1, 2));
+        this.cantidadEnvido = Math.max(Math.max(sumarEnvido(0,1), sumarEnvido(0, 2)),sumarEnvido(1, 2));
     }
 
     private int sumarEnvido(int pos1, int pos2) {
