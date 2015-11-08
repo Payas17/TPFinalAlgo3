@@ -34,6 +34,30 @@ public class PruebasManoTest {
 
     }
     @Test
+    public void testPardaPrimeraMano(){
+
+
+        Jugador jugador1= new Jugador();
+        Jugador jugador2 = new Jugador();
+
+        Mano mano = new Mano(jugador1, jugador2);
+
+        Carta espada10 = new Espada(0,5);
+        Carta basto10 = new Basto(0,5);
+
+        jugador1.agregarCarta(espada10);
+        jugador2.agregarCarta(basto10);
+
+        jugador1.juegaCarta(espada10);
+        jugador2.juegaCarta(basto10);
+
+        mano.buscarGanador();
+
+        Assert.assertFalse(mano.hayGanadorEnMano(jugador1, jugador2));
+
+
+    }
+    @Test
     public void testPrimeraManoLaGanaElJugador3con4jugadores(){
 
 
