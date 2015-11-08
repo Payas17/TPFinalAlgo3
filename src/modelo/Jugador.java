@@ -40,7 +40,6 @@ public class Jugador {
             calcularEnvido();
             return cantarEnvido();
         }
-
         throw new NoTieneFlorError();
 
     }
