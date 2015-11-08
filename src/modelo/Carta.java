@@ -22,9 +22,11 @@ public abstract class Carta {
         return this.valorEnvido;
     }
 
+    public int obtenerValorTruco() {
+        return this.valorTruco;
+    }
 
     public int sumarEnvido(Carta unaCarta){
-
         return Integer.max(this.obtenerValorEnvido(), unaCarta.obtenerValorEnvido());
     }
 
@@ -33,4 +35,5 @@ public abstract class Carta {
     public abstract int devolverEnvido(Basto carta);
     public abstract int devolverEnvido(Copa carta);
     public abstract int devolverEnvido(Espada carta);
+
 }

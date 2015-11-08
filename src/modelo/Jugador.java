@@ -11,6 +11,7 @@ public class Jugador {
     final int TANTO = 20;
     private List<Carta> cartas;
     private int cantidadEnvido;
+    private Carta cartaEnJuego;
 
     public Jugador(){
         this.cartas = new ArrayList<>();
@@ -42,5 +43,13 @@ public class Jugador {
 
         throw new NoTieneFlorError();
 
+    }
+
+    public void juegaCarta(Carta unaCarta) {
+        this.cartaEnJuego = unaCarta;
+    }
+
+    public Carta obtenerCartaEnJuego(){
+        return this.cartaEnJuego;
     }
 }
