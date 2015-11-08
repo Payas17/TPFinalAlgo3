@@ -1,14 +1,13 @@
 package modelo;
 
+
 /**
  * Created by Payas on 07/11/2015.
  */
 public class Oro extends Carta {
 
-    public Oro(int valorenvido) {
-
-        super(valorenvido);
-
+    public Oro(int valorenvido, int valorTruco) {
+        super(valorenvido, valorTruco);
     }
 
     @Override

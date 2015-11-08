@@ -5,8 +5,9 @@ package modelo;
  */
 public class Espada extends Carta {
 
-    public Espada(int valorenvido) {
-        super(valorenvido);
+    public Espada(int valorenvido, int valorTruco) {
+
+        super(valorenvido, valorTruco);
 
     }
 

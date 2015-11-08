@@ -7,10 +7,13 @@ package modelo;
  */
 public abstract class Carta {
     private int valorEnvido;
+    private int valorTruco;
 
 
-    public Carta(int valorenvido) {
-        this.valorEnvido = new Integer(valorenvido);
+    public Carta(int valorenvido, int valorTruco) {
+        this.valorEnvido = valorenvido;
+        this.valorTruco = valorTruco;
+
     }
 
     public int obtenerValorEnvido() {

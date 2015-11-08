@@ -5,9 +5,9 @@ package modelo;
  */
 public class Copa extends Carta{
 
-    public Copa(int valorenvido) {
+    public Copa(int valorenvido, int valorTruco) {
 
-        super(valorenvido);
+        super(valorenvido, valorTruco);
     }
 
 

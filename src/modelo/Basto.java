@@ -5,9 +5,9 @@ package modelo;
  */
 public class Basto extends Carta{
 
-    public Basto(int valorenvido) {
+    public Basto(int valorenvido, int valorTruco) {
 
-        super(valorenvido);
+        super(valorenvido, valorTruco);
     }
 
     @Override
