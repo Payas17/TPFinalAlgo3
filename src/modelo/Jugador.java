@@ -12,14 +12,23 @@ public class Jugador {
     private List<Carta> cartas;
     private int cantidadEnvido;
     private Carta cartaEnJuego;
+    private int manosGanadas;
 
     public Jugador(){
         this.cartas = new ArrayList<>();
+        this.manosGanadas = 0;
     }
 
     public void agregarCarta(Carta unaCarta) {
         this.cartas.add(unaCarta);
+    }
 
+    public int obtenerManosGanadas(){
+        return manosGanadas;
+    }
+
+    public void sumarManosGanadas(){
+        this.manosGanadas++;
     }
 
     public int cantarEnvido() {
@@ -41,7 +50,6 @@ public class Jugador {
             return cantarEnvido();
         }
         throw new NoTieneFlorError();
-
     }
 
     public void juegaCarta(Carta unaCarta) {

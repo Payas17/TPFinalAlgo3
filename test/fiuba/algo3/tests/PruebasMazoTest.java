@@ -20,4 +20,6 @@ public class PruebasMazoTest {
     public void testMazoSeCreaCon40Cartas(){
         Assert.assertEquals(mazo.cantidadDeCartas(), 40 );
     }
+
+
 }

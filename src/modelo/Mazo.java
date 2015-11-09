@@ -75,4 +75,8 @@ public class Mazo {
     public int cantidadDeCartas(){
         return cartas.size();
     }
+
+    public void mezclar() {
+        Collections.shuffle(cartas);
+    }
 }
