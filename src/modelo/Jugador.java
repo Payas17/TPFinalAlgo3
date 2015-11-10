@@ -45,7 +45,7 @@ public class Jugador {
 
     public int cantarFlor(){
 
-        if(sumarEnvido(0,1) > TANTO && sumarEnvido(0,2) > TANTO){
+        if(sumarEnvido(0,1) >= TANTO && sumarEnvido(0,2) >= TANTO){
             calcularEnvido();
             return cantarEnvido();
         }

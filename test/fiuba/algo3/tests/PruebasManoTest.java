@@ -20,12 +20,13 @@ public class PruebasManoTest {
         Jugador jugador2 = new Jugador();
         jugadores.add(jugador1);
         jugadores.add(jugador2);
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
 
 
         Mano mano = new Mano(jugadores);
 
-        Carta espada10 = new Espada(0,5);
-        Carta basto5 = new Basto(5,2);
+        Carta espada10 = new Espada(10,valoresTrucoYEnvido);
+        Carta basto5 = new Basto(5,valoresTrucoYEnvido);
 
 
         jugador1.agregarCarta(espada10);

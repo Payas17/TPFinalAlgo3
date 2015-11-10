@@ -3,6 +3,7 @@ package fiuba.algo3.tests;
 import modelo.*;
 import org.junit.Assert;
 import org.junit.Test;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,10 +19,11 @@ public class PruebasJugadaTest {
         jugadores.add(jugador1);
         jugadores.add(jugador2);
         Jugada jugada = new Jugada(jugadores);
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
 
 
-        Carta espada10 = new Espada(0,5);
-        Carta basto5 = new Basto(5,2);
+        Carta espada10 = new Espada(10,valoresTrucoYEnvido);
+        Carta basto5 = new Basto(5,valoresTrucoYEnvido);
 
         jugador1.agregarCarta(espada10);
         jugador2.agregarCarta(basto5);
@@ -31,8 +33,8 @@ public class PruebasJugadaTest {
 
         jugada.crearNuevaMano();
 
-        Carta espada1 = new Espada(1,14);
-        Carta oro1 = new Oro(1,11);
+        Carta espada1 = new Espada(1,valoresTrucoYEnvido);
+        Carta oro1 = new Oro(1,valoresTrucoYEnvido);
 
         jugador1.agregarCarta(oro1);
         jugador2.agregarCarta(espada1);
@@ -42,8 +44,8 @@ public class PruebasJugadaTest {
 
         jugada.crearNuevaMano();
 
-        Carta basto1 = new Basto(1,13);
-        Carta copa1 = new Copa(1,11);
+        Carta basto1 = new Basto(1,valoresTrucoYEnvido);
+        Carta copa1 = new Copa(1,valoresTrucoYEnvido);
 
         jugador1.agregarCarta(basto1);
         jugador2.agregarCarta(copa1);
@@ -53,7 +55,7 @@ public class PruebasJugadaTest {
 
         jugada.crearNuevaMano();
 
-        Assert.assertEquals(jugada.obtenerGanador(),jugador1);
+        Assert.assertEquals(jugada.obtenerGanador(), jugador1);
 
     }
 
@@ -65,10 +67,11 @@ public class PruebasJugadaTest {
         jugadores.add(jugador1);
         jugadores.add(jugador2);
         Jugada jugada = new Jugada(jugadores);
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
 
 
-        Carta espada10 = new Espada(0,5);
-        Carta basto5 = new Basto(5,2);
+        Carta espada10 = new Espada(10,valoresTrucoYEnvido);
+        Carta basto5 = new Basto(5,valoresTrucoYEnvido);
 
         jugador1.agregarCarta(espada10);
         jugador2.agregarCarta(basto5);
@@ -78,8 +81,8 @@ public class PruebasJugadaTest {
 
         jugada.crearNuevaMano();
 
-        Carta espada1 = new Espada(1,14);
-        Carta oro1 = new Oro(1,11);
+        Carta espada1 = new Espada(1,valoresTrucoYEnvido);
+        Carta oro1 = new Oro(1,valoresTrucoYEnvido);
 
         jugador1.agregarCarta(espada1);
         jugador2.agregarCarta(oro1);
@@ -87,7 +90,7 @@ public class PruebasJugadaTest {
         jugador1.juegaCarta(espada1);
         jugador2.juegaCarta(oro1);
 
-        Assert.assertEquals(jugada.obtenerGanador(),jugador1);
+        Assert.assertEquals(jugada.obtenerGanador(), jugador1);
 
     }
 

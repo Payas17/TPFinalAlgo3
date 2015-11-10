@@ -1,8 +1,8 @@
 package fiuba.algo3.tests;
 
 import modelo.Mazo;
+import modelo.ValoresTrucoYEnvido;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -10,15 +10,14 @@ import org.junit.Test;
  */
 public class PruebasMazoTest {
     private Mazo mazo;
+    private ValoresTrucoYEnvido tablaValores;
 
-    @Before
-    public void setup() {
-        mazo = new Mazo();
-    }
 
     @Test
     public void testMazoSeCreaCon40Cartas(){
-        Assert.assertEquals(mazo.cantidadDeCartas(), 40 );
+        tablaValores = new ValoresTrucoYEnvido();
+        mazo = new Mazo(tablaValores);
+        Assert.assertEquals(mazo.cantidadDeCartas(), 40);
     }
 
 

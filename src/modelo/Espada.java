@@ -4,11 +4,27 @@ package modelo;
  * Created by Payas on 07/11/2015.
  */
 public class Espada extends Carta {
+    ValoresTrucoYEnvido valoresTrucoYEnvido;
+    final int POSICIONCARTASESPADA = 20;
 
-    public Espada(int valorenvido, int valorTruco) {
+    public Espada(int numeroDeCarta, ValoresTrucoYEnvido valoresTrucoYEnvido) {
+        super(numeroDeCarta);
 
-        super(valorenvido, valorTruco);
+        this.valoresTrucoYEnvido = valoresTrucoYEnvido;
+        this.valoresTrucoYEnvido = valoresTrucoYEnvido;
+        if (numeroDeCarta >7){
+            numeroDeCarta -= 2;
+        }
+        super.setearValorEnvido(buscarYObtenerValorEnvido(numeroDeCarta));
+        super.setearValorTruco(buscarYObtenerValorTruco(numeroDeCarta));
+    }
 
+    private int buscarYObtenerValorEnvido(int numeroDeCarta) {
+        return valoresTrucoYEnvido.devolverValorEnvido(numeroDeCarta + POSICIONCARTASESPADA);
+    }
+
+    private int buscarYObtenerValorTruco(int numeroDeCarta){
+        return valoresTrucoYEnvido.devolverValorTruco(numeroDeCarta + POSICIONCARTASESPADA);
     }
 
     @Override

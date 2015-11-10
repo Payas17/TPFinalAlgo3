@@ -1,13 +1,30 @@
 package modelo;
 
-
 /**
  * Created by Payas on 07/11/2015.
  */
 public class Oro extends Carta {
+    ValoresTrucoYEnvido valoresTrucoYEnvido;
+    final int POSICIONCARTASORO = 30;
 
-    public Oro(int valorenvido, int valorTruco) {
-        super(valorenvido, valorTruco);
+    public Oro(int numeroDeCarta, ValoresTrucoYEnvido valoresTrucoYEnvido) {
+        super(numeroDeCarta);
+
+        this.valoresTrucoYEnvido = valoresTrucoYEnvido;
+        this.valoresTrucoYEnvido = valoresTrucoYEnvido;
+        if (numeroDeCarta >7){
+            numeroDeCarta -= 2;
+        }
+        super.setearValorEnvido(buscarYObtenerValorEnvido(numeroDeCarta));
+        super.setearValorTruco(buscarYObtenerValorTruco(numeroDeCarta));
+    }
+
+    private int buscarYObtenerValorEnvido(int numeroDeCarta) {
+        return valoresTrucoYEnvido.devolverValorEnvido(numeroDeCarta + POSICIONCARTASORO );
+    }
+
+    private int buscarYObtenerValorTruco(int numeroDeCarta){
+       return valoresTrucoYEnvido.devolverValorTruco(numeroDeCarta + POSICIONCARTASORO);
     }
 
     @Override

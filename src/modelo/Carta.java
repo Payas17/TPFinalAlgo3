@@ -10,20 +10,24 @@ public abstract class Carta {
     final int TANTO = 20;
     private int valorEnvido;
     private int valorTruco;
+    private int numeroDeCarta;
 
 
-    public Carta(int valorenvido, int valorTruco) {
-        this.valorEnvido = valorenvido;
-        this.valorTruco = valorTruco;
+    public Carta(int numeroDeCarta) {
+        this.numeroDeCarta = numeroDeCarta;
 
     }
 
+    public void setearValorEnvido(int valorEnvido) { this.valorEnvido = valorEnvido;}
+
+    public void setearValorTruco(int valorTruco) { this.valorTruco = valorTruco;}
+
     public int obtenerValorEnvido() {
-        return this.valorEnvido;
+        return valorEnvido;
     }
 
     public int obtenerValorTruco() {
-        return this.valorTruco;
+        return valorTruco;
     }
 
     public int sumarEnvido(Carta unaCarta){
