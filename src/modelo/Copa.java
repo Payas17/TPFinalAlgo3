@@ -4,25 +4,18 @@ package modelo;
  * Created by Payas on 07/11/2015.
  */
 public class Copa extends Carta {
-    ValoresTrucoYEnvido valoresTrucoYEnvido;
+
     final int POSICIONCARTASCOPA = 10;
 
     public Copa(int numeroDeCarta, ValoresTrucoYEnvido valoresTrucoYEnvido) {
-        super(numeroDeCarta);
-
-        this.valoresTrucoYEnvido = valoresTrucoYEnvido;
-        if (numeroDeCarta >7){
-            numeroDeCarta -= 2;
-        }
-        super.setearValorEnvido(buscarYObtenerValorEnvido(numeroDeCarta));
-        super.setearValorTruco(buscarYObtenerValorTruco(numeroDeCarta));
+        super(numeroDeCarta, valoresTrucoYEnvido);
     }
 
-    private int buscarYObtenerValorEnvido(int numeroDeCarta) {
+    public int buscarYObtenerValorEnvido(int numeroDeCarta, ValoresTrucoYEnvido valoresTrucoYEnvido) {
         return valoresTrucoYEnvido.devolverValorEnvido(numeroDeCarta + POSICIONCARTASCOPA);
     }
 
-    private int buscarYObtenerValorTruco(int numeroDeCarta){
+    public int buscarYObtenerValorTruco(int numeroDeCarta, ValoresTrucoYEnvido valoresTrucoYEnvido){
         return valoresTrucoYEnvido.devolverValorTruco(numeroDeCarta + POSICIONCARTASCOPA);
     }
 

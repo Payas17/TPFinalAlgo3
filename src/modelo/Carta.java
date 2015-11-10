@@ -8,15 +8,27 @@ package modelo;
 public abstract class Carta {
 
     final int TANTO = 20;
+
     private int valorEnvido;
     private int valorTruco;
     private int numeroDeCarta;
 
 
-    public Carta(int numeroDeCarta) {
+    public Carta(int numeroDeCarta,ValoresTrucoYEnvido valoresTrucoYEnvido) {
+
         this.numeroDeCarta = numeroDeCarta;
 
+        if (numeroDeCarta >7){
+            numeroDeCarta -= 2;
+        }
+        setearValorEnvido(buscarYObtenerValorEnvido(numeroDeCarta,valoresTrucoYEnvido));
+        setearValorTruco(buscarYObtenerValorTruco(numeroDeCarta,valoresTrucoYEnvido));
+
     }
+
+    public abstract int buscarYObtenerValorEnvido(int numeroDeCarta,ValoresTrucoYEnvido valoresTrucoYEnvido);
+
+    public abstract int buscarYObtenerValorTruco(int numeroDeCarta,ValoresTrucoYEnvido valoresTrucoYEnvido);
 
     public void setearValorEnvido(int valorEnvido) { this.valorEnvido = valorEnvido;}
 
