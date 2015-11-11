@@ -94,4 +94,54 @@ public class PruebasJugadaTest {
 
     }
 
+    @Test
+    public void testPardanLas3ManosYGanaElJugadorQueEsMano(){
+
+        List<Jugador> jugadores = new LinkedList<>();
+        Jugador jugador1= new Jugador();
+        Jugador jugador2 = new Jugador();
+        jugadores.add(jugador1);
+        jugadores.add(jugador2);
+        Jugada jugada = new Jugada(jugadores);
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+
+
+        Carta espada10 = new Espada(10,valoresTrucoYEnvido);
+        Carta basto10 = new Basto(10,valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(espada10);
+        jugador2.agregarCarta(basto10);
+
+        jugador1.juegaCarta(espada10);
+        jugador2.juegaCarta(basto10);
+
+        jugada.crearNuevaMano();
+
+        Carta copa1 = new Copa(1,valoresTrucoYEnvido);
+        Carta oro1 = new Oro(1,valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(copa1);
+        jugador2.agregarCarta(oro1);
+
+        jugador1.juegaCarta(copa1);
+        jugador2.juegaCarta(oro1);
+
+        jugada.crearNuevaMano();
+
+        Carta copa2 = new Copa(2,valoresTrucoYEnvido);
+        Carta oro2 = new Oro(2,valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(copa2);
+        jugador2.agregarCarta(oro2);
+
+        jugador1.juegaCarta(copa2);
+        jugador2.juegaCarta(oro2);
+
+        jugada.crearNuevaMano();
+
+        Assert.assertEquals(jugada.obtenerGanador(), jugador1);
+
+    }
+
+
 }

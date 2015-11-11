@@ -70,36 +70,5 @@ public class PruebasManoTest {
 
     }*/
 
-   /* @Test
-    public void testPrimeraManoLaGanaElJugador3con4jugadores(){
 
-
-        Jugador jugador1 = new Jugador();
-        Jugador jugador2 = new Jugador();
-        Jugador jugador3 = new Jugador();
-        Jugador jugador4 = new Jugador();
-
-        Mano mano = new Mano(jugador1, jugador2, jugador3, jugador4);
-
-        Carta espada10 = new Espada(0,5);
-        Carta basto5 = new Basto(5,2);
-        Carta espada1 = new Espada (1,14);
-        Carta oro3 = new Oro(3,10);
-
-        jugador1.agregarCarta(espada10);
-        jugador2.agregarCarta(basto5);
-        jugador3.agregarCarta(espada1);
-        jugador4.agregarCarta(oro3);
-
-        jugador1.juegaCarta(espada10);
-        jugador2.juegaCarta(basto5);
-        jugador3.juegaCarta(espada1);
-        jugador4.juegaCarta(oro3);
-
-        mano.buscarGanador();
-
-        Assert.assertEquals(jugador3, mano.obtenerJugadorGanador());
-
-
-    }*/
 }
