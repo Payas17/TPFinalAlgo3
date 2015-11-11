@@ -21,16 +21,22 @@ public class Jugada {
 
     public void crearNuevaMano() {
         if (ganadorManoAnterior == null) {
-            manos.add(new Mano(ordenJugadores));
+            manos.add(jugarMano());
         } else {
             ordenarJugadores();
-            manos.add(new Mano(ordenJugadores));
+            manos.add(jugarMano());
         }
+        ganadorManoAnterior = manos.get(manos.size() - 1).obtenerJugadorGanador();
+    }
+
+    private Mano jugarMano() {
+        Mano mano = new Mano(ordenJugadores);
+        mano.buscarGanador();
+        return mano;
     }
 
     private void ordenarJugadores() {
         List<Jugador> listaAuxiliar = ordenJugadores.subList(ordenJugadores.indexOf(ganadorManoAnterior), ordenJugadores.size() - 1);
-        ordenJugadores.removeAll(listaAuxiliar);
         ordenJugadores.addAll(0, listaAuxiliar);
     }
 
