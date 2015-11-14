@@ -6,11 +6,16 @@ import java.util.List;
 /**
  * Created by Lucio on 08/11/2015.
  */
-public class Jugada {
+public class Jugada implements EstadoDeJugada, EstadoDeTruco  {
     private List<Mano> manos;
     private List<Jugador> ordenJugadores;
     private Jugador ganadorManoAnterior;
     private Jugador mano;
+    private Equipo equipo1;
+    private Equipo equipo2;
+    private EstadoDeTruco estadoDeTruco;
+    private EstadoDeJugada estadoDeJugada;
+
 
     public Jugada(List<Jugador> jugadores) {
         manos = new ArrayList<>();
@@ -48,6 +53,16 @@ public class Jugada {
             }
         }
         return ganador;
+    }
+
+    @Override
+    public void jugarUnaMano(){
+        this.estadoDeJugada.jugarUnaMano();
+    }
+
+    @Override
+    public void cantarTruco(){
+        this.estadoDeTruco.cantarTruco();
     }
 }
 
