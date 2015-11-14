@@ -21,6 +21,7 @@ public class Jugada {
         ordenJugadores = new ArrayList<>();
         this.equipo1 = equipo1;
         this.equipo2 = equipo2;
+
         for(int i = 0; i < equipo1.obtenerIntegrantes().size();i++ ){
             ordenJugadores.add(this.equipo1.obtenerIntegrantes().get(i));
             ordenJugadores.add(this.equipo2.obtenerIntegrantes().get(i));
@@ -40,7 +41,7 @@ public class Jugada {
     }
 
     private Mano jugarMano() {
-        Mano mano = new Mano(equipo1, equipo2);
+        Mano mano = new Mano(ordenJugadores);
         mano.buscarGanador();
         return mano;
     }

@@ -8,22 +8,14 @@ import java.util.List;
  * Created by Augusto on 08/11/2015.
  */
 public class Mano {
-   private Equipo equipo1;
-   private Equipo equipo2;
+
    private List<Jugador> jugadores;
    private Jugador jugadorGanador;
 
 
-    public Mano(Equipo equipo1, Equipo equipo2){
+    public Mano(List<Jugador> jugadores){
 
-        this.equipo1 = equipo1;
-        this.equipo2 = equipo2;
-        this.jugadores = new ArrayList<>();
-
-        for(int i = 0; i < equipo1.obtenerIntegrantes().size();i++ ){
-            jugadores.add(equipo1.obtenerIntegrantes().get(i));
-            jugadores.add(equipo2.obtenerIntegrantes().get(i));
-        }
+        this.jugadores = jugadores;
         jugadorGanador = null;
     }
 
@@ -49,7 +41,7 @@ public class Mano {
         return jugadorGanador;
     }
 
-    public Equipo obtenerEquipoGanador(){
+    public Equipo obtenerEquipoGanador(Equipo equipo1, Equipo equipo2){
         return (equipo1.contieneJugador(jugadorGanador)) ? equipo1 : equipo2;
     }
 
