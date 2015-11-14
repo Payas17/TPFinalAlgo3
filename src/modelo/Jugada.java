@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by Lucio on 08/11/2015.
  */
-public class Jugada implements EstadoDeJugada, EstadoDeTruco  {
+public class Jugada {
     private List<Mano> manos;
     private List<Jugador> ordenJugadores;
     private Jugador ganadorManoAnterior;
@@ -16,13 +16,17 @@ public class Jugada implements EstadoDeJugada, EstadoDeTruco  {
     private EstadoDeTruco estadoDeTruco;
     private EstadoDeJugada estadoDeJugada;
 
-
-    public Jugada(List<Jugador> jugadores) {
+    public Jugada(Equipo equipo1,Equipo equipo2) {
         manos = new ArrayList<>();
-        ordenJugadores = jugadores;
+        ordenJugadores = new ArrayList<>();
+        this.equipo1 = equipo1;
+        this.equipo2 = equipo2;
+        for(int i = 0; i < equipo1.obtenerIntegrantes().size();i++ ){
+            ordenJugadores.add(this.equipo1.obtenerIntegrantes().get(i));
+            ordenJugadores.add(this.equipo2.obtenerIntegrantes().get(i));
+        }
         ganadorManoAnterior = null;
-        mano = jugadores.get(0);
-        //this.setearEstado(PrimeraMano)
+        mano = ordenJugadores.get(0);
     }
 
     public void crearNuevaMano() {
@@ -36,7 +40,7 @@ public class Jugada implements EstadoDeJugada, EstadoDeTruco  {
     }
 
     private Mano jugarMano() {
-        Mano mano = new Mano(ordenJugadores);
+        Mano mano = new Mano(equipo1, equipo2);
         mano.buscarGanador();
         return mano;
     }
@@ -56,30 +60,18 @@ public class Jugada implements EstadoDeJugada, EstadoDeTruco  {
         return ganador;
     }
 
-    public EstadoDeJugada obtenerEstadoDeJugadaActual(){
-        return this.estadoDeJugada;
-    }
 
-    public void setearEstado(EstadoDeJugada estadoDeJugada){
-        this.estadoDeJugada = estadoDeJugada;
-    }
-
-    @Override
     public void jugarUnaMano(){
         this.estadoDeJugada.jugarUnaMano();
     }
 
-    @Override
     public void cantarTruco(){
         this.estadoDeTruco.cantarTruco();
     }
 
-    @Override
     public int contarPuntosDeTruco(){
         return this.estadoDeTruco.contarPuntosDeTruco();
     }
-
-
 }
 
 

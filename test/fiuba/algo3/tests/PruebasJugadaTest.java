@@ -4,6 +4,7 @@ import modelo.*;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -13,12 +14,16 @@ import java.util.List;
 public class PruebasJugadaTest {
     @Test
     public void testHacerUnaJugadaYGanaEnTerceraMano(){
-        List<Jugador> jugadores = new LinkedList<>();
         Jugador jugador1= new Jugador();
-        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores = new ArrayList<>();
         jugadores.add(jugador1);
-        jugadores.add(jugador2);
-        Jugada jugada = new Jugada(jugadores);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+        Equipo equipo1 = new Equipo(jugadores);
+        Equipo equipo2 = new Equipo(jugadores2);
+        Jugada jugada = new Jugada(equipo1,equipo2);
+
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
 
 
@@ -61,12 +66,15 @@ public class PruebasJugadaTest {
 
     @Test
     public void testHacerUnaJugadaYGanaEnSegundaMano(){
-        List<Jugador> jugadores = new LinkedList<>();
         Jugador jugador1= new Jugador();
-        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores = new ArrayList<>();
         jugadores.add(jugador1);
-        jugadores.add(jugador2);
-        Jugada jugada = new Jugada(jugadores);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+        Equipo equipo1 = new Equipo(jugadores);
+        Equipo equipo2 = new Equipo(jugadores2);
+        Jugada jugada = new Jugada(equipo1,equipo2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
 
 
@@ -99,12 +107,15 @@ public class PruebasJugadaTest {
     @Test
     public void testPardanLas3ManosYGanaElJugadorQueEsMano(){
 
-        List<Jugador> jugadores = new LinkedList<>();
         Jugador jugador1= new Jugador();
-        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores = new ArrayList<>();
         jugadores.add(jugador1);
-        jugadores.add(jugador2);
-        Jugada jugada = new Jugada(jugadores);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+        Equipo equipo1 = new Equipo(jugadores);
+        Equipo equipo2 = new Equipo(jugadores2);
+        Jugada jugada = new Jugada(equipo1,equipo2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
 
 

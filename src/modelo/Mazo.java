@@ -34,4 +34,6 @@ public class Mazo {
     public void mezclar() {
         Collections.shuffle(cartas);
     }
+
+
 }

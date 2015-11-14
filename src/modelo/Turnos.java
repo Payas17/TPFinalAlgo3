@@ -30,6 +30,7 @@ public class Turnos {
     public void actualizarTurnos(Jugador ganadorManoAnterior) {
         List<Jugador> listaAuxiliar = ordenJugadoresEnMesa.subList(ordenJugadoresEnMesa.indexOf(ganadorManoAnterior), ordenJugadoresEnMesa.size());
         turnos.addAll(0, listaAuxiliar);
+
         for(Jugador jugador: ordenJugadoresEnMesa){
             if (!turnos.contains(jugador)){
                 turnos.add(jugador);

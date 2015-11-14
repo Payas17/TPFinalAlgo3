@@ -4,6 +4,7 @@ import modelo.*;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -13,17 +14,21 @@ import java.util.List;
 public class PruebasManoTest {
 
     @Test
-    public void testPrimeraManoLaGanaElJugador1(){
+    public void testPrimeraManoLaGanaElEquipo1(){
 
-        List<Jugador> jugadores = new LinkedList<>();
         Jugador jugador1= new Jugador();
-        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores = new ArrayList<>();
         jugadores.add(jugador1);
-        jugadores.add(jugador2);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+        Equipo equipo1 = new Equipo(jugadores);
+        Equipo equipo2 = new Equipo(jugadores2);
+
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
 
 
-        Mano mano = new Mano(jugadores);
+        Mano mano = new Mano(equipo1,equipo2);
 
         Carta espada10 = new Espada(10,valoresTrucoYEnvido);
         Carta basto5 = new Basto(5,valoresTrucoYEnvido);
@@ -37,24 +42,29 @@ public class PruebasManoTest {
 
         mano.buscarGanador();
 
+        Assert.assertEquals(equipo1, mano.obtenerEquipoGanador());
         Assert.assertEquals(jugador1, mano.obtenerJugadorGanador());
 
 
     }
-  /*  @Test
-    public void testPardaPrimeraMano(){
+    @Test
+    public void testPardaMano(){
 
 
-        List<Jugador> jugadores = new LinkedList<>();
         Jugador jugador1= new Jugador();
-        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores = new ArrayList<>();
         jugadores.add(jugador1);
-        jugadores.add(jugador2);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+        Equipo equipo1 = new Equipo(jugadores);
+        Equipo equipo2 = new Equipo(jugadores2);
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
 
-        Mano mano = new Mano(jugadores);
+        Mano mano = new Mano(equipo1,equipo2);
 
-        Carta espada10 = new Espada(0,5);
-        Carta basto10 = new Basto(0,5);
+        Carta espada10 = new Espada(10,valoresTrucoYEnvido);
+        Carta basto10 = new Basto(10,valoresTrucoYEnvido);
 
         jugador1.agregarCarta(espada10);
         jugador2.agregarCarta(basto10);
@@ -64,11 +74,11 @@ public class PruebasManoTest {
 
         mano.buscarGanador();
 
-        Assert.assertFalse(mano.hayGanadorEnMano(jugador1, jugador2));
-        Assert.assertTrue(mano.obtenerJugadorGanador() == null);
+        Assert.assertTrue(mano.hayParda(jugador1, jugador2));
 
 
-    }*/
+
+    }
 
 
 }
