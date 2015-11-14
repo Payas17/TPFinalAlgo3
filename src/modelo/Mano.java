@@ -1,19 +1,16 @@
 package modelo;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by Augusto on 08/11/2015.
  */
 public class Mano {
-    List<Jugador> jugadores;
+    Turnos turnos;
     Jugador jugadorGanador;
 
 
-    public Mano (List<Jugador> jugadores ){
-        this.jugadores = jugadores;
+    public Mano (Turnos turnos){
+        this.turnos = turnos;
         jugadorGanador = null;
     }
 
@@ -21,18 +18,24 @@ public class Mano {
         return (jugador1.obtenerCartaEnJuego().obtenerValorTruco() == jugador2.obtenerCartaEnJuego().obtenerValorTruco());
     }
 
-    public void buscarGanador() {
-        Jugador jugadorAux = jugadores.get(0);
-        for (Jugador jugadorActual : jugadores) {
-            if (!hayParda(jugadorAux, jugadorActual)) {
-                jugadorGanador = asignarGanador(jugadorAux, jugadorActual);
-                jugadorGanador.sumarManosGanadas();
+    public void jugarMano() {
+        Jugador jugadorAnterior = turnos.obtenerJugadorQueJuega();
+        jugadorAnterior.jugar();
+        jugadorGanador = jugadorAnterior;
+        while (turnos.quedaJugadorPorJugar()) {
+            Jugador jugadorQueJuega = turnos.obtenerJugadorQueJuega();
+            jugadorQueJuega.jugar();
+            if (!hayParda(jugadorGanador, jugadorQueJuega)) {
+                jugadorGanador = asignarGanador(jugadorGanador, jugadorQueJuega);
+            }
+            else{
+                jugadorGanador = null;
             }
         }
     }
 
     public Jugador asignarGanador(Jugador jugador1, Jugador jugador2){
-        return (jugador1.obtenerCartaEnJuego().obtenerValorTruco() >= jugador2.obtenerCartaEnJuego().obtenerValorTruco()) ? jugador1 : jugador2;
+        return (jugador1.obtenerCartaEnJuego().obtenerValorTruco() > jugador2.obtenerCartaEnJuego().obtenerValorTruco()) ? jugador1 : jugador2;
     }
 
     public Jugador obtenerJugadorGanador() {

@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by Lucio on 08/11/2015.
  */
-public class PruebasJugadaTest {
+/*public class PruebasJugadaTest {
     @Test
     public void testHacerUnaJugadaYGanaEnTerceraMano(){
         List<Jugador> jugadores = new LinkedList<>();
@@ -146,4 +146,4 @@ public class PruebasJugadaTest {
     }
 
 
-}
+}*/

@@ -12,24 +12,24 @@ public class Jugador {
     private List<Carta> cartas;
     private int cantidadEnvido;
     private Carta cartaEnJuego;
-    private int manosGanadas;
+    //private int manosGanadas;
 
     public Jugador(){
         this.cartas = new ArrayList<>();
-        this.manosGanadas = 0;
+        //this.manosGanadas = 0;
     }
 
     public void agregarCarta(Carta unaCarta) {
         this.cartas.add(unaCarta);
     }
 
-    public int obtenerManosGanadas(){
+    /*public int obtenerManosGanadas(){
         return manosGanadas;
-    }
+    }*/
 
-    public void sumarManosGanadas(){
+    /*public void sumarManosGanadas(){
         this.manosGanadas++;
-    }
+    }*/
 
     public int cantarEnvido() {
         return this.cantidadEnvido;
@@ -52,11 +52,15 @@ public class Jugador {
         throw new NoTieneFlorError();
     }
 
-    public void juegaCarta(Carta unaCarta) {
+    /*public void juegaCarta(Carta unaCarta) {
         this.cartaEnJuego = unaCarta;
-    }
+    }*/
 
     public Carta obtenerCartaEnJuego(){
         return this.cartaEnJuego;
+    }
+
+    public void jugar() {
+        cartaEnJuego = cartas.remove(0);
     }
 }
