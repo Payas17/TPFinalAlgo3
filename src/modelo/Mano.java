@@ -19,15 +19,16 @@ public class Mano {
         jugadorGanador = null;
     }
 
-    public boolean hayParda(Jugador jugador1, Jugador jugador2){
-        return (jugador1.obtenerCartaEnJuego().obtenerValorTruco() == jugador2.obtenerCartaEnJuego().obtenerValorTruco());
+    public boolean hayParda(Equipo equipo1,Equipo equipo2){
+        return (equipo1.getMejorJugadorEquipo().obtenerCartaEnJuego().obtenerValorTruco() == equipo2.getMejorJugadorEquipo().obtenerCartaEnJuego().obtenerValorTruco());
     }
 
-    public void buscarGanador() {
-        Jugador jugadorAux = jugadores.get(0);
-        for (Jugador jugadorActual : jugadores) {
-            if (!hayParda(jugadorAux, jugadorActual)) {
-                jugadorGanador = asignarJugadorGanador(jugadorAux, jugadorActual);
+    public void buscarGanador(Equipo equipo1,Equipo equipo2) {
+        if (!hayParda(equipo1, equipo2)){
+            jugadorGanador = jugadores.get(0);
+            for (Jugador jugadorActual : jugadores) {
+
+                jugadorGanador = asignarJugadorGanador(jugadorGanador, jugadorActual);
                 jugadorGanador.sumarManosGanadas();
             }
         }

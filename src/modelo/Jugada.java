@@ -42,7 +42,7 @@ public class Jugada {
 
     private Mano jugarMano() {
         Mano mano = new Mano(ordenJugadores);
-        mano.buscarGanador();
+        mano.buscarGanador(equipo1,equipo2);
         return mano;
     }
 
