@@ -5,8 +5,14 @@ package modelo;
  */
 public class ValeCuatro implements EstadoDeTruco{
 
+    private int puntos;
     @Override
     public void cantarTruco(){
 
+    }
+
+    @Override
+    public int contarPuntosDeTruco(){
+       return this.puntos = 4;
     }
 }

@@ -5,4 +5,6 @@ package modelo;
  */
 public interface EstadoDeTruco {
     void cantarTruco();
+
+    int contarPuntosDeTruco();
 }

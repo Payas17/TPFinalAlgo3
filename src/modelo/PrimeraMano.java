@@ -8,11 +8,15 @@ public class PrimeraMano implements EstadoDeJugada, EstadoDeEnvido {
 
     @Override
     public void jugarUnaMano(){
-
     }
 
     @Override
     public void cantarEnvido(){
         this.estadoDeEnvido.cantarEnvido();
+    }
+
+    @Override
+    public int contarPuntosDeEnvido(){
+       return this.estadoDeEnvido.contarPuntosDeEnvido();
     }
 }

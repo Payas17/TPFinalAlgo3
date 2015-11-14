@@ -22,6 +22,7 @@ public class Jugada implements EstadoDeJugada, EstadoDeTruco  {
         ordenJugadores = jugadores;
         ganadorManoAnterior = null;
         mano = jugadores.get(0);
+        //this.setearEstado(PrimeraMano)
     }
 
     public void crearNuevaMano() {
@@ -55,6 +56,14 @@ public class Jugada implements EstadoDeJugada, EstadoDeTruco  {
         return ganador;
     }
 
+    public EstadoDeJugada obtenerEstadoDeJugadaActual(){
+        return this.estadoDeJugada;
+    }
+
+    public void setearEstado(EstadoDeJugada estadoDeJugada){
+        this.estadoDeJugada = estadoDeJugada;
+    }
+
     @Override
     public void jugarUnaMano(){
         this.estadoDeJugada.jugarUnaMano();
@@ -64,6 +73,13 @@ public class Jugada implements EstadoDeJugada, EstadoDeTruco  {
     public void cantarTruco(){
         this.estadoDeTruco.cantarTruco();
     }
+
+    @Override
+    public int contarPuntosDeTruco(){
+        return this.estadoDeTruco.contarPuntosDeTruco();
+    }
+
+
 }
 
 

@@ -5,4 +5,6 @@ package modelo;
  */
 public interface EstadoDeEnvido {
     void cantarEnvido();
+
+    int contarPuntosDeEnvido();
 }
