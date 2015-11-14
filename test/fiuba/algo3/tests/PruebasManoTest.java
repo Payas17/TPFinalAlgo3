@@ -286,4 +286,38 @@ public class PruebasManoTest {
 
 
 
+    @Test
+    public void testPardaPrimeraManoEnMesaDe4Jugadores(){
+
+
+        List<Jugador> jugadores = new LinkedList<>();
+        Jugador jugador1= new Jugador();
+        Jugador jugador2 = new Jugador();
+        jugadores.add(jugador1);
+        jugadores.add(jugador2);
+        Jugador jugador3= new Jugador();
+        Jugador jugador4 = new Jugador();
+        jugadores.add(jugador3);
+        jugadores.add(jugador4);
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+
+        Mano mano = new Mano(jugadores);
+
+        Carta espada10 = new Espada(10,valoresTrucoYEnvido);
+        Carta basto10 = new Basto(10,valoresTrucoYEnvido);
+        Carta basto5 = new Basto(5,valoresTrucoYEnvido);
+        Carta copa4 = new Copa(4,valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(espada10);
+        jugador2.agregarCarta(basto10);
+        jugador3.agregarCarta(basto5);
+        jugador4.agregarCarta(copa4);
+
+        jugador1.juegaCarta(espada10);
+        jugador2.juegaCarta(basto10);
+        jugador3.juegaCarta(basto5);
+        jugador4.juegaCarta(copa4);
+
+        Assert.assertTrue(mano.hayParda(jugador1, jugador2));
+    }
 }
