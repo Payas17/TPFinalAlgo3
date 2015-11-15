@@ -1,7 +1,7 @@
 package fiuba.algo3.tests;
 
 import modelo.Jugador;
-import modelo.NoQuedanJugadoresPorJugarError;
+import modelo.Errores.NoQuedanJugadoresPorJugarError;
 import modelo.Turnos;
 import org.junit.Assert;
 import org.junit.Test;

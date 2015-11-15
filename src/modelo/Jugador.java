@@ -1,5 +1,8 @@
 package modelo;
 
+import modelo.Carta.Carta;
+import modelo.Errores.NoTieneFlorError;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +34,7 @@ public class Jugador {
         this.manosGanadas++;
     }
 
-    public int cantarEnvido() {
+    public int obtenerEnvido() {
         return this.cantidadEnvido;
     }
 
@@ -47,7 +50,7 @@ public class Jugador {
 
         if(sumarEnvido(0,1) >= TANTO && sumarEnvido(0,2) >= TANTO){
             calcularEnvido();
-            return cantarEnvido();
+            return obtenerEnvido();
         }
         throw new NoTieneFlorError();
     }
@@ -58,5 +61,9 @@ public class Jugador {
 
     public Carta obtenerCartaEnJuego(){
         return this.cartaEnJuego;
+    }
+
+    public void cantarEnvido(Jugada jugada) {
+        jugada.cantarEnvido();
     }
 }

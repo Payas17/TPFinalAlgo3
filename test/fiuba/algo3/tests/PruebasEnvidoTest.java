@@ -3,6 +3,7 @@ package fiuba.algo3.tests;
 
 
 import modelo.*;
+import modelo.Carta.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -27,7 +28,7 @@ public class PruebasEnvidoTest {
 
         jugador.calcularEnvido();
 
-        Assert.assertEquals(jugador.cantarEnvido(), 28);
+        Assert.assertEquals(jugador.obtenerEnvido(), 28);
 
     }
 
@@ -45,7 +46,7 @@ public class PruebasEnvidoTest {
 
         jugador.calcularEnvido();
 
-        Assert.assertEquals(jugador.cantarEnvido(), 21);
+        Assert.assertEquals(jugador.obtenerEnvido(), 21);
 
     }
 
@@ -63,7 +64,7 @@ public class PruebasEnvidoTest {
 
         jugador.calcularEnvido();
 
-        Assert.assertEquals(jugador.cantarEnvido(), 24);
+        Assert.assertEquals(jugador.obtenerEnvido(), 24);
 
     }
 
@@ -81,6 +82,6 @@ public class PruebasEnvidoTest {
 
         jugador.calcularEnvido();
 
-        Assert.assertEquals(jugador.cantarEnvido(), 33);
+        Assert.assertEquals(jugador.obtenerEnvido(), 33);
     }
 }

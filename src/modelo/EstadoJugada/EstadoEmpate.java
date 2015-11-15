@@ -1,9 +1,9 @@
-package modelo;
+package modelo.EstadoJugada;
 
 /**
  * Created by Augusto on 14/11/2015.
  */
-public class Empardado implements EstadoDeJugada {
+public class EstadoEmpate implements EstadoDeJugada {
     @Override
     public void jugarUnaMano(){
 

@@ -1,12 +1,16 @@
-package modelo;
+package modelo.EstadoEnvido;
+
+import modelo.Jugada;
 
 /**
  * Created by Augusto on 14/11/2015.
  */
-public class RealEnvido implements EstadoDeEnvido{
+public class EstadoRealEnvido implements EstadoDeEnvido{
     int puntos;
+
+
     @Override
-    public void cantarEnvido(){
+    public void cantarEnvido(Jugada jugada) {
 
     }
 

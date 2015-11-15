@@ -1,10 +1,9 @@
-package modelo;
+package modelo.EstadoTruco;
 
 /**
  * Created by Augusto on 14/11/2015.
  */
-public class ValeCuatro implements EstadoDeTruco{
-
+public class EstadoTruco implements EstadoDeTruco {
     private int puntos;
     @Override
     public void cantarTruco(){
@@ -13,6 +12,6 @@ public class ValeCuatro implements EstadoDeTruco{
 
     @Override
     public int contarPuntosDeTruco(){
-       return this.puntos = 4;
+       return this.puntos = 2;
     }
 }

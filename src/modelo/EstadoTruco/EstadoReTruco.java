@@ -1,9 +1,10 @@
-package modelo;
+package modelo.EstadoTruco;
 
 /**
  * Created by Augusto on 14/11/2015.
  */
-public class Truco implements EstadoDeTruco {
+public class EstadoReTruco implements EstadoDeTruco {
+
     private int puntos;
     @Override
     public void cantarTruco(){
@@ -12,6 +13,8 @@ public class Truco implements EstadoDeTruco {
 
     @Override
     public int contarPuntosDeTruco(){
-       return this.puntos = 2;
+        return this.puntos = 3;
     }
 }
+
+

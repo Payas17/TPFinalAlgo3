@@ -1,11 +1,13 @@
 package fiuba.algo3.tests;
 
 import modelo.*;
+import modelo.Carta.Basto;
+import modelo.Carta.Carta;
+import modelo.Carta.Espada;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**

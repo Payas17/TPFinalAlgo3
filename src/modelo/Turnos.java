@@ -1,5 +1,7 @@
 package modelo;
 
+import modelo.Errores.NoQuedanJugadoresPorJugarError;
+
 import java.util.LinkedList;
 import java.util.List;
 

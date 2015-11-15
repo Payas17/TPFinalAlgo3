@@ -1,5 +1,11 @@
 package modelo;
 
+import modelo.EstadoEnvido.EstadoDeEnvido;
+import modelo.EstadoEnvido.EstadoEnvido;
+import modelo.EstadoEnvido.SinEnvido;
+import modelo.EstadoJugada.EstadoDeJugada;
+import modelo.EstadoTruco.EstadoDeTruco;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,18 +13,24 @@ import java.util.List;
  * Created by Lucio on 08/11/2015.
  */
 public class Jugada {
+
     private List<Mano> manos;
     private List<Jugador> ordenJugadores;
     private Jugador ganadorManoAnterior;
     private Jugador mano;
     private Equipo equipo1;
     private Equipo equipo2;
-    private EstadoDeTruco estadoDeTruco;
-    private EstadoDeJugada estadoDeJugada;
+    private EstadoDeTruco estadoTruco;
+    private EstadoDeJugada estadoJugada;
+    private EstadoDeEnvido estadoEnvido;
+    private int puntosEnvido;
 
     public Jugada(Equipo equipo1,Equipo equipo2) {
         manos = new ArrayList<>();
         ordenJugadores = new ArrayList<>();
+        estadoEnvido = new SinEnvido();
+        this.puntosEnvido = 0;
+
         this.equipo1 = equipo1;
         this.equipo2 = equipo2;
 
@@ -63,15 +75,29 @@ public class Jugada {
 
 
     public void jugarUnaMano(){
-        this.estadoDeJugada.jugarUnaMano();
+        this.estadoJugada.jugarUnaMano();
     }
 
     public void cantarTruco(){
-        this.estadoDeTruco.cantarTruco();
+        this.estadoTruco.cantarTruco();
     }
 
     public int contarPuntosDeTruco(){
-        return this.estadoDeTruco.contarPuntosDeTruco();
+        return this.estadoTruco.contarPuntosDeTruco();
+    }
+
+
+    public void cantarEnvido() {
+        this.estadoEnvido.cantarEnvido(this);
+        this.puntosEnvido +=2;
+    }
+
+    public EstadoDeEnvido obtenerEstadoEnvido() {
+        return estadoEnvido;
+    }
+
+    public void cambiarEstadoEnvido(EstadoDeEnvido estado){
+        this.estadoEnvido = estado;
     }
 }
 

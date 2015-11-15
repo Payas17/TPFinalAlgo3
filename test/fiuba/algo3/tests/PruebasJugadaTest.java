@@ -1,11 +1,12 @@
 package fiuba.algo3.tests;
 
 import modelo.*;
+import modelo.Carta.*;
+import modelo.Errores.NoSePuedeCantarEsoError;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -155,6 +156,27 @@ public class PruebasJugadaTest {
         Assert.assertEquals(jugada.obtenerGanador(), jugador1);
 
     }
+
+    @Test(expected = NoSePuedeCantarEsoError.class)
+    public void testTiraErrorSiCanto3VecesEnvido(){
+
+        Jugador jugador1= new Jugador();
+        List<Jugador> jugadores = new ArrayList<>();
+        jugadores.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+        Equipo equipo1 = new Equipo(jugadores);
+        Equipo equipo2 = new Equipo(jugadores2);
+        Jugada jugada = new Jugada(equipo1,equipo2);
+
+        jugador1.cantarEnvido(jugada);
+        jugador2.cantarEnvido(jugada);
+        jugador1.cantarEnvido(jugada);
+
+
+    }
+
 
 
 }

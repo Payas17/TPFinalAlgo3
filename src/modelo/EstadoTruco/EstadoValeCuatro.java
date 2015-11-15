@@ -1,16 +1,18 @@
-package modelo;
+package modelo.EstadoTruco;
 
 /**
  * Created by Augusto on 14/11/2015.
  */
-public class SinTruco implements EstadoDeTruco {
+public class EstadoValeCuatro implements EstadoDeTruco{
+
     private int puntos;
     @Override
     public void cantarTruco(){
+
     }
 
     @Override
     public int contarPuntosDeTruco(){
-       return this.puntos = 1;
+       return this.puntos = 4;
     }
 }
