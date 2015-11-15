@@ -77,6 +77,8 @@ public class Jugador {
         jugada.aceptarEnvido();
     }
 
+    public void aceptarFaltaEnvido(Jugada jugada) {jugada.aceptarFaltaEnvido();}
+
     public void cantarFaltaEnvido(Jugada jugada) {
         jugada.cantarFaltaEnvido();
     }
@@ -84,4 +86,6 @@ public class Jugador {
     public void noAceptarEnvido(Jugada jugada) {
         jugada.jugadorNoAceptaElEnvido(this);
     }
+
+    public void noAceptarFaltaEnvido(Jugada jugada) {jugada.jugadorNoAceptaElFaltaEnvido(this); }
 }

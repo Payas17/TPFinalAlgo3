@@ -394,9 +394,9 @@ public class PruebasJugadaTest {
 
     }
 
-    @Test
-    public void testEquipo2GanaFaltaEnvido(){
 
+    @Test
+    public void testEquipo2GanaFaltaEnvidoCuandoEquipo1EstaEnlasMalasCon3Puntos(){
         Jugador jugador1= new Jugador();
         List<Jugador> jugadores = new ArrayList<>();
         jugadores.add(jugador1);
@@ -407,6 +407,9 @@ public class PruebasJugadaTest {
         Equipo equipo2 = new Equipo(jugadores2);
         Jugada jugada = new Jugada(equipo1,equipo2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+
+        equipo1.sumarPuntos(5);
+        equipo2.sumarPuntos(15);
 
         Carta oro7 = new Oro(7, valoresTrucoYEnvido);
         Carta oro1 = new Oro(1, valoresTrucoYEnvido);
@@ -427,13 +430,94 @@ public class PruebasJugadaTest {
         jugador2.agregarCarta(espada2);
 
         jugador1.cantarFaltaEnvido(jugada);
-        jugador2.aceptarEnvido(jugada);
+        jugador2.aceptarFaltaEnvido(jugada);
 
-        Assert.assertEquals(jugador2,jugada.obtenerJugadorGanadorEnvido());
         Assert.assertEquals(equipo2,jugada.obtenerEquipoGanadorEnvido());
-        Assert.assertEquals(equipo2.obtenerPuntos(),30);
-        Assert.assertEquals(equipo1.obtenerPuntos(),0);
+        Assert.assertEquals(equipo2.obtenerPuntos(),25);
+        Assert.assertEquals(equipo1.obtenerPuntos(),5);
 
+    }
+
+    @Test
+    public void testEquipo2GanaFaltaEnvidoCuandoEquipo1EstaEnlasBuenas(){
+        Jugador jugador1= new Jugador();
+        List<Jugador> jugadores = new ArrayList<>();
+        jugadores.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+        Equipo equipo1 = new Equipo(jugadores);
+        Equipo equipo2 = new Equipo(jugadores2);
+        Jugada jugada = new Jugada(equipo1,equipo2);
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+
+        equipo1.sumarPuntos(16);
+        equipo2.sumarPuntos(1);
+
+        Carta oro7 = new Oro(7, valoresTrucoYEnvido);
+        Carta oro1 = new Oro(1, valoresTrucoYEnvido);
+        Carta espada1 = new Espada(7, valoresTrucoYEnvido);
+
+        Carta oro5 = new Oro(5, valoresTrucoYEnvido);
+        Carta oro2 = new Oro(2, valoresTrucoYEnvido);
+        Carta espada2 = new Espada(2, valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(oro5);
+        jugador1.agregarCarta(oro2);
+        jugador1.agregarCarta(espada1);
+
+
+        jugador2.agregarCarta(oro7);
+        jugador2.agregarCarta(oro1);
+        jugador2.agregarCarta(espada2);
+
+        jugador1.cantarFaltaEnvido(jugada);
+        jugador2.aceptarFaltaEnvido(jugada);
+
+        Assert.assertEquals(equipo2,jugada.obtenerEquipoGanadorEnvido());
+        Assert.assertEquals(equipo2.obtenerPuntos(),15);
+        Assert.assertEquals(equipo1.obtenerPuntos(),16);
+
+    }
+
+    @Test
+    public void testEquipo1GanaEnvidoEnvidoEquipo2NoAceptaFaltaEnvido(){
+        Jugador jugador1= new Jugador();
+        List<Jugador> jugadores = new ArrayList<>();
+        jugadores.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+        Equipo equipo1 = new Equipo(jugadores);
+        Equipo equipo2 = new Equipo(jugadores2);
+        Jugada jugada = new Jugada(equipo1,equipo2);
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+
+        Carta oro7 = new Oro(7, valoresTrucoYEnvido);
+        Carta oro1 = new Oro(1, valoresTrucoYEnvido);
+        Carta espada1 = new Espada(7, valoresTrucoYEnvido);
+
+        Carta oro5 = new Oro(5, valoresTrucoYEnvido);
+        Carta oro2 = new Oro(2, valoresTrucoYEnvido);
+        Carta espada2 = new Espada(2, valoresTrucoYEnvido);
+
+        jugador2.agregarCarta(oro5);
+        jugador2.agregarCarta(oro2);
+        jugador2.agregarCarta(espada1);
+
+
+
+        jugador1.agregarCarta(oro7);
+        jugador1.agregarCarta(oro1);
+        jugador1.agregarCarta(espada2);
+
+        jugador1.cantarEnvido(jugada);
+        jugador2.cantarEnvido(jugada);
+        jugador1.cantarFaltaEnvido(jugada);
+        jugador2.noAceptarFaltaEnvido(jugada);
+
+        Assert.assertEquals(equipo1.obtenerPuntos(),4);
+        Assert.assertEquals(equipo2.obtenerPuntos(),0);
 
 
     }

@@ -12,9 +12,7 @@ public class EstadoFaltaEnvido implements EstadoDeEnvido{
 
 
     @Override
-    public void cantarEnvido(Jugada jugada) {
-
-    }
+    public void cantarEnvido(Jugada jugada) {throw new NoSePuedeCantarEsoError(); }
 
     @Override
     public int obtenerPuntos() {

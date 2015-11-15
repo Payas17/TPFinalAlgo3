@@ -118,6 +118,17 @@ public class Jugada {
         obtenerEquipoGanadorEnvido().sumarPuntos(obtenerPuntosEnvido());
     }
 
+    public void aceptarFaltaEnvido() {
+        Equipo equipoPerdedorEnvido = obtenerEquipoQueNoContieneJugador(obtenerJugadorGanadorEnvido());
+        if( equipoPerdedorEnvido.obtenerPuntos() > 15){
+            int maxPuntaje = Math.max(equipo1.obtenerPuntos(), equipo2.obtenerPuntos());
+            obtenerEquipoGanadorEnvido().sumarPuntos(30 - maxPuntaje);
+        }
+        else{
+            obtenerEquipoGanadorEnvido().sumarPuntos(15 - equipoPerdedorEnvido.obtenerPuntos() );
+        }
+    }
+
     private int obtenerPuntosEnvido() {
         return puntosEnvido;
     }
@@ -140,13 +151,14 @@ public class Jugada {
 
     public void cantarFaltaEnvido() {
         this.estadoEnvido.cantarFaltaEnvido(this);
-        this.puntosEnvido = estadoEnvido.obtenerPuntos();
-
     }
 
     public void jugadorNoAceptaElEnvido(Jugador jugador) {
         obtenerEquipoQueNoContieneJugador(jugador).sumarPuntos(obtenerPuntosEnvido()-estadoEnvido.obtenerPuntos());
+    }
 
+    public void jugadorNoAceptaElFaltaEnvido(Jugador jugador) {
+        obtenerEquipoQueNoContieneJugador(jugador).sumarPuntos(obtenerPuntosEnvido());
     }
 
     public Equipo obtenerEquipoQueNoContieneJugador(Jugador jugador) {
