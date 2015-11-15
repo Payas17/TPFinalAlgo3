@@ -6,7 +6,6 @@ import modelo.EstadoJugada.EstadoDeJugada;
 import modelo.EstadoJugada.EstadoPrimeraMano;
 import modelo.EstadoTruco.EstadoDeTruco;
 import modelo.EstadoTruco.EstadoSinTruco;
-import modelo.EstadoTruco.EstadoTruco;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +21,7 @@ public class Jugada {
     private Jugador mano;
     private Equipo equipo1;
     private Equipo equipo2;
+    private Equipo equipoGanador;
     private EstadoDeTruco estadoTruco;
     private EstadoDeJugada estadoJugada;
     private EstadoDeEnvido estadoEnvido;
@@ -37,6 +37,7 @@ public class Jugada {
         estadoJugada = new EstadoPrimeraMano();
         puntosEnvido = 0;
         puntosTruco = 1;
+        equipoGanador= null;
 
 
         this.equipo1 = equipo1;
@@ -60,14 +61,25 @@ public class Jugada {
         ganadorManoAnterior = manos.get(manos.size() - 1).obtenerJugadorGanador();
     }
 
-    private void cambiarEstadoJugada(Equipo equipo) {
-
+    private void MagicMike(Equipo equipo) {
+        if (equipo == equipo1){
+            this.estadoJugada.ganoManoEquipo1(this);
+        }
+        if (equipo == equipo2){
+            this.estadoJugada.ganoManoEquipo2(this);
+        }
+        if (equipo == null){
+            this.estadoJugada.manoEmpardada(this);
+        }
     }
 
+    public void cambiarEstadoJugada (EstadoDeJugada jugada){
+        this.estadoJugada = jugada;
+    }
     public Mano jugarMano() {
         Mano mano = new Mano(ordenJugadores);
         mano.buscarGanador(equipo1, equipo2);
-
+        MagicMike(mano.obtenerEquipoGanador());
         return mano;
     }
 
@@ -86,10 +98,6 @@ public class Jugada {
         return ganador;
     }
 
-
-    public void jugarUnaMano(){
-        this.estadoJugada.jugarUnaMano();
-    }
 
     public void cantarTruco(){
         this.estadoTruco.cantarTruco(this);
@@ -182,6 +190,18 @@ public class Jugada {
 
     public void cantarValeCuatro() {
         this.estadoTruco.cantarValeCuatro(this);
+    }
+
+    public Equipo obtenerEquipo1() {
+        return equipo1;
+    }
+
+    public Equipo obtenerEquipo2() {
+        return equipo2;
+    }
+
+    public void asignarGanadorDeJugada(Equipo equipo) {
+        equipoGanador = equipo;
     }
 }
 

@@ -10,11 +10,6 @@ public class EstadoPrimeraMano implements EstadoDeJugada, EstadoDeEnvido {
     private EstadoDeEnvido estadoDeEnvido;
 
     @Override
-    public void jugarUnaMano(){
-    }
-
-
-    @Override
     public void cantarEnvido(Jugada jugada) {
 
     }
@@ -32,6 +27,22 @@ public class EstadoPrimeraMano implements EstadoDeJugada, EstadoDeEnvido {
 
     @Override
     public void cantarFaltaEnvido(Jugada jugada) {
+
+    }
+
+    @Override
+    public void ganoManoEquipo1(Jugada jugada){
+        jugada.cambiarEstadoJugada(new EstadoGanandoEquipo1());
+    }
+
+    @Override
+    public void ganoManoEquipo2(Jugada jugada){
+        jugada.cambiarEstadoJugada(new EstadoGanandoEquipo2());
+    }
+
+    @Override
+    public void manoEmpardada(Jugada jugada){
+        jugada.cambiarEstadoJugada(new EstadoEmpardado());
 
     }
 
