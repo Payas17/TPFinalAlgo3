@@ -50,7 +50,7 @@ public class PruebasManoTest {
 
         mano.buscarGanador(equipo1,equipo2);
 
-        Assert.assertEquals(equipo1, mano.obtenerEquipoGanador(equipo1,equipo2));
+        Assert.assertEquals(equipo1, mano.obtenerEquipoGanador());
         Assert.assertEquals(jugador1, mano.obtenerJugadorGanador());
 
 
@@ -137,7 +137,7 @@ public class PruebasManoTest {
 
         mano.buscarGanador(equipo1,equipo2);
 
-        Assert.assertEquals(equipo2, mano.obtenerEquipoGanador(equipo1,equipo2));
+        Assert.assertEquals(equipo2, mano.obtenerEquipoGanador());
         Assert.assertEquals(jugador4, mano.obtenerJugadorGanador());
     }
 
@@ -185,7 +185,7 @@ public class PruebasManoTest {
 
         mano.buscarGanador(equipo1,equipo2);
 
-        Assert.assertEquals(equipo2, mano.obtenerEquipoGanador(equipo1,equipo2));
+        Assert.assertEquals(equipo2, mano.obtenerEquipoGanador());
         Assert.assertEquals(jugador3, mano.obtenerJugadorGanador());
     }
 
@@ -281,7 +281,7 @@ public class PruebasManoTest {
 
         mano.buscarGanador(equipo1,equipo2);
 
-        Assert.assertEquals(equipo2, mano.obtenerEquipoGanador(equipo1,equipo2));
+        Assert.assertEquals(equipo2, mano.obtenerEquipoGanador());
         Assert.assertEquals(jugador4, mano.obtenerJugadorGanador());
     }
 

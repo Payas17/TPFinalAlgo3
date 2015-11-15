@@ -11,12 +11,14 @@ public class Mano {
 
    private List<Jugador> jugadores;
    private Jugador jugadorGanador;
+   private Equipo equipoGanador;
 
 
     public Mano(List<Jugador> jugadores){
 
         this.jugadores = jugadores;
         jugadorGanador = null;
+        equipoGanador = null;
     }
 
     public boolean hayParda(Equipo equipo1,Equipo equipo2){
@@ -29,9 +31,15 @@ public class Mano {
             for (Jugador jugadorActual : jugadores) {
 
                 jugadorGanador = asignarJugadorGanador(jugadorGanador, jugadorActual);
+                equipoGanador = asignarEquipoGanador(equipo1, equipo2);
                 jugadorGanador.sumarManosGanadas();
             }
         }
+    }
+
+    private Equipo asignarEquipoGanador(Equipo equipo1, Equipo equipo2) {
+        return (equipo1.contieneJugador(jugadorGanador)) ? equipo1 : equipo2;
+
     }
 
     public Jugador asignarJugadorGanador(Jugador jugador1, Jugador jugador2){
@@ -42,8 +50,8 @@ public class Mano {
         return jugadorGanador;
     }
 
-    public Equipo obtenerEquipoGanador(Equipo equipo1, Equipo equipo2){
-        return (equipo1.contieneJugador(jugadorGanador)) ? equipo1 : equipo2;
+    public Equipo obtenerEquipoGanador(){
+        return equipoGanador;
     }
 
 

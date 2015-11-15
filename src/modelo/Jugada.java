@@ -58,9 +58,14 @@ public class Jugada {
         ganadorManoAnterior = manos.get(manos.size() - 1).obtenerJugadorGanador();
     }
 
-    private Mano jugarMano() {
+    private void cambiarEstadoJugada(Equipo equipo) {
+
+    }
+
+    public Mano jugarMano() {
         Mano mano = new Mano(ordenJugadores);
         mano.buscarGanador(equipo1,equipo2);
+
         return mano;
     }
 
@@ -147,6 +152,8 @@ public class Jugada {
     public Equipo obtenerEquipoQueNoContieneJugador(Jugador jugador) {
         return (!equipo1.contieneJugador(jugador)) ? equipo1 : equipo2;
     }
+
+
 }
 
 
