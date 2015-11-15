@@ -4,6 +4,7 @@ import modelo.EstadoEnvido.EstadoDeEnvido;
 import modelo.EstadoEnvido.EstadoEnvido;
 import modelo.EstadoEnvido.SinEnvido;
 import modelo.EstadoJugada.EstadoDeJugada;
+import modelo.EstadoJugada.EstadoPrimeraMano;
 import modelo.EstadoTruco.EstadoDeTruco;
 
 import java.util.ArrayList;
@@ -24,13 +25,16 @@ public class Jugada {
     private EstadoDeJugada estadoJugada;
     private EstadoDeEnvido estadoEnvido;
     private int puntosEnvido;
+    private int puntosTruco;
 
 
     public Jugada(Equipo equipo1,Equipo equipo2) {
         manos = new ArrayList<>();
         ordenJugadores = new ArrayList<>();
         estadoEnvido = new SinEnvido();
+        estadoJugada = new EstadoPrimeraMano();
         puntosEnvido = 0;
+        puntosTruco = 1;
 
 
         this.equipo1 = equipo1;
