@@ -3,6 +3,7 @@ package modelo;
 import modelo.EstadoEnvido.EstadoDeEnvido;
 import modelo.EstadoEnvido.EstadoSinEnvido;
 import modelo.EstadoJugada.EstadoDeJugada;
+import modelo.EstadoJugada.EstadoJugadaTerminada;
 import modelo.EstadoJugada.EstadoPrimeraMano;
 import modelo.EstadoTruco.EstadoDeTruco;
 import modelo.EstadoTruco.EstadoSinTruco;
@@ -76,6 +77,7 @@ public class Jugada {
     public void cambiarEstadoJugada (EstadoDeJugada jugada){
         this.estadoJugada = jugada;
     }
+
     public Mano jugarMano() {
         Mano mano = new Mano(ordenJugadores);
         mano.buscarGanador(equipo1, equipo2);
@@ -179,6 +181,9 @@ public class Jugada {
         return (!equipo1.contieneJugador(jugador)) ? equipo1 : equipo2;
     }
 
+    public void jugadorNoAceptaElTruco(Jugador jugador) {
+        obtenerEquipoQueNoContieneJugador(jugador).sumarPuntos(contarPuntosDeTruco() - 1);
+    }
 
     public void cambiarEstadoTruco(EstadoDeTruco estadoTruco) {
         this.estadoTruco = estadoTruco;
@@ -202,7 +207,13 @@ public class Jugada {
 
     public void asignarGanadorDeJugada(Equipo equipo) {
         equipoGanador = equipo;
+        cambiarEstadoJugada(new EstadoJugadaTerminada());
     }
+
+    public Equipo obtenerEquipoGanadorDeJugada(){
+        return equipoGanador;
+    }
+
 }
 
 

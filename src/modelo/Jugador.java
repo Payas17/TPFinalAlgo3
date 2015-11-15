@@ -93,6 +93,8 @@ public class Jugador {
         jugada.cantarTruco();
     }
 
+    public void noAceptarTruco(Jugada jugada) { jugada.jugadorNoAceptaElTruco(this); }
+
     public void cantarReTruco(Jugada jugada) {
         jugada.cantarReTruco();
     }
