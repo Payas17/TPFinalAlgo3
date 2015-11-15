@@ -26,8 +26,6 @@ public class PruebasEnvidoTest {
         jugador.agregarCarta(oro1);
         jugador.agregarCarta(espada1);
 
-        jugador.calcularEnvido();
-
         Assert.assertEquals(jugador.obtenerEnvido(), 28);
 
     }
@@ -43,8 +41,6 @@ public class PruebasEnvidoTest {
         jugador.agregarCarta(espada10);
         jugador.agregarCarta(basto5);
         jugador.agregarCarta(espada1);
-
-        jugador.calcularEnvido();
 
         Assert.assertEquals(jugador.obtenerEnvido(), 21);
 
@@ -62,8 +58,6 @@ public class PruebasEnvidoTest {
         jugador.agregarCarta(basto11);
         jugador.agregarCarta(copa3);
 
-        jugador.calcularEnvido();
-
         Assert.assertEquals(jugador.obtenerEnvido(), 24);
 
     }
@@ -79,8 +73,6 @@ public class PruebasEnvidoTest {
         jugador.agregarCarta(copa12);
         jugador.agregarCarta(basto7);
         jugador.agregarCarta(basto6);
-
-        jugador.calcularEnvido();
 
         Assert.assertEquals(jugador.obtenerEnvido(), 33);
     }

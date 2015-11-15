@@ -25,11 +25,13 @@ public class Jugada {
     private EstadoDeEnvido estadoEnvido;
     private int puntosEnvido;
 
+
     public Jugada(Equipo equipo1,Equipo equipo2) {
         manos = new ArrayList<>();
         ordenJugadores = new ArrayList<>();
         estadoEnvido = new SinEnvido();
-        this.puntosEnvido = 0;
+        puntosEnvido = 0;
+
 
         this.equipo1 = equipo1;
         this.equipo2 = equipo2;
@@ -89,15 +91,57 @@ public class Jugada {
 
     public void cantarEnvido() {
         this.estadoEnvido.cantarEnvido(this);
-        this.puntosEnvido +=2;
+        this.puntosEnvido += estadoEnvido.obtenerPuntos();
     }
 
-    public EstadoDeEnvido obtenerEstadoEnvido() {
-        return estadoEnvido;
-    }
 
     public void cambiarEstadoEnvido(EstadoDeEnvido estado){
         this.estadoEnvido = estado;
+    }
+
+    public void cantarRealEnvido() {
+        this.estadoEnvido.cantarRealEnvido(this);
+        this.puntosEnvido += estadoEnvido.obtenerPuntos();
+
+    }
+
+    public void aceptarEnvido() {
+        obtenerEquipoGanadorEnvido().sumarPuntos(obtenerPuntosEnvido());
+    }
+
+    private int obtenerPuntosEnvido() {
+        return puntosEnvido;
+    }
+
+    public Jugador obtenerJugadorGanadorEnvido() {
+        Jugador jugadorGanadorEnvido = ordenJugadores.get(0);
+        for (Jugador jugador: ordenJugadores){
+            jugadorGanadorEnvido = asignarJugadorGanadorEnvido(jugadorGanadorEnvido ,jugador);
+        }
+        return jugadorGanadorEnvido;
+    }
+
+    public Jugador asignarJugadorGanadorEnvido(Jugador jugador1, Jugador jugador2){
+        return (jugador1.obtenerEnvido() >= jugador2.obtenerEnvido()) ? jugador1 : jugador2;
+    }
+
+    public Equipo obtenerEquipoGanadorEnvido() {
+        return (equipo1.contieneJugador(obtenerJugadorGanadorEnvido())) ? equipo1 : equipo2;
+    }
+
+    public void cantarFaltaEnvido() {
+        this.estadoEnvido.cantarFaltaEnvido(this);
+        this.puntosEnvido = estadoEnvido.obtenerPuntos();
+
+    }
+
+    public void jugadorNoAceptaElEnvido(Jugador jugador) {
+        obtenerEquipoQueNoContieneJugador(jugador).sumarPuntos(obtenerPuntosEnvido()-estadoEnvido.obtenerPuntos());
+
+    }
+
+    public Equipo obtenerEquipoQueNoContieneJugador(Jugador jugador) {
+        return (!equipo1.contieneJugador(jugador)) ? equipo1 : equipo2;
     }
 }
 

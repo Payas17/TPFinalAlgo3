@@ -9,7 +9,10 @@ public interface EstadoDeEnvido {
 
     void cantarEnvido(Jugada jugada);
 
-    int contarPuntosDeEnvido();
+    int obtenerPuntos();
 
 
+    void cantarRealEnvido(Jugada jugada);
+
+    void cantarFaltaEnvido(Jugada jugada);
 }

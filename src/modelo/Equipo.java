@@ -9,10 +9,12 @@ import java.util.List;
 public class Equipo {
     private List<Jugador> integrantes;
     private Jugador jugadorConCartaMasAltaEnJuego;
+    private int envidoMasAltoEquipo;
+    private int puntos;
 
     public Equipo(List<Jugador> integrantes){
         this.integrantes = integrantes;
-
+        this.puntos = 0;
     }
 
     public List<Jugador> obtenerIntegrantes(){
@@ -38,5 +40,21 @@ public class Equipo {
 
     public boolean contieneJugador(Jugador jugador) {
         return integrantes.contains(jugador);
+    }
+
+    public int obtenerValorMaximoEnvido() {
+        envidoMasAltoEquipo = integrantes.get(0).obtenerEnvido();
+        for (Jugador jugador :integrantes){
+            envidoMasAltoEquipo = Math.max(envidoMasAltoEquipo,jugador.obtenerEnvido());
+        }
+        return envidoMasAltoEquipo;
+    }
+
+    public void sumarPuntos(int puntos) {
+        this.puntos += puntos;
+    }
+
+    public int obtenerPuntos() {
+        return this.puntos;
     }
 }

@@ -14,7 +14,18 @@ public class SinEnvido implements EstadoDeEnvido {
     }
 
     @Override
-    public int contarPuntosDeEnvido() {
+    public int obtenerPuntos() {
         return 0;
+    }
+
+
+    @Override
+    public void cantarRealEnvido(Jugada jugada) {
+        jugada.cambiarEstadoEnvido(new EstadoRealEnvido());
+    }
+
+    @Override
+    public void cantarFaltaEnvido(Jugada jugada) {
+        jugada.cambiarEstadoEnvido(new EstadoFaltaEnvido());
     }
 }

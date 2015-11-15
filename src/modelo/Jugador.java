@@ -35,10 +35,12 @@ public class Jugador {
     }
 
     public int obtenerEnvido() {
+
+        calcularEnvido();
         return this.cantidadEnvido;
     }
 
-    public void calcularEnvido(){
+    private void calcularEnvido(){
         this.cantidadEnvido = Math.max(Math.max(sumarEnvido(0,1), sumarEnvido(0, 2)),sumarEnvido(1, 2));
     }
 
@@ -65,5 +67,21 @@ public class Jugador {
 
     public void cantarEnvido(Jugada jugada) {
         jugada.cantarEnvido();
+    }
+
+    public void cantarRealEnvido(Jugada jugada) {
+        jugada.cantarRealEnvido();
+    }
+
+    public void aceptarEnvido(Jugada jugada) {
+        jugada.aceptarEnvido();
+    }
+
+    public void cantarFaltaEnvido(Jugada jugada) {
+        jugada.cantarFaltaEnvido();
+    }
+
+    public void noAceptarEnvido(Jugada jugada) {
+        jugada.jugadorNoAceptaElEnvido(this);
     }
 }

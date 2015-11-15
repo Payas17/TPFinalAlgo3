@@ -20,7 +20,19 @@ public class EstadoPrimeraMano implements EstadoDeJugada, EstadoDeEnvido {
     }
 
     @Override
-    public int contarPuntosDeEnvido(){
-       return this.estadoDeEnvido.contarPuntosDeEnvido();
+    public int obtenerPuntos() {
+        return 0;
     }
+
+
+    @Override
+    public void cantarRealEnvido(Jugada jugada) {
+
+    }
+
+    @Override
+    public void cantarFaltaEnvido(Jugada jugada) {
+
+    }
+
 }

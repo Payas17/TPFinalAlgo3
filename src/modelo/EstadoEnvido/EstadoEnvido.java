@@ -7,6 +7,7 @@ import modelo.Jugada;
  */
 public class EstadoEnvido implements EstadoDeEnvido {
 
+    final int PUNTOS = 2;
 
     @Override
     public void cantarEnvido(Jugada jugada) {
@@ -15,9 +16,20 @@ public class EstadoEnvido implements EstadoDeEnvido {
     }
 
     @Override
-    public int contarPuntosDeEnvido(){return 0;}
+    public int obtenerPuntos() {
+        return PUNTOS;
+    }
 
+    @Override
+    public void cantarRealEnvido(Jugada jugada) {
+        jugada.cambiarEstadoEnvido(new EstadoRealEnvido());
+    }
 
+    @Override
+    public void cantarFaltaEnvido(Jugada jugada) {
+        jugada.cambiarEstadoEnvido(new EstadoFaltaEnvido());
+
+    }
 
 
 }
