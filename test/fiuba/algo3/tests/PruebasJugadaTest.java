@@ -566,6 +566,149 @@ public class PruebasJugadaTest {
 
     }
 
+    @Test
+    public void testEquipo1GanaEnvidoPorqueEquipo2NoAcepta(){
+        Jugador jugador1= new Jugador();
+        List<Jugador> jugadores = new ArrayList<>();
+        jugadores.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+        Equipo equipo1 = new Equipo(jugadores);
+        Equipo equipo2 = new Equipo(jugadores2);
+        Jugada jugada = new Jugada(equipo1,equipo2);
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+
+        Carta oro7 = new Oro(7, valoresTrucoYEnvido);
+        Carta oro1 = new Oro(1, valoresTrucoYEnvido);
+        Carta espada1 = new Espada(7, valoresTrucoYEnvido);
+
+        Carta oro5 = new Oro(5, valoresTrucoYEnvido);
+        Carta oro2 = new Oro(2, valoresTrucoYEnvido);
+        Carta espada2 = new Espada(2, valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(oro5);
+        jugador1.agregarCarta(oro2);
+        jugador1.agregarCarta(espada1);
+
+
+
+        jugador2.agregarCarta(oro7);
+        jugador2.agregarCarta(oro1);
+        jugador2.agregarCarta(espada2);
+
+        jugador1.cantarEnvido(jugada);
+        jugador2.noAceptarEnvido(jugada);
+
+        Assert.assertEquals(equipo1.obtenerPuntos(),1);
+        Assert.assertEquals(equipo2.obtenerPuntos(),0);
+
+    }
+
+    @Test(expected = NoSePuedeCantarEsoError.class)
+    public void testEquipo1CantaReTrucoError(){
+        Jugador jugador1= new Jugador();
+        List<Jugador> jugadores = new ArrayList<>();
+        jugadores.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+        Equipo equipo1 = new Equipo(jugadores);
+        Equipo equipo2 = new Equipo(jugadores2);
+        Jugada jugada = new Jugada(equipo1,equipo2);
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+
+        Carta oro7 = new Oro(7, valoresTrucoYEnvido);
+        Carta oro1 = new Oro(1, valoresTrucoYEnvido);
+        Carta espada1 = new Espada(7, valoresTrucoYEnvido);
+
+        Carta oro5 = new Oro(5, valoresTrucoYEnvido);
+        Carta oro2 = new Oro(2, valoresTrucoYEnvido);
+        Carta espada2 = new Espada(2, valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(oro5);
+        jugador1.agregarCarta(oro2);
+        jugador1.agregarCarta(espada1);
+
+        jugador2.agregarCarta(oro7);
+        jugador2.agregarCarta(oro1);
+        jugador2.agregarCarta(espada2);
+
+        jugador1.cantarTruco(jugada);
+        jugador2.cantarTruco(jugada);
+
+
+    }
+
+    @Test(expected = NoSePuedeCantarEsoError.class)
+    public void testEquipo1CantaTrucoEquipo2CantaTrucoError(){
+        Jugador jugador1= new Jugador();
+        List<Jugador> jugadores = new ArrayList<>();
+        jugadores.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+        Equipo equipo1 = new Equipo(jugadores);
+        Equipo equipo2 = new Equipo(jugadores2);
+        Jugada jugada = new Jugada(equipo1,equipo2);
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+
+        Carta oro7 = new Oro(7, valoresTrucoYEnvido);
+        Carta oro1 = new Oro(1, valoresTrucoYEnvido);
+        Carta espada1 = new Espada(7, valoresTrucoYEnvido);
+
+        Carta oro5 = new Oro(5, valoresTrucoYEnvido);
+        Carta oro2 = new Oro(2, valoresTrucoYEnvido);
+        Carta espada2 = new Espada(2, valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(oro5);
+        jugador1.agregarCarta(oro2);
+        jugador1.agregarCarta(espada1);
+
+        jugador2.agregarCarta(oro7);
+        jugador2.agregarCarta(oro1);
+        jugador2.agregarCarta(espada2);
+
+        jugador1.cantarReTruco(jugada);
+
+
+    }
+
+    @Test(expected = NoSePuedeCantarEsoError.class)
+    public void testEquipo1CantaTrucoEquipo2CantaValeCuatroError(){
+        Jugador jugador1= new Jugador();
+        List<Jugador> jugadores = new ArrayList<>();
+        jugadores.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+        Equipo equipo1 = new Equipo(jugadores);
+        Equipo equipo2 = new Equipo(jugadores2);
+        Jugada jugada = new Jugada(equipo1,equipo2);
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+
+        Carta oro7 = new Oro(7, valoresTrucoYEnvido);
+        Carta oro1 = new Oro(1, valoresTrucoYEnvido);
+        Carta espada1 = new Espada(7, valoresTrucoYEnvido);
+
+        Carta oro5 = new Oro(5, valoresTrucoYEnvido);
+        Carta oro2 = new Oro(2, valoresTrucoYEnvido);
+        Carta espada2 = new Espada(2, valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(oro5);
+        jugador1.agregarCarta(oro2);
+        jugador1.agregarCarta(espada1);
+
+        jugador2.agregarCarta(oro7);
+        jugador2.agregarCarta(oro1);
+        jugador2.agregarCarta(espada2);
+
+        jugador1.cantarTruco(jugada);
+        jugador2.cantarValeCuatro(jugada);
+
+
+    }
+
 
 
 

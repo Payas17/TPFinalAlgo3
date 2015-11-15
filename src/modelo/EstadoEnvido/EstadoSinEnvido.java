@@ -5,7 +5,7 @@ import modelo.Jugada;
 /**
  * Created by Payas on 14/11/2015.
  */
-public class SinEnvido implements EstadoDeEnvido {
+public class EstadoSinEnvido implements EstadoDeEnvido {
 
 
     @Override

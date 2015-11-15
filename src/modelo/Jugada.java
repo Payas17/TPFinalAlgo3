@@ -1,11 +1,12 @@
 package modelo;
 
 import modelo.EstadoEnvido.EstadoDeEnvido;
-import modelo.EstadoEnvido.EstadoEnvido;
-import modelo.EstadoEnvido.SinEnvido;
+import modelo.EstadoEnvido.EstadoSinEnvido;
 import modelo.EstadoJugada.EstadoDeJugada;
 import modelo.EstadoJugada.EstadoPrimeraMano;
 import modelo.EstadoTruco.EstadoDeTruco;
+import modelo.EstadoTruco.EstadoSinTruco;
+import modelo.EstadoTruco.EstadoTruco;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +32,8 @@ public class Jugada {
     public Jugada(Equipo equipo1,Equipo equipo2) {
         manos = new ArrayList<>();
         ordenJugadores = new ArrayList<>();
-        estadoEnvido = new SinEnvido();
+        estadoEnvido = new EstadoSinEnvido();
+        estadoTruco = new EstadoSinTruco();
         estadoJugada = new EstadoPrimeraMano();
         puntosEnvido = 0;
         puntosTruco = 1;
@@ -64,7 +66,7 @@ public class Jugada {
 
     public Mano jugarMano() {
         Mano mano = new Mano(ordenJugadores);
-        mano.buscarGanador(equipo1,equipo2);
+        mano.buscarGanador(equipo1, equipo2);
 
         return mano;
     }
@@ -90,7 +92,7 @@ public class Jugada {
     }
 
     public void cantarTruco(){
-        this.estadoTruco.cantarTruco();
+        this.estadoTruco.cantarTruco(this);
     }
 
     public int contarPuntosDeTruco(){
@@ -154,7 +156,11 @@ public class Jugada {
     }
 
     public void jugadorNoAceptaElEnvido(Jugador jugador) {
-        obtenerEquipoQueNoContieneJugador(jugador).sumarPuntos(obtenerPuntosEnvido()-estadoEnvido.obtenerPuntos());
+        if (obtenerPuntosEnvido()-estadoEnvido.obtenerPuntos() == 0) {
+            obtenerEquipoQueNoContieneJugador(jugador).sumarPuntos(1);
+        }else{
+            obtenerEquipoQueNoContieneJugador(jugador).sumarPuntos(obtenerPuntosEnvido()-estadoEnvido.obtenerPuntos());
+        }
     }
 
     public void jugadorNoAceptaElFaltaEnvido(Jugador jugador) {
@@ -166,6 +172,17 @@ public class Jugada {
     }
 
 
+    public void cambiarEstadoTruco(EstadoDeTruco estadoTruco) {
+        this.estadoTruco = estadoTruco;
+    }
+
+    public void cantarReTruco() {
+        this.estadoTruco.cantarReTruco(this);
+    }
+
+    public void cantarValeCuatro() {
+        this.estadoTruco.cantarValeCuatro(this);
+    }
 }
 
 

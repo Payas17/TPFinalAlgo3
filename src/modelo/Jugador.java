@@ -88,4 +88,16 @@ public class Jugador {
     }
 
     public void noAceptarFaltaEnvido(Jugada jugada) {jugada.jugadorNoAceptaElFaltaEnvido(this); }
+
+    public void cantarTruco(Jugada jugada) {
+        jugada.cantarTruco();
+    }
+
+    public void cantarReTruco(Jugada jugada) {
+        jugada.cantarReTruco();
+    }
+
+    public void cantarValeCuatro(Jugada jugada) {
+        jugada.cantarValeCuatro();
+    }
 }
