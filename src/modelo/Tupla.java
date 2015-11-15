@@ -4,19 +4,19 @@ package modelo;
  * Created by Payas on 09/11/2015.
  */
 public class Tupla {
-    private int clave;
-    private int valor;
+    private Object clave;
+    private Object valor;
 
-    public Tupla(int clave, int valor){
+    public Tupla(Object clave, Object valor){
         this.clave = clave;
         this.valor = valor;
     }
 
-    public int obtenerClave() {
+    public Object obtenerClave() {
         return clave;
     }
 
-    public int obtenerValor() {
+    public Object obtenerValor() {
         return valor;
     }
 }

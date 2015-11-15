@@ -1,4 +1,4 @@
-package modelo;
+package modelo.Errores;
 
 /**
  * Created by Payas on 08/11/2015.

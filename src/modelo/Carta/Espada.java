@@ -1,4 +1,6 @@
-package modelo;
+package modelo.Carta;
+
+import modelo.ValoresTrucoYEnvido;
 
 /**
  * Created by Payas on 07/11/2015.

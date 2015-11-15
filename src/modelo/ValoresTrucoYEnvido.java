@@ -72,11 +72,11 @@ public class ValoresTrucoYEnvido {
 
 
     public int devolverValorEnvido(int posicion){
-        return (listaValoresTrucoYEnvido.get(posicion -1)).obtenerClave();
+        return (int) (listaValoresTrucoYEnvido.get(posicion -1)).obtenerClave();
     }
 
     public int devolverValorTruco(int posicion){
-        return listaValoresTrucoYEnvido.get(posicion -1).obtenerValor();
+        return (int) listaValoresTrucoYEnvido.get(posicion -1).obtenerValor();
     }
 
     public int devolverTamanio() {

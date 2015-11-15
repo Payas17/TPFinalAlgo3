@@ -1,5 +1,7 @@
 package modelo;
 
+import modelo.Carta.*;
+
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -34,4 +36,6 @@ public class Mazo {
     public void mezclar() {
         Collections.shuffle(cartas);
     }
+
+
 }

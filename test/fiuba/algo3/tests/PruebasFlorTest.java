@@ -1,6 +1,10 @@
 package fiuba.algo3.tests;
 
 import modelo.*;
+import modelo.Carta.Basto;
+import modelo.Carta.Carta;
+import modelo.Carta.Espada;
+import modelo.Errores.NoTieneFlorError;
 import org.junit.Assert;
 import org.junit.Test;
 

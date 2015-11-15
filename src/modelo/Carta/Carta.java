@@ -1,6 +1,7 @@
-package modelo;
+package modelo.Carta;
 
 
+import modelo.ValoresTrucoYEnvido;
 
 /**
  * Created by Payas on 07/11/2015.
@@ -14,7 +15,7 @@ public abstract class Carta {
     private int numeroDeCarta;
 
 
-    public Carta(int numeroDeCarta,ValoresTrucoYEnvido valoresTrucoYEnvido) {
+    public Carta(int numeroDeCarta, ValoresTrucoYEnvido valoresTrucoYEnvido) {
 
         this.numeroDeCarta = numeroDeCarta;
 
