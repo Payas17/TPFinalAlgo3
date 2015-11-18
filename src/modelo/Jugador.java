@@ -36,12 +36,7 @@ public class Jugador {
 
     public int obtenerEnvido() {
 
-        calcularEnvido();
-        return this.cantidadEnvido;
-    }
-
-    private void calcularEnvido(){
-        this.cantidadEnvido = Math.max(Math.max(sumarEnvido(0,1), sumarEnvido(0, 2)),sumarEnvido(1, 2));
+        return Math.max(Math.max(sumarEnvido(0,1), sumarEnvido(0, 2)),sumarEnvido(1, 2));
     }
 
     private int sumarEnvido(int pos1, int pos2) {
@@ -51,7 +46,6 @@ public class Jugador {
     public int cantarFlor(){
 
         if(sumarEnvido(0,1) >= TANTO && sumarEnvido(0,2) >= TANTO){
-            calcularEnvido();
             return obtenerEnvido();
         }
         throw new NoTieneFlorError();

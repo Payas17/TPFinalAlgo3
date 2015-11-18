@@ -39,7 +39,7 @@ public class PruebasJugadaTest {
         jugador1.juegaCarta(espada10);
         jugador2.juegaCarta(basto5);
 
-        jugada.crearNuevaMano();
+        jugada.jugarMano();
 
         Carta espada1 = new Espada(1,valoresTrucoYEnvido);
         Carta oro1 = new Oro(1,valoresTrucoYEnvido);
@@ -50,7 +50,7 @@ public class PruebasJugadaTest {
         jugador1.juegaCarta(oro1);
         jugador2.juegaCarta(espada1);
 
-        jugada.crearNuevaMano();
+        jugada.jugarMano();
 
         Carta basto1 = new Basto(1,valoresTrucoYEnvido);
         Carta copa1 = new Copa(1,valoresTrucoYEnvido);
@@ -61,9 +61,9 @@ public class PruebasJugadaTest {
         jugador1.juegaCarta(basto1);
         jugador2.juegaCarta(copa1);
 
-        jugada.crearNuevaMano();
+        jugada.jugarMano();
 
-        Assert.assertEquals(jugada.obtenerGanador(), jugador1);
+        Assert.assertEquals(jugada.obtenerEquipoGanadorDeJugada(), equipo1);
 
     }
 
@@ -90,7 +90,7 @@ public class PruebasJugadaTest {
         jugador1.juegaCarta(espada10);
         jugador2.juegaCarta(basto11);
 
-        jugada.crearNuevaMano();
+        jugada.jugarMano();
 
         Carta espada2 = new Espada(2,valoresTrucoYEnvido);
         Carta oro3 = new Oro(3,valoresTrucoYEnvido);
@@ -101,9 +101,9 @@ public class PruebasJugadaTest {
         jugador1.juegaCarta(espada2);
         jugador2.juegaCarta(oro3);
 
-        jugada.crearNuevaMano();
+        jugada.jugarMano();
 
-        Assert.assertEquals(jugada.obtenerGanador(), jugador2);
+        Assert.assertEquals(jugada.obtenerEquipoGanadorDeJugada(), equipo2);
 
     }
 
@@ -131,7 +131,7 @@ public class PruebasJugadaTest {
         jugador1.juegaCarta(espada10);
         jugador2.juegaCarta(basto10);
 
-        jugada.crearNuevaMano();
+        jugada.jugarMano();
 
         Carta copa1 = new Copa(1,valoresTrucoYEnvido);
         Carta oro1 = new Oro(1,valoresTrucoYEnvido);
@@ -142,7 +142,7 @@ public class PruebasJugadaTest {
         jugador1.juegaCarta(copa1);
         jugador2.juegaCarta(oro1);
 
-        jugada.crearNuevaMano();
+        jugada.jugarMano();
 
         Carta copa2 = new Copa(2,valoresTrucoYEnvido);
         Carta oro2 = new Oro(2,valoresTrucoYEnvido);
@@ -153,9 +153,9 @@ public class PruebasJugadaTest {
         jugador1.juegaCarta(copa2);
         jugador2.juegaCarta(oro2);
 
-        jugada.crearNuevaMano();
+        jugada.jugarMano();
 
-        Assert.assertEquals(jugada.obtenerGanador(), jugador1);
+        Assert.assertEquals(jugada.obtenerEquipoGanadorDeJugada(), equipo1);
 
     }
 

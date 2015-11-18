@@ -52,25 +52,18 @@ public class Jugada {
         mano = ordenJugadores.get(0);
     }
 
-    public void crearNuevaMano() {
-        if (ganadorManoAnterior == null) {
-            manos.add(jugarMano());
-        } else {
-            ordenarJugadores();
-            manos.add(jugarMano());
-        }
-        ganadorManoAnterior = manos.get(manos.size() - 1).obtenerJugadorGanador();
-    }
+    private void EstadoJugada(Mano mano) {
 
-    private void MagicMike(Equipo equipo) {
-        if (equipo == equipo1){
-            this.estadoJugada.ganoManoEquipo1(this);
-        }
-        if (equipo == equipo2){
-            this.estadoJugada.ganoManoEquipo2(this);
-        }
-        if (equipo == null){
+        if (mano.hayParda(equipo1,equipo2)){
             this.estadoJugada.manoEmpardada(this);
+        }else {
+
+            Equipo equipo = mano.obtenerEquipoGanador(equipo1, equipo2);
+            if (equipo == equipo2) {
+                this.estadoJugada.ganoManoEquipo2(this);
+            } else {
+                this.estadoJugada.ganoManoEquipo1(this);
+            }
         }
     }
 
@@ -80,14 +73,8 @@ public class Jugada {
 
     public Mano jugarMano() {
         Mano mano = new Mano(ordenJugadores);
-        mano.buscarGanador(equipo1, equipo2);
-        MagicMike(mano.obtenerEquipoGanador());
+        EstadoJugada(mano);
         return mano;
-    }
-
-    private void ordenarJugadores() {
-        List<Jugador> listaAuxiliar = ordenJugadores.subList(ordenJugadores.indexOf(ganadorManoAnterior), ordenJugadores.size() - 1);
-        ordenJugadores.addAll(0, listaAuxiliar);
     }
 
     public Jugador obtenerGanador() {
@@ -153,7 +140,7 @@ public class Jugada {
         return jugadorGanadorEnvido;
     }
 
-    public Jugador asignarJugadorGanadorEnvido(Jugador jugador1, Jugador jugador2){
+    public Jugador asignarJugadorGanadorEnvido(Jugador jugador1, Jugador jugador2) {
         return (jugador1.obtenerEnvido() >= jugador2.obtenerEnvido()) ? jugador1 : jugador2;
     }
 

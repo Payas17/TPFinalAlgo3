@@ -8,8 +8,6 @@ import java.util.List;
  */
 public class Equipo {
     private List<Jugador> integrantes;
-    private Jugador jugadorConCartaMasAltaEnJuego;
-    private int envidoMasAltoEquipo;
     private int puntos;
 
     public Equipo(List<Jugador> integrantes){
@@ -22,16 +20,13 @@ public class Equipo {
     }
 
 
-    public Jugador getMejorJugadorEquipo() {
-        setearMejorJugadorEquipo();
-        return jugadorConCartaMasAltaEnJuego;
-    }
+    public Jugador obtenerMejorJugadorEquipo() {
+       Jugador jugadorConCartaMasAltaEnJuego = integrantes.get(0);
 
-    private void setearMejorJugadorEquipo(){
-        jugadorConCartaMasAltaEnJuego = integrantes.get(0);
         for(Jugador jugador : integrantes){
             jugadorConCartaMasAltaEnJuego = obtenerMejorJugador(jugadorConCartaMasAltaEnJuego,jugador);
         }
+        return jugadorConCartaMasAltaEnJuego;
     }
 
     private Jugador obtenerMejorJugador(Jugador jugador1, Jugador jugador2){
@@ -43,7 +38,8 @@ public class Equipo {
     }
 
     public int obtenerValorMaximoEnvido() {
-        envidoMasAltoEquipo = integrantes.get(0).obtenerEnvido();
+        int envidoMasAltoEquipo = integrantes.get(0).obtenerEnvido();
+
         for (Jugador jugador :integrantes){
             envidoMasAltoEquipo = Math.max(envidoMasAltoEquipo,jugador.obtenerEnvido());
         }

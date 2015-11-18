@@ -48,9 +48,9 @@ public class PruebasManoTest {
         jugador1.juegaCarta(espada10);
         jugador2.juegaCarta(basto5);
 
-        mano.buscarGanador(equipo1,equipo2);
 
-        Assert.assertEquals(equipo1, mano.obtenerEquipoGanador());
+
+        Assert.assertEquals(equipo1, mano.obtenerEquipoGanador(equipo1,equipo2));
         Assert.assertEquals(jugador1, mano.obtenerJugadorGanador());
 
 
@@ -86,8 +86,6 @@ public class PruebasManoTest {
 
         jugador1.juegaCarta(espada10);
         jugador2.juegaCarta(basto10);
-
-        mano.buscarGanador(equipo1,equipo2);
 
         Assert.assertTrue(mano.hayParda(equipo1, equipo2));
 
@@ -135,9 +133,7 @@ public class PruebasManoTest {
         jugador3.juegaCarta(espada2);
         jugador4.juegaCarta(basto3);
 
-        mano.buscarGanador(equipo1,equipo2);
-
-        Assert.assertEquals(equipo2, mano.obtenerEquipoGanador());
+        Assert.assertEquals(equipo2, mano.obtenerEquipoGanador(equipo1,equipo2));
         Assert.assertEquals(jugador4, mano.obtenerJugadorGanador());
     }
 
@@ -183,9 +179,8 @@ public class PruebasManoTest {
         jugador3.juegaCarta(espada3);
         jugador4.juegaCarta(basto3);
 
-        mano.buscarGanador(equipo1,equipo2);
 
-        Assert.assertEquals(equipo2, mano.obtenerEquipoGanador());
+        Assert.assertEquals(equipo2, mano.obtenerEquipoGanador(equipo1,equipo2));
         Assert.assertEquals(jugador3, mano.obtenerJugadorGanador());
     }
 
@@ -230,8 +225,6 @@ public class PruebasManoTest {
         jugador2.juegaCarta(espada3);
         jugador3.juegaCarta(basto5);
         jugador4.juegaCarta(basto3);
-
-        mano.buscarGanador(equipo1,equipo2);
 
         Assert.assertTrue(mano.hayParda(equipo1, equipo2));
 
@@ -279,9 +272,7 @@ public class PruebasManoTest {
         jugador3.juegaCarta(espada3);
         jugador4.juegaCarta(basto1);
 
-        mano.buscarGanador(equipo1,equipo2);
-
-        Assert.assertEquals(equipo2, mano.obtenerEquipoGanador());
+        Assert.assertEquals(equipo2, mano.obtenerEquipoGanador(equipo1,equipo2));
         Assert.assertEquals(jugador4, mano.obtenerJugadorGanador());
     }
 
