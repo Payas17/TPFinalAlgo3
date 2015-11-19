@@ -14,5 +14,5 @@ public class Partida {
     Equipo equipo2;
     Mazo mazoDeCartas;
     List<Jugada> jugadas;
-    Partida.EstadoDePartida estadoDePartida;
+    EstadoDePartida estadoDePartida;
 }

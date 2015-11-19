@@ -16,9 +16,8 @@ import java.util.List;
  */
 public class Jugada {
 
-    private List<Mano> manos;
     private List<Jugador> ordenJugadores;
-    private Jugador ganadorManoAnterior;
+    private Equipo ganadorPrimerMano;
     private Jugador mano;
     private Equipo equipo1;
     private Equipo equipo2;
@@ -31,7 +30,7 @@ public class Jugada {
 
 
     public Jugada(Equipo equipo1,Equipo equipo2) {
-        manos = new ArrayList<>();
+
         ordenJugadores = new ArrayList<>();
         estadoEnvido = new EstadoSinEnvido();
         estadoTruco = new EstadoSinTruco();
@@ -48,9 +47,10 @@ public class Jugada {
             ordenJugadores.add(this.equipo1.obtenerIntegrantes().get(i));
             ordenJugadores.add(this.equipo2.obtenerIntegrantes().get(i));
         }
-        ganadorManoAnterior = null;
+
         mano = ordenJugadores.get(0);
     }
+
 
     private void EstadoJugada(Mano mano) {
 
@@ -201,6 +201,13 @@ public class Jugada {
         return equipoGanador;
     }
 
+    public void asignarGanadorPrimeraMano(Equipo equipo){
+        ganadorPrimerMano = equipo;
+    }
+
+    public Equipo obtenerGanadorPrimeraMano(){
+        return ganadorPrimerMano;
+    }
 }
 
 

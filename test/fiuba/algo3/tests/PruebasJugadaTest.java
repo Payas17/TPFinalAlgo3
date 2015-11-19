@@ -859,5 +859,57 @@ public class PruebasJugadaTest {
 
         jugada.jugarMano();
     }
+    @Test
+    public void testEstanEmpatadosYEnTerceraEmpardanYGanaElJugadorQueHizoPrimera(){
+
+        Jugador jugador1= new Jugador();
+        List<Jugador> jugadores = new ArrayList<>();
+        jugadores.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+        Equipo equipo1 = new Equipo(jugadores);
+        Equipo equipo2 = new Equipo(jugadores2);
+        Jugada jugada = new Jugada(equipo1,equipo2);
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+
+
+
+        Carta espada11 = new Espada(11,valoresTrucoYEnvido);
+        Carta basto10 = new Basto(10,valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(espada11);
+        jugador2.agregarCarta(basto10);
+
+        jugador1.juegaCarta(espada11);
+        jugador2.juegaCarta(basto10);
+
+        jugada.jugarMano();
+
+        Carta copa10 = new Copa(10,valoresTrucoYEnvido);
+        Carta oro1 = new Oro(1,valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(copa10);
+        jugador2.agregarCarta(oro1);
+
+        jugador1.juegaCarta(copa10);
+        jugador2.juegaCarta(oro1);
+
+        jugada.jugarMano();
+
+        Carta copa2 = new Copa(2,valoresTrucoYEnvido);
+        Carta oro2 = new Oro(2,valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(copa2);
+        jugador2.agregarCarta(oro2);
+
+        jugador1.juegaCarta(copa2);
+        jugador2.juegaCarta(oro2);
+
+        jugada.jugarMano();
+
+        Assert.assertEquals(jugada.obtenerGanador(), jugador1);
+        Assert.assertEquals(jugada.obtenerEquipoGanadorDeJugada(), equipo1);
+    }
 
 }

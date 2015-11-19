@@ -20,6 +20,6 @@ public class EstadoEmpate implements EstadoDeJugada {
 
     @Override
     public void manoEmpardada(Jugada jugada) {
-        jugada.asignarGanadorDeJugada(jugada.obtenerEquipo1());
+        jugada.asignarGanadorDeJugada(jugada.obtenerGanadorPrimeraMano());
     }
 }
