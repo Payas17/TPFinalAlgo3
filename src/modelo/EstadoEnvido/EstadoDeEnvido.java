@@ -1,5 +1,6 @@
 package modelo.EstadoEnvido;
 
+import modelo.Equipo;
 import modelo.Jugada;
 
 /**
@@ -9,10 +10,13 @@ public interface EstadoDeEnvido {
 
     void cantarEnvido(Jugada jugada);
 
-    int obtenerPuntos();
-
-
     void cantarRealEnvido(Jugada jugada);
 
     void cantarFaltaEnvido(Jugada jugada);
+
+    void aceptarEnvido(Equipo equipoGanador, Equipo equipoPerdedor, int puntos);
+
+    int obtenerPuntos();
+
+    void noAceptarEnvido(Equipo equipoGanador,int puntos);
 }

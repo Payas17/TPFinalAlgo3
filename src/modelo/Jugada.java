@@ -1,6 +1,7 @@
 package modelo;
 
 import modelo.EstadoEnvido.EstadoDeEnvido;
+import modelo.EstadoEnvido.EstadoFaltaEnvido;
 import modelo.EstadoEnvido.EstadoSinEnvido;
 import modelo.EstadoJugada.EstadoDeJugada;
 import modelo.EstadoJugada.EstadoJugadaTerminada;
@@ -18,7 +19,6 @@ public class Jugada {
 
     private List<Mano> manos;
     private List<Jugador> ordenJugadores;
-    private Jugador ganadorManoAnterior;
     private Jugador mano;
     private Equipo equipo1;
     private Equipo equipo2;
@@ -27,7 +27,7 @@ public class Jugada {
     private EstadoDeJugada estadoJugada;
     private EstadoDeEnvido estadoEnvido;
     private int puntosEnvido;
-    private int puntosTruco;
+
 
 
     public Jugada(Equipo equipo1,Equipo equipo2) {
@@ -37,7 +37,6 @@ public class Jugada {
         estadoTruco = new EstadoSinTruco();
         estadoJugada = new EstadoPrimeraMano();
         puntosEnvido = 0;
-        puntosTruco = 1;
         equipoGanador= null;
 
 
@@ -48,7 +47,6 @@ public class Jugada {
             ordenJugadores.add(this.equipo1.obtenerIntegrantes().get(i));
             ordenJugadores.add(this.equipo2.obtenerIntegrantes().get(i));
         }
-        ganadorManoAnterior = null;
         mano = ordenJugadores.get(0);
     }
 
@@ -99,7 +97,7 @@ public class Jugada {
 
     public void cantarEnvido() {
         this.estadoEnvido.cantarEnvido(this);
-        this.puntosEnvido += estadoEnvido.obtenerPuntos();
+
     }
 
 
@@ -109,27 +107,16 @@ public class Jugada {
 
     public void cantarRealEnvido() {
         this.estadoEnvido.cantarRealEnvido(this);
-        this.puntosEnvido += estadoEnvido.obtenerPuntos();
 
     }
 
     public void aceptarEnvido() {
-        obtenerEquipoGanadorEnvido().sumarPuntos(obtenerPuntosEnvido());
-    }
-
-    public void aceptarFaltaEnvido() {
         Equipo equipoPerdedorEnvido = obtenerEquipoQueNoContieneJugador(obtenerJugadorGanadorEnvido());
-        if( equipoPerdedorEnvido.obtenerPuntos() > 15){
-            int maxPuntaje = Math.max(equipo1.obtenerPuntos(), equipo2.obtenerPuntos());
-            obtenerEquipoGanadorEnvido().sumarPuntos(30 - maxPuntaje);
-        }
-        else{
-            obtenerEquipoGanadorEnvido().sumarPuntos(15 - equipoPerdedorEnvido.obtenerPuntos() );
-        }
+        this.estadoEnvido.aceptarEnvido(obtenerEquipoGanadorEnvido(),equipoPerdedorEnvido,puntosEnvido);
     }
 
-    private int obtenerPuntosEnvido() {
-        return puntosEnvido;
+    public void sumarPuntosEnvido(int puntos){
+        this.puntosEnvido += puntos;
     }
 
     public Jugador obtenerJugadorGanadorEnvido() {
@@ -153,15 +140,9 @@ public class Jugada {
     }
 
     public void jugadorNoAceptaElEnvido(Jugador jugador) {
-        if (obtenerPuntosEnvido()-estadoEnvido.obtenerPuntos() == 0) {
-            obtenerEquipoQueNoContieneJugador(jugador).sumarPuntos(1);
-        }else{
-            obtenerEquipoQueNoContieneJugador(jugador).sumarPuntos(obtenerPuntosEnvido()-estadoEnvido.obtenerPuntos());
-        }
-    }
 
-    public void jugadorNoAceptaElFaltaEnvido(Jugador jugador) {
-        obtenerEquipoQueNoContieneJugador(jugador).sumarPuntos(obtenerPuntosEnvido());
+        this.estadoEnvido.noAceptarEnvido(obtenerEquipoQueNoContieneJugador(jugador),puntosEnvido);
+
     }
 
     public Equipo obtenerEquipoQueNoContieneJugador(Jugador jugador) {
@@ -199,6 +180,10 @@ public class Jugada {
 
     public Equipo obtenerEquipoGanadorDeJugada(){
         return equipoGanador;
+    }
+
+    public EstadoDeEnvido obtenerEstadoEnvido(){
+        return this.estadoEnvido;
     }
 
 }
