@@ -1,5 +1,6 @@
 package modelo.EstadoEnvido;
 
+import modelo.Equipo;
 import modelo.Errores.NoSePuedeCantarEsoError;
 import modelo.Jugada;
 
@@ -15,18 +16,31 @@ public class EstadoEnvidoEnvido implements EstadoDeEnvido {
         throw new NoSePuedeCantarEsoError();
     }
 
+
+    @Override
+    public void cantarRealEnvido(Jugada jugada) {
+        jugada.sumarPuntosEnvido(jugada.obtenerEstadoEnvido().obtenerPuntos());
+        jugada.cambiarEstadoEnvido(new EstadoRealEnvido());
+    }
+
+    @Override
+    public void cantarFaltaEnvido(Jugada jugada) {
+        jugada.sumarPuntosEnvido(jugada.obtenerEstadoEnvido().obtenerPuntos());
+        jugada.cambiarEstadoEnvido(new EstadoFaltaEnvido());
+    }
+
+    @Override
+    public void aceptarEnvido(Equipo equipoGanador, Equipo equipoPerdedor, int puntos) {
+        equipoGanador.sumarPuntos(puntos);
+    }
+
     @Override
     public int obtenerPuntos() {
         return PUNTOS;
     }
 
     @Override
-    public void cantarRealEnvido(Jugada jugada) {
-        jugada.cambiarEstadoEnvido(new EstadoRealEnvido());
-    }
-
-    @Override
-    public void cantarFaltaEnvido(Jugada jugada) {
-        jugada.cambiarEstadoEnvido(new EstadoFaltaEnvido());
+    public void noAceptarEnvido(Equipo equipoGanador, int puntos) {
+        equipoGanador.sumarPuntos(puntos+ PUNTOS);
     }
 }

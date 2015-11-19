@@ -381,7 +381,7 @@ public class PruebasJugadaTest {
         jugador2.agregarCarta(espada2);
 
         jugador1.cantarFaltaEnvido(jugada);
-        jugador2.aceptarFaltaEnvido(jugada);
+        jugador2.aceptarEnvido(jugada);
 
         Assert.assertEquals(equipo2,jugada.obtenerEquipoGanadorEnvido());
         Assert.assertEquals(equipo2.obtenerPuntos(),25);
@@ -423,7 +423,7 @@ public class PruebasJugadaTest {
         jugador2.agregarCarta(espada2);
 
         jugador1.cantarFaltaEnvido(jugada);
-        jugador2.aceptarFaltaEnvido(jugada);
+        jugador2.aceptarEnvido(jugada);
 
         Assert.assertEquals(equipo2,jugada.obtenerEquipoGanadorEnvido());
         Assert.assertEquals(equipo2.obtenerPuntos(),15);
@@ -465,7 +465,7 @@ public class PruebasJugadaTest {
         jugador1.cantarEnvido(jugada);
         jugador2.cantarEnvido(jugada);
         jugador1.cantarFaltaEnvido(jugada);
-        jugador2.noAceptarFaltaEnvido(jugada);
+        jugador2.noAceptarEnvido(jugada);
 
         Assert.assertEquals(equipo1.obtenerPuntos(),4);
         Assert.assertEquals(equipo2.obtenerPuntos(),0);
