@@ -14,9 +14,9 @@ public interface EstadoDeEnvido {
 
     void cantarFaltaEnvido(Jugada jugada);
 
-    void aceptarEnvido(Equipo equipoGanador, Equipo equipoPerdedor, int puntos);
+    void aceptarEnvido(Equipo equipoGanador, Equipo equipoPerdedor, Jugada jugada);
 
     int obtenerPuntos();
 
-    void noAceptarEnvido(Equipo equipoGanador,int puntos);
+    void noAceptarEnvido(Equipo equipoGanador,Jugada jugada);
 }

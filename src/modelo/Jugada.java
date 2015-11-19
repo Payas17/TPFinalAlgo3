@@ -1,7 +1,6 @@
 package modelo;
 
 import modelo.EstadoEnvido.EstadoDeEnvido;
-import modelo.EstadoEnvido.EstadoFaltaEnvido;
 import modelo.EstadoEnvido.EstadoSinEnvido;
 import modelo.EstadoJugada.EstadoDeJugada;
 import modelo.EstadoJugada.EstadoJugadaTerminada;
@@ -74,16 +73,6 @@ public class Jugada {
         return mano;
     }
 
-    public Jugador obtenerGanador() {
-        Jugador ganador = mano;
-        for (Jugador jugadorActual : ordenJugadores) {
-            if (jugadorActual.obtenerManosGanadas() == 2) {
-                ganador = jugadorActual;
-            }
-        }
-        return ganador;
-    }
-
 
     public void cantarTruco(){
         this.estadoTruco.cantarTruco(this);
@@ -96,7 +85,6 @@ public class Jugada {
 
     public void cantarEnvido() {
         this.estadoEnvido.cantarEnvido(this);
-
     }
 
 
@@ -111,7 +99,7 @@ public class Jugada {
 
     public void aceptarEnvido() {
         Equipo equipoPerdedorEnvido = obtenerEquipoQueNoContieneJugador(obtenerJugadorGanadorEnvido());
-        this.estadoEnvido.aceptarEnvido(obtenerEquipoGanadorEnvido(),equipoPerdedorEnvido,puntosEnvido);
+        this.estadoEnvido.aceptarEnvido(obtenerEquipoGanadorEnvido(),equipoPerdedorEnvido,this);
     }
 
     public Jugador obtenerJugadorGanadorEnvido() {
@@ -136,7 +124,7 @@ public class Jugada {
 
     public void jugadorNoAceptaElEnvido(Jugador jugador) {
 
-        this.estadoEnvido.noAceptarEnvido(obtenerEquipoQueNoContieneJugador(jugador),puntosEnvido);
+        this.estadoEnvido.noAceptarEnvido(obtenerEquipoQueNoContieneJugador(jugador),this);
 
     }
 
@@ -187,6 +175,19 @@ public class Jugada {
 
     public Equipo obtenerGanadorPrimeraMano(){
         return ganadorPrimerMano;
+    }
+
+    public int obtenerPuntosEnvido() {
+        return puntosEnvido;
+    }
+
+
+    public void sumarPuntosEnvido(int puntos) {
+        puntosEnvido += puntos;
+    }
+
+    public Equipo obtenerEquipoJugadorMano() {
+        return (equipo1.contieneJugador(mano)) ? equipo1 : equipo2;
     }
 }
 

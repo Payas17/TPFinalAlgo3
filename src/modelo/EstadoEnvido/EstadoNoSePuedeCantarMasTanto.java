@@ -5,40 +5,36 @@ import modelo.Errores.NoSePuedeCantarEsoError;
 import modelo.Jugada;
 
 /**
- * Created by Payas on 14/11/2015.
+ * Created by Lucio on 18/11/2015.
  */
-public class EstadoSinEnvido implements EstadoDeEnvido {
-
-
-    final int PUNTOS = 1;
+public class EstadoNoSePuedeCantarMasTanto implements EstadoDeEnvido {
     @Override
     public void cantarEnvido(Jugada jugada) {
-        jugada.cambiarEstadoEnvido(new EstadoEnvido());
+        throw new NoSePuedeCantarEsoError();
     }
 
     @Override
     public void cantarRealEnvido(Jugada jugada) {
-        jugada.cambiarEstadoEnvido(new EstadoRealEnvido());
+        throw new NoSePuedeCantarEsoError();
     }
 
     @Override
     public void cantarFaltaEnvido(Jugada jugada) {
-        jugada.cambiarEstadoEnvido(new EstadoFaltaEnvido());
+        throw new NoSePuedeCantarEsoError();
     }
 
     @Override
-    public void aceptarEnvido(Equipo equipoGanador, Equipo equipoPerdedor,Jugada jugada) {
+    public void aceptarEnvido(Equipo equipoGanador, Equipo equipoPerdedor, Jugada jugada) {
         throw new NoSePuedeCantarEsoError();
-
     }
 
     @Override
     public int obtenerPuntos() {
-        return PUNTOS;
+        return 0;
     }
 
     @Override
-    public void noAceptarEnvido(Equipo equipoGanador, Jugada jugada) {
+    public void noAceptarEnvido(Equipo equipoGanador,Jugada jugada) {
         throw new NoSePuedeCantarEsoError();
     }
 }
