@@ -12,6 +12,7 @@ import java.util.List;
 public class Mazo {
     private List<Carta> cartas;
     private ValoresTrucoYEnvido tablaValores;
+    private int contadorDeCartas;
 
     public Mazo(ValoresTrucoYEnvido tablaValores){
         cartas = new LinkedList<>();
@@ -34,8 +35,13 @@ public class Mazo {
     }
 
     public void mezclar() {
+        contadorDeCartas = 0;
         Collections.shuffle(cartas);
     }
 
-
+    public Carta darCarta(){
+        Carta cartaAdevolver = cartas.get(contadorDeCartas);
+        contadorDeCartas++;
+        return cartaAdevolver;
+    }
 }
