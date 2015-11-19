@@ -17,7 +17,6 @@ import java.util.List;
  */
 public class Jugada {
 
-    private List<Mano> manos;
     private List<Jugador> ordenJugadores;
     private Equipo ganadorPrimerMano;
     private Jugador mano;
@@ -28,17 +27,14 @@ public class Jugada {
     private EstadoDeJugada estadoJugada;
     private EstadoDeEnvido estadoEnvido;
     private int puntosEnvido;
-    private int puntosTruco;
 
 
     public Jugada(Equipo equipo1,Equipo equipo2) {
-        manos = new ArrayList<>();
         ordenJugadores = new ArrayList<>();
         estadoEnvido = new EstadoSinEnvido();
         estadoTruco = new EstadoSinTruco();
         estadoJugada = new EstadoPrimeraMano();
         puntosEnvido = 0;
-        puntosTruco = 1;
         equipoGanador= null;
 
 
@@ -116,10 +112,6 @@ public class Jugada {
     public void aceptarEnvido() {
         Equipo equipoPerdedorEnvido = obtenerEquipoQueNoContieneJugador(obtenerJugadorGanadorEnvido());
         this.estadoEnvido.aceptarEnvido(obtenerEquipoGanadorEnvido(),equipoPerdedorEnvido,puntosEnvido);
-    }
-
-    private int obtenerPuntosEnvido() {
-        return puntosEnvido;
     }
 
     public Jugador obtenerJugadorGanadorEnvido() {
