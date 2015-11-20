@@ -73,7 +73,7 @@ public class Jugador {
     }
 
     public void aceptarEnvido(Jugada jugada) {
-        this.estadoJugador.aceptar();
+        this.estadoJugador.aceptar(jugada);
         jugada.aceptarEnvido();
 
     }
@@ -85,7 +85,7 @@ public class Jugador {
     }
 
     public void noAceptarEnvido(Jugada jugada) {
-        this.estadoJugador.aceptar();
+        this.estadoJugador.aceptar(jugada);
         jugada.jugadorNoAceptaElEnvido(this);
 
     }
@@ -106,5 +106,10 @@ public class Jugador {
 
     public void cambiarEstado(EstadoDeJugador estado) {
         this.estadoJugador = estado;
+    }
+
+    public void aceptarTruco(Jugada jugada) {
+        this.estadoJugador.aceptar(jugada);
+        jugada.aceptarTruco();
     }
 }

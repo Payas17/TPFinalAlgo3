@@ -1,6 +1,7 @@
 package modelo.EstadoJugador;
 
 import modelo.Equipo;
+import modelo.Jugada;
 import modelo.Jugador;
 
 /**
@@ -20,7 +21,14 @@ public class EstadoPuedeCantar implements EstadoDeJugador{
     }
 
     @Override
-    public void aceptar() {
+    public void aceptar(Jugada jugada) {
+        for (Jugador jugador :jugada.obtenerEquipo1().obtenerIntegrantes()){
+            jugador.cambiarEstado(new EstadoNoSeCantoNada());
+        }
+
+        for (Jugador jugador : jugada.obtenerEquipo2().obtenerIntegrantes()){
+            jugador.cambiarEstado(new EstadoNoSeCantoNada());
+        }
 
     }
 }

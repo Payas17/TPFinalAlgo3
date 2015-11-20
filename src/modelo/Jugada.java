@@ -193,6 +193,10 @@ public class Jugada {
     public Equipo obtenerEquipoQueContieneJugador(Jugador jugador) {
         return (equipo1.contieneJugador(jugador)) ? equipo1 :equipo2;
     }
+
+    public void aceptarTruco() {
+
+    }
 }
 
 

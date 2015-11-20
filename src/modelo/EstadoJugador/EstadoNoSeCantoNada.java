@@ -2,6 +2,7 @@ package modelo.EstadoJugador;
 
 import modelo.Equipo;
 import modelo.Errores.NoTienElQuieroError;
+import modelo.Jugada;
 import modelo.Jugador;
 
 /**
@@ -20,7 +21,7 @@ public class EstadoNoSeCantoNada implements EstadoDeJugador {
     }
 
     @Override
-    public void aceptar() {
+    public void aceptar(Jugada jugada) {
         throw new NoTienElQuieroError();
     }
 }
