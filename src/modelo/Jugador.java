@@ -64,12 +64,12 @@ public class Jugador {
 
         jugada.cantarEnvido();
 
-        this.estadoJugador.cantar(jugada.obtenerEquipoQueContieneJugador(this),jugada.obtenerEquipoQueNoContieneJugador(this));
+        this.estadoJugador.cantarEnvido(jugada.obtenerEquipoQueContieneJugador(this), jugada.obtenerEquipoQueNoContieneJugador(this));
     }
 
     public void cantarRealEnvido(Jugada jugada) {
         jugada.cantarRealEnvido();
-        this.estadoJugador.cantar(jugada.obtenerEquipoQueContieneJugador(this),jugada.obtenerEquipoQueNoContieneJugador(this));
+        this.estadoJugador.cantarEnvido(jugada.obtenerEquipoQueContieneJugador(this), jugada.obtenerEquipoQueNoContieneJugador(this));
     }
 
     public void aceptarEnvido(Jugada jugada) {
@@ -81,7 +81,7 @@ public class Jugador {
     public void cantarFaltaEnvido(Jugada jugada) {
 
         jugada.cantarFaltaEnvido();
-        this.estadoJugador.cantar(jugada.obtenerEquipoQueContieneJugador(this),jugada.obtenerEquipoQueNoContieneJugador(this));
+        this.estadoJugador.cantarEnvido(jugada.obtenerEquipoQueContieneJugador(this), jugada.obtenerEquipoQueNoContieneJugador(this));
     }
 
     public void noAceptarEnvido(Jugada jugada) {
@@ -92,16 +92,19 @@ public class Jugador {
 
     public void cantarTruco(Jugada jugada) {
         jugada.cantarTruco();
+        this.estadoJugador.cantarTruco(jugada.obtenerEquipoQueContieneJugador(this), jugada.obtenerEquipoQueNoContieneJugador(this));
     }
 
     public void noAceptarTruco(Jugada jugada) { jugada.jugadorNoAceptaElTruco(this); }
 
     public void cantarReTruco(Jugada jugada) {
         jugada.cantarReTruco();
+        this.estadoJugador.cantarTruco(jugada.obtenerEquipoQueContieneJugador(this),jugada.obtenerEquipoQueNoContieneJugador(this));
     }
 
     public void cantarValeCuatro(Jugada jugada) {
         jugada.cantarValeCuatro();
+        this.estadoJugador.cantarTruco(jugada.obtenerEquipoQueContieneJugador(this),jugada.obtenerEquipoQueNoContieneJugador(this));
     }
 
     public void cambiarEstado(EstadoDeJugador estado) {

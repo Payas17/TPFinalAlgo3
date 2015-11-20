@@ -1,24 +1,31 @@
 package modelo.EstadoJugador;
 
 import modelo.Equipo;
+import modelo.Errores.NoTienElQuieroError;
 import modelo.Jugada;
 import modelo.Jugador;
 
 /**
- * Created by Payas on 19/11/2015.
+ * Created by Augusto on 19/11/2015.
  */
-public class EstadoPuedeCantar implements EstadoDeJugador{
+public class EstadoPuedeCantarEnvido implements EstadoDeJugador {
     @Override
-    public void cantar(Equipo equipoCanta, Equipo equipoQuiere) {
+    public void cantarEnvido(Equipo equipoCanta, Equipo equipoQuiere) {
 
         for (Jugador jugador : equipoCanta.obtenerIntegrantes()){
             jugador.cambiarEstado(new EstadoNoPuedeCantar());
         }
 
         for (Jugador jugador : equipoQuiere.obtenerIntegrantes()){
-            jugador.cambiarEstado(new EstadoPuedeCantar());
+            jugador.cambiarEstado(new EstadoPuedeCantarEnvido());
         }
     }
+
+    @Override
+    public void cantarTruco(Equipo equipoCanta, Equipo equipoQuiere) {
+        throw new NoTienElQuieroError();
+    }
+
 
     @Override
     public void aceptar(Jugada jugada) {
