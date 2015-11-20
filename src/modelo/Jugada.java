@@ -5,6 +5,8 @@ import modelo.EstadoEnvido.EstadoSinEnvido;
 import modelo.EstadoJugada.EstadoDeJugada;
 import modelo.EstadoJugada.EstadoJugadaTerminada;
 import modelo.EstadoJugada.EstadoPrimeraMano;
+import modelo.EstadoJugador.EstadoNoSeCantoNada;
+import modelo.EstadoJugador.EstadoPie;
 import modelo.EstadoTruco.EstadoDeTruco;
 import modelo.EstadoTruco.EstadoSinTruco;
 
@@ -40,11 +42,18 @@ public class Jugada {
         this.equipo1 = equipo1;
         this.equipo2 = equipo2;
 
-        for(int i = 0; i < equipo1.obtenerIntegrantes().size();i++ ){
+        for(int i = 0; i < equipo1.obtenerIntegrantes().size() ;i++ ){
+            if (i < equipo1.obtenerIntegrantes().size()-1){
+                equipo1.obtenerIntegrantes().get(i).cambiarEstado(new EstadoNoSeCantoNada());
+                equipo2.obtenerIntegrantes().get(i).cambiarEstado(new EstadoNoSeCantoNada());
+            }
+            else{
+                equipo1.obtenerIntegrantes().get(i).cambiarEstado(new EstadoPie());
+                equipo2.obtenerIntegrantes().get(i).cambiarEstado(new EstadoPie());
+            }
             ordenJugadores.add(this.equipo1.obtenerIntegrantes().get(i));
             ordenJugadores.add(this.equipo2.obtenerIntegrantes().get(i));
         }
-
         mano = ordenJugadores.get(0);
     }
 

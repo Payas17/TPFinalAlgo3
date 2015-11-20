@@ -34,11 +34,11 @@ public class EstadoPuedeCantarTruco implements EstadoDeJugador{
     @Override
     public void aceptar(Jugada jugada) {
         for (Jugador jugador :jugada.obtenerEquipo1().obtenerIntegrantes()){
-            jugador.cambiarEstado(new EstadoNoSeCantoNada());
+            jugador.cambiarEstado(new EstadoPie());
         }
 
         for (Jugador jugador : jugada.obtenerEquipo2().obtenerIntegrantes()){
-            jugador.cambiarEstado(new EstadoNoSeCantoNada());
+            jugador.cambiarEstado(new EstadoPie());
         }
 
     }

@@ -2,22 +2,17 @@ package modelo.EstadoJugador;
 
 import modelo.Equipo;
 import modelo.Errores.NoTienElQuieroError;
+import modelo.Errores.SoloJugadorPiePuedeCantarEnvidoError;
 import modelo.Jugada;
 import modelo.Jugador;
 
 /**
- * Created by Payas on 19/11/2015.
+ * Created by Lucio on 20/11/2015.
  */
 public class EstadoNoSeCantoNada implements EstadoDeJugador {
     @Override
     public void cantarEnvido(Equipo equipoCanta, Equipo equipoQuiere) {
-        for (Jugador jugador : equipoCanta.obtenerIntegrantes()){
-            jugador.cambiarEstado(new EstadoNoPuedeCantar());
-        }
-
-        for (Jugador jugador : equipoQuiere.obtenerIntegrantes()){
-            jugador.cambiarEstado(new EstadoPuedeCantarEnvido());
-        }
+        throw new SoloJugadorPiePuedeCantarEnvidoError();
     }
 
     @Override
