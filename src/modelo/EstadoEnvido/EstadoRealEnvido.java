@@ -33,7 +33,7 @@ public class EstadoRealEnvido implements EstadoDeEnvido{
     @Override
     public void aceptarEnvido(Equipo equipoGanador, Equipo equipoPerdedor,Jugada jugada) {
         equipoGanador.sumarPuntos(jugada.obtenerPuntosEnvido()+ PUNTOS);
-        jugada.cambiarEstadoEnvido(new EstadoNoSePuedeCantarMasTanto());
+        jugada.cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
     }
 
     @Override
@@ -44,7 +44,7 @@ public class EstadoRealEnvido implements EstadoDeEnvido{
     @Override
     public void noAceptarEnvido(Equipo equipoGanador,Jugada jugada) {
         equipoGanador.sumarPuntos(jugada.obtenerPuntosEnvido());
-        jugada.cambiarEstadoEnvido(new EstadoNoSePuedeCantarMasTanto());
+        jugada.cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
     }
 
 }

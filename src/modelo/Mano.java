@@ -24,9 +24,7 @@ public class Mano {
 
         Jugador jugadorGanador = jugadores.get(0);
         for (Jugador jugadorActual : jugadores) {
-
             jugadorGanador = asignarJugadorGanador(jugadorGanador, jugadorActual);
-            jugadorGanador.sumarManosGanadas();
         }
         return jugadorGanador;
 

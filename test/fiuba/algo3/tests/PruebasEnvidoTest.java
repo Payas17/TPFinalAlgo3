@@ -76,4 +76,22 @@ public class PruebasEnvidoTest {
 
         Assert.assertEquals(jugador.obtenerEnvido(), 33);
     }
+
+    @Test
+    public void testJuegaCartaYCuentaBienElEnvido(){
+
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Jugador jugador = new Jugador();
+        Carta copa12 = new Copa(12, valoresTrucoYEnvido);
+        Carta basto7 = new Basto(7, valoresTrucoYEnvido);
+        Carta basto6 = new Basto(6, valoresTrucoYEnvido);
+
+        jugador.agregarCarta(copa12);
+        jugador.agregarCarta(basto7);
+        jugador.agregarCarta(basto6);
+
+        jugador.juegaCarta(basto7);
+
+        Assert.assertEquals(jugador.obtenerEnvido(), 33);
+    }
 }

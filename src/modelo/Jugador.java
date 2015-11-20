@@ -1,7 +1,10 @@
 package modelo;
 
 import modelo.Carta.Carta;
+import modelo.Errores.CartaYaJugadaError;
 import modelo.Errores.NoTieneFlorError;
+import modelo.EstadoJugador.EstadoDeJugador;
+import modelo.EstadoJugador.EstadoNoSeCantoNada;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,25 +16,20 @@ public class Jugador {
 
     final int TANTO = 20;
     private List<Carta> cartas;
-    private int cantidadEnvido;
-    private Carta cartaEnJuego;
-    private int manosGanadas;
+    private List<Carta> cartasEnJuego;
+    private EstadoDeJugador estadoJugador;
+
+
 
     public Jugador(){
         this.cartas = new ArrayList<>();
-        this.manosGanadas = 0;
+        this.cartasEnJuego = new ArrayList<>();
+        estadoJugador = new EstadoNoSeCantoNada();
+
     }
 
     public void agregarCarta(Carta unaCarta) {
         this.cartas.add(unaCarta);
-    }
-
-    public int obtenerManosGanadas(){
-        return manosGanadas;
-    }
-
-    public void sumarManosGanadas(){
-        this.manosGanadas++;
     }
 
     public int obtenerEnvido() {
@@ -52,31 +50,44 @@ public class Jugador {
     }
 
     public void juegaCarta(Carta unaCarta) {
-        this.cartaEnJuego = unaCarta;
+        if (cartasEnJuego.contains(unaCarta)){
+            throw new CartaYaJugadaError();
+        }
+        this.cartasEnJuego.add(unaCarta);
     }
 
     public Carta obtenerCartaEnJuego(){
-        return this.cartaEnJuego;
+        return this.cartasEnJuego.get(this.cartasEnJuego.size()-1);
     }
 
     public void cantarEnvido(Jugada jugada) {
+
         jugada.cantarEnvido();
+
+        this.estadoJugador.cantar(jugada.obtenerEquipoQueContieneJugador(this),jugada.obtenerEquipoQueNoContieneJugador(this));
     }
 
     public void cantarRealEnvido(Jugada jugada) {
         jugada.cantarRealEnvido();
+        this.estadoJugador.cantar(jugada.obtenerEquipoQueContieneJugador(this),jugada.obtenerEquipoQueNoContieneJugador(this));
     }
 
     public void aceptarEnvido(Jugada jugada) {
+        this.estadoJugador.aceptar();
         jugada.aceptarEnvido();
+
     }
 
     public void cantarFaltaEnvido(Jugada jugada) {
+
         jugada.cantarFaltaEnvido();
+        this.estadoJugador.cantar(jugada.obtenerEquipoQueContieneJugador(this),jugada.obtenerEquipoQueNoContieneJugador(this));
     }
 
     public void noAceptarEnvido(Jugada jugada) {
+        this.estadoJugador.aceptar();
         jugada.jugadorNoAceptaElEnvido(this);
+
     }
 
     public void cantarTruco(Jugada jugada) {
@@ -91,5 +102,9 @@ public class Jugador {
 
     public void cantarValeCuatro(Jugada jugada) {
         jugada.cantarValeCuatro();
+    }
+
+    public void cambiarEstado(EstadoDeJugador estado) {
+        this.estadoJugador = estado;
     }
 }

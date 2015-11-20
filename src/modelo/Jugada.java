@@ -189,6 +189,10 @@ public class Jugada {
     public Equipo obtenerEquipoJugadorMano() {
         return (equipo1.contieneJugador(mano)) ? equipo1 : equipo2;
     }
+
+    public Equipo obtenerEquipoQueContieneJugador(Jugador jugador) {
+        return (equipo1.contieneJugador(jugador)) ? equipo1 :equipo2;
+    }
 }
 
 

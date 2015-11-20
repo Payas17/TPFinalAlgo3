@@ -7,7 +7,7 @@ import modelo.Jugada;
 /**
  * Created by Lucio on 18/11/2015.
  */
-public class EstadoNoSePuedeCantarMasTanto implements EstadoDeEnvido {
+public class EstadoNoSePuedeCantarEnvido implements EstadoDeEnvido {
     @Override
     public void cantarEnvido(Jugada jugada) {
         throw new NoSePuedeCantarEsoError();
