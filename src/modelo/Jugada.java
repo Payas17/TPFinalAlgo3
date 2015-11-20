@@ -159,6 +159,7 @@ public class Jugada {
     public void asignarGanadorDeJugada(Equipo equipo) {
         equipoGanador = equipo;
         cambiarEstadoJugada(new EstadoJugadaTerminada());
+        equipoGanador.sumarPuntos(estadoTruco.contarPuntosDeTruco());
     }
 
     public Equipo obtenerEquipoGanadorDeJugada(){
@@ -194,9 +195,6 @@ public class Jugada {
         return (equipo1.contieneJugador(jugador)) ? equipo1 :equipo2;
     }
 
-    public void aceptarTruco() {
-
-    }
 }
 
 

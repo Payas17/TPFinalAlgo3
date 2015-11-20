@@ -113,6 +113,5 @@ public class Jugador {
 
     public void aceptarTruco(Jugada jugada) {
         this.estadoJugador.aceptar(jugada);
-        jugada.aceptarTruco();
     }
 }

@@ -337,7 +337,7 @@ public class PruebasJugadaTest {
         jugador1.cantarRealEnvido(jugada);
         jugador2.aceptarEnvido(jugada);
 
-        Assert.assertEquals(jugador1,jugada.obtenerJugadorGanadorEnvido());
+        Assert.assertEquals(jugador1, jugada.obtenerJugadorGanadorEnvido());
         Assert.assertEquals(equipo1,jugada.obtenerEquipoGanadorEnvido());
         Assert.assertEquals(equipo1.obtenerPuntos(),7);
         Assert.assertEquals(equipo2.obtenerPuntos(),0);
@@ -426,7 +426,7 @@ public class PruebasJugadaTest {
         jugador1.cantarFaltaEnvido(jugada);
         jugador2.aceptarEnvido(jugada);
 
-        Assert.assertEquals(equipo2,jugada.obtenerEquipoGanadorEnvido());
+        Assert.assertEquals(equipo2, jugada.obtenerEquipoGanadorEnvido());
         Assert.assertEquals(equipo2.obtenerPuntos(),15);
         Assert.assertEquals(equipo1.obtenerPuntos(),16);
 
@@ -569,9 +569,8 @@ public class PruebasJugadaTest {
         Equipo equipo2 = new Equipo(jugadores2);
         Jugada jugada = new Jugada(equipo1,equipo2);
 
-        jugador1.cantarTruco(jugada);
-        jugador2.cantarTruco(jugada);
 
+        jugador1.cantarReTruco(jugada);
 
     }
 
@@ -587,9 +586,9 @@ public class PruebasJugadaTest {
         Equipo equipo2 = new Equipo(jugadores2);
         Jugada jugada = new Jugada(equipo1,equipo2);
 
-        jugador1.cantarReTruco(jugada);
 
-
+        jugador1.cantarTruco(jugada);
+        jugador2.cantarTruco(jugada);
     }
 
     @Test(expected = NoSePuedeCantarEsoError.class)
@@ -1062,6 +1061,7 @@ public class PruebasJugadaTest {
 
         jugador1.cantarTruco(jugada);
         jugador1.aceptarTruco(jugada);
+
     }
     @Test (expected = NoTienElQuieroError.class)
     public void testJugadorCantaTrucoYdespuesEnvido(){
@@ -1099,6 +1099,53 @@ public class PruebasJugadaTest {
 
     }
 
+    @Test
+    public void testEquipo1CantaTrucoEquipo2Acepta(){
+        Jugador jugador1= new Jugador();
+        List<Jugador> jugadores = new ArrayList<>();
+        jugadores.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+        Equipo equipo1 = new Equipo(jugadores);
+        Equipo equipo2 = new Equipo(jugadores2);
+        Jugada jugada = new Jugada(equipo1,equipo2);
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
 
+        Carta copa10 = new Copa(10,valoresTrucoYEnvido);
+        Carta oro1 = new Oro(1,valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(copa10);
+        jugador2.agregarCarta(oro1);
+
+        jugador1.juegaCarta(copa10);
+        jugador2.juegaCarta(oro1);
+
+        jugador1.cantarTruco(jugada);
+        jugador2.aceptarTruco(jugada);
+
+        Carta oro3 = new Oro(3,valoresTrucoYEnvido);
+        Carta oro2 = new Oro(2,valoresTrucoYEnvido);
+
+        jugada.jugarMano();
+
+        jugador1.agregarCarta(oro2);
+        jugador2.agregarCarta(oro3);
+
+        jugador1.juegaCarta(oro2);
+        jugador2.juegaCarta(oro3);
+
+        jugada.jugarMano();
+
+        Assert.assertEquals(jugada.obtenerEquipoGanadorDeJugada(),equipo2);
+        Assert.assertEquals(jugada.obtenerEquipoGanadorDeJugada().obtenerPuntos(),2);
+
+    }
+
+    @Test
+    public void testJugadaDe4JugadoresJugadorQueNoEsPieNoPuedeCantarElEnvido(){
+
+
+    }
 
 }
