@@ -15,4 +15,13 @@ public class Partida {
     Mazo mazoDeCartas;
     List<Jugada> jugadas;
     Partida EstadoDePartida;
+    boolean flor;
+
+    public Partida(){
+        flor = false;
+    }
+
+    public void jugarConFlor(){
+        flor = true;
+    }
 }

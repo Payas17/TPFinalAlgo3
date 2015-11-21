@@ -1,5 +1,6 @@
 package modelo.EstadoJugada;
 
+import modelo.Equipo;
 import modelo.Errores.JugadaTerminadaError;
 import modelo.Jugada;
 
@@ -16,4 +17,9 @@ public class EstadoJugadaTerminada implements EstadoDeJugada {
 
     @Override
     public void manoEmpardada(Jugada jugada) {  throw new JugadaTerminadaError(); }
+
+    @Override
+    public void irseAlMazo(Equipo equipo, Jugada jugada){
+        throw new JugadaTerminadaError();
+    }
 }

@@ -2,7 +2,10 @@ package modelo.EstadoJugada;
 
 
 
+import modelo.Equipo;
+import modelo.EstadoEnvido.EstadoDeEnvido;
 import modelo.EstadoEnvido.EstadoNoSePuedeCantarEnvido;
+import modelo.EstadoEnvido.EstadoSinEnvido;
 import modelo.Jugada;
 
 /**
@@ -30,7 +33,13 @@ public class EstadoPrimeraMano implements EstadoDeJugada {
         jugada.cambiarEstadoJugada(new EstadoEmpardado());
         jugada.cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
 
-
+    }
+    @Override
+    public void irseAlMazo(Equipo equipo, Jugada jugada){
+        if (jugada.obtenerEstadoEnvido().getClass()== EstadoSinEnvido.class){
+            equipo.sumarPuntos(1);
+        }
+        jugada.asignarGanadorDeJugada(equipo);
     }
 
 

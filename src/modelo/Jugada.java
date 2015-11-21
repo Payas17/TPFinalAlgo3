@@ -204,6 +204,9 @@ public class Jugada {
         return (equipo1.contieneJugador(jugador)) ? equipo1 :equipo2;
     }
 
+    public void irseAlMazo(Equipo equipo) {
+        this.estadoJugada.irseAlMazo(equipo, this);
+    }
 }
 
 

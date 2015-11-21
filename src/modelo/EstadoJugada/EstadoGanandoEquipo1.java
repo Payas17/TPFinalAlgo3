@@ -1,5 +1,6 @@
 package modelo.EstadoJugada;
 
+import modelo.Equipo;
 import modelo.Jugada;
 
 /**
@@ -20,5 +21,9 @@ public class EstadoGanandoEquipo1 implements EstadoDeJugada {
     public void manoEmpardada(Jugada jugada) {
         jugada.asignarGanadorDeJugada(jugada.obtenerEquipo1());
     }
-    
+
+    @Override
+    public void irseAlMazo(Equipo equipo, Jugada jugada){
+        jugada.asignarGanadorDeJugada(equipo);
+    }
 }

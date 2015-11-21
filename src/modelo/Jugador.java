@@ -115,4 +115,8 @@ public class Jugador {
     public void aceptarTruco(Jugada jugada) {
         this.estadoJugador.aceptar(jugada);
     }
+
+    public void irseAlMazo(Jugada jugada) {
+        jugada.irseAlMazo(jugada.obtenerEquipoQueNoContieneJugador(this));
+    }
 }

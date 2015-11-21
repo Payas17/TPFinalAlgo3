@@ -1,6 +1,7 @@
 package modelo.EstadoJugada;
 
 
+import modelo.Equipo;
 import modelo.Jugada;
 /**
  * Created by Augusto on 14/11/2015.
@@ -14,5 +15,5 @@ public interface EstadoDeJugada {
 
     void manoEmpardada(Jugada jugada);
 
-
+    void irseAlMazo(Equipo equipo, Jugada jugada);
 }
