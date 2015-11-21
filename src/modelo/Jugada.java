@@ -111,8 +111,7 @@ public class Jugada {
     }
 
     public void aceptarEnvido() {
-        Equipo equipoPerdedorEnvido = obtenerEquipoQueNoContieneJugador(obtenerJugadorGanadorEnvido());
-        this.estadoEnvido.aceptarEnvido(obtenerEquipoGanadorEnvido(),equipoPerdedorEnvido,this);
+        this.estadoEnvido.aceptarEnvido(this);
     }
 
     public Jugador obtenerJugadorGanadorEnvido() {
@@ -123,8 +122,21 @@ public class Jugada {
         return jugadorGanadorEnvido;
     }
 
+    public Jugador obtenerJugadorGanadorFlor() {
+        Jugador jugadorGanadorFlor = ordenJugadores.get(0);
+        for (Jugador jugador: ordenJugadores){
+            jugadorGanadorFlor = asignarJugadorGanadorFlor(jugadorGanadorFlor, jugador);
+        }
+        return jugadorGanadorFlor;
+    }
+
+    private Jugador asignarJugadorGanadorFlor(Jugador jugador1, Jugador jugador2) {
+        return (jugador1.obtenerFlor() >= jugador2.obtenerFlor()) ? jugador1 : jugador2;
+    }
+
     public Jugador asignarJugadorGanadorEnvido(Jugador jugador1, Jugador jugador2) {
         return (jugador1.obtenerEnvido() >= jugador2.obtenerEnvido()) ? jugador1 : jugador2;
+
     }
 
     public Equipo obtenerEquipoGanadorEnvido() {
@@ -227,11 +239,19 @@ public class Jugada {
     }
 
     public Equipo obtenerEquipoGanadorFlor(Equipo equipo1,Equipo equipo2) {
-        return (equipo1.obtenerValorMaximaFlor() >= equipo2.obtenerValorMaximaFlor() ) ? equipo1 : equipo2;
+        return (equipo1.contieneJugador(obtenerJugadorGanadorFlor())) ? equipo1 : equipo2;
     }
 
     public void aceptarFlor(Jugador jugador) {
-        estadoEnvido.aceptarFlor(obtenerEquipoQueNoContieneJugador(jugador),obtenerEquipoQueContieneJugador(jugador),this);
+        estadoEnvido.aceptarFlor(obtenerEquipoQueNoContieneJugador(jugador), obtenerEquipoQueContieneJugador(jugador), this);
+    }
+
+    public void contraFlor() {
+        estadoEnvido.contraFlor(this);
+    }
+
+    public void contraFlorAlResto() {
+        estadoEnvido.contraFlorAlResto(this);
     }
 }
 

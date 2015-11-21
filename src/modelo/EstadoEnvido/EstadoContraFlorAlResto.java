@@ -2,19 +2,15 @@ package modelo.EstadoEnvido;
 
 import modelo.Equipo;
 import modelo.Errores.NoSePuedeCantarEsoError;
-import modelo.Errores.NoTieneFlorError;
 import modelo.Jugada;
-import modelo.Jugador;
 
 /**
- * Created by Lucio on 21/11/2015.
+ * Created by Payas on 21/11/2015.
  */
-public class EstadoFlor implements EstadoDeEnvido {
-
+public class EstadoContraFlorAlResto implements EstadoDeEnvido {
     @Override
     public void cantarEnvido(Jugada jugada) {
         throw new NoSePuedeCantarEsoError();
-
     }
 
     @Override
@@ -34,7 +30,7 @@ public class EstadoFlor implements EstadoDeEnvido {
 
     @Override
     public int obtenerPuntos() {
-        return 3;
+        return 0;
     }
 
     @Override
@@ -42,31 +38,30 @@ public class EstadoFlor implements EstadoDeEnvido {
         throw new NoSePuedeCantarEsoError();
     }
 
-    public void cantarFlor(Jugada jugada){
+    @Override
+    public void cantarFlor(Jugada jugada) {
         throw new NoSePuedeCantarEsoError();
     }
 
     @Override
     public void noAceptarFlor(Equipo equipo, Jugada jugada) {
+        equipo.sumarPuntos(jugada.obtenerEstadoEnvido().obtenerPuntos());
         jugada.cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
-        equipo.sumarPuntos(3);
     }
 
     @Override
-    public void aceptarFlor(Equipo equipoQueCantoFlor, Equipo equipoQueNoCantoFlor,Jugada jugada) {
-        jugada.obtenerEquipoGanadorFlor(equipoQueCantoFlor,equipoQueNoCantoFlor).sumarPuntos(4);
-        equipoQueCantoFlor.sumarPuntos(2);
+    public void aceptarFlor(Equipo equipo1, Equipo equipo2, Jugada jugada) {
+        jugada.obtenerEquipoGanadorFlor(equipo1,equipo2).sumarPuntos(30 - jugada.obtenerEquipoQueNoContieneJugador(jugada.obtenerJugadorGanadorFlor()).obtenerPuntos());
         jugada.cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
     }
 
     @Override
     public void contraFlor(Jugada jugada) {
-        jugada.cambiarEstadoEnvido(new EstadoContraFlor());
+        throw new NoSePuedeCantarEsoError();
     }
 
     @Override
     public void contraFlorAlResto(Jugada jugada) {
-        jugada.cambiarEstadoEnvido(new EstadoContraFlorAlResto());
+        throw new NoSePuedeCantarEsoError();
     }
-
 }

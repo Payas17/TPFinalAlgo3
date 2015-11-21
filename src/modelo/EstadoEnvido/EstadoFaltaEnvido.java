@@ -25,15 +25,16 @@ public class EstadoFaltaEnvido implements EstadoDeEnvido{
     }
 
     @Override
-    public void aceptarEnvido(Equipo equipoGanador, Equipo equipoPerdedor, Jugada jugada) {
+    public void aceptarEnvido(Jugada jugada) {
+        Equipo equipoPerdedor = jugada.obtenerEquipoQueNoContieneJugador(jugada.obtenerJugadorGanadorEnvido());
         jugada.cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
         if( equipoPerdedor.obtenerPuntos() > 15){
-            int maxPuntaje = Math.max(equipoGanador.obtenerPuntos(), equipoPerdedor.obtenerPuntos());
-            equipoGanador.sumarPuntos(30 - maxPuntaje);
+            int maxPuntaje = Math.max(jugada.obtenerEquipoGanadorEnvido().obtenerPuntos(), equipoPerdedor.obtenerPuntos());
+            jugada.obtenerEquipoGanadorEnvido().sumarPuntos(30 - maxPuntaje);
 
         }
         else{
-            equipoGanador.sumarPuntos(15 - equipoPerdedor.obtenerPuntos());
+            jugada.obtenerEquipoGanadorEnvido().sumarPuntos(15 - equipoPerdedor.obtenerPuntos());
         }
     }
 
@@ -62,5 +63,16 @@ public class EstadoFaltaEnvido implements EstadoDeEnvido{
     public void aceptarFlor(Equipo equipoQueCantoFlor, Equipo equipoQueNoCantoFlor,Jugada jugada) {
         throw new NoSePuedeCantarEsoError();
     }
+
+    @Override
+    public void contraFlor(Jugada jugada) {
+        throw new NoSePuedeCantarEsoError();
+    }
+
+    @Override
+    public void contraFlorAlResto(Jugada jugada) {
+        throw new NoSePuedeCantarEsoError();
+    }
+
 
 }

@@ -25,7 +25,7 @@ public class EstadoNoSePuedeCantarEnvido implements EstadoDeEnvido {
     }
 
     @Override
-    public void aceptarEnvido(Equipo equipoGanador, Equipo equipoPerdedor, Jugada jugada) {
+    public void aceptarEnvido(Jugada jugada) {
         throw new NoSePuedeCantarEsoError();
     }
 
@@ -53,5 +53,16 @@ public class EstadoNoSePuedeCantarEnvido implements EstadoDeEnvido {
     public void aceptarFlor(Equipo equipo1, Equipo equipo2, Jugada jugada) {
         throw new NoSePuedeCantarEsoError();
     }
+
+    @Override
+    public void contraFlor(Jugada jugada) {
+        throw new NoSePuedeCantarEsoError();
+    }
+
+    @Override
+    public void contraFlorAlResto(Jugada jugada) {
+        throw new NoSePuedeCantarEsoError();
+    }
+
 
 }

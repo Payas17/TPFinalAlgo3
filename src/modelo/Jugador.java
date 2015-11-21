@@ -111,7 +111,7 @@ public class Jugador {
 
     public void cantarValeCuatro(Jugada jugada) {
         jugada.cantarValeCuatro();
-        this.estadoJugador.cantarTruco(jugada.obtenerEquipoQueContieneJugador(this),jugada.obtenerEquipoQueNoContieneJugador(this));
+        this.estadoJugador.cantarTruco(jugada.obtenerEquipoQueContieneJugador(this), jugada.obtenerEquipoQueNoContieneJugador(this));
     }
 
     public void cambiarEstado(EstadoDeJugador estado) {
@@ -132,5 +132,13 @@ public class Jugador {
 
     public void aceptarFlor(Jugada jugada) {
         jugada.aceptarFlor(this);
+    }
+
+    public void contraFlor(Jugada jugada) {
+        jugada.contraFlor();
+    }
+
+    public void contraFlorAlResto(Jugada jugada) {
+        jugada.contraFlorAlResto();
     }
 }

@@ -38,6 +38,7 @@ public class Equipo {
         return integrantes.contains(jugador);
     }
 
+    /*
     public int obtenerValorMaximoEnvido() {
         int envidoMasAltoEquipo = integrantes.get(0).obtenerEnvido();
 
@@ -45,7 +46,7 @@ public class Equipo {
             envidoMasAltoEquipo = Math.max(envidoMasAltoEquipo,jugador.obtenerEnvido());
         }
         return envidoMasAltoEquipo;
-    }
+    }*/
 
     public int obtenerValorMaximaFlor() {
         int florMasAltaEquipo = 0;

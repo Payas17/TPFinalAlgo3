@@ -10,7 +10,6 @@ import modelo.Jugador;
  * Created by Payas on 14/11/2015.
  */
 public class EstadoSinEnvido implements EstadoDeEnvido {
-    final int TANTO = 20;
     final int PUNTOS = 1;
     @Override
     public void cantarEnvido(Jugada jugada) {
@@ -28,7 +27,7 @@ public class EstadoSinEnvido implements EstadoDeEnvido {
     }
 
     @Override
-    public void aceptarEnvido(Equipo equipoGanador, Equipo equipoPerdedor,Jugada jugada) {
+    public void aceptarEnvido(Jugada jugada) {
         throw new NoSePuedeCantarEsoError();
 
     }
@@ -55,6 +54,17 @@ public class EstadoSinEnvido implements EstadoDeEnvido {
 
     @Override
     public void aceptarFlor(Equipo equipoQueCantoFlor, Equipo equipoQueNoCantoFlor,Jugada jugada) {
+        throw new NoSePuedeCantarEsoError();
+    }
+
+
+    @Override
+    public void contraFlor(Jugada jugada) {
+        throw new NoSePuedeCantarEsoError();
+    }
+
+    @Override
+    public void contraFlorAlResto(Jugada jugada) {
         throw new NoSePuedeCantarEsoError();
     }
 
