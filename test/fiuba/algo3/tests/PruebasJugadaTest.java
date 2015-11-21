@@ -2,10 +2,7 @@ package fiuba.algo3.tests;
 
 import modelo.*;
 import modelo.Carta.*;
-import modelo.Errores.JugadaTerminadaError;
-import modelo.Errores.NoSePuedeCantarEsoError;
-import modelo.Errores.NoTienElQuieroError;
-import modelo.Errores.SoloJugadorPiePuedeCantarEnvidoError;
+import modelo.Errores.*;
 import modelo.EstadoJugada.EstadoGanandoEquipo1;
 import org.junit.Assert;
 import org.junit.Test;
@@ -1310,6 +1307,38 @@ public class PruebasJugadaTest {
         Assert.assertEquals(jugada.obtenerEquipoGanadorDeJugada().obtenerPuntos(),3);
         Assert.assertEquals(jugada.obtenerEquipo1().obtenerPuntos(),3);
 
+    }
+
+    @Test(expected = NoSePuedeJugarCarta.class)
+    public void testJugadorQuiereTirarCartaPeroNoPuedePorqueDebeAceptarElEnvido() {
+        Jugador jugador1 = new Jugador();
+        List<Jugador> jugadores = new ArrayList<>();
+        jugadores.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+        Equipo equipo1 = new Equipo(jugadores);
+        Equipo equipo2 = new Equipo(jugadores2);
+        Jugada jugada = new Jugada(equipo1, equipo2);
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+
+        Carta copa10 = new Copa(10, valoresTrucoYEnvido);
+        Carta oro1 = new Oro(1, valoresTrucoYEnvido);
+        Carta oro3 = new Oro(3, valoresTrucoYEnvido);
+        Carta oro2 = new Oro(2, valoresTrucoYEnvido);
+        Carta espada10 = new Espada(10, valoresTrucoYEnvido);
+        Carta espada1 = new Espada(1, valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(oro1);
+        jugador1.agregarCarta(oro2);
+        jugador1.agregarCarta(espada10);
+
+        jugador2.agregarCarta(copa10);
+        jugador2.agregarCarta(oro3);
+        jugador2.agregarCarta(espada1);
+
+        jugador1.cantarRealEnvido(jugada);
+        jugador2.juegaCarta(copa10);
     }
 
 

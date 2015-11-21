@@ -1,6 +1,7 @@
 package modelo.EstadoJugador;
 
 import modelo.Equipo;
+import modelo.Errores.NoSePuedeJugarCarta;
 import modelo.Jugada;
 import modelo.Jugador;
 
@@ -41,5 +42,10 @@ public class EstadoPuedeCantarTruco implements EstadoDeJugador{
             jugador.cambiarEstado(new EstadoPie());
         }
 
+    }
+
+    @Override
+    public void jugarCarta() {
+        throw new NoSePuedeJugarCarta();
     }
 }

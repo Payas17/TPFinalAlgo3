@@ -50,6 +50,7 @@ public class Jugador {
     }
 
     public void juegaCarta(Carta unaCarta) {
+       this.estadoJugador.jugarCarta();
         if (cartasEnJuego.contains(unaCarta)){
             throw new CartaYaJugadaError();
         }

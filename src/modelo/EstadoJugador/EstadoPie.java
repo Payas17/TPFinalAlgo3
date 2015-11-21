@@ -35,4 +35,9 @@ public class EstadoPie implements EstadoDeJugador {
     public void aceptar(Jugada jugada) {
         throw new NoTienElQuieroError();
     }
+
+    @Override
+    public void jugarCarta() {
+
+    }
 }
