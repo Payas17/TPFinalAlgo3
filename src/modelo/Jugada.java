@@ -1,6 +1,9 @@
 package modelo;
 
+import modelo.Errores.NoTieneFlorError;
 import modelo.EstadoEnvido.EstadoDeEnvido;
+import modelo.EstadoEnvido.EstadoFlor;
+import modelo.EstadoEnvido.EstadoNoSePuedeCantarEnvido;
 import modelo.EstadoEnvido.EstadoSinEnvido;
 import modelo.EstadoJugada.EstadoDeJugada;
 import modelo.EstadoJugada.EstadoJugadaTerminada;
@@ -17,6 +20,7 @@ import java.util.List;
  * Created by Lucio on 08/11/2015.
  */
 public class Jugada {
+    final int TANTO = 20;
 
     private List<Jugador> ordenJugadores;
     private Equipo ganadorPrimerMano;
@@ -191,7 +195,6 @@ public class Jugada {
         return puntosEnvido;
     }
 
-
     public void sumarPuntosEnvido(int puntos) {
         puntosEnvido += puntos;
     }
@@ -206,6 +209,29 @@ public class Jugada {
 
     public void irseAlMazo(Equipo equipo) {
         this.estadoJugada.irseAlMazo(equipo, this);
+    }
+
+    public void cantarFlor(Jugador jugador) {
+        if (jugador.sumarEnvido(0,1) >= TANTO && jugador.sumarEnvido(0,2) >= TANTO){
+            this.estadoEnvido.cantarFlor(this);
+        }
+        else{
+            throw new NoTieneFlorError();
+        }
+
+    }
+
+    public void noAceptarFlor(Jugador jugador) {
+        estadoEnvido.noAceptarFlor(obtenerEquipoQueNoContieneJugador(jugador),this);
+
+    }
+
+    public Equipo obtenerEquipoGanadorFlor(Equipo equipo1,Equipo equipo2) {
+        return (equipo1.obtenerValorMaximaFlor() >= equipo2.obtenerValorMaximaFlor() ) ? equipo1 : equipo2;
+    }
+
+    public void aceptarFlor(Jugador jugador) {
+        estadoEnvido.aceptarFlor(obtenerEquipoQueNoContieneJugador(jugador),obtenerEquipoQueContieneJugador(jugador),this);
     }
 }
 

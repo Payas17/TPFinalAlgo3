@@ -3,6 +3,7 @@ package modelo.EstadoEnvido;
 import modelo.Equipo;
 import modelo.Errores.NoSePuedeCantarEsoError;
 import modelo.Jugada;
+import modelo.Jugador;
 
 /**
  * Created by Augusto on 14/11/2015.
@@ -45,4 +46,20 @@ public class EstadoEnvidoEnvido implements EstadoDeEnvido {
         equipoGanador.sumarPuntos(jugada.obtenerPuntosEnvido());
         jugada.cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
     }
+
+    @Override
+    public void cantarFlor(Jugada jugada) {
+        jugada.cambiarEstadoEnvido(new EstadoFlor());
+    }
+
+    @Override
+    public void noAceptarFlor(Equipo equipo, Jugada jugada) {
+        throw new NoSePuedeCantarEsoError();
+    }
+
+    @Override
+    public void aceptarFlor(Equipo equipoQueCantoFlor, Equipo equipoQueNoCantoFlor,Jugada jugada) {
+        throw new NoSePuedeCantarEsoError();
+    }
+
 }

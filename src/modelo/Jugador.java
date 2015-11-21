@@ -3,6 +3,7 @@ package modelo;
 import modelo.Carta.Carta;
 import modelo.Errores.CartaYaJugadaError;
 import modelo.Errores.NoTieneFlorError;
+import modelo.EstadoEnvido.EstadoNoSePuedeCantarEnvido;
 import modelo.EstadoJugador.EstadoDeJugador;
 import modelo.EstadoJugador.EstadoPie;
 
@@ -37,16 +38,21 @@ public class Jugador {
         return Math.max(Math.max(sumarEnvido(0,1), sumarEnvido(0, 2)),sumarEnvido(1, 2));
     }
 
-    private int sumarEnvido(int pos1, int pos2) {
+    public int obtenerFlor(){
+        int valorFlor = TANTO;
+        for(Carta carta:cartas){
+            valorFlor += carta.obtenerValorEnvido();
+        }
+        return valorFlor;
+    }
+
+    public int sumarEnvido(int pos1, int pos2) {
         return this.cartas.get(pos1).sumarEnvido(this.cartas.get(pos2));
     }
 
-    public int cantarFlor(){
+    public void cantarFlor(Jugada jugada){
+        jugada.cantarFlor(this);
 
-        if(sumarEnvido(0,1) >= TANTO && sumarEnvido(0,2) >= TANTO){
-            return obtenerEnvido();
-        }
-        throw new NoTieneFlorError();
     }
 
     public void juegaCarta(Carta unaCarta) {
@@ -100,7 +106,7 @@ public class Jugador {
 
     public void cantarReTruco(Jugada jugada) {
         jugada.cantarReTruco();
-        this.estadoJugador.cantarTruco(jugada.obtenerEquipoQueContieneJugador(this),jugada.obtenerEquipoQueNoContieneJugador(this));
+        this.estadoJugador.cantarTruco(jugada.obtenerEquipoQueContieneJugador(this), jugada.obtenerEquipoQueNoContieneJugador(this));
     }
 
     public void cantarValeCuatro(Jugada jugada) {
@@ -118,5 +124,13 @@ public class Jugador {
 
     public void irseAlMazo(Jugada jugada) {
         jugada.irseAlMazo(jugada.obtenerEquipoQueNoContieneJugador(this));
+    }
+
+    public void noAceptarFlor(Jugada jugada){
+        jugada.noAceptarFlor(this);
+    }
+
+    public void aceptarFlor(Jugada jugada) {
+        jugada.aceptarFlor(this);
     }
 }

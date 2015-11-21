@@ -7,6 +7,7 @@ import java.util.List;
  * Created by Lucio on 13/11/2015.
  */
 public class Equipo {
+    final int TANTO = 20;
     private List<Jugador> integrantes;
     private int puntos;
 
@@ -44,6 +45,16 @@ public class Equipo {
             envidoMasAltoEquipo = Math.max(envidoMasAltoEquipo,jugador.obtenerEnvido());
         }
         return envidoMasAltoEquipo;
+    }
+
+    public int obtenerValorMaximaFlor() {
+        int florMasAltaEquipo = 0;
+        for (Jugador jugador : integrantes) {
+            if (jugador.sumarEnvido(0, 1) >= TANTO && jugador.sumarEnvido(0, 2) >= TANTO) {
+                florMasAltaEquipo = jugador.obtenerFlor();
+            }
+        }
+        return florMasAltaEquipo;
     }
 
     public void sumarPuntos(int puntos) {

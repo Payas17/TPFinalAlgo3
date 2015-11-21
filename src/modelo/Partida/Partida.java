@@ -24,4 +24,8 @@ public class Partida {
     public void jugarConFlor(){
         flor = true;
     }
+
+    public boolean seEstaJugandoConFlor(){
+        return flor;
+    }
 }

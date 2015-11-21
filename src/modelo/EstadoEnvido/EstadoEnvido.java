@@ -1,7 +1,10 @@
 package modelo.EstadoEnvido;
 
 import modelo.Equipo;
+import modelo.Errores.NoSePuedeCantarEsoError;
+import modelo.Errores.NoTieneFlorError;
 import modelo.Jugada;
+import modelo.Jugador;
 
 /**
  * Created by Augusto on 14/11/2015.
@@ -33,8 +36,8 @@ public class EstadoEnvido implements EstadoDeEnvido {
     }
 
     @Override
-    public void aceptarEnvido(Equipo equipoGanador, Equipo equipoPerdedor,Jugada jugada) {
-        equipoGanador.sumarPuntos(jugada.obtenerPuntosEnvido()+ PUNTOS);
+    public void aceptarEnvido(Equipo equipoGanador, Equipo equipoPerdedor, Jugada jugada) {
+        equipoGanador.sumarPuntos(jugada.obtenerPuntosEnvido() + PUNTOS);
         jugada.cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
     }
 
@@ -44,10 +47,24 @@ public class EstadoEnvido implements EstadoDeEnvido {
     }
 
     @Override
-    public void noAceptarEnvido(Equipo equipoGanador,Jugada jugada) {
+    public void noAceptarEnvido(Equipo equipoGanador, Jugada jugada) {
         equipoGanador.sumarPuntos(1);
         jugada.cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
     }
 
+    @Override
+    public void cantarFlor(Jugada jugada) {
+        jugada.cambiarEstadoEnvido(new EstadoFlor());
+    }
+
+    @Override
+    public void noAceptarFlor(Equipo equipo, Jugada jugada) {
+        throw new NoSePuedeCantarEsoError();
+    }
+
+    @Override
+    public void aceptarFlor(Equipo equipoQueCantoFlor, Equipo equipoQueNoCantoFlor,Jugada jugada) {
+        throw new NoSePuedeCantarEsoError();
+    }
 
 }
