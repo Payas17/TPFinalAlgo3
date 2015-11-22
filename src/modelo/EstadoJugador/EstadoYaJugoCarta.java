@@ -3,14 +3,13 @@ package modelo.EstadoJugador;
 import modelo.Equipo;
 import modelo.Errores.NoPuedeJugarError;
 import modelo.Errores.NoSePuedeJugarCarta;
-import modelo.Errores.NoTienElQuieroError;
 import modelo.Jugada;
 import modelo.Jugador;
 
 /**
- * Created by Payas on 19/11/2015.
+ * Created by Augusto on 22/11/2015.
  */
-public class EstadoNoPuedeCantar implements EstadoDeJugador{
+public class EstadoYaJugoCarta implements EstadoDeJugador {
     @Override
     public void cantarEnvido(Equipo equipoCanta, Equipo equipoQuiere) {
         throw new NoPuedeJugarError();
@@ -28,6 +27,6 @@ public class EstadoNoPuedeCantar implements EstadoDeJugador{
 
     @Override
     public void jugarCarta(Jugador jugador) {
-        jugador.cambiarEstado(new EstadoYaJugoCarta());
+        throw new NoSePuedeJugarCarta();
     }
 }

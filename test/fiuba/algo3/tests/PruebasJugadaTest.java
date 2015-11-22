@@ -298,8 +298,6 @@ public class PruebasJugadaTest {
         jugador1.agregarCarta(oro2);
         jugador1.agregarCarta(espada1);
 
-
-
         jugador2.agregarCarta(oro7);
         jugador2.agregarCarta(oro1);
         jugador2.agregarCarta(espada2);
@@ -1206,13 +1204,14 @@ public class PruebasJugadaTest {
         jugador1.juegaCarta(copa10);
         jugador2.juegaCarta(oro1);
 
+        jugada.jugarMano();
+
         jugador1.cantarTruco(jugada);
         jugador2.aceptarTruco(jugada);
 
         Carta oro3 = new Oro(3,valoresTrucoYEnvido);
         Carta oro2 = new Oro(2,valoresTrucoYEnvido);
 
-        jugada.jugarMano();
 
         jugador1.agregarCarta(oro2);
         jugador2.agregarCarta(oro3);
@@ -1317,11 +1316,12 @@ public class PruebasJugadaTest {
         jugador1.juegaCarta(oro1);
         jugador2.juegaCarta(copa10);
 
+        jugada.jugarMano();
+
         jugador1.cantarTruco(jugada);
         jugador2.cantarReTruco(jugada);
         jugador1.aceptarTruco(jugada);
 
-        jugada.jugarMano();
 
 
         jugador1.juegaCarta(oro2);
@@ -1379,12 +1379,11 @@ public class PruebasJugadaTest {
         jugador1.juegaCarta(oro1);
         jugador2.juegaCarta(copa10);
 
+        jugada.jugarMano();
+
         jugador1.cantarTruco(jugada);
         jugador2.cantarReTruco(jugada);
         jugador1.aceptarTruco(jugada);
-
-        jugada.jugarMano();
-
 
         jugador1.juegaCarta(oro2);
         jugador2.juegaCarta(oro3);

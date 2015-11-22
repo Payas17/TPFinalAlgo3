@@ -37,7 +37,7 @@ public class EstadoPie implements EstadoDeJugador {
     }
 
     @Override
-    public void jugarCarta() {
-
+    public void jugarCarta(Jugador jugador) {
+        jugador.cambiarEstado(new EstadoYaJugoCarta());
     }
 }

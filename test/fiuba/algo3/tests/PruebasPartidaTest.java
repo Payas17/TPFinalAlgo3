@@ -3,6 +3,7 @@ package fiuba.algo3.tests;
 import modelo.Carta.*;
 import modelo.Equipo;
 import modelo.Errores.NoPuedeJugarError;
+import modelo.Errores.NoSePuedeJugarCarta;
 import modelo.Jugada;
 import modelo.Jugador;
 import modelo.Partida.EstadoPartidaTerminada;
@@ -80,7 +81,7 @@ public class PruebasPartidaTest {
         Assert.assertEquals(partida.obtenerEstado().getClass(), EstadoPartidaTerminada.class);
     }
 
-    @Test(expected = NoPuedeJugarError.class)
+    @Test(expected = NoSePuedeJugarCarta.class)
     public void testPartidaTerminadaEntoncesDevuelveErrorSiSeQuiereSeguirJugando(){
         Jugador jugador1= new Jugador();
         List<Jugador> jugadores = new ArrayList<>();

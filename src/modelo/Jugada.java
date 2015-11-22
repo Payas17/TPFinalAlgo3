@@ -45,11 +45,13 @@ public class Jugada {
         this.equipo1 = equipo1;
         this.equipo2 = equipo2;
 
-        inicializarJugadores(equipo1, equipo2, mazoDeCartas);
+        inicializarJugadores2(equipo1, equipo2, mazoDeCartas);
     }
 
-    public Jugada(Partida partida,Mazo mazoDeCartas) {
-        ordenJugadores = new ArrayList<>();
+
+
+    public Jugada(Partida partida,Mazo mazoDeCartas, List<Jugador> ordenJugadoresDePartida) {
+        ordenJugadores = ordenJugadoresDePartida;
         estadoEnvido = new EstadoSinEnvido();
         estadoTruco = new EstadoSinTruco();
         estadoJugada = new EstadoPrimeraMano();
@@ -60,10 +62,10 @@ public class Jugada {
         this.equipo1 = partida.obtenerEquipo1();
         this.equipo2 = partida.obtenerEquipo2();
 
-        inicializarJugadores(equipo1, equipo2, mazoDeCartas);
+        inicializarJugadores(mazoDeCartas);
     }
 
-    private void inicializarJugadores(Equipo equipo1, Equipo equipo2, Mazo mazoDeCartas) {
+    private void inicializarJugadores2(Equipo equipo1, Equipo equipo2, Mazo mazoDeCartas) {
         equipo1.obtenerIntegrantes().get(equipo1.obtenerIntegrantes().size() -1).cambiarEstado(new EstadoPie());
         equipo2.obtenerIntegrantes().get(equipo1.obtenerIntegrantes().size() -1).cambiarEstado(new EstadoPie());
         for (int i = 0; i < equipo1.obtenerIntegrantes().size(); i++) {
@@ -71,25 +73,38 @@ public class Jugada {
             //equipo1.obtenerIntegrantes().get(i).cambiarCartas(mazoDeCartas);
             //equipo2.obtenerIntegrantes().get(i).cambiarCartas(mazoDeCartas);
 
-            /*if (i < equipo1.obtenerIntegrantes().size() - 1) {
-                equipo1.obtenerIntegrantes().get(i).cambiarEstado(new EstadoNoSeCantoNada());
-                equipo2.obtenerIntegrantes().get(i).cambiarEstado(new EstadoNoSeCantoNada());
-            } else {
-                equipo1.obtenerIntegrantes().get(i).cambiarEstado(new EstadoPie());
-                equipo2.obtenerIntegrantes().get(i).cambiarEstado(new EstadoPie());
-            }*/
+
             ordenJugadores.add(this.equipo1.obtenerIntegrantes().get(i));
             ordenJugadores.add(this.equipo2.obtenerIntegrantes().get(i));
         }
         mano = ordenJugadores.get(0);
     }
 
-    private void EstadoJugada(Mano mano) {
+    private void inicializarJugadores(Mazo mazoDeCartas) {
+        Jugador jugadorQuePongoUltimo = ordenJugadores.remove(0);
+        ordenJugadores.add(jugadorQuePongoUltimo);
 
+        ordenJugadores.get(ordenJugadores.size()-1).cambiarEstado(new EstadoPie());
+        ordenJugadores.get(ordenJugadores.size()-2).cambiarEstado(new EstadoPie());
+        //mazoDeCartas.mezclar();
+        for (Jugador jugadorActual: ordenJugadores) {
+            //jugadorActual.cambiarCartas(mazoDeCartas);
+        }
+        mano = ordenJugadores.get(0);
+    }
+
+    private void EstadoJugada(Mano mano) {
+        for (Jugador jugador: ordenJugadores){
+            jugador.cambiarEstado(new EstadoNoSeCantoNada());
+        }
         if (mano.hayParda(equipo1,equipo2)){
             this.estadoJugada.manoEmpardada(this);
         }else {
+            int i=0;
+            while (ordenJugadores.get(i) != mano.obtenerJugadorGanador()){
 
+                ordenJugadores.add(ordenJugadores.remove(i));
+            }
             Equipo equipo = mano.obtenerEquipoGanador(equipo1, equipo2);
             if (equipo == equipo2) {
                 this.estadoJugada.ganoManoEquipo2(this);

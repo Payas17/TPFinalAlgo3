@@ -2,6 +2,7 @@ package modelo.EstadoJugador;
 
 import modelo.Equipo;
 import modelo.Jugada;
+import modelo.Jugador;
 
 /**
  * Created by Payas on 19/11/2015.
@@ -13,5 +14,5 @@ public interface EstadoDeJugador {
 
     void aceptar(Jugada jugada);
 
-    void jugarCarta();
+    void jugarCarta(Jugador jugador);
 }

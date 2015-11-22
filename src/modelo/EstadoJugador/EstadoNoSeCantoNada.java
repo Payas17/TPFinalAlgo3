@@ -32,7 +32,7 @@ public class EstadoNoSeCantoNada implements EstadoDeJugador {
     }
 
     @Override
-    public void jugarCarta() {
-
+    public void jugarCarta(Jugador jugador) {
+        jugador.cambiarEstado(new EstadoYaJugoCarta());
     }
 }

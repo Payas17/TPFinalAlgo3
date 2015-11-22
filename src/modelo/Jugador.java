@@ -26,7 +26,6 @@ public class Jugador {
     public Jugador(){
         this.cartas = new ArrayList<>();
         this.cartasEnJuego = new ArrayList<>();
-        //estadoJugador = new EstadoPie();
         estadoJugador = new EstadoNoSeCantoNada();
 
     }
@@ -58,7 +57,7 @@ public class Jugador {
     }
 
     public void juegaCarta(Carta unaCarta) {
-       this.estadoJugador.jugarCarta();
+       this.estadoJugador.jugarCarta(this);
         if (cartasEnJuego.contains(unaCarta)){
             throw new CartaYaJugadaError();
         }
@@ -70,9 +69,7 @@ public class Jugador {
     }
 
     public void cantarEnvido(Jugada jugada) {
-
         jugada.cantarEnvido();
-
         this.estadoJugador.cantarEnvido(jugada.obtenerEquipoQueContieneJugador(this), jugada.obtenerEquipoQueNoContieneJugador(this));
     }
 
@@ -84,7 +81,6 @@ public class Jugador {
     public void aceptarEnvido(Jugada jugada) {
         this.estadoJugador.aceptar(jugada);
         jugada.aceptarEnvido();
-
     }
 
     public void cantarFaltaEnvido(Jugada jugada) {

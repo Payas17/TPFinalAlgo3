@@ -41,7 +41,7 @@ public class EstadoPuedeCantarEnvido implements EstadoDeJugador {
     }
 
     @Override
-    public void jugarCarta() {
+    public void jugarCarta(Jugador jugador) {
         throw new NoSePuedeJugarCarta();
     }
 }

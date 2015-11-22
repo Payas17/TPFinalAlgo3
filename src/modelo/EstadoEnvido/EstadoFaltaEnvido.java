@@ -4,6 +4,7 @@ import modelo.Equipo;
 import modelo.Errores.NoSePuedeCantarEsoError;
 import modelo.EstadoJugada.EstadoJugadaTerminada;
 import modelo.EstadoJugador.EstadoNoPuedeCantar;
+import modelo.EstadoJugador.EstadoYaJugoCarta;
 import modelo.Jugada;
 import modelo.Jugador;
 import modelo.Partida.EstadoPartidaTerminada;
@@ -127,10 +128,10 @@ public class EstadoFaltaEnvido implements EstadoDeEnvido{
 
     private void cambiarEstadoAJugadores(Equipo equipo1, Equipo equipo2) {
         for (Jugador jugador : equipo1.obtenerIntegrantes()) {
-            jugador.cambiarEstado(new EstadoNoPuedeCantar());
+            jugador.cambiarEstado(new EstadoYaJugoCarta());
         }
         for (Jugador jugador : equipo2.obtenerIntegrantes()) {
-            jugador.cambiarEstado(new EstadoNoPuedeCantar());
+            jugador.cambiarEstado(new EstadoYaJugoCarta());
         }
     }
 

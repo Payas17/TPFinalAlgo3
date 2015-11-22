@@ -1,9 +1,6 @@
 package modelo.Partida;
 
-import modelo.Equipo;
-import modelo.Jugada;
-import modelo.Mazo;
-import modelo.ValoresTrucoYEnvido;
+import modelo.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,12 +9,13 @@ import java.util.List;
  * Created by Augusto on 18/11/2015.
  */
 public class Partida {
-    Equipo equipo1;
-    Equipo equipo2;
-    Mazo mazoDeCartas;
-    List<Object> jugadas;
-    EstadoDePartida estadoDePartida;
-    boolean flor;
+   private Equipo equipo1;
+    private Equipo equipo2;
+    private Mazo mazoDeCartas;
+    private List<Object> jugadas;
+    private EstadoDePartida estadoDePartida;
+    private boolean flor;
+    private List<Jugador> ordenJugadores;
 
     public Partida(Equipo equipo1,Equipo equipo2){
         this.equipo1 = equipo1;
@@ -26,6 +24,12 @@ public class Partida {
         mazoDeCartas = new Mazo(new ValoresTrucoYEnvido());
         flor = false;
         estadoDePartida = new EstadoPartidaNormal();
+        ordenJugadores = new ArrayList();
+
+        for (int i = 0; i < equipo1.obtenerIntegrantes().size(); i++) {
+            ordenJugadores.add(this.equipo1.obtenerIntegrantes().get(i));
+            ordenJugadores.add(this.equipo2.obtenerIntegrantes().get(i));
+        }
     }
 
     public void jugarConFlor(){
@@ -33,7 +37,7 @@ public class Partida {
     }
 
     public Jugada crearJugada(){
-        Jugada jugada = new Jugada(this,mazoDeCartas);
+        Jugada jugada = new Jugada(this,mazoDeCartas, ordenJugadores);
 
         jugadas.add(jugada);
         return jugada;
@@ -58,4 +62,6 @@ public class Partida {
     public Equipo obtenerEquipo2() {
         return equipo2;
     }
+
+
 }

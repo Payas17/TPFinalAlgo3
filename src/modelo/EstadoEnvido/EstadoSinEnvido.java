@@ -61,7 +61,6 @@ public class EstadoSinEnvido implements EstadoDeEnvido {
         throw new NoSePuedeCantarEsoError();
     }
 
-
     @Override
     public void contraFlor(Jugada jugada) {
         throw new NoSePuedeCantarEsoError();
