@@ -12,7 +12,7 @@ public class Partida {
    private Equipo equipo1;
     private Equipo equipo2;
     private Mazo mazoDeCartas;
-    private List<Object> jugadas;
+    private List<Jugada> jugadas;
     private EstadoDePartida estadoDePartida;
     private boolean flor;
     private List<Jugador> ordenJugadores;
@@ -64,4 +64,13 @@ public class Partida {
     }
 
 
+    public void calcularPuntosPicaPica(Jugada jugada) {
+        obtenerEquipo1().sumarPuntos(jugada.obtenerEquipo1().obtenerPuntos());
+        obtenerEquipo2().sumarPuntos(jugada.obtenerEquipo2().obtenerPuntos());
+    }
+
+    public Jugada crearJugadaPicaPica() {
+        Jugada jugada = new Jugada();
+        return jugada;
+    }
 }

@@ -65,6 +65,16 @@ public class Jugada {
         inicializarJugadores(mazoDeCartas);
     }
 
+    public Jugada(){
+        estadoEnvido = new EstadoSinEnvido();
+        estadoTruco = new EstadoSinTruco();
+        estadoJugada = new EstadoPrimeraMano();
+        puntosEnvido = 0;
+        equipoGanador= null;
+        this.equipo1 = null;
+        this.equipo2 = null;
+    }
+
     private void inicializarJugadores2(Equipo equipo1, Equipo equipo2, Mazo mazoDeCartas) {
         equipo1.obtenerIntegrantes().get(equipo1.obtenerIntegrantes().size() -1).cambiarEstado(new EstadoPie());
         equipo2.obtenerIntegrantes().get(equipo1.obtenerIntegrantes().size() -1).cambiarEstado(new EstadoPie());
@@ -290,6 +300,27 @@ public class Jugada {
 
     public void contraFlorAlResto() {
         estadoEnvido.contraFlorAlResto(this);
+    }
+
+    public void armarEquiposParaPicaPica(Jugador jugador1, Jugador jugador6) {
+
+
+       /* this.equipo1.obtenerIntegrantes().removeAll(equipo1.obtenerIntegrantes());
+        this.equipo2.obtenerIntegrantes().removeAll(equipo2.obtenerIntegrantes());
+        ordenJugadores.removeAll(ordenJugadores);
+        */
+
+        ordenJugadores = new ArrayList<>();
+        ordenJugadores.add(jugador1);
+        ordenJugadores.add(jugador6);
+
+        List<Jugador> jugadores = new ArrayList<>();
+        jugadores.add(jugador1);
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador6);
+
+        this.equipo1 = new Equipo(jugadores);
+        this.equipo2 = new Equipo(jugadores2);
     }
 }
 
