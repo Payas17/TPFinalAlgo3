@@ -5,6 +5,7 @@ import modelo.Errores.CartaYaJugadaError;
 import modelo.Errores.NoTieneFlorError;
 import modelo.EstadoEnvido.EstadoNoSePuedeCantarEnvido;
 import modelo.EstadoJugador.EstadoDeJugador;
+import modelo.EstadoJugador.EstadoNoSeCantoNada;
 import modelo.EstadoJugador.EstadoPie;
 
 import java.util.ArrayList;
@@ -25,7 +26,8 @@ public class Jugador {
     public Jugador(){
         this.cartas = new ArrayList<>();
         this.cartasEnJuego = new ArrayList<>();
-        estadoJugador = new EstadoPie();
+        //estadoJugador = new EstadoPie();
+        estadoJugador = new EstadoNoSeCantoNada();
 
     }
 
@@ -140,5 +142,13 @@ public class Jugador {
 
     public void contraFlorAlResto(Jugada jugada) {
         jugada.contraFlorAlResto();
+    }
+
+    public void cambiarCartas(Mazo mazo) {
+        cartasEnJuego.removeAll(cartasEnJuego);
+        cartas.removeAll(cartas);
+        cartas.add(mazo.darCarta());
+        cartas.add(mazo.darCarta());
+        cartas.add(mazo.darCarta());
     }
 }

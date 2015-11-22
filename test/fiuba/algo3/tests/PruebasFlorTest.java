@@ -24,8 +24,11 @@ public class PruebasFlorTest {
         jugadores2.add(jugador2);
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
-        Jugada jugada = new Jugada(equipo1,equipo2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+
+        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
+
 
         Carta espada1 = new Espada(1, valoresTrucoYEnvido);
         Carta espada10 = new Espada(10, valoresTrucoYEnvido);
@@ -49,8 +52,11 @@ public class PruebasFlorTest {
         jugadores2.add(jugador2);
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
-        Jugada jugada = new Jugada(equipo1,equipo2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+
+        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
+
 
         Carta oro7 = new Oro(7, valoresTrucoYEnvido);
         Carta oro1 = new Oro(1, valoresTrucoYEnvido);
@@ -85,8 +91,11 @@ public class PruebasFlorTest {
         jugadores2.add(jugador2);
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
-        Jugada jugada = new Jugada(equipo1, equipo2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+
+        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
+
 
         Carta oro7 = new Oro(7, valoresTrucoYEnvido);
         Carta oro1 = new Oro(1, valoresTrucoYEnvido);
@@ -121,8 +130,10 @@ public class PruebasFlorTest {
         jugadores2.add(jugador2);
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
-        Jugada jugada = new Jugada(equipo1, equipo2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+
+        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
 
         Carta oro7 = new Oro(7, valoresTrucoYEnvido);
         Carta oro1 = new Oro(1, valoresTrucoYEnvido);
@@ -161,8 +172,11 @@ public class PruebasFlorTest {
 
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
-        Jugada jugada = new Jugada(equipo1,equipo2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+
+        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
+
 
         Carta copa10 = new Copa(10,valoresTrucoYEnvido);
         Carta copa4 = new Copa(4,valoresTrucoYEnvido);
@@ -214,8 +228,11 @@ public class PruebasFlorTest {
 
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
-        Jugada jugada = new Jugada(equipo1,equipo2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+
+        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
+
 
         Carta copa10 = new Copa(10,valoresTrucoYEnvido);
         Carta copa4 = new Copa(4,valoresTrucoYEnvido);
@@ -268,8 +285,10 @@ public class PruebasFlorTest {
 
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
-        Jugada jugada = new Jugada(equipo1,equipo2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+
+        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
 
         Carta copa10 = new Copa(10,valoresTrucoYEnvido);
         Carta copa4 = new Copa(4,valoresTrucoYEnvido);

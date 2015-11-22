@@ -2,8 +2,6 @@ package modelo;
 
 import modelo.Errores.NoTieneFlorError;
 import modelo.EstadoEnvido.EstadoDeEnvido;
-import modelo.EstadoEnvido.EstadoFlor;
-import modelo.EstadoEnvido.EstadoNoSePuedeCantarEnvido;
 import modelo.EstadoEnvido.EstadoSinEnvido;
 import modelo.EstadoJugada.EstadoDeJugada;
 import modelo.EstadoJugada.EstadoJugadaTerminada;
@@ -12,6 +10,7 @@ import modelo.EstadoJugador.EstadoNoSeCantoNada;
 import modelo.EstadoJugador.EstadoPie;
 import modelo.EstadoTruco.EstadoDeTruco;
 import modelo.EstadoTruco.EstadoSinTruco;
+import modelo.Partida.Partida;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +20,7 @@ import java.util.List;
  */
 public class Jugada {
     final int TANTO = 20;
+    private Partida partida;
 
     private List<Jugador> ordenJugadores;
     private Equipo ganadorPrimerMano;
@@ -34,7 +34,7 @@ public class Jugada {
     private int puntosEnvido;
 
 
-    public Jugada(Equipo equipo1,Equipo equipo2) {
+    public Jugada(Equipo equipo1, Equipo equipo2, Mazo mazoDeCartas) {
         ordenJugadores = new ArrayList<>();
         estadoEnvido = new EstadoSinEnvido();
         estadoTruco = new EstadoSinTruco();
@@ -42,19 +42,42 @@ public class Jugada {
         puntosEnvido = 0;
         equipoGanador= null;
 
-
         this.equipo1 = equipo1;
         this.equipo2 = equipo2;
 
-        for(int i = 0; i < equipo1.obtenerIntegrantes().size() ;i++ ){
-            if (i < equipo1.obtenerIntegrantes().size()-1){
+        inicializarJugadores(equipo1, equipo2, mazoDeCartas);
+    }
+
+    public Jugada(Partida partida,Mazo mazoDeCartas) {
+        ordenJugadores = new ArrayList<>();
+        estadoEnvido = new EstadoSinEnvido();
+        estadoTruco = new EstadoSinTruco();
+        estadoJugada = new EstadoPrimeraMano();
+        puntosEnvido = 0;
+        equipoGanador= null;
+        this.partida = partida;
+
+        this.equipo1 = partida.obtenerEquipo1();
+        this.equipo2 = partida.obtenerEquipo2();
+
+        inicializarJugadores(equipo1, equipo2, mazoDeCartas);
+    }
+
+    private void inicializarJugadores(Equipo equipo1, Equipo equipo2, Mazo mazoDeCartas) {
+        equipo1.obtenerIntegrantes().get(equipo1.obtenerIntegrantes().size() -1).cambiarEstado(new EstadoPie());
+        equipo2.obtenerIntegrantes().get(equipo1.obtenerIntegrantes().size() -1).cambiarEstado(new EstadoPie());
+        for (int i = 0; i < equipo1.obtenerIntegrantes().size(); i++) {
+            //mazoDeCartas.mezclar();
+            //equipo1.obtenerIntegrantes().get(i).cambiarCartas(mazoDeCartas);
+            //equipo2.obtenerIntegrantes().get(i).cambiarCartas(mazoDeCartas);
+
+            /*if (i < equipo1.obtenerIntegrantes().size() - 1) {
                 equipo1.obtenerIntegrantes().get(i).cambiarEstado(new EstadoNoSeCantoNada());
                 equipo2.obtenerIntegrantes().get(i).cambiarEstado(new EstadoNoSeCantoNada());
-            }
-            else{
+            } else {
                 equipo1.obtenerIntegrantes().get(i).cambiarEstado(new EstadoPie());
                 equipo2.obtenerIntegrantes().get(i).cambiarEstado(new EstadoPie());
-            }
+            }*/
             ordenJugadores.add(this.equipo1.obtenerIntegrantes().get(i));
             ordenJugadores.add(this.equipo2.obtenerIntegrantes().get(i));
         }
@@ -111,7 +134,7 @@ public class Jugada {
     }
 
     public void aceptarEnvido() {
-        this.estadoEnvido.aceptarEnvido(this);
+        this.estadoEnvido.aceptarEnvido(this,partida);
     }
 
     public Jugador obtenerJugadorGanadorEnvido() {
@@ -149,7 +172,7 @@ public class Jugada {
 
     public void jugadorNoAceptaElEnvido(Jugador jugador) {
 
-        this.estadoEnvido.noAceptarEnvido(obtenerEquipoQueNoContieneJugador(jugador),this);
+        this.estadoEnvido.noAceptarEnvido(obtenerEquipoQueNoContieneJugador(jugador),this,partida);
 
     }
 
@@ -234,7 +257,7 @@ public class Jugada {
     }
 
     public void noAceptarFlor(Jugador jugador) {
-        estadoEnvido.noAceptarFlor(obtenerEquipoQueNoContieneJugador(jugador),this);
+        estadoEnvido.noAceptarFlor(obtenerEquipoQueNoContieneJugador(jugador),this,partida);
 
     }
 
@@ -243,7 +266,7 @@ public class Jugada {
     }
 
     public void aceptarFlor(Jugador jugador) {
-        estadoEnvido.aceptarFlor(obtenerEquipoQueNoContieneJugador(jugador), obtenerEquipoQueContieneJugador(jugador), this);
+        estadoEnvido.aceptarFlor(obtenerEquipoQueNoContieneJugador(jugador), obtenerEquipoQueContieneJugador(jugador), this,partida);
     }
 
     public void contraFlor() {

@@ -3,6 +3,7 @@ package modelo.EstadoEnvido;
 import modelo.Equipo;
 import modelo.Jugada;
 import modelo.Jugador;
+import modelo.Partida.Partida;
 
 /**
  * Created by Augusto on 14/11/2015.
@@ -19,7 +20,7 @@ public interface EstadoDeEnvido {
 
     int obtenerPuntos();
 
-    void noAceptarEnvido(Equipo equipoGanador,Jugada jugada);
+    void noAceptarEnvido(Equipo equipoGanador, Jugada jugada);
 
     void cantarFlor(Jugada jugada);
 
@@ -30,4 +31,13 @@ public interface EstadoDeEnvido {
     void contraFlor(Jugada jugada);
 
     void contraFlorAlResto(Jugada jugada);
+
+    void noAceptarFlor(Equipo equipo, Jugada jugada, Partida partida);
+
+    void aceptarFlor(Equipo equipo1, Equipo equipo2,Jugada jugada, Partida partida);
+
+    void aceptarEnvido(Jugada jugada, Partida partida);
+
+    void noAceptarEnvido(Equipo equipoGanador, Jugada jugada, Partida partida);
+
 }
