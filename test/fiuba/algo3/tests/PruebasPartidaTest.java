@@ -373,8 +373,5 @@ public class PruebasPartidaTest {
         Assert.assertTrue(equipo2.obtenerPuntos() == 8);
 
 
-
-
-
     }
     }
