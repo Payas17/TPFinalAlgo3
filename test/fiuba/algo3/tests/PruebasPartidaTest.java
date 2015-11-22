@@ -142,6 +142,337 @@ public class PruebasPartidaTest {
     }
 
     @Test
+    public void testSeJuegaPartidaCompletaYDebeGanarElEquipo2Con30PuntosA24(){
+
+        Jugador jugador1= new Jugador();
+        List<Jugador> jugadores = new ArrayList<>();
+        jugadores.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+        Jugador jugador3= new Jugador();
+        jugadores.add(jugador3);
+        Jugador jugador4 = new Jugador();
+        jugadores2.add(jugador4);
+
+        Equipo equipo1 = new Equipo(jugadores);
+        Equipo equipo2 = new Equipo(jugadores2);
+        Partida partida = new Partida(equipo1,equipo2);
+
+        partida.jugarConFlor();
+        Jugada jugada = partida.crearJugada();
+
+
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+
+        Carta copa10 = new Copa(10,valoresTrucoYEnvido);
+        Carta copa4 = new Copa(4,valoresTrucoYEnvido);
+        Carta copa5 = new Copa(5,valoresTrucoYEnvido);
+        Carta espada12 = new Espada(12,valoresTrucoYEnvido);
+        Carta espada6 = new Espada(6,valoresTrucoYEnvido);
+        Carta espada7 = new Espada(7,valoresTrucoYEnvido);
+        Carta oro11 = new Oro(11,valoresTrucoYEnvido);
+        Carta oro4 = new Oro(4,valoresTrucoYEnvido);
+        Carta oro5 = new Oro(5,valoresTrucoYEnvido);
+        Carta basto5 = new Basto(5,valoresTrucoYEnvido);
+        Carta basto4 = new Basto(4,valoresTrucoYEnvido);
+        Carta basto3 = new Basto(3,valoresTrucoYEnvido);
+        Carta espada1 = new Espada(1,valoresTrucoYEnvido);
+        Carta espada10 = new Espada(10,valoresTrucoYEnvido);
+        Carta copa3 = new Copa(3,valoresTrucoYEnvido);
+        Carta oro3 = new Oro(3,valoresTrucoYEnvido);
+        Carta espada3 = new Espada(3,valoresTrucoYEnvido);
+        Carta oro2 = new Oro(2,valoresTrucoYEnvido);
+        Carta basto2 = new Basto(2,valoresTrucoYEnvido);
+        Carta espada2 = new Espada(2,valoresTrucoYEnvido);
+        Carta copa2 = new Copa(2,valoresTrucoYEnvido);
+        Carta espada4 = new Espada(4,valoresTrucoYEnvido);
+
+
+        //Nueva Jugada
+        jugador1.agregarCarta(copa10);
+        jugador1.agregarCarta(copa4);
+        jugador1.agregarCarta(copa5);
+
+
+        jugador2.agregarCarta(oro11);
+        jugador2.agregarCarta(oro4);
+        jugador2.agregarCarta(oro5);
+
+
+        jugador3.agregarCarta(espada12);
+        jugador3.agregarCarta(espada6);
+        jugador3.agregarCarta(espada7);
+
+
+        jugador4.agregarCarta(basto3);
+        jugador4.agregarCarta(basto4);
+        jugador4.agregarCarta(basto5);
+
+        jugador1.juegaCarta(copa4);
+        jugador2.juegaCarta(oro4);
+        jugador3.cantarFlor(jugada);
+        jugador2.aceptarFlor(jugada);
+        jugador3.juegaCarta(espada12);
+        jugador4.juegaCarta(basto3);
+
+        jugada.jugarMano();
+
+        jugador4.cantarTruco(jugada);
+        jugador1.noAceptarTruco(jugada);
+
+        Assert.assertEquals(equipo1.obtenerPuntos(),6);
+        Assert.assertEquals(equipo2.obtenerPuntos(),1);
+
+        jugador1.sacarCartas();
+        jugador2.sacarCartas();
+        jugador3.sacarCartas();
+        jugador4.sacarCartas();
+
+        //Nueva Jugada
+        jugada = partida.crearJugada();
+
+
+        jugador1.agregarCarta(espada10);
+        jugador1.agregarCarta(copa4);
+        jugador1.agregarCarta(espada1);
+
+        jugador2.agregarCarta(espada12);
+        jugador2.agregarCarta(oro4);
+        jugador2.agregarCarta(oro5);
+
+        jugador3.agregarCarta(oro11);
+        jugador3.agregarCarta(espada6);
+        jugador3.agregarCarta(basto5);
+
+        jugador4.agregarCarta(basto3);
+        jugador4.agregarCarta(basto4);
+        jugador4.agregarCarta(espada7);
+
+        jugador2.juegaCarta(oro4);
+        jugador3.juegaCarta(espada6);
+        jugador4.juegaCarta(basto3);
+        jugador1.cantarRealEnvido(jugada);
+        jugador2.aceptarEnvido(jugada);
+        jugador1.juegaCarta(espada1);
+
+        jugada.jugarMano();
+
+        jugador1.cantarTruco(jugada);
+        jugador2.cantarReTruco(jugada);
+        jugador1.cantarValeCuatro(jugada);
+        jugador2.aceptarTruco(jugada);
+        jugador1.juegaCarta(copa4);
+        jugador2.juegaCarta(oro5);
+        jugador3.juegaCarta(basto5);
+        jugador4.juegaCarta(espada7);
+
+        jugada.jugarMano();
+
+        jugador4.juegaCarta(basto4);
+        jugador1.juegaCarta(espada10);
+        jugador2.juegaCarta(espada12);
+        jugador3.juegaCarta(oro11);
+        jugada.jugarMano();
+
+        Assert.assertEquals(equipo1.obtenerPuntos(),6);
+        Assert.assertEquals(equipo2.obtenerPuntos(),8);
+
+        jugador1.sacarCartas();
+        jugador2.sacarCartas();
+        jugador3.sacarCartas();
+        jugador4.sacarCartas();
+
+        //Nueva Jugada
+        jugada = partida.crearJugada();
+
+        jugador1.agregarCarta(espada10);
+        jugador1.agregarCarta(copa4);
+        jugador1.agregarCarta(espada1);
+
+        jugador2.agregarCarta(espada12);
+        jugador2.agregarCarta(oro4);
+        jugador2.agregarCarta(oro5);
+
+        jugador3.agregarCarta(oro11);
+        jugador3.agregarCarta(espada6);
+        jugador3.agregarCarta(espada4);
+
+        jugador4.agregarCarta(basto3);
+        jugador4.agregarCarta(basto4);
+        jugador4.agregarCarta(espada7);
+
+        jugador3.juegaCarta(espada4);
+        jugador4.juegaCarta(basto4);
+        jugador1.cantarFaltaEnvido(jugada);
+        jugador2.aceptarEnvido(jugada);
+        jugador1.juegaCarta(copa4);
+        jugador2.juegaCarta(oro4);
+
+        jugada.jugarMano();
+
+        jugador3.cantarTruco(jugada);
+        jugador4.cantarReTruco(jugada);
+        jugador3.cantarValeCuatro(jugada);
+        jugador4.aceptarTruco(jugada);
+
+        jugador3.juegaCarta(oro11);
+        jugador4.juegaCarta(espada7);
+        jugador1.juegaCarta(espada1);
+        jugador2.juegaCarta(espada12);
+
+        jugada.jugarMano();
+
+        Assert.assertEquals(equipo1.obtenerPuntos(),17);
+        Assert.assertEquals(equipo2.obtenerPuntos(),8);
+
+        jugador1.sacarCartas();
+        jugador2.sacarCartas();
+        jugador3.sacarCartas();
+        jugador4.sacarCartas();
+
+        //Nueva Partida
+        jugada = partida.crearJugada();
+
+        jugador1.agregarCarta(espada10);
+        jugador1.agregarCarta(copa4);
+        jugador1.agregarCarta(copa3);
+
+        jugador2.agregarCarta(espada12);
+        jugador2.agregarCarta(oro4);
+        jugador2.agregarCarta(oro3);
+
+        jugador3.agregarCarta(oro11);
+        jugador3.agregarCarta(espada4);
+        jugador3.agregarCarta(espada3);
+
+        jugador4.agregarCarta(basto3);
+        jugador4.agregarCarta(basto4);
+        jugador4.agregarCarta(espada7);
+
+        jugador4.juegaCarta(basto3);
+        jugador1.juegaCarta(copa3);
+        jugador2.cantarFaltaEnvido(jugada);
+        jugador1.aceptarEnvido(jugada);
+        jugador2.juegaCarta(oro3);
+        jugador3.juegaCarta(espada3);
+
+        jugada.jugarMano();
+
+        jugador4.cantarTruco(jugada);
+        jugador3.cantarReTruco(jugada);
+        jugador4.cantarValeCuatro(jugada);
+        jugador3.aceptarTruco(jugada);
+        jugador4.juegaCarta(basto4);
+        jugador1.juegaCarta(copa4);
+        jugador2.juegaCarta(oro4);
+        jugador3.juegaCarta(espada4);
+
+        jugada.jugarMano();
+
+        jugador4.juegaCarta(espada7);
+        jugador1.juegaCarta(espada10);
+        jugador2.juegaCarta(espada12);
+        jugador3.juegaCarta(oro11);
+
+        jugada.jugarMano();
+
+        Assert.assertEquals(equipo1.obtenerPuntos(),17);
+        Assert.assertEquals(equipo2.obtenerPuntos(),25);
+
+        jugador1.sacarCartas();
+        jugador2.sacarCartas();
+        jugador3.sacarCartas();
+        jugador4.sacarCartas();
+
+        //Nueva Partida
+        jugada = partida.crearJugada();
+
+        jugador1.agregarCarta(basto2);
+        jugador1.agregarCarta(copa4);
+        jugador1.agregarCarta(copa3);
+
+        jugador2.agregarCarta(copa2);
+        jugador2.agregarCarta(oro4);
+        jugador2.agregarCarta(oro3);
+
+        jugador3.agregarCarta(oro2);
+        jugador3.agregarCarta(espada4);
+        jugador3.agregarCarta(espada3);
+
+        jugador4.agregarCarta(basto3);
+        jugador4.agregarCarta(basto4);
+        jugador4.agregarCarta(espada2);
+
+        jugador1.juegaCarta(copa3);
+        jugador2.juegaCarta(oro3);
+        jugador3.cantarFaltaEnvido(jugada);
+        jugador2.aceptarEnvido(jugada);
+        jugador3.juegaCarta(espada3);
+        jugador4.juegaCarta(basto3);
+
+
+        jugada.jugarMano();
+
+        jugador1.juegaCarta(copa4);
+        jugador2.juegaCarta(oro4);
+        jugador3.juegaCarta(espada4);
+        jugador4.cantarTruco(jugada);
+        jugador3.aceptarTruco(jugada);
+        jugador4.juegaCarta(basto4);
+
+
+        jugada.jugarMano();
+
+        jugador1.juegaCarta(basto2);
+        jugador2.juegaCarta(copa2);
+        jugador3.juegaCarta(oro2);
+        jugador4.juegaCarta(espada2);
+
+
+        jugada.jugarMano();
+
+        Assert.assertEquals(equipo1.obtenerPuntos(),24);
+        Assert.assertEquals(equipo2.obtenerPuntos(),25);
+
+        jugador1.sacarCartas();
+        jugador2.sacarCartas();
+        jugador3.sacarCartas();
+        jugador4.sacarCartas();
+
+        //Nueva Partida
+        jugada = partida.crearJugada();
+
+        jugador1.agregarCarta(basto2);
+        jugador1.agregarCarta(copa4);
+        jugador1.agregarCarta(copa3);
+
+        jugador2.agregarCarta(copa2);
+        jugador2.agregarCarta(oro4);
+        jugador2.agregarCarta(oro3);
+
+        jugador3.agregarCarta(oro2);
+        jugador3.agregarCarta(espada4);
+        jugador3.agregarCarta(espada3);
+
+        jugador4.agregarCarta(basto3);
+        jugador4.agregarCarta(basto4);
+        jugador4.agregarCarta(espada2);
+
+        jugador2.juegaCarta(oro3);
+        jugador3.juegaCarta(espada3);
+        jugador4.cantarEnvido(jugada);
+        jugador3.cantarRealEnvido(jugada);
+        jugador4.cantarFaltaEnvido(jugada);
+        jugador3.noAceptarEnvido(jugada);
+
+        Assert.assertEquals(equipo1.obtenerPuntos(),24);
+        Assert.assertEquals(equipo2.obtenerPuntos(),30);
+        Assert.assertEquals(partida.obtenerEstado().getClass(),EstadoPartidaTerminada.class);
+
+    }
+
+    @Test
     public void testSeJueganDosPicaPica(){
 
         Jugador jugador1= new Jugador();

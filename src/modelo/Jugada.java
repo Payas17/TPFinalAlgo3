@@ -20,8 +20,9 @@ import java.util.List;
  */
 public class Jugada {
     final int TANTO = 20;
-    private Partida partida;
 
+    private Partida partida;
+    private List<Jugador> ordenJugadoresMano;
     private List<Jugador> ordenJugadores;
     private Equipo ganadorPrimerMano;
     private Jugador mano;
@@ -76,8 +77,7 @@ public class Jugada {
     }
 
     private void inicializarJugadores2(Equipo equipo1, Equipo equipo2, Mazo mazoDeCartas) {
-        equipo1.obtenerIntegrantes().get(equipo1.obtenerIntegrantes().size() -1).cambiarEstado(new EstadoPie());
-        equipo2.obtenerIntegrantes().get(equipo1.obtenerIntegrantes().size() -1).cambiarEstado(new EstadoPie());
+
         for (int i = 0; i < equipo1.obtenerIntegrantes().size(); i++) {
             //mazoDeCartas.mezclar();
             //equipo1.obtenerIntegrantes().get(i).cambiarCartas(mazoDeCartas);
@@ -87,15 +87,29 @@ public class Jugada {
             ordenJugadores.add(this.equipo1.obtenerIntegrantes().get(i));
             ordenJugadores.add(this.equipo2.obtenerIntegrantes().get(i));
         }
+
+        if (equipo1.obtenerPuntos() != 0 || equipo2.obtenerPuntos() != 0) {
+            Jugador jugadorQuePongoUltimo = ordenJugadores.remove(0);
+            ordenJugadores.add(jugadorQuePongoUltimo);
+        }
+
+        ordenJugadores.get(ordenJugadores.size() - 1).cambiarEstado(new EstadoPie());
+        ordenJugadores.get(ordenJugadores.size() - 2).cambiarEstado(new EstadoPie());
+        ordenJugadoresMano = new ArrayList<>(ordenJugadores);
         mano = ordenJugadores.get(0);
     }
 
     private void inicializarJugadores(Mazo mazoDeCartas) {
-        Jugador jugadorQuePongoUltimo = ordenJugadores.remove(0);
-        ordenJugadores.add(jugadorQuePongoUltimo);
-
+        if (equipo1.obtenerPuntos() != 0 || equipo2.obtenerPuntos() != 0) {
+            Jugador jugadorQuePongoUltimo = ordenJugadores.remove(0);
+            ordenJugadores.add(jugadorQuePongoUltimo);
+        }
+        for (int i =0; i < ordenJugadores.size() -2;i++){
+            ordenJugadores.get(i).cambiarEstado(new EstadoNoSeCantoNada());
+        }
         ordenJugadores.get(ordenJugadores.size()-1).cambiarEstado(new EstadoPie());
         ordenJugadores.get(ordenJugadores.size()-2).cambiarEstado(new EstadoPie());
+        ordenJugadoresMano = new ArrayList<>(ordenJugadores);
         //mazoDeCartas.mezclar();
         for (Jugador jugadorActual: ordenJugadores) {
             //jugadorActual.cambiarCartas(mazoDeCartas);
@@ -111,9 +125,9 @@ public class Jugada {
             this.estadoJugada.manoEmpardada(this);
         }else {
             int i=0;
-            while (ordenJugadores.get(i) != mano.obtenerJugadorGanador()){
+            while (ordenJugadoresMano.get(i) != mano.obtenerJugadorGanador()){
 
-                ordenJugadores.add(ordenJugadores.remove(i));
+                ordenJugadoresMano.add(ordenJugadoresMano.remove(i));
             }
             Equipo equipo = mano.obtenerEquipoGanador(equipo1, equipo2);
             if (equipo == equipo2) {
@@ -129,7 +143,7 @@ public class Jugada {
     }
 
     public Mano jugarMano() {
-        Mano mano = new Mano(ordenJugadores);
+        Mano mano = new Mano(ordenJugadoresMano);
         EstadoJugada(mano);
         return mano;
     }
@@ -310,9 +324,10 @@ public class Jugada {
         ordenJugadores.removeAll(ordenJugadores);
         */
 
-        ordenJugadores = new ArrayList<>();
-        ordenJugadores.add(jugador1);
-        ordenJugadores.add(jugador6);
+        ordenJugadoresMano = new ArrayList<>();
+        ordenJugadoresMano.add(jugador1);
+        ordenJugadoresMano.add(jugador6);
+        ordenJugadores = ordenJugadoresMano;
 
         List<Jugador> jugadores = new ArrayList<>();
         jugadores.add(jugador1);

@@ -141,10 +141,14 @@ public class Jugador {
     }
 
     public void cambiarCartas(Mazo mazo) {
+        sacarCartas();
+        cartas.add(mazo.darCarta());
+        cartas.add(mazo.darCarta());
+        cartas.add(mazo.darCarta());
+    }
+
+    public void sacarCartas(){
         cartasEnJuego.removeAll(cartasEnJuego);
         cartas.removeAll(cartas);
-        cartas.add(mazo.darCarta());
-        cartas.add(mazo.darCarta());
-        cartas.add(mazo.darCarta());
     }
 }

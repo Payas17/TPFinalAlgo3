@@ -24,7 +24,7 @@ public class Partida {
         mazoDeCartas = new Mazo(new ValoresTrucoYEnvido());
         flor = false;
         estadoDePartida = new EstadoPartidaNormal();
-        ordenJugadores = new ArrayList();
+        ordenJugadores = new ArrayList<>();
 
         for (int i = 0; i < equipo1.obtenerIntegrantes().size(); i++) {
             ordenJugadores.add(this.equipo1.obtenerIntegrantes().get(i));
@@ -42,6 +42,7 @@ public class Partida {
         jugadas.add(jugada);
         return jugada;
     }
+
 
     public boolean seEstaJugandoConFlor(){
         return flor;
@@ -70,7 +71,6 @@ public class Partida {
     }
 
     public Jugada crearJugadaPicaPica() {
-        Jugada jugada = new Jugada();
-        return jugada;
+        return new Jugada();
     }
 }
