@@ -82,7 +82,7 @@ public class EstadoFlor implements EstadoDeEnvido {
     @Override
     public void noAceptarFlor(Equipo equipo, Jugada jugada, Partida partida) {
         equipo.sumarPuntos(3);
-        if (equipo.obtenerPuntos() == MAX_PUNTAJE_PARTIDA) {
+        if (equipo.obtenerPuntos() >= MAX_PUNTAJE_PARTIDA) {
             jugada.cambiarEstadoJugada(new EstadoJugadaTerminada());
             partida.cambiarEstado(new EstadoPartidaTerminada());
 
@@ -97,7 +97,7 @@ public class EstadoFlor implements EstadoDeEnvido {
     public void aceptarFlor(Equipo equipoQueCantoFlor, Equipo equipoQueNoCantoFlor,Jugada jugada, Partida partida) {
         jugada.obtenerEquipoGanadorFlor(equipoQueCantoFlor, equipoQueNoCantoFlor).sumarPuntos(4);
         equipoQueCantoFlor.sumarPuntos(2);
-        if (equipoQueCantoFlor.obtenerPuntos() == MAX_PUNTAJE_PARTIDA || equipoQueNoCantoFlor.obtenerPuntos() == MAX_PUNTAJE_PARTIDA) {
+        if (equipoQueCantoFlor.obtenerPuntos() >= MAX_PUNTAJE_PARTIDA || equipoQueNoCantoFlor.obtenerPuntos() >= MAX_PUNTAJE_PARTIDA) {
             jugada.cambiarEstadoJugada(new EstadoJugadaTerminada());
             partida.cambiarEstado(new EstadoPartidaTerminada());
 

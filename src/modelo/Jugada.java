@@ -10,6 +10,7 @@ import modelo.EstadoJugador.EstadoNoSeCantoNada;
 import modelo.EstadoJugador.EstadoPie;
 import modelo.EstadoTruco.EstadoDeTruco;
 import modelo.EstadoTruco.EstadoSinTruco;
+import modelo.Partida.EstadoPartidaTerminada;
 import modelo.Partida.Partida;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ import java.util.List;
  * Created by Lucio on 08/11/2015.
  */
 public class Jugada {
+    private final int MAX_PUNTOS_PARTIDA = 30;
     final int TANTO = 20;
 
     private Partida partida;
@@ -247,6 +249,9 @@ public class Jugada {
         equipoGanador = equipo;
         cambiarEstadoJugada(new EstadoJugadaTerminada());
         equipoGanador.sumarPuntos(estadoTruco.contarPuntosDeTruco());
+        if ( equipoGanador.obtenerPuntos() >= MAX_PUNTOS_PARTIDA){
+            partida.cambiarEstado(new EstadoPartidaTerminada());
+        }
     }
 
     public Equipo obtenerEquipoGanadorDeJugada(){

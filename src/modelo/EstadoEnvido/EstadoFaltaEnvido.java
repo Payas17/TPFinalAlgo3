@@ -59,7 +59,7 @@ public class EstadoFaltaEnvido implements EstadoDeEnvido{
     @Override
     public void noAceptarEnvido(Equipo equipoGanador, Jugada jugada, Partida partida) {
         equipoGanador.sumarPuntos(jugada.obtenerPuntosEnvido());
-        if (equipoGanador.obtenerPuntos() == MAX_PUNTAJE_PARTIDA) {
+        if (equipoGanador.obtenerPuntos() >= MAX_PUNTAJE_PARTIDA) {
             jugada.cambiarEstadoJugada(new EstadoJugadaTerminada());
             partida.cambiarEstado(new EstadoPartidaTerminada());
 
@@ -114,7 +114,7 @@ public class EstadoFaltaEnvido implements EstadoDeEnvido{
         } else {
             jugada.obtenerEquipoGanadorEnvido().sumarPuntos(15 - equipoPerdedor.obtenerPuntos());
         }
-        if (jugada.obtenerEquipoGanadorEnvido().obtenerPuntos() == MAX_PUNTAJE_PARTIDA) {
+        if (jugada.obtenerEquipoGanadorEnvido().obtenerPuntos() >= MAX_PUNTAJE_PARTIDA) {
             jugada.cambiarEstadoJugada(new EstadoJugadaTerminada());
             partida.cambiarEstado(new EstadoPartidaTerminada());
 

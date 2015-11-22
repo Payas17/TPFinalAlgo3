@@ -63,7 +63,7 @@ public class EstadoEnvido implements EstadoDeEnvido {
     @Override
     public void noAceptarEnvido(Equipo equipoGanador, Jugada jugada,Partida partida) {
         equipoGanador.sumarPuntos(1);
-        if (equipoGanador.obtenerPuntos() == MAX_PUNTAJE_PARTIDA) {
+        if (equipoGanador.obtenerPuntos() >= MAX_PUNTAJE_PARTIDA) {
             jugada.cambiarEstadoJugada(new EstadoJugadaTerminada());
             partida.cambiarEstado(new EstadoPartidaTerminada());
 
@@ -113,7 +113,7 @@ public class EstadoEnvido implements EstadoDeEnvido {
     @Override
     public void aceptarEnvido(Jugada jugada, Partida partida) {
         jugada.obtenerEquipoGanadorEnvido().sumarPuntos(jugada.obtenerPuntosEnvido() + PUNTOS);
-        if (jugada.obtenerEquipoGanadorEnvido().obtenerPuntos() == 30) {
+        if (jugada.obtenerEquipoGanadorEnvido().obtenerPuntos() >= MAX_PUNTAJE_PARTIDA) {
             jugada.cambiarEstadoJugada(new EstadoJugadaTerminada());
             partida.cambiarEstado(new EstadoPartidaTerminada());
 
