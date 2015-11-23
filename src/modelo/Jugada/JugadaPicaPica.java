@@ -1,7 +1,10 @@
 package modelo.Jugada;
 
 import modelo.Equipo;
+import modelo.EstadoEnvido.EstadoSinEnvido;
+import modelo.EstadoJugada.EstadoPrimeraMano;
 import modelo.EstadoJugador.EstadoPie;
+import modelo.EstadoTruco.EstadoSinTruco;
 import modelo.Jugada.Jugada;
 import modelo.Jugador;
 import modelo.Partida.Partida;
@@ -15,8 +18,10 @@ import java.util.List;
 public class JugadaPicaPica extends Jugada {
 
 
-    public JugadaPicaPica(Partida partida){
-        super(partida);
+    public JugadaPicaPica(Partida partida,List<Jugador> ordenJugadores){
+        super(partida,new ArrayList<>(ordenJugadores));
+        equipo1 = null;
+        equipo2 = null;
     }
 
     @Override

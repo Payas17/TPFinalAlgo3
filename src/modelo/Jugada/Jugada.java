@@ -40,18 +40,6 @@ public class Jugada {
     protected EstadoDeEnvido estadoEnvido;
     protected int puntosEnvido;
 
-
-    public Jugada(Partida partida){
-        estadoEnvido = new EstadoSinEnvido();
-        estadoTruco = new EstadoSinTruco();
-        estadoJugada = new EstadoPrimeraMano();
-        this.partida = partida;
-        puntosEnvido = 0;
-        equipoGanador= null;
-        this.equipo1 = null;
-        this.equipo2 = null;
-    }
-
     public Jugada(Partida partida, List<Jugador> ordenJugadoresDePartida) {
         ordenJugadores = ordenJugadoresDePartida;
         estadoEnvido = new EstadoSinEnvido();

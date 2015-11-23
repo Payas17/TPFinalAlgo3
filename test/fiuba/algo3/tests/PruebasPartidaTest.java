@@ -950,10 +950,7 @@ public class PruebasPartidaTest {
         Equipo equipo2 = new Equipo(jugadores2);
         Partida partida = new Partida(equipo1, equipo2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
-        // Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
 
-        equipo1.sumarPuntos(5);
 
         Carta copa10 = new Copa(10, valoresTrucoYEnvido);
         Carta copa4 = new Copa(4, valoresTrucoYEnvido);
@@ -1017,7 +1014,7 @@ public class PruebasPartidaTest {
 
         partida.calcularPuntosPicaPica(jugadaPP);
 
-        Assert.assertTrue(equipo1.obtenerPuntos() == 7);
+        Assert.assertTrue(equipo1.obtenerPuntos() == 2);
         Assert.assertTrue(equipo2.obtenerPuntos() == 5);
 
         JugadaPicaPica jugadaPP2 = partida.crearJugadaPicaPica();
@@ -1028,7 +1025,7 @@ public class PruebasPartidaTest {
 
         partida.calcularPuntosPicaPica(jugadaPP2);
 
-        Assert.assertTrue(equipo1.obtenerPuntos() == 7);
+        Assert.assertTrue(equipo1.obtenerPuntos() == 2);
         Assert.assertTrue(equipo2.obtenerPuntos() == 7);
 
         Jugada jugada = partida.crearJugada();
@@ -1048,7 +1045,7 @@ public class PruebasPartidaTest {
         jugador2.irseAlMazo(jugada);
 
 
-        Assert.assertTrue(equipo1.obtenerPuntos() == 9);
+        Assert.assertTrue(equipo1.obtenerPuntos() == 4);
         Assert.assertTrue(equipo2.obtenerPuntos() == 8);
 
 

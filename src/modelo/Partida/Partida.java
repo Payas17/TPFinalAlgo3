@@ -69,7 +69,7 @@ public class Partida {
     }
 
     public JugadaPicaPica crearJugadaPicaPica() {
-        return new JugadaPicaPica(this);
+        return new JugadaPicaPica(this,ordenJugadores);
     }
 
     public Mazo obtenerMazo() {
