@@ -4,6 +4,7 @@ import modelo.Errores.NoSePuedeCantarEsoError;
 import modelo.EstadoJugada.EstadoJugadaTerminada;
 import modelo.Jugada.Jugada;
 import modelo.Jugada.JugadaPicaPica;
+import modelo.Partida.EstadoPartidaTerminada;
 import modelo.Partida.Partida;
 
 /**
@@ -24,6 +25,9 @@ public class EstadoFaltaEnvidoPicaPica extends EstadoFaltaEnvido {
     @Override
     public void aceptarEnvido(Jugada jugadaPicaPica, Partida partida) {
         jugadaPicaPica.obtenerEquipoGanadorEnvido().sumarPuntos(6);
-        jugadaPicaPica.cambiarEstadoJugada(new EstadoJugadaTerminada());
+        if (partida.obtenerEquipo1().obtenerPuntos() >= MAX_PUNTAJE_PARTIDA || partida.obtenerEquipo2().obtenerPuntos() >= MAX_PUNTAJE_PARTIDA ){
+            partida.cambiarEstado(new EstadoPartidaTerminada());
+        }
+        jugadaPicaPica.cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
     }
 }

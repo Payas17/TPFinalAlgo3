@@ -11,7 +11,8 @@ import java.util.List;
  * Created by Augusto on 18/11/2015.
  */
 public class Partida {
-   private Equipo equipo1;
+    private final int MAX_PUNTAJE_PARTIDA = 30;
+    private Equipo equipo1;
     private Equipo equipo2;
     private Mazo mazoDeCartas;
     private List<Jugada> jugadas;
@@ -64,8 +65,12 @@ public class Partida {
 
 
     public void calcularPuntosPicaPica(Jugada jugada) {
-        obtenerEquipo1().sumarPuntos(jugada.obtenerEquipo1().obtenerPuntos());
-        obtenerEquipo2().sumarPuntos(jugada.obtenerEquipo2().obtenerPuntos());
+        equipo1.sumarPuntos(jugada.obtenerEquipo1().obtenerPuntos());
+        equipo2.sumarPuntos(jugada.obtenerEquipo2().obtenerPuntos());
+
+        if (equipo1.obtenerPuntos() >= MAX_PUNTAJE_PARTIDA || equipo2.obtenerPuntos() >= MAX_PUNTAJE_PARTIDA ){
+            cambiarEstado(new EstadoPartidaTerminada());
+        }
     }
 
     public JugadaPicaPica crearJugadaPicaPica() {
