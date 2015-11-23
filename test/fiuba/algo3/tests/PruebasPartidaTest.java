@@ -2,8 +2,9 @@ package fiuba.algo3.tests;
 
 import modelo.*;
 import modelo.Carta.*;
-import modelo.Errores.NoPuedeJugarError;
 import modelo.Errores.NoSePuedeJugarCarta;
+import modelo.Jugada.Jugada;
+import modelo.Jugada.JugadaPicaPica;
 import modelo.Partida.EstadoPartidaTerminada;
 import modelo.Partida.Partida;
 import org.junit.Assert;
@@ -910,8 +911,8 @@ public class PruebasPartidaTest {
 
         partida.calcularPuntosPicaPica(jugadaPP);
 
-        Assert.assertTrue(equipo1.obtenerPuntos() == 7);
-        Assert.assertTrue(equipo2.obtenerPuntos() == 5);
+        Assert.assertEquals(equipo1.obtenerPuntos() , 7);
+        Assert.assertEquals(equipo2.obtenerPuntos() , 5);
 
         JugadaPicaPica jugadaPP2 = partida.crearJugadaPicaPica();
 
@@ -921,8 +922,8 @@ public class PruebasPartidaTest {
 
         partida.calcularPuntosPicaPica(jugadaPP2);
 
-        Assert.assertTrue(equipo1.obtenerPuntos() == 7);
-        Assert.assertTrue(equipo2.obtenerPuntos() == 7);
+        Assert.assertEquals(equipo1.obtenerPuntos(), 7);
+        Assert.assertEquals(equipo2.obtenerPuntos(), 7);
 
     }
 

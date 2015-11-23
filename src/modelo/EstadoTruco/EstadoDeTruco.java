@@ -1,6 +1,6 @@
 package modelo.EstadoTruco;
 
-import modelo.Jugada;
+import modelo.Jugada.Jugada;
 
 /**
  * Created by Augusto on 14/11/2015.

@@ -3,7 +3,7 @@ package modelo.EstadoJugador;
 import modelo.Equipo;
 import modelo.Errores.NoTienElQuieroError;
 import modelo.Errores.SoloJugadorPiePuedeCantarEnvidoError;
-import modelo.Jugada;
+import modelo.Jugada.Jugada;
 import modelo.Jugador;
 
 /**

@@ -4,8 +4,8 @@ import modelo.Equipo;
 import modelo.Errores.NoSePuedeCantarEsoError;
 import modelo.EstadoJugada.EstadoJugadaTerminada;
 import modelo.EstadoJugador.EstadoYaJugoCarta;
-import modelo.Jugada;
-import modelo.JugadaPicaPica;
+import modelo.Jugada.Jugada;
+import modelo.Jugada.JugadaPicaPica;
 import modelo.Jugador;
 import modelo.Partida.EstadoPartidaTerminada;
 import modelo.Partida.Partida;
@@ -41,23 +41,8 @@ public class EstadoEnvido implements EstadoDeEnvido {
     }
 
     @Override
-    public void aceptarEnvido(Jugada jugada) {
-        jugada.obtenerEquipoGanadorEnvido().sumarPuntos(jugada.obtenerPuntosEnvido() + PUNTOS);
-        if (jugada.obtenerEquipoGanadorEnvido().obtenerPuntos() == 30){
-            jugada.cambiarEstadoJugada(new EstadoJugadaTerminada());
-        }
-        jugada.cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
-    }
-
-    @Override
     public int obtenerPuntos() {
         return PUNTOS;
-    }
-
-    @Override
-    public void noAceptarEnvido(Equipo equipoGanador, Jugada jugada) {
-        equipoGanador.sumarPuntos(1);
-        jugada.cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
     }
 
 
@@ -86,15 +71,6 @@ public class EstadoEnvido implements EstadoDeEnvido {
         jugada.cambiarEstadoEnvido(new EstadoFlor());
     }
 
-    @Override
-    public void noAceptarFlor(Equipo equipo, Jugada jugada) {
-        throw new NoSePuedeCantarEsoError();
-    }
-
-    @Override
-    public void aceptarFlor(Equipo equipoQueCantoFlor, Equipo equipoQueNoCantoFlor,Jugada jugada) {
-        throw new NoSePuedeCantarEsoError();
-    }
 
     @Override
     public void contraFlor(Jugada jugada) {

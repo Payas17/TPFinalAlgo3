@@ -3,10 +3,9 @@ package modelo.EstadoEnvido;
 import modelo.Equipo;
 import modelo.Errores.NoSePuedeCantarEsoError;
 import modelo.EstadoJugada.EstadoJugadaTerminada;
-import modelo.EstadoJugador.EstadoNoPuedeCantar;
 import modelo.EstadoJugador.EstadoYaJugoCarta;
-import modelo.Jugada;
-import modelo.JugadaPicaPica;
+import modelo.Jugada.Jugada;
+import modelo.Jugada.JugadaPicaPica;
 import modelo.Jugador;
 import modelo.Partida.EstadoPartidaTerminada;
 import modelo.Partida.Partida;
@@ -33,28 +32,8 @@ public class EstadoFaltaEnvido implements EstadoDeEnvido{
     }
 
     @Override
-    public void aceptarEnvido(Jugada jugada) {
-        Equipo equipoPerdedor = jugada.obtenerEquipoQueNoContieneJugador(jugada.obtenerJugadorGanadorEnvido());
-        jugada.cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
-        if( equipoPerdedor.obtenerPuntos() > 15){
-            int maxPuntaje = Math.max(jugada.obtenerEquipoGanadorEnvido().obtenerPuntos(), equipoPerdedor.obtenerPuntos());
-            jugada.obtenerEquipoGanadorEnvido().sumarPuntos(30 - maxPuntaje);
-
-        }
-        else{
-            jugada.obtenerEquipoGanadorEnvido().sumarPuntos(15 - equipoPerdedor.obtenerPuntos());
-        }
-    }
-
-    @Override
     public int obtenerPuntos() {
         return PUNTOS;
-    }
-
-    @Override
-    public void noAceptarEnvido(Equipo equipoGanador, Jugada jugada) {
-        equipoGanador.sumarPuntos(jugada.obtenerPuntosEnvido());
-        jugada.cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
     }
 
     @Override
@@ -74,16 +53,6 @@ public class EstadoFaltaEnvido implements EstadoDeEnvido{
     @Override
     public void cantarFlor(Jugada jugada) {
         jugada.cambiarEstadoEnvido(new EstadoFlor());
-    }
-
-    @Override
-    public void noAceptarFlor(Equipo equipo, Jugada jugada) {
-        throw new NoSePuedeCantarEsoError();
-    }
-
-    @Override
-    public void aceptarFlor(Equipo equipoQueCantoFlor, Equipo equipoQueNoCantoFlor,Jugada jugada) {
-        throw new NoSePuedeCantarEsoError();
     }
 
     @Override

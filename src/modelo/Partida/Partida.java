@@ -1,6 +1,8 @@
 package modelo.Partida;
 
 import modelo.*;
+import modelo.Jugada.Jugada;
+import modelo.Jugada.JugadaPicaPica;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,15 +39,11 @@ public class Partida {
     }
 
     public Jugada crearJugada(){
-        Jugada jugada = new Jugada(this,mazoDeCartas, ordenJugadores);
+        Jugada jugada;
 
+        jugada = new Jugada(this,ordenJugadores);
         jugadas.add(jugada);
         return jugada;
-    }
-
-
-    public boolean seEstaJugandoConFlor(){
-        return flor;
     }
 
     public void cambiarEstado(EstadoPartidaTerminada estadoPartidaTerminada) {
@@ -71,6 +69,10 @@ public class Partida {
     }
 
     public JugadaPicaPica crearJugadaPicaPica() {
-        return new JugadaPicaPica();
+        return new JugadaPicaPica(this);
+    }
+
+    public Mazo obtenerMazo() {
+        return mazoDeCartas;
     }
 }

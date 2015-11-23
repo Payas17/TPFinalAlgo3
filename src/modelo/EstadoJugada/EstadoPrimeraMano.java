@@ -3,10 +3,9 @@ package modelo.EstadoJugada;
 
 
 import modelo.Equipo;
-import modelo.EstadoEnvido.EstadoDeEnvido;
 import modelo.EstadoEnvido.EstadoNoSePuedeCantarEnvido;
 import modelo.EstadoEnvido.EstadoSinEnvido;
-import modelo.Jugada;
+import modelo.Jugada.Jugada;
 
 /**
  * Created by Augusto on 14/11/2015.

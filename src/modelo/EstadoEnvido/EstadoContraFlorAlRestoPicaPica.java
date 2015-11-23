@@ -2,10 +2,8 @@ package modelo.EstadoEnvido;
 
 import modelo.Equipo;
 import modelo.Errores.NoSePuedeCantarEsoError;
-import modelo.EstadoJugada.EstadoJugadaTerminada;
-import modelo.Jugada;
-import modelo.JugadaPicaPica;
-import modelo.Partida.EstadoPartidaTerminada;
+import modelo.Jugada.Jugada;
+import modelo.Jugada.JugadaPicaPica;
 import modelo.Partida.Partida;
 
 /**

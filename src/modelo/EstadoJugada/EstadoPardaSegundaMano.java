@@ -1,7 +1,7 @@
 package modelo.EstadoJugada;
 
 import modelo.Equipo;
-import modelo.Jugada;
+import modelo.Jugada.Jugada;
 
 /**
  * Created by Lucio on 18/11/2015.

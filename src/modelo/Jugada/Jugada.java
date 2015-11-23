@@ -1,5 +1,6 @@
-package modelo;
+package modelo.Jugada;
 
+import modelo.Equipo;
 import modelo.Errores.NoTieneFlorError;
 import modelo.EstadoEnvido.EstadoDeEnvido;
 import modelo.EstadoEnvido.EstadoSinEnvido;
@@ -10,6 +11,8 @@ import modelo.EstadoJugador.EstadoNoSeCantoNada;
 import modelo.EstadoJugador.EstadoPie;
 import modelo.EstadoTruco.EstadoDeTruco;
 import modelo.EstadoTruco.EstadoSinTruco;
+import modelo.Jugador;
+import modelo.Mano;
 import modelo.Partida.EstadoPartidaTerminada;
 import modelo.Partida.Partida;
 
@@ -28,6 +31,7 @@ public class Jugada {
     protected List<Jugador> ordenJugadores;
     private Equipo ganadorPrimerMano;
     private Jugador mano;
+
     protected Equipo equipo1;
     protected Equipo equipo2;
     protected Equipo equipoGanador;
@@ -37,34 +41,18 @@ public class Jugada {
     protected int puntosEnvido;
 
 
-    public Jugada(){
+    public Jugada(Partida partida){
         estadoEnvido = new EstadoSinEnvido();
         estadoTruco = new EstadoSinTruco();
         estadoJugada = new EstadoPrimeraMano();
+        this.partida = partida;
         puntosEnvido = 0;
         equipoGanador= null;
         this.equipo1 = null;
         this.equipo2 = null;
-
     }
 
-    public Jugada(Equipo equipo1, Equipo equipo2, Mazo mazoDeCartas) {
-        ordenJugadores = new ArrayList<>();
-        estadoEnvido = new EstadoSinEnvido();
-        estadoTruco = new EstadoSinTruco();
-        estadoJugada = new EstadoPrimeraMano();
-        puntosEnvido = 0;
-        equipoGanador= null;
-
-        this.equipo1 = equipo1;
-        this.equipo2 = equipo2;
-
-        inicializarJugadores2(equipo1, equipo2, mazoDeCartas);
-    }
-
-
-
-    public Jugada(Partida partida,Mazo mazoDeCartas, List<Jugador> ordenJugadoresDePartida) {
+    public Jugada(Partida partida, List<Jugador> ordenJugadoresDePartida) {
         ordenJugadores = ordenJugadoresDePartida;
         estadoEnvido = new EstadoSinEnvido();
         estadoTruco = new EstadoSinTruco();
@@ -76,34 +64,12 @@ public class Jugada {
         this.equipo1 = partida.obtenerEquipo1();
         this.equipo2 = partida.obtenerEquipo2();
 
-        inicializarJugadores(mazoDeCartas);
+        inicializarJugadores();
     }
 
 
-    private void inicializarJugadores2(Equipo equipo1, Equipo equipo2, Mazo mazoDeCartas) {
+    private void inicializarJugadores() {
 
-        for (int i = 0; i < equipo1.obtenerIntegrantes().size(); i++) {
-            //mazoDeCartas.mezclar();
-            //equipo1.obtenerIntegrantes().get(i).cambiarCartas(mazoDeCartas);
-            //equipo2.obtenerIntegrantes().get(i).cambiarCartas(mazoDeCartas);
-
-
-            ordenJugadores.add(this.equipo1.obtenerIntegrantes().get(i));
-            ordenJugadores.add(this.equipo2.obtenerIntegrantes().get(i));
-        }
-
-        if (equipo1.obtenerPuntos() != 0 || equipo2.obtenerPuntos() != 0) {
-            Jugador jugadorQuePongoUltimo = ordenJugadores.remove(0);
-            ordenJugadores.add(jugadorQuePongoUltimo);
-        }
-
-        ordenJugadores.get(ordenJugadores.size() - 1).cambiarEstado(new EstadoPie());
-        ordenJugadores.get(ordenJugadores.size() - 2).cambiarEstado(new EstadoPie());
-        ordenJugadoresMano = new ArrayList<>(ordenJugadores);
-        mano = ordenJugadores.get(0);
-    }
-
-    private void inicializarJugadores(Mazo mazoDeCartas) {
         if (equipo1.obtenerPuntos() != 0 || equipo2.obtenerPuntos() != 0) {
             Jugador jugadorQuePongoUltimo = ordenJugadores.remove(0);
             ordenJugadores.add(jugadorQuePongoUltimo);
@@ -114,10 +80,6 @@ public class Jugada {
         ordenJugadores.get(ordenJugadores.size()-1).cambiarEstado(new EstadoPie());
         ordenJugadores.get(ordenJugadores.size()-2).cambiarEstado(new EstadoPie());
         ordenJugadoresMano = new ArrayList<>(ordenJugadores);
-        //mazoDeCartas.mezclar();
-        for (Jugador jugadorActual: ordenJugadores) {
-            //jugadorActual.cambiarCartas(mazoDeCartas);
-        }
         mano = ordenJugadores.get(0);
     }
 

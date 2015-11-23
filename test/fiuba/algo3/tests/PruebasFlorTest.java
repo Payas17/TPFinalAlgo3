@@ -3,6 +3,8 @@ package fiuba.algo3.tests;
 import modelo.*;
 import modelo.Carta.*;
 import modelo.Errores.NoTieneFlorError;
+import modelo.Jugada.Jugada;
+import modelo.Partida.Partida;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -25,9 +27,10 @@ public class PruebasFlorTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
+        Partida partida = new Partida(equipo1,equipo2);
+
+        Jugada jugada = partida.crearJugada();
 
 
         Carta espada1 = new Espada(1, valoresTrucoYEnvido);
@@ -53,11 +56,9 @@ public class PruebasFlorTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
-
+        Jugada jugada = partida.crearJugada();
         Carta oro7 = new Oro(7, valoresTrucoYEnvido);
         Carta oro1 = new Oro(1, valoresTrucoYEnvido);
         Carta oro10 = new Oro(10, valoresTrucoYEnvido);
@@ -92,11 +93,9 @@ public class PruebasFlorTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
-
+        Jugada jugada = partida.crearJugada();
         Carta oro7 = new Oro(7, valoresTrucoYEnvido);
         Carta oro1 = new Oro(1, valoresTrucoYEnvido);
         Carta oro2 = new Oro(2, valoresTrucoYEnvido);
@@ -131,10 +130,9 @@ public class PruebasFlorTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
+        Jugada jugada = partida.crearJugada();
         Carta oro7 = new Oro(7, valoresTrucoYEnvido);
         Carta oro1 = new Oro(1, valoresTrucoYEnvido);
         Carta oro10 = new Oro(10, valoresTrucoYEnvido);
@@ -173,10 +171,9 @@ public class PruebasFlorTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
+        Jugada jugada = partida.crearJugada();
 
         Carta copa10 = new Copa(10,valoresTrucoYEnvido);
         Carta copa4 = new Copa(4,valoresTrucoYEnvido);
@@ -229,11 +226,9 @@ public class PruebasFlorTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
-
+        Jugada jugada = partida.crearJugada();
         Carta copa10 = new Copa(10,valoresTrucoYEnvido);
         Carta copa4 = new Copa(4,valoresTrucoYEnvido);
         Carta copa5 = new Copa(5,valoresTrucoYEnvido);
@@ -286,10 +281,9 @@ public class PruebasFlorTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
+        Jugada jugada = partida.crearJugada();
         Carta copa10 = new Copa(10,valoresTrucoYEnvido);
         Carta copa4 = new Copa(4,valoresTrucoYEnvido);
         Carta copa5 = new Copa(5,valoresTrucoYEnvido);

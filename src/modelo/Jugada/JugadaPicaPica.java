@@ -1,9 +1,10 @@
-package modelo;
+package modelo.Jugada;
 
-import modelo.EstadoEnvido.EstadoSinEnvido;
-import modelo.EstadoJugada.EstadoPrimeraMano;
+import modelo.Equipo;
 import modelo.EstadoJugador.EstadoPie;
-import modelo.EstadoTruco.EstadoSinTruco;
+import modelo.Jugada.Jugada;
+import modelo.Jugador;
+import modelo.Partida.Partida;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +15,8 @@ import java.util.List;
 public class JugadaPicaPica extends Jugada {
 
 
-    public JugadaPicaPica(){
-        super();
+    public JugadaPicaPica(Partida partida){
+        super(partida);
     }
 
     @Override
@@ -30,12 +31,6 @@ public class JugadaPicaPica extends Jugada {
 
 
     public void armarEquiposParaPicaPica(Jugador jugador1, Jugador jugador6) {
-
-
-       /* this.equipo1.obtenerIntegrantes().removeAll(equipo1.obtenerIntegrantes());
-        this.equipo2.obtenerIntegrantes().removeAll(equipo2.obtenerIntegrantes());
-        ordenJugadores.removeAll(ordenJugadores);
-        */
 
         ordenJugadoresMano = new ArrayList<>();
         ordenJugadoresMano.add(jugador1);

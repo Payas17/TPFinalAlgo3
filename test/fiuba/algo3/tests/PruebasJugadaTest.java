@@ -3,6 +3,8 @@ package fiuba.algo3.tests;
 import modelo.*;
 import modelo.Carta.*;
 import modelo.Errores.*;
+import modelo.Jugada.Jugada;
+import modelo.Partida.Partida;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -24,11 +26,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
-
+        Jugada jugada = partida.crearJugada();
         Carta espada10 = new Espada(10,valoresTrucoYEnvido);
         Carta basto5 = new Basto(5,valoresTrucoYEnvido);
 
@@ -77,10 +77,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
+        Jugada jugada = partida.crearJugada();
 
 
         Carta espada10 = new Espada(10,valoresTrucoYEnvido);
@@ -122,12 +121,10 @@ public class PruebasJugadaTest {
         jugadores2.add(jugador2);
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
-        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
+        Partida partida = new Partida(equipo1,equipo2);
 
-
+        Jugada jugada = partida.crearJugada();
         jugador1.cantarEnvido(jugada);
         jugador2.cantarEnvido(jugada);
         jugador1.cantarEnvido(jugada);
@@ -146,11 +143,10 @@ public class PruebasJugadaTest {
         jugadores2.add(jugador2);
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
-        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
+        Partida partida = new Partida(equipo1,equipo2);
 
+        Jugada jugada = partida.crearJugada();
 
         jugador1.cantarEnvido(jugada);
         jugador2.cantarRealEnvido(jugada);
@@ -170,10 +166,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
+        Jugada jugada = partida.crearJugada();
 
         Carta oro7 = new Oro(7, valoresTrucoYEnvido);
         Carta oro1 = new Oro(1, valoresTrucoYEnvido);
@@ -219,10 +214,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
+        Jugada jugada = partida.crearJugada();
 
         Carta oro7 = new Oro(7, valoresTrucoYEnvido);
         Carta oro1 = new Oro(1, valoresTrucoYEnvido);
@@ -281,11 +275,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
-
+        Jugada jugada = partida.crearJugada();
         Carta oro7 = new Oro(7, valoresTrucoYEnvido);
         Carta oro1 = new Oro(1, valoresTrucoYEnvido);
         Carta espada1 = new Espada(7, valoresTrucoYEnvido);
@@ -328,10 +320,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
+        Jugada jugada = partida.crearJugada();
         Carta oro7 = new Oro(7, valoresTrucoYEnvido);
         Carta oro1 = new Oro(1, valoresTrucoYEnvido);
         Carta espada1 = new Espada(7, valoresTrucoYEnvido);
@@ -376,11 +367,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
-
+        Jugada jugada = partida.crearJugada();
         equipo1.sumarPuntos(5);
         equipo2.sumarPuntos(15);
 
@@ -422,10 +411,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
+        Jugada jugada = partida.crearJugada();
 
         equipo1.sumarPuntos(16);
         equipo2.sumarPuntos(1);
@@ -467,11 +455,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
-
+        Jugada jugada = partida.crearJugada();
         Carta oro7 = new Oro(7, valoresTrucoYEnvido);
         Carta oro1 = new Oro(1, valoresTrucoYEnvido);
         Carta espada1 = new Espada(7, valoresTrucoYEnvido);
@@ -513,10 +499,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
+        Jugada jugada = partida.crearJugada();
 
         Carta oro7 = new Oro(7, valoresTrucoYEnvido);
         Carta oro1 = new Oro(1, valoresTrucoYEnvido);
@@ -559,10 +544,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
+        Jugada jugada = partida.crearJugada();
 
         Carta oro7 = new Oro(7, valoresTrucoYEnvido);
         Carta oro1 = new Oro(1, valoresTrucoYEnvido);
@@ -600,12 +584,11 @@ public class PruebasJugadaTest {
         jugadores2.add(jugador2);
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
-        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
-
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
 
 
+        Partida partida = new Partida(equipo1,equipo2);
+
+        Jugada jugada = partida.crearJugada();
 
         jugador1.cantarReTruco(jugada);
 
@@ -621,12 +604,11 @@ public class PruebasJugadaTest {
         jugadores2.add(jugador2);
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
-        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
-
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
 
 
+        Partida partida = new Partida(equipo1,equipo2);
+
+        Jugada jugada = partida.crearJugada();
 
         jugador1.cantarTruco(jugada);
         jugador2.cantarTruco(jugada);
@@ -642,12 +624,10 @@ public class PruebasJugadaTest {
         jugadores2.add(jugador2);
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
-        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
+        Partida partida = new Partida(equipo1,equipo2);
 
-
+        Jugada jugada = partida.crearJugada();
         jugador1.cantarTruco(jugada);
         jugador2.cantarValeCuatro(jugada);
 
@@ -665,12 +645,10 @@ public class PruebasJugadaTest {
         jugadores2.add(jugador2);
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
-        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
+        Partida partida = new Partida(equipo1,equipo2);
 
-
+        Jugada jugada = partida.crearJugada();
         jugador1.cantarTruco(jugada);
         jugador2.cantarReTruco(jugada);
         jugador1.cantarValeCuatro(jugada);
@@ -691,11 +669,10 @@ public class PruebasJugadaTest {
         jugadores2.add(jugador2);
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
-        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
+        Partida partida = new Partida(equipo1,equipo2);
 
+        Jugada jugada = partida.crearJugada();
 
         jugador1.cantarTruco(jugada);
         jugador2.cantarReTruco(jugada);
@@ -721,11 +698,9 @@ public class PruebasJugadaTest {
         Equipo equipo2 = new Equipo(jugadores2);
 
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
-
+        Jugada jugada = partida.crearJugada();
 
         Carta espada10 = new Espada(10,valoresTrucoYEnvido);
         Carta basto5 = new Basto(5,valoresTrucoYEnvido);
@@ -779,11 +754,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
-
+        Jugada jugada = partida.crearJugada();
 
         Carta espada10 = new Espada(10,valoresTrucoYEnvido);
         Carta basto11 = new Basto(11,valoresTrucoYEnvido);
@@ -825,11 +798,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
-
+        Jugada jugada = partida.crearJugada();
 
         Carta espada10 = new Espada(10,valoresTrucoYEnvido);
         Carta basto10 = new Basto(10,valoresTrucoYEnvido);
@@ -879,11 +850,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
-
+        Jugada jugada = partida.crearJugada();
 
         Carta espada10 = new Espada(10,valoresTrucoYEnvido);
         Carta basto10 = new Basto(10,valoresTrucoYEnvido);
@@ -932,10 +901,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
+        Jugada jugada = partida.crearJugada();
 
 
 
@@ -986,11 +954,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
-
+        Jugada jugada = partida.crearJugada();
         Carta espada11 = new Espada(11,valoresTrucoYEnvido);
         Carta basto10 = new Basto(10,valoresTrucoYEnvido);
 
@@ -1027,10 +993,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
+        Jugada jugada = partida.crearJugada();
         Carta espada11 = new Espada(11,valoresTrucoYEnvido);
         Carta basto10 = new Basto(10,valoresTrucoYEnvido);
 
@@ -1076,10 +1041,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
+        Jugada jugada = partida.crearJugada();
         Carta espada11 = new Espada(11,valoresTrucoYEnvido);
         Carta basto10 = new Basto(10,valoresTrucoYEnvido);
 
@@ -1113,11 +1077,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
-
+        Jugada jugada = partida.crearJugada();
         Carta espada11 = new Espada(11,valoresTrucoYEnvido);
         Carta basto10 = new Basto(10,valoresTrucoYEnvido);
 
@@ -1151,11 +1113,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
-
+        Jugada jugada = partida.crearJugada();
         Carta espada11 = new Espada(11,valoresTrucoYEnvido);
         Carta basto10 = new Basto(10,valoresTrucoYEnvido);
 
@@ -1190,11 +1150,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
-
+        Jugada jugada = partida.crearJugada();
         Carta copa10 = new Copa(10,valoresTrucoYEnvido);
         Carta oro1 = new Oro(1,valoresTrucoYEnvido);
 
@@ -1239,13 +1197,12 @@ public class PruebasJugadaTest {
         Jugador jugador4 = new Jugador();
         jugadores2.add(jugador4);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
 
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
+        Partida partida = new Partida(equipo1,equipo2);
 
-
+        Jugada jugada = partida.crearJugada();
         Carta copa10 = new Copa(10,valoresTrucoYEnvido);
         Carta copa4 = new Copa(4,valoresTrucoYEnvido);
         Carta copa5 = new Copa(5,valoresTrucoYEnvido);
@@ -1290,10 +1247,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
+        Jugada jugada = partida.crearJugada();
 
         Carta copa10 = new Copa(10,valoresTrucoYEnvido);
         Carta oro1 = new Oro(1,valoresTrucoYEnvido);
@@ -1353,10 +1309,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
+        Jugada jugada = partida.crearJugada();
 
         Carta copa10 = new Copa(10,valoresTrucoYEnvido);
         Carta oro1 = new Oro(1,valoresTrucoYEnvido);
@@ -1414,10 +1369,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1, equipo2, mazoDeCartas);
-
+        Jugada jugada = partida.crearJugada();
         Carta copa10 = new Copa(10, valoresTrucoYEnvido);
         Carta oro1 = new Oro(1, valoresTrucoYEnvido);
         Carta oro3 = new Oro(3, valoresTrucoYEnvido);
@@ -1447,10 +1401,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
+        Jugada jugada = partida.crearJugada();
         Carta copa10 = new Copa(10,valoresTrucoYEnvido);
         Carta oro1 = new Oro(1,valoresTrucoYEnvido);
         Carta oro3 = new Oro(3,valoresTrucoYEnvido);
@@ -1485,11 +1438,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
-
+        Jugada jugada = partida.crearJugada();
         Carta copa10 = new Copa(10,valoresTrucoYEnvido);
         Carta oro1 = new Oro(1,valoresTrucoYEnvido);
         Carta oro3 = new Oro(3,valoresTrucoYEnvido);
@@ -1521,10 +1472,9 @@ public class PruebasJugadaTest {
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
+        Partida partida = new Partida(equipo1,equipo2);
 
-        Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
-
+        Jugada jugada = partida.crearJugada();
         Carta copa10 = new Copa(10,valoresTrucoYEnvido);
         Carta oro1 = new Oro(1,valoresTrucoYEnvido);
         Carta oro3 = new Oro(3,valoresTrucoYEnvido);
