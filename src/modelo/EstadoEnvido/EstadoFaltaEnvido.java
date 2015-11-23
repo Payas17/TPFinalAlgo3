@@ -6,6 +6,7 @@ import modelo.EstadoJugada.EstadoJugadaTerminada;
 import modelo.EstadoJugador.EstadoNoPuedeCantar;
 import modelo.EstadoJugador.EstadoYaJugoCarta;
 import modelo.Jugada;
+import modelo.JugadaPicaPica;
 import modelo.Jugador;
 import modelo.Partida.EstadoPartidaTerminada;
 import modelo.Partida.Partida;
@@ -135,5 +136,13 @@ public class EstadoFaltaEnvido implements EstadoDeEnvido{
         }
     }
 
+    @Override
+    public void cantarFaltaEnvidoPicaPica(JugadaPicaPica jugadaPicaPica) {
+        throw new NoSePuedeCantarEsoError();
+    }
 
+    @Override
+    public void cantarContraFlorAlRestoPicaPica(JugadaPicaPica jugadaPicaPica) {
+        throw new NoSePuedeCantarEsoError();
+    }
 }

@@ -263,7 +263,7 @@ public class PruebasFlorTest {
         jugador4.agregarCarta(basto5);
 
         jugador2.cantarFlor(jugada);
-        jugador3.contraFlor(jugada);
+        jugador3.cantarContraFlor(jugada);
         jugador2.aceptarFlor(jugada);
 
         Assert.assertEquals(equipo1.obtenerPuntos(),6);
@@ -320,7 +320,7 @@ public class PruebasFlorTest {
 
         equipo2.sumarPuntos(7);
         jugador2.cantarFlor(jugada);
-        jugador3.contraFlorAlResto(jugada);
+        jugador3.cantarContraFlorAlResto(jugada);
         jugador2.aceptarFlor(jugada);
 
 

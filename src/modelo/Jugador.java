@@ -2,11 +2,8 @@ package modelo;
 
 import modelo.Carta.Carta;
 import modelo.Errores.CartaYaJugadaError;
-import modelo.Errores.NoTieneFlorError;
-import modelo.EstadoEnvido.EstadoNoSePuedeCantarEnvido;
 import modelo.EstadoJugador.EstadoDeJugador;
 import modelo.EstadoJugador.EstadoNoSeCantoNada;
-import modelo.EstadoJugador.EstadoPie;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -132,12 +129,12 @@ public class Jugador {
         jugada.aceptarFlor(this);
     }
 
-    public void contraFlor(Jugada jugada) {
-        jugada.contraFlor();
+    public void cantarContraFlor(Jugada jugada) {
+        jugada.cantarContraFlor();
     }
 
-    public void contraFlorAlResto(Jugada jugada) {
-        jugada.contraFlorAlResto();
+    public void cantarContraFlorAlResto(Jugada jugada) {
+        jugada.cantarContraFlorAlResto();
     }
 
     public void cambiarCartas(Mazo mazo) {
@@ -151,4 +148,6 @@ public class Jugador {
         cartasEnJuego.removeAll(cartasEnJuego);
         cartas.removeAll(cartas);
     }
+
+
 }

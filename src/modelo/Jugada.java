@@ -24,18 +24,29 @@ public class Jugada {
     final int TANTO = 20;
 
     private Partida partida;
-    private List<Jugador> ordenJugadoresMano;
-    private List<Jugador> ordenJugadores;
+    protected List<Jugador> ordenJugadoresMano;
+    protected List<Jugador> ordenJugadores;
     private Equipo ganadorPrimerMano;
     private Jugador mano;
-    private Equipo equipo1;
-    private Equipo equipo2;
-    private Equipo equipoGanador;
-    private EstadoDeTruco estadoTruco;
-    private EstadoDeJugada estadoJugada;
-    private EstadoDeEnvido estadoEnvido;
-    private int puntosEnvido;
+    protected Equipo equipo1;
+    protected Equipo equipo2;
+    protected Equipo equipoGanador;
+    protected EstadoDeTruco estadoTruco;
+    protected EstadoDeJugada estadoJugada;
+    protected EstadoDeEnvido estadoEnvido;
+    protected int puntosEnvido;
 
+
+    public Jugada(){
+        estadoEnvido = new EstadoSinEnvido();
+        estadoTruco = new EstadoSinTruco();
+        estadoJugada = new EstadoPrimeraMano();
+        puntosEnvido = 0;
+        equipoGanador= null;
+        this.equipo1 = null;
+        this.equipo2 = null;
+
+    }
 
     public Jugada(Equipo equipo1, Equipo equipo2, Mazo mazoDeCartas) {
         ordenJugadores = new ArrayList<>();
@@ -68,15 +79,6 @@ public class Jugada {
         inicializarJugadores(mazoDeCartas);
     }
 
-    public Jugada(){
-        estadoEnvido = new EstadoSinEnvido();
-        estadoTruco = new EstadoSinTruco();
-        estadoJugada = new EstadoPrimeraMano();
-        puntosEnvido = 0;
-        equipoGanador= null;
-        this.equipo1 = null;
-        this.equipo2 = null;
-    }
 
     private void inicializarJugadores2(Equipo equipo1, Equipo equipo2, Mazo mazoDeCartas) {
 
@@ -313,35 +315,15 @@ public class Jugada {
         estadoEnvido.aceptarFlor(obtenerEquipoQueNoContieneJugador(jugador), obtenerEquipoQueContieneJugador(jugador), this,partida);
     }
 
-    public void contraFlor() {
+    public void cantarContraFlor() {
         estadoEnvido.contraFlor(this);
     }
 
-    public void contraFlorAlResto() {
+    public void cantarContraFlorAlResto() {
         estadoEnvido.contraFlorAlResto(this);
     }
 
-    public void armarEquiposParaPicaPica(Jugador jugador1, Jugador jugador6) {
 
-
-       /* this.equipo1.obtenerIntegrantes().removeAll(equipo1.obtenerIntegrantes());
-        this.equipo2.obtenerIntegrantes().removeAll(equipo2.obtenerIntegrantes());
-        ordenJugadores.removeAll(ordenJugadores);
-        */
-
-        ordenJugadoresMano = new ArrayList<>();
-        ordenJugadoresMano.add(jugador1);
-        ordenJugadoresMano.add(jugador6);
-        ordenJugadores = ordenJugadoresMano;
-
-        List<Jugador> jugadores = new ArrayList<>();
-        jugadores.add(jugador1);
-        List<Jugador> jugadores2 = new ArrayList<>();
-        jugadores2.add(jugador6);
-
-        this.equipo1 = new Equipo(jugadores);
-        this.equipo2 = new Equipo(jugadores2);
-    }
 }
 
 

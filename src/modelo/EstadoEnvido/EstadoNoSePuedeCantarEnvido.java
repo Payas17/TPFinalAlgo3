@@ -3,6 +3,7 @@ package modelo.EstadoEnvido;
 import modelo.Equipo;
 import modelo.Errores.NoSePuedeCantarEsoError;
 import modelo.Jugada;
+import modelo.JugadaPicaPica;
 import modelo.Partida.Partida;
 
 /**
@@ -84,5 +85,14 @@ public class EstadoNoSePuedeCantarEnvido implements EstadoDeEnvido {
         throw new NoSePuedeCantarEsoError();
     }
 
+    @Override
+    public void cantarFaltaEnvidoPicaPica(JugadaPicaPica jugadaPicaPica) {
+        throw new NoSePuedeCantarEsoError();
+    }
+
+    @Override
+    public void cantarContraFlorAlRestoPicaPica(JugadaPicaPica jugadaPicaPica) {
+        throw new NoSePuedeCantarEsoError();
+    }
 
 }

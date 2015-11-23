@@ -3,6 +3,7 @@ package modelo.EstadoEnvido;
 import modelo.Equipo;
 import modelo.Errores.NoSePuedeCantarEsoError;
 import modelo.Jugada;
+import modelo.JugadaPicaPica;
 import modelo.Partida.Partida;
 
 /**
@@ -29,6 +30,11 @@ public class EstadoSinEnvido implements EstadoDeEnvido {
     public void aceptarEnvido(Jugada jugada) {
         throw new NoSePuedeCantarEsoError();
 
+    }
+
+    @Override
+    public void cantarFaltaEnvidoPicaPica(JugadaPicaPica jugadaPicaPica) {
+        jugadaPicaPica.cambiarEstadoEnvido(new EstadoFaltaEnvidoPicaPica());
     }
 
     @Override
@@ -83,6 +89,11 @@ public class EstadoSinEnvido implements EstadoDeEnvido {
 
     @Override
     public void aceptarEnvido(Jugada jugada, Partida partida) {
+        throw new NoSePuedeCantarEsoError();
+    }
+
+    @Override
+    public void cantarContraFlorAlRestoPicaPica(JugadaPicaPica jugadaPicaPica) {
         throw new NoSePuedeCantarEsoError();
     }
 

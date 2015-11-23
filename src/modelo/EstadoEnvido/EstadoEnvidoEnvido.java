@@ -6,6 +6,7 @@ import modelo.EstadoJugada.EstadoJugadaTerminada;
 import modelo.EstadoJugador.EstadoNoPuedeCantar;
 import modelo.EstadoJugador.EstadoYaJugoCarta;
 import modelo.Jugada;
+import modelo.JugadaPicaPica;
 import modelo.Jugador;
 import modelo.Partida.EstadoPartidaTerminada;
 import modelo.Partida.Partida;
@@ -69,6 +70,12 @@ public class EstadoEnvidoEnvido implements EstadoDeEnvido {
     }
 
     @Override
+    public void cantarFaltaEnvidoPicaPica(JugadaPicaPica jugadaPicaPica) {
+        jugadaPicaPica.sumarPuntosEnvido(jugadaPicaPica.obtenerEstadoEnvido().obtenerPuntos());
+        jugadaPicaPica.cambiarEstadoEnvido(new EstadoFaltaEnvidoPicaPica());
+    }
+
+    @Override
     public void cantarFlor(Jugada jugada) {
         jugada.cambiarEstadoEnvido(new EstadoFlor());
     }
@@ -125,6 +132,11 @@ public class EstadoEnvidoEnvido implements EstadoDeEnvido {
         for (Jugador jugador : equipo2.obtenerIntegrantes()) {
             jugador.cambiarEstado(new EstadoYaJugoCarta());
         }
+    }
+
+    @Override
+    public void cantarContraFlorAlRestoPicaPica(JugadaPicaPica jugadaPicaPica) {
+        throw new NoSePuedeCantarEsoError();
     }
 
 }

@@ -2,6 +2,7 @@ package modelo.EstadoEnvido;
 
 import modelo.Equipo;
 import modelo.Jugada;
+import modelo.JugadaPicaPica;
 import modelo.Jugador;
 import modelo.Partida.Partida;
 
@@ -40,4 +41,7 @@ public interface EstadoDeEnvido {
 
     void noAceptarEnvido(Equipo equipoGanador, Jugada jugada, Partida partida);
 
+    void cantarFaltaEnvidoPicaPica(JugadaPicaPica jugadaPicaPica);
+
+    void cantarContraFlorAlRestoPicaPica(JugadaPicaPica jugadaPicaPica);
 }

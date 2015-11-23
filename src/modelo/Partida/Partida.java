@@ -70,7 +70,7 @@ public class Partida {
         obtenerEquipo2().sumarPuntos(jugada.obtenerEquipo2().obtenerPuntos());
     }
 
-    public Jugada crearJugadaPicaPica() {
-        return new Jugada();
+    public JugadaPicaPica crearJugadaPicaPica() {
+        return new JugadaPicaPica();
     }
 }

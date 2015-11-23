@@ -5,6 +5,7 @@ import modelo.Errores.NoSePuedeCantarEsoError;
 import modelo.EstadoJugada.EstadoJugadaTerminada;
 import modelo.EstadoJugador.EstadoYaJugoCarta;
 import modelo.Jugada;
+import modelo.JugadaPicaPica;
 import modelo.Jugador;
 import modelo.Partida.EstadoPartidaTerminada;
 import modelo.Partida.Partida;
@@ -120,6 +121,15 @@ public class EstadoFlor implements EstadoDeEnvido {
         for (Jugador jugador : equipo2.obtenerIntegrantes()) {
             jugador.cambiarEstado(new EstadoYaJugoCarta());
         }
+    }
+    @Override
+    public void cantarFaltaEnvidoPicaPica(JugadaPicaPica jugadaPicaPica) {
+        throw new NoSePuedeCantarEsoError();
+    }
+
+    @Override
+    public void cantarContraFlorAlRestoPicaPica(JugadaPicaPica jugadaPicaPica) {
+        jugadaPicaPica.cambiarEstadoEnvido(new EstadoContraFlorAlRestoPicaPica());
     }
 
 }
