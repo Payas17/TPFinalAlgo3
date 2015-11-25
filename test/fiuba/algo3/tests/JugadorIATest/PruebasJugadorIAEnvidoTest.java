@@ -36,6 +36,24 @@ public class PruebasJugadorIAEnvidoTest {
          Assert.assertEquals(jugador.obtenerEstadoEnvido().getClass(), EstadoRealEnvidoInteligente.class);
      }
 
+     @Test
+     public void testJugadorIATieneParaRealEnvido(){
+
+          JugadorIA jugador = new JugadorIA();
+
+          ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+
+          Carta oro7 = new Oro(7, valoresTrucoYEnvido);
+          Carta oro1 = new Oro(1, valoresTrucoYEnvido);
+          Carta espada1 = new Espada(7, valoresTrucoYEnvido);
+
+          jugador.agregarCarta(oro7);
+          jugador.agregarCarta(oro1);
+          jugador.agregarCarta(espada1);
+
+
+          Assert.assertEquals(jugador.obtenerEstadoEnvido().getClass(), EstadoRealEnvidoInteligente.class);
+     }
 
 
 }

@@ -1,5 +1,6 @@
 package modeloJugadorIA;
 
+
 import modelo.Jugador;
 
 import java.util.Hashtable;
@@ -15,12 +16,22 @@ public class JugadorIA extends Jugador {
 
     public JugadorIA(){
         super();
-        contenedor = new Hashtable<Integer,EstadoEnvidoInteligente>();
+        contenedor = new Hashtable<>();
+        setearEstadoEnvido();
     }
 
 
     public EstadoEnvidoInteligente obtenerEstadoEnvido() {
+        buscarEstadoEnvidoInteligente();
         return estadoEnvidoInteligente;
+    }
+
+    public void buscarEstadoEnvidoInteligente(){
+         cambiarEstadoEnvidoInteligente((contenedor.get(this.obtenerEnvido())));
+    }
+
+    public void cambiarEstadoEnvidoInteligente(EstadoEnvidoInteligente estadoEnvidoInteligente) {
+        this.estadoEnvidoInteligente = estadoEnvidoInteligente;
     }
 
     public void setearEstadoEnvido(){
@@ -37,9 +48,12 @@ public class JugadorIA extends Jugador {
         contenedor.put(32, new EstadoEnvidoEnvidoRealEnvidoInteligente());
         contenedor.put(33, new EstadoEnvidoEnvidoRealEnvidoInteligente());
 
-        for (int i=34; i==38;i++){
+        for (int i=34; i < 37; i++){
             contenedor.put(i, new EstadoFlorInteligente());
         }
+
+        contenedor.put(37, new EstadoContraFlorInteligente());
+        contenedor.put(38, new EstadoContraFlorAlRestoInteligente());
 
     }
 }

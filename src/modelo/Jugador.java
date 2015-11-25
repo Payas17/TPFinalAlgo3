@@ -19,8 +19,6 @@ public class Jugador {
     private List<Carta> cartasEnJuego;
     private EstadoDeJugador estadoJugador;
 
-
-
     public Jugador(){
         this.cartas = new ArrayList<>();
         this.cartasEnJuego = new ArrayList<>();

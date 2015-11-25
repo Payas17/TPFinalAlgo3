@@ -123,7 +123,6 @@ public class Jugada {
 
     public void cantarRealEnvido() {
         this.estadoEnvido.cantarRealEnvido(this);
-
     }
 
     public void aceptarEnvido() {
