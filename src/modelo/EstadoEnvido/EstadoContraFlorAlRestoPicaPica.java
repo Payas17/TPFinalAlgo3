@@ -4,12 +4,13 @@ import modelo.Equipo;
 import modelo.Errores.NoSePuedeCantarEsoError;
 import modelo.Jugada.Jugada;
 import modelo.Jugada.JugadaPicaPica;
-import modelo.Partida.Partida;
 
 /**
  * Created by Augusto on 22/11/2015.
  */
 public class EstadoContraFlorAlRestoPicaPica extends EstadoContraFlorAlResto {
+
+    private final int MAX_CONTRA_FLOR_PICAPICA = 6;
 
     @Override
     public void cantarContraFlorAlRestoPicaPica(JugadaPicaPica jugadaPicaPica) {
@@ -17,8 +18,7 @@ public class EstadoContraFlorAlRestoPicaPica extends EstadoContraFlorAlResto {
     }
 
     @Override
-    public void aceptarFlor(Equipo equipo1, Equipo equipo2, Jugada jugada, Partida partida) {
-        jugada.obtenerEquipoGanadorFlor(equipo1,equipo2).sumarPuntos(6);
-        jugada.cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
+    public void aceptarFlor(Equipo equipo1, Equipo equipo2, Jugada jugada) {
+        jugada.obtenerEquipoGanadorFlor(equipo1,equipo2).sumarPuntos(MAX_CONTRA_FLOR_PICAPICA);
     }
 }

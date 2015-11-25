@@ -4,7 +4,6 @@ import modelo.Equipo;
 import modelo.Errores.NoSePuedeCantarEsoError;
 import modelo.Jugada.Jugada;
 import modelo.Jugada.JugadaPicaPica;
-import modelo.Partida.Partida;
 
 /**
  * Created by Lucio on 18/11/2015.
@@ -31,7 +30,7 @@ public class EstadoNoSePuedeCantarEnvido implements EstadoDeEnvido {
     }
 
     @Override
-    public void noAceptarEnvido(Equipo equipoGanador, Jugada jugada, Partida partida) {
+    public void noAceptarEnvido(Equipo equipoGanador, Jugada jugada) {
         throw new NoSePuedeCantarEsoError();
     }
 
@@ -51,17 +50,17 @@ public class EstadoNoSePuedeCantarEnvido implements EstadoDeEnvido {
     }
 
     @Override
-    public void noAceptarFlor(Equipo equipo, Jugada jugada, Partida partida) {
+    public void aceptarFlor(Equipo equipo1, Equipo equipo2, Jugada jugada) {
         throw new NoSePuedeCantarEsoError();
     }
 
     @Override
-    public void aceptarFlor(Equipo equipo1, Equipo equipo2, Jugada jugada, Partida partida) {
+    public void noAceptarFlor(Equipo equipo, Jugada jugada) {
         throw new NoSePuedeCantarEsoError();
     }
 
     @Override
-    public void aceptarEnvido(Jugada jugada, Partida partida) {
+    public void aceptarEnvido(Jugada jugada) {
         throw new NoSePuedeCantarEsoError();
     }
 

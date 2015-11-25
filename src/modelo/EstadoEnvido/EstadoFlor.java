@@ -2,25 +2,21 @@ package modelo.EstadoEnvido;
 
 import modelo.Equipo;
 import modelo.Errores.NoSePuedeCantarEsoError;
-import modelo.EstadoJugada.EstadoJugadaTerminada;
-import modelo.EstadoJugador.EstadoYaJugoCarta;
 import modelo.Jugada.Jugada;
 import modelo.Jugada.JugadaPicaPica;
-import modelo.Jugador;
-import modelo.Partida.EstadoPartidaTerminada;
-import modelo.Partida.Partida;
 
 /**
  * Created by Lucio on 21/11/2015.
  */
 public class EstadoFlor implements EstadoDeEnvido {
 
-    final int MAX_PUNTAJE_PARTIDA = 30;
+    private final int PUNTOS_POR_GANAR_FLOR = 4;
+    private final int PUNTOS_NO_QUIERO = 3 ;
+    private final int PUNTOS_POR_CANTAR_FLOR = 2;
 
     @Override
     public void cantarEnvido(Jugada jugada) {
         throw new NoSePuedeCantarEsoError();
-
     }
 
     @Override
@@ -39,11 +35,6 @@ public class EstadoFlor implements EstadoDeEnvido {
     }
 
     @Override
-    public void noAceptarEnvido(Equipo equipoGanador, Jugada jugada, Partida partida) {
-        throw new NoSePuedeCantarEsoError();
-    }
-
-    @Override
     public void cantarFlor(Jugada jugada){
         throw new NoSePuedeCantarEsoError();
     }
@@ -59,47 +50,26 @@ public class EstadoFlor implements EstadoDeEnvido {
     }
 
     @Override
-    public void noAceptarFlor(Equipo equipo, Jugada jugada, Partida partida) {
-        equipo.sumarPuntos(3);
-        if (equipo.obtenerPuntos() >= MAX_PUNTAJE_PARTIDA) {
-            jugada.cambiarEstadoJugada(new EstadoJugadaTerminada());
-            partida.cambiarEstado(new EstadoPartidaTerminada());
-
-            cambiarEstadoAJugadores(partida.obtenerEquipo1(), partida.obtenerEquipo2());
-
-        } else {
-            jugada.cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
-        }
+    public void noAceptarFlor(Equipo equipo, Jugada jugada) {
+        equipo.sumarPuntos(PUNTOS_NO_QUIERO);
     }
 
     @Override
-    public void aceptarFlor(Equipo equipoQueCantoFlor, Equipo equipoQueNoCantoFlor,Jugada jugada, Partida partida) {
-        jugada.obtenerEquipoGanadorFlor(equipoQueCantoFlor, equipoQueNoCantoFlor).sumarPuntos(4);
-        equipoQueCantoFlor.sumarPuntos(2);
-        if (equipoQueCantoFlor.obtenerPuntos() >= MAX_PUNTAJE_PARTIDA || equipoQueNoCantoFlor.obtenerPuntos() >= MAX_PUNTAJE_PARTIDA) {
-            jugada.cambiarEstadoJugada(new EstadoJugadaTerminada());
-            partida.cambiarEstado(new EstadoPartidaTerminada());
-
-            cambiarEstadoAJugadores(partida.obtenerEquipo1(),partida.obtenerEquipo2());
-
-        } else {
-            jugada.cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
-        }
+    public void aceptarFlor(Equipo equipoQueCantoFlor, Equipo equipoQueNoCantoFlor,Jugada jugada) {
+        jugada.obtenerEquipoGanadorFlor(equipoQueCantoFlor, equipoQueNoCantoFlor).sumarPuntos(PUNTOS_POR_GANAR_FLOR);
+        equipoQueCantoFlor.sumarPuntos(PUNTOS_POR_CANTAR_FLOR);
     }
 
     @Override
-    public void aceptarEnvido(Jugada jugada, Partida partida) {
+    public void aceptarEnvido(Jugada jugada) {
         throw new NoSePuedeCantarEsoError();
     }
 
-    private void cambiarEstadoAJugadores(Equipo equipo1, Equipo equipo2) {
-        for (Jugador jugador : equipo1.obtenerIntegrantes()) {
-            jugador.cambiarEstado(new EstadoYaJugoCarta());
-        }
-        for (Jugador jugador : equipo2.obtenerIntegrantes()) {
-            jugador.cambiarEstado(new EstadoYaJugoCarta());
-        }
+    @Override
+    public void noAceptarEnvido(Equipo equipoGanador, Jugada jugada) {
+        throw new NoSePuedeCantarEsoError();
     }
+
     @Override
     public void cantarFaltaEnvidoPicaPica(JugadaPicaPica jugadaPicaPica) {
         throw new NoSePuedeCantarEsoError();

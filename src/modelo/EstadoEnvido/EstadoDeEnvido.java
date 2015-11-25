@@ -24,13 +24,13 @@ public interface EstadoDeEnvido {
 
     void contraFlorAlResto(Jugada jugada);
 
-    void noAceptarFlor(Equipo equipo, Jugada jugada, Partida partida);
+    void noAceptarFlor(Equipo equipo, Jugada jugada);
 
-    void aceptarFlor(Equipo equipo1, Equipo equipo2,Jugada jugada, Partida partida);
+    void aceptarFlor(Equipo equipo1, Equipo equipo2,Jugada jugada);
 
-    void aceptarEnvido(Jugada jugada, Partida partida);
+    void aceptarEnvido(Jugada jugada);
 
-    void noAceptarEnvido(Equipo equipoGanador, Jugada jugada, Partida partida);
+    void noAceptarEnvido(Equipo equipoGanador, Jugada jugada);
 
     void cantarFaltaEnvidoPicaPica(JugadaPicaPica jugadaPicaPica);
 

@@ -3,12 +3,14 @@ package modelo.Jugada;
 import modelo.Equipo;
 import modelo.Errores.NoTieneFlorError;
 import modelo.EstadoEnvido.EstadoDeEnvido;
+import modelo.EstadoEnvido.EstadoNoSePuedeCantarEnvido;
 import modelo.EstadoEnvido.EstadoSinEnvido;
 import modelo.EstadoJugada.EstadoDeJugada;
 import modelo.EstadoJugada.EstadoJugadaTerminada;
 import modelo.EstadoJugada.EstadoPrimeraMano;
 import modelo.EstadoJugador.EstadoNoSeCantoNada;
 import modelo.EstadoJugador.EstadoPie;
+import modelo.EstadoJugador.EstadoYaJugoCarta;
 import modelo.EstadoTruco.EstadoDeTruco;
 import modelo.EstadoTruco.EstadoSinTruco;
 import modelo.Jugador;
@@ -23,7 +25,7 @@ import java.util.List;
  * Created by Lucio on 08/11/2015.
  */
 public class Jugada {
-    private final int MAX_PUNTOS_PARTIDA = 30;
+    private final int MAX_PUNTAJE_PARTIDA = 30;
     final int TANTO = 20;
 
     private Partida partida;
@@ -126,50 +128,25 @@ public class Jugada {
     }
 
     public void aceptarEnvido() {
-        this.estadoEnvido.aceptarEnvido(this,partida);
-    }
-
-    public Jugador obtenerJugadorGanadorEnvido() {
-        Jugador jugadorGanadorEnvido = ordenJugadores.get(0);
-        for (Jugador jugador: ordenJugadores){
-            jugadorGanadorEnvido = asignarJugadorGanadorEnvido(jugadorGanadorEnvido ,jugador);
+        this.estadoEnvido.aceptarEnvido(this);
+        if (algunEquipoGano()) {
+            terminarPartida();
+        } else {
+            cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
         }
-        return jugadorGanadorEnvido;
     }
 
-    public Jugador obtenerJugadorGanadorFlor() {
-        Jugador jugadorGanadorFlor = ordenJugadores.get(0);
-        for (Jugador jugador: ordenJugadores){
-            jugadorGanadorFlor = asignarJugadorGanadorFlor(jugadorGanadorFlor, jugador);
+    public void noAceptarEnvido(Jugador jugador) {
+        this.estadoEnvido.noAceptarEnvido(obtenerEquipoQueNoContieneJugador(jugador),this);
+        if (algunEquipoGano()) {
+            terminarPartida();
+        } else {
+            cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
         }
-        return jugadorGanadorFlor;
-    }
-
-    private Jugador asignarJugadorGanadorFlor(Jugador jugador1, Jugador jugador2) {
-        return (jugador1.obtenerFlor() >= jugador2.obtenerFlor()) ? jugador1 : jugador2;
-    }
-
-    public Jugador asignarJugadorGanadorEnvido(Jugador jugador1, Jugador jugador2) {
-        return (jugador1.obtenerEnvido() >= jugador2.obtenerEnvido()) ? jugador1 : jugador2;
-
-    }
-
-    public Equipo obtenerEquipoGanadorEnvido() {
-        return (equipo1.contieneJugador(obtenerJugadorGanadorEnvido())) ? equipo1 : equipo2;
     }
 
     public void cantarFaltaEnvido() {
         this.estadoEnvido.cantarFaltaEnvido(this);
-    }
-
-    public void jugadorNoAceptaElEnvido(Jugador jugador) {
-
-        this.estadoEnvido.noAceptarEnvido(obtenerEquipoQueNoContieneJugador(jugador),this,partida);
-
-    }
-
-    public Equipo obtenerEquipoQueNoContieneJugador(Jugador jugador) {
-        return (!equipo1.contieneJugador(jugador)) ? equipo1 : equipo2;
     }
 
     public void jugadorNoAceptaElTruco(Jugador jugador) {
@@ -188,33 +165,29 @@ public class Jugada {
         this.estadoTruco.cantarValeCuatro(this);
     }
 
-    public Equipo obtenerEquipo1() {
-        return equipo1;
+    public void sumarPuntosEnvido(int puntos) {
+        puntosEnvido += puntos;
     }
 
-    public Equipo obtenerEquipo2() {
-        return equipo2;
+    public void asignarGanadorPrimeraMano(Equipo equipo){
+        ganadorPrimerMano = equipo;
     }
 
     public void asignarGanadorDeJugada(Equipo equipo) {
         equipoGanador = equipo;
         cambiarEstadoJugada(new EstadoJugadaTerminada());
         equipoGanador.sumarPuntos(estadoTruco.contarPuntosDeTruco());
-        if ( equipoGanador.obtenerPuntos() >= MAX_PUNTOS_PARTIDA){
-            partida.cambiarEstado(new EstadoPartidaTerminada());
+        if ( algunEquipoGano()){
+            terminarPartida();
         }
     }
 
-    public Equipo obtenerEquipoGanadorDeJugada(){
-        return equipoGanador;
+    private Jugador asignarJugadorGanadorFlor(Jugador jugador1, Jugador jugador2) {
+        return (jugador1.obtenerFlor() >= jugador2.obtenerFlor()) ? jugador1 : jugador2;
     }
 
-    public EstadoDeEnvido obtenerEstadoEnvido(){
-        return this.estadoEnvido;
-    }
-
-    public void asignarGanadorPrimeraMano(Equipo equipo){
-        ganadorPrimerMano = equipo;
+    public Jugador asignarJugadorGanadorEnvido(Jugador jugador1, Jugador jugador2) {
+        return (jugador1.obtenerEnvido() >= jugador2.obtenerEnvido()) ? jugador1 : jugador2;
     }
 
     public Equipo obtenerGanadorPrimeraMano(){
@@ -225,10 +198,6 @@ public class Jugada {
         return puntosEnvido;
     }
 
-    public void sumarPuntosEnvido(int puntos) {
-        puntosEnvido += puntos;
-    }
-
     public Equipo obtenerEquipoJugadorMano() {
         return (equipo1.contieneJugador(mano)) ? equipo1 : equipo2;
     }
@@ -237,31 +206,53 @@ public class Jugada {
         return (equipo1.contieneJugador(jugador)) ? equipo1 :equipo2;
     }
 
-    public void irseAlMazo(Equipo equipo) {
-        this.estadoJugada.irseAlMazo(equipo, this);
-    }
-
-    public void cantarFlor(Jugador jugador) {
-        if (jugador.sumarEnvido(0,1) >= TANTO && jugador.sumarEnvido(0,2) >= TANTO){
-            this.estadoEnvido.cantarFlor(this);
-        }
-        else{
-            throw new NoTieneFlorError();
-        }
-
-    }
-
-    public void noAceptarFlor(Jugador jugador) {
-        estadoEnvido.noAceptarFlor(obtenerEquipoQueNoContieneJugador(jugador),this,partida);
-
-    }
-
     public Equipo obtenerEquipoGanadorFlor(Equipo equipo1,Equipo equipo2) {
         return (equipo1.contieneJugador(obtenerJugadorGanadorFlor())) ? equipo1 : equipo2;
     }
 
-    public void aceptarFlor(Jugador jugador) {
-        estadoEnvido.aceptarFlor(obtenerEquipoQueNoContieneJugador(jugador), obtenerEquipoQueContieneJugador(jugador), this,partida);
+    public Equipo obtenerEquipoQueNoContieneJugador(Jugador jugador) {
+        return (!equipo1.contieneJugador(jugador)) ? equipo1 : equipo2;
+    }
+
+    public Equipo obtenerEquipoGanadorEnvido() {
+        return (equipo1.contieneJugador(obtenerJugadorGanadorEnvido())) ? equipo1 : equipo2;
+    }
+
+    public Equipo obtenerEquipoGanadorDeJugada(){
+        return equipoGanador;
+    }
+
+    public EstadoDeEnvido obtenerEstadoEnvido(){
+        return this.estadoEnvido;
+    }
+
+    public Equipo obtenerEquipo1() {
+        return equipo1;
+    }
+
+    public Equipo obtenerEquipo2() {
+        return equipo2;
+    }
+
+
+    public Jugador obtenerJugadorGanadorEnvido() {
+        Jugador jugadorGanadorEnvido = ordenJugadores.get(0);
+        for (Jugador jugador: ordenJugadores){
+            jugadorGanadorEnvido = asignarJugadorGanadorEnvido(jugadorGanadorEnvido ,jugador);
+        }
+        return jugadorGanadorEnvido;
+    }
+
+    public Jugador obtenerJugadorGanadorFlor() {
+        Jugador jugadorGanadorFlor = ordenJugadores.get(0);
+        for (Jugador jugador: ordenJugadores){
+            jugadorGanadorFlor = asignarJugadorGanadorFlor(jugadorGanadorFlor, jugador);
+        }
+        return jugadorGanadorFlor;
+    }
+
+    public void irseAlMazo(Equipo equipo) {
+        this.estadoJugada.irseAlMazo(equipo, this);
     }
 
     public void cantarContraFlor() {
@@ -272,6 +263,51 @@ public class Jugada {
         estadoEnvido.contraFlorAlResto(this);
     }
 
+    public void cantarFlor(Jugador jugador) {
+        if (jugador.sumarEnvido(0,1) >= TANTO && jugador.sumarEnvido(0,2) >= TANTO){
+            this.estadoEnvido.cantarFlor(this);
+        }
+        else{
+            throw new NoTieneFlorError();
+        }
+    }
+
+    public void aceptarFlor(Jugador jugador) {
+        estadoEnvido.aceptarFlor(obtenerEquipoQueNoContieneJugador(jugador), obtenerEquipoQueContieneJugador(jugador), this);
+        if (algunEquipoGano()) {
+            terminarPartida();
+        } else {
+            cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
+        }
+    }
+
+    public void noAceptarFlor(Jugador jugador) {
+        estadoEnvido.noAceptarFlor(obtenerEquipoQueNoContieneJugador(jugador),this);
+        if (algunEquipoGano()) {
+            terminarPartida();
+        } else {
+            cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
+        }
+    }
+
+    private boolean algunEquipoGano() {
+        return (equipo1.obtenerPuntos() >= MAX_PUNTAJE_PARTIDA) || (equipo2.obtenerPuntos() >= MAX_PUNTAJE_PARTIDA);
+    }
+
+    private void cambiarEstadoAJugadores(Equipo equipo1, Equipo equipo2) {
+        for (Jugador jugador : equipo1.obtenerIntegrantes()) {
+            jugador.cambiarEstado(new EstadoYaJugoCarta());
+        }
+        for (Jugador jugador : equipo2.obtenerIntegrantes()) {
+            jugador.cambiarEstado(new EstadoYaJugoCarta());
+        }
+    }
+
+    private void terminarPartida() {
+        cambiarEstadoJugada(new EstadoJugadaTerminada());
+        partida.cambiarEstado(new EstadoPartidaTerminada());
+        cambiarEstadoAJugadores(partida.obtenerEquipo1(), partida.obtenerEquipo2());
+    }
 
 }
 

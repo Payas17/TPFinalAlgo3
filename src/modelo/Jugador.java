@@ -79,16 +79,15 @@ public class Jugador {
         jugada.aceptarEnvido();
     }
 
+    public void noAceptarEnvido(Jugada jugada) {
+        this.estadoJugador.aceptar(jugada);
+        jugada.noAceptarEnvido(this);
+    }
+
     public void cantarFaltaEnvido(Jugada jugada) {
 
         jugada.cantarFaltaEnvido();
         this.estadoJugador.cantarEnvido(jugada.obtenerEquipoQueContieneJugador(this), jugada.obtenerEquipoQueNoContieneJugador(this));
-    }
-
-    public void noAceptarEnvido(Jugada jugada) {
-        this.estadoJugador.aceptar(jugada);
-        jugada.jugadorNoAceptaElEnvido(this);
-
     }
 
     public void cantarTruco(Jugada jugada) {

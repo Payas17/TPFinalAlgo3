@@ -39,7 +39,7 @@ public class EstadoPuedeCantarTruco implements EstadoDeJugador{
         }
 
         for (Jugador jugador : jugada.obtenerEquipo2().obtenerIntegrantes()){
-            jugador.cambiarEstado(new EstadoPie());
+            jugador.cambiarEstado(new EstadoNoPuedeCantar());
         }
 
     }
