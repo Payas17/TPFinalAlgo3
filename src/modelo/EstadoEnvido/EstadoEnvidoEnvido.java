@@ -43,16 +43,16 @@ public class EstadoEnvidoEnvido implements EstadoDeEnvido {
 
     @Override
     public void cantarFlor(Jugada jugada) {
-        jugada.cambiarEstadoEnvido(new EstadoFlor());
-    }
-
-    @Override
-    public void contraFlor(Jugada jugada) {
         throw new NoSePuedeCantarEsoError();
     }
 
     @Override
-    public void contraFlorAlResto(Jugada jugada) {
+    public void cantarContraFlor(Jugada jugada) {
+        throw new NoSePuedeCantarEsoError();
+    }
+
+    @Override
+    public void cantarContraFlorAlResto(Jugada jugada) {
         throw new NoSePuedeCantarEsoError();
     }
 

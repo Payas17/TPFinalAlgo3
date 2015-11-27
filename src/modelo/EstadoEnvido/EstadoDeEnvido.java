@@ -20,9 +20,9 @@ public interface EstadoDeEnvido {
 
     void cantarFlor(Jugada jugada);
 
-    void contraFlor(Jugada jugada);
+    void cantarContraFlor(Jugada jugada);
 
-    void contraFlorAlResto(Jugada jugada);
+    void cantarContraFlorAlResto(Jugada jugada);
 
     void noAceptarFlor(Equipo equipo, Jugada jugada);
 

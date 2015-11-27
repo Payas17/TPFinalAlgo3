@@ -47,11 +47,6 @@ public class Jugador {
         return this.cartas.get(pos1).sumarEnvido(this.cartas.get(pos2));
     }
 
-    public void cantarFlor(Jugada jugada){
-        jugada.cantarFlor(this);
-
-    }
-
     public void juegaCarta(Carta unaCarta) {
        this.estadoJugador.jugarCarta(this);
         if (cartasEnJuego.contains(unaCarta)){
@@ -85,7 +80,6 @@ public class Jugador {
     }
 
     public void cantarFaltaEnvido(Jugada jugada) {
-
         jugada.cantarFaltaEnvido();
         this.estadoJugador.cantarEnvido(jugada.obtenerEquipoQueContieneJugador(this), jugada.obtenerEquipoQueNoContieneJugador(this));
     }
@@ -119,12 +113,16 @@ public class Jugador {
         jugada.irseAlMazo(jugada.obtenerEquipoQueNoContieneJugador(this));
     }
 
+    public void aceptarFlor(Jugada jugada) {
+        jugada.aceptarFlor(this);
+    }
+
     public void noAceptarFlor(Jugada jugada){
         jugada.noAceptarFlor(this);
     }
 
-    public void aceptarFlor(Jugada jugada) {
-        jugada.aceptarFlor(this);
+    public void cantarFlor(Jugada jugada){
+        jugada.cantarFlor(this);
     }
 
     public void cantarContraFlor(Jugada jugada) {

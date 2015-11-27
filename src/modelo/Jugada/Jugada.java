@@ -256,11 +256,11 @@ public class Jugada {
     }
 
     public void cantarContraFlor() {
-        estadoEnvido.contraFlor(this);
+        estadoEnvido.cantarContraFlor(this);
     }
 
     public void cantarContraFlorAlResto() {
-        estadoEnvido.contraFlorAlResto(this);
+        estadoEnvido.cantarContraFlorAlResto(this);
     }
 
     public void cantarFlor(Jugador jugador) {

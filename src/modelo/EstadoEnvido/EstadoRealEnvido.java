@@ -10,7 +10,7 @@ import modelo.Jugada.JugadaPicaPica;
  */
 public class EstadoRealEnvido implements EstadoDeEnvido {
 
-    final int PUNTOS = 3;
+    private final int PUNTOS = 3;
 
     @Override
     public void cantarEnvido(Jugada jugada) {
@@ -20,7 +20,8 @@ public class EstadoRealEnvido implements EstadoDeEnvido {
 
     @Override
     public void cantarRealEnvido(Jugada jugada) {
-        throw new NoSePuedeCantarEsoError();
+        jugada.sumarPuntosEnvido(jugada.obtenerEstadoEnvido().obtenerPuntos());
+        jugada.cambiarEstadoEnvido(new EstadoRealEnvidoRealEnvido());
     }
 
     @Override
@@ -41,12 +42,12 @@ public class EstadoRealEnvido implements EstadoDeEnvido {
     }
 
     @Override
-    public void contraFlor(Jugada jugada) {
+    public void cantarContraFlor(Jugada jugada) {
         throw new NoSePuedeCantarEsoError();
     }
 
     @Override
-    public void contraFlorAlResto(Jugada jugada) {
+    public void cantarContraFlorAlResto(Jugada jugada) {
         throw new NoSePuedeCantarEsoError();
     }
 

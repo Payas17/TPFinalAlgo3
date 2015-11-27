@@ -40,12 +40,12 @@ public class EstadoFlor implements EstadoDeEnvido {
     }
 
     @Override
-    public void contraFlor(Jugada jugada) {
+    public void cantarContraFlor(Jugada jugada) {
         jugada.cambiarEstadoEnvido(new EstadoContraFlor());
     }
 
     @Override
-    public void contraFlorAlResto(Jugada jugada) {
+    public void cantarContraFlorAlResto(Jugada jugada) {
         jugada.cambiarEstadoEnvido(new EstadoContraFlorAlResto());
     }
 
