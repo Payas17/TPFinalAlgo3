@@ -80,25 +80,25 @@ public class Jugador {
     }
 
     public void cantarFaltaEnvido(Jugada jugada) {
-        jugada.cantarFaltaEnvido();
         this.estadoJugador.cantarEnvido(jugada.obtenerEquipoQueContieneJugador(this), jugada.obtenerEquipoQueNoContieneJugador(this));
+        jugada.cantarFaltaEnvido();
     }
 
     public void cantarTruco(Jugada jugada) {
-        jugada.cantarTruco();
         this.estadoJugador.cantarTruco(jugada.obtenerEquipoQueContieneJugador(this), jugada.obtenerEquipoQueNoContieneJugador(this));
+        jugada.cantarTruco();
     }
 
     public void noAceptarTruco(Jugada jugada) { jugada.jugadorNoAceptaElTruco(this); }
 
     public void cantarReTruco(Jugada jugada) {
-        jugada.cantarReTruco();
         this.estadoJugador.cantarTruco(jugada.obtenerEquipoQueContieneJugador(this), jugada.obtenerEquipoQueNoContieneJugador(this));
+        jugada.cantarReTruco();
     }
 
     public void cantarValeCuatro(Jugada jugada) {
-        jugada.cantarValeCuatro();
         this.estadoJugador.cantarTruco(jugada.obtenerEquipoQueContieneJugador(this), jugada.obtenerEquipoQueNoContieneJugador(this));
+        jugada.cantarValeCuatro();
     }
 
     public void cambiarEstado(EstadoDeJugador estado) {
@@ -114,22 +114,27 @@ public class Jugador {
     }
 
     public void aceptarFlor(Jugada jugada) {
+        this.estadoJugador.aceptar(jugada);
         jugada.aceptarFlor(this);
     }
 
     public void noAceptarFlor(Jugada jugada){
+        this.estadoJugador.aceptar(jugada);
         jugada.noAceptarFlor(this);
     }
 
     public void cantarFlor(Jugada jugada){
+        this.estadoJugador.cantarFlor(jugada.obtenerEquipoQueContieneJugador(this), jugada.obtenerEquipoQueNoContieneJugador(this));
         jugada.cantarFlor(this);
     }
 
     public void cantarContraFlor(Jugada jugada) {
+        this.estadoJugador.cantarFlor(jugada.obtenerEquipoQueContieneJugador(this), jugada.obtenerEquipoQueNoContieneJugador(this));
         jugada.cantarContraFlor();
     }
 
     public void cantarContraFlorAlResto(Jugada jugada) {
+        this.estadoJugador.cantarFlor(jugada.obtenerEquipoQueContieneJugador(this), jugada.obtenerEquipoQueNoContieneJugador(this));
         jugada.cantarContraFlorAlResto();
     }
 

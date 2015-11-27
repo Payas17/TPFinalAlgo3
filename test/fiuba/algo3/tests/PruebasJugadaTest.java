@@ -3,6 +3,7 @@ package fiuba.algo3.tests;
 import modelo.*;
 import modelo.Carta.*;
 import modelo.Errores.*;
+import modelo.EstadoEnvido.EstadoSinEnvido;
 import modelo.Jugada.Jugada;
 import modelo.Partida.Partida;
 import org.junit.Assert;
@@ -1184,7 +1185,7 @@ public class PruebasJugadaTest {
 
     }
 
-    @Test(expected = SoloJugadorPiePuedeCantarEnvidoError.class)
+    @Test(expected = SoloJugadorPiePuedeCantarError.class)
     public void testJugadaDe4JugadoresJugadorQueNoEsPieNoPuedeCantarElEnvido(){
         Jugador jugador1= new Jugador();
         List<Jugador> jugadores = new ArrayList<>();
@@ -1498,5 +1499,23 @@ public class PruebasJugadaTest {
         Assert.assertEquals(2, equipo2.obtenerPuntos());
         Assert.assertEquals(0,equipo1.obtenerPuntos());
 
+    }
+
+    @Test
+    public void testJugadaSeCreaConEstadoDeEnvidoDeSinEnvido(){
+        Jugador jugador1= new Jugador();
+        List<Jugador> jugadores = new ArrayList<>();
+        jugadores.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+        Equipo equipo1 = new Equipo(jugadores);
+        Equipo equipo2 = new Equipo(jugadores2);
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Partida partida = new Partida(equipo1,equipo2);
+
+        Jugada jugada = partida.crearJugada();
+
+        Assert.assertEquals(jugada.obtenerEstadoEnvido().getClass(), EstadoSinEnvido.class);
     }
 }

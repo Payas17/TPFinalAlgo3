@@ -537,7 +537,7 @@ public class PruebasEnvidoTest {
     }
 
     @Test(expected = NoSePuedeCantarEsoError.class)
-    public void testEquipo1CantaEnvidoEquipo2EnvidoEquipo1ContraFlorYLanzaErrorNoSePuedeCantarEso(){
+    public void testEnvidoEnvidoContraFlorYLanzaErrorNoSePuedeCantarEso(){
 
         Jugador jugador1 = new Jugador();
         List<Jugador> jugadores1 = new ArrayList<>();
@@ -568,7 +568,7 @@ public class PruebasEnvidoTest {
     }
 
     @Test(expected = NoSePuedeCantarEsoError.class)
-    public void testEquipo1CantaEnvidoEquipo2EnvidoEquipo1NoAceptaFlorYLanzaErrorNoSePuedeCantarEso(){
+    public void testEnvidoEnvidoNoAceptaFlorYLanzaErrorNoSePuedeCantarEso(){
 
         Jugador jugador1 = new Jugador();
         List<Jugador> jugadores1 = new ArrayList<>();
@@ -599,7 +599,7 @@ public class PruebasEnvidoTest {
     }
 
     @Test(expected = NoSePuedeCantarEsoError.class)
-    public void testEquipo1CantaEnvidoEquipo2EnvidoEquipo1AceptarFlorYLanzaErrorNoSePuedeCantarEso(){
+    public void testEnvidoEnvidoAceptarFlorYLanzaErrorNoSePuedeCantarEso(){
 
         Jugador jugador1 = new Jugador();
         List<Jugador> jugadores1 = new ArrayList<>();
@@ -621,7 +621,7 @@ public class PruebasEnvidoTest {
     }
 
     @Test(expected = NoSePuedeCantarEsoError.class)
-    public void testEquipo1CantaEnvidoEquipo2EnvidoEquipo1ContraFlorAlRestoYLanzaErrorNoSePuedeCantarEso(){
+    public void testEnvidoEnvidoContraFlorAlRestoYLanzaErrorNoSePuedeCantarEso(){
 
         Jugador jugador1 = new Jugador();
         List<Jugador> jugadores1 = new ArrayList<>();
@@ -644,7 +644,7 @@ public class PruebasEnvidoTest {
 
 
     @Test(expected = NoSePuedeCantarEsoError.class)
-    public void testEquipo1CantaEnvidoEquipo2EnvidoEquipo1CantaEnvidoYLanzaErrorNoSePuedeCantarEso(){
+    public void testEnvidoEnvidoEnvidoYLanzaErrorNoSePuedeCantarEso(){
 
         Jugador jugador1 = new Jugador();
         List<Jugador> jugadores1 = new ArrayList<>();
@@ -665,5 +665,282 @@ public class PruebasEnvidoTest {
         jugador1.cantarEnvido(jugada);
     }
 
+
+    @Test(expected = NoSePuedeCantarEsoError.class)
+    public void tesRealEnvidoRealEnvidoContraFlorYLanzaErrorNoSePuedeCantarEso(){
+
+        Jugador jugador1 = new Jugador();
+        List<Jugador> jugadores1 = new ArrayList<>();
+        jugadores1.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Carta basto12 = new Basto(12, valoresTrucoYEnvido);
+        Carta basto7 = new Basto(7, valoresTrucoYEnvido);
+        Carta basto6 = new Basto(6, valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(basto12);
+        jugador1.agregarCarta(basto7);
+        jugador1.agregarCarta(basto6);
+
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
+        jugador1.cantarRealEnvido(jugada);
+        jugador2.cantarRealEnvido(jugada);
+        jugador1.cantarContraFlor(jugada);
+    }
+
+    @Test
+    public void tesRealEnvidoRealEnvidoFaltaEnvidoNoAceptarYEstadoDeEnvidoEsEstadoNoSePuedeCantarEnvido(){
+
+        Jugador jugador1 = new Jugador();
+        List<Jugador> jugadores1 = new ArrayList<>();
+        jugadores1.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Carta basto12 = new Basto(12, valoresTrucoYEnvido);
+        Carta basto7 = new Basto(7, valoresTrucoYEnvido);
+        Carta basto6 = new Basto(6, valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(basto12);
+        jugador1.agregarCarta(basto7);
+        jugador1.agregarCarta(basto6);
+
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
+        jugador1.cantarRealEnvido(jugada);
+        jugador2.cantarRealEnvido(jugada);
+        jugador1.cantarFaltaEnvido(jugada);
+        jugador2.noAceptarEnvido(jugada);
+
+        Assert.assertEquals(jugada.obtenerEstadoEnvido().getClass(), EstadoNoSePuedeCantarEnvido.class);
+    }
+
+    @Test(expected = NoSePuedeCantarEsoError.class)
+    public void testRealEnvidoRealEnvidoNoAceptaFlorYLanzaErrorNoSePuedeCantarEso(){
+
+        Jugador jugador1 = new Jugador();
+        List<Jugador> jugadores1 = new ArrayList<>();
+        jugadores1.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Carta basto12 = new Basto(12, valoresTrucoYEnvido);
+        Carta basto7 = new Basto(7, valoresTrucoYEnvido);
+        Carta basto6 = new Basto(6, valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(basto12);
+        jugador1.agregarCarta(basto7);
+        jugador1.agregarCarta(basto6);
+
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
+        jugador1.cantarRealEnvido(jugada);
+        jugador2.cantarRealEnvido(jugada);
+        jugador1.noAceptarFlor(jugada);
+    }
+
+    @Test(expected = NoSePuedeCantarEsoError.class)
+    public void tesRealEnvidoRealEnvidoAceptarFlorYLanzaErrorNoSePuedeCantarEso(){
+
+        Jugador jugador1 = new Jugador();
+        List<Jugador> jugadores1 = new ArrayList<>();
+        jugadores1.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
+        jugador1.cantarRealEnvido(jugada);
+        jugador2.cantarRealEnvido(jugada);
+        jugador1.aceptarFlor(jugada);
+    }
+
+    @Test(expected = NoSePuedeCantarEsoError.class)
+    public void testRealEnvidoRealEnvidoContraFlorAlRestoYLanzaErrorNoSePuedeCantarEso(){
+
+        Jugador jugador1 = new Jugador();
+        List<Jugador> jugadores1 = new ArrayList<>();
+        jugadores1.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
+        jugador1.cantarRealEnvido(jugada);
+        jugador2.cantarRealEnvido(jugada);
+        jugador1.cantarContraFlorAlResto(jugada);
+    }
+
+
+    @Test(expected = NoSePuedeCantarEsoError.class)
+    public void testRealEnvidoRealEnvidoRealEnvidoYLanzaErrorNoSePuedeCantarEso(){
+
+        Jugador jugador1 = new Jugador();
+        List<Jugador> jugadores1 = new ArrayList<>();
+        jugadores1.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
+        jugador1.cantarRealEnvido(jugada);
+        jugador2.cantarRealEnvido(jugada);
+        jugador1.cantarRealEnvido(jugada);
+    }
+
+    @Test
+    public void testRealEnvidoRealEnvidoNoAceptarYElEstadoDeEnvidoNoSePuedeCantarEnvido(){
+
+        Jugador jugador1 = new Jugador();
+        List<Jugador> jugadores1 = new ArrayList<>();
+        jugadores1.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
+        jugador1.cantarRealEnvido(jugada);
+        jugador2.cantarRealEnvido(jugada);
+        jugador1.noAceptarEnvido(jugada);
+
+        Assert.assertEquals(jugada.obtenerEstadoEnvido().getClass(), EstadoNoSePuedeCantarEnvido.class);
+    }
+
+    @Test
+    public void testRealEnvidoRealEnvidoYEstadoEnvidoEsEstadoRealEnvidoRealEnvido(){
+
+        Jugador jugador1 = new Jugador();
+        List<Jugador> jugadores1 = new ArrayList<>();
+        jugadores1.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Carta basto12 = new Basto(12, valoresTrucoYEnvido);
+        Carta basto7 = new Basto(7, valoresTrucoYEnvido);
+        Carta basto6 = new Basto(6, valoresTrucoYEnvido);
+
+        jugador2.agregarCarta(basto12);
+        jugador2.agregarCarta(basto7);
+        jugador2.agregarCarta(basto6);
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
+        jugador1.cantarRealEnvido(jugada);
+        jugador2.cantarRealEnvido(jugada);
+
+        Assert.assertEquals(jugada.obtenerEstadoEnvido().getClass(),EstadoRealEnvidoRealEnvido.class);
+    }
+
+    @Test(expected = NoSePuedeCantarEsoError.class)
+    public void testEstadoSinEnvidoYSeCantaContraFlorLanzaErrorNoSePuedeCantarEso(){
+
+        Jugador jugador1 = new Jugador();
+        List<Jugador> jugadores1 = new ArrayList<>();
+        jugadores1.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Carta basto12 = new Basto(12, valoresTrucoYEnvido);
+        Carta basto7 = new Basto(7, valoresTrucoYEnvido);
+        Carta basto6 = new Basto(6, valoresTrucoYEnvido);
+
+        jugador2.agregarCarta(basto12);
+        jugador2.agregarCarta(basto7);
+        jugador2.agregarCarta(basto6);
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
+        jugador1.cantarContraFlor(jugada);
+
+    }
+
+
+    @Test(expected = NoSePuedeCantarEsoError.class)
+    public void testEstadoSinEnvidoYSeCantaContraFlorAlRestoLanzaErrorNoSePuedeCantarEso(){
+
+        Jugador jugador1 = new Jugador();
+        List<Jugador> jugadores1 = new ArrayList<>();
+        jugadores1.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Carta basto12 = new Basto(12, valoresTrucoYEnvido);
+        Carta basto7 = new Basto(7, valoresTrucoYEnvido);
+        Carta basto6 = new Basto(6, valoresTrucoYEnvido);
+
+        jugador2.agregarCarta(basto12);
+        jugador2.agregarCarta(basto7);
+        jugador2.agregarCarta(basto6);
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
+        jugador1.cantarContraFlorAlResto(jugada);
+
+    }
 
 }

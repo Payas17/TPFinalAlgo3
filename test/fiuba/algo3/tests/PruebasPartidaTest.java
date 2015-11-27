@@ -38,7 +38,6 @@ public class PruebasPartidaTest {
         partida.jugarConFlor();
         Jugada jugada = partida.crearJugada();
 
-
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
 
         Carta copa10 = new Copa(10, valoresTrucoYEnvido);
@@ -69,9 +68,11 @@ public class PruebasPartidaTest {
         jugador4.agregarCarta(basto4);
         jugador4.agregarCarta(basto5);
 
-        jugador2.cantarFlor(jugada);
-        jugador3.cantarContraFlorAlResto(jugada);
-        jugador2.aceptarFlor(jugada);
+        jugador1.juegaCarta(copa10);
+        jugador2.juegaCarta(oro11);
+        jugador3.cantarFlor(jugada);
+        jugador4.cantarContraFlorAlResto(jugada);
+        jugador3.aceptarFlor(jugada);
 
 
         Assert.assertEquals(equipo1.obtenerPuntos(), 30);
@@ -130,9 +131,9 @@ public class PruebasPartidaTest {
         jugador4.agregarCarta(basto4);
         jugador4.agregarCarta(basto5);
 
-        jugador2.cantarFlor(jugada);
-        jugador3.cantarContraFlorAlResto(jugada);
-        jugador2.aceptarFlor(jugada);
+        jugador3.cantarFlor(jugada);
+        jugador4.cantarContraFlorAlResto(jugada);
+        jugador3.aceptarFlor(jugada);
 
 
         Assert.assertEquals(equipo1.obtenerPuntos(), 30);
@@ -1295,12 +1296,12 @@ public class PruebasPartidaTest {
 
 
         jugador1.juegaCarta(copa4);
-        jugador2.juegaCarta(oro4);
-        jugador3.cantarFlor(jugada);
-        jugador2.aceptarFlor(jugada);
-        jugador3.juegaCarta(espada12);
         jugador4.juegaCarta(basto3);
+        jugador2.juegaCarta(oro4);
         jugador5.juegaCarta(basto4);
+        jugador3.juegaCarta(espada12);
+        jugador6.cantarFlor(jugada);
+        jugador2.aceptarFlor(jugada);
         jugador6.juegaCarta(copa4);
 
         jugada.jugarMano();
@@ -1526,6 +1527,7 @@ public class PruebasPartidaTest {
         Assert.assertEquals(partida.obtenerEstado().getClass(), EstadoPartidaTerminada.class);
 
     }
+
 }
 
 

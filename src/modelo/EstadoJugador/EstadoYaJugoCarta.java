@@ -16,6 +16,11 @@ public class EstadoYaJugoCarta implements EstadoDeJugador {
     }
 
     @Override
+    public void cantarFlor(Equipo equipoCanta, Equipo equipoQuiere) {
+        throw new NoPuedeJugarError();
+    }
+
+    @Override
     public void cantarTruco(Equipo equipoCanta, Equipo equipoQuiere) {
         throw new NoPuedeJugarError();
     }

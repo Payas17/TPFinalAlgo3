@@ -2,7 +2,7 @@ package modelo.EstadoJugador;
 
 import modelo.Equipo;
 import modelo.Errores.NoTienElQuieroError;
-import modelo.Errores.SoloJugadorPiePuedeCantarEnvidoError;
+import modelo.Errores.SoloJugadorPiePuedeCantarError;
 import modelo.Jugada.Jugada;
 import modelo.Jugador;
 
@@ -12,7 +12,12 @@ import modelo.Jugador;
 public class EstadoNoSeCantoNada implements EstadoDeJugador {
     @Override
     public void cantarEnvido(Equipo equipoCanta, Equipo equipoQuiere) {
-        throw new SoloJugadorPiePuedeCantarEnvidoError();
+        throw new SoloJugadorPiePuedeCantarError();
+    }
+
+    @Override
+    public void cantarFlor(Equipo equipoCanta, Equipo equipoQuiere) {
+        throw new SoloJugadorPiePuedeCantarError();
     }
 
     @Override

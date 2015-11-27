@@ -20,6 +20,18 @@ public class EstadoPuedeCantarTruco implements EstadoDeJugador{
             jugador.cambiarEstado(new EstadoPuedeCantarEnvido());
         }
     }
+
+    @Override
+    public void cantarFlor(Equipo equipoCanta, Equipo equipoQuiere) {
+        for (Jugador jugador : equipoCanta.obtenerIntegrantes()){
+            jugador.cambiarEstado(new EstadoNoPuedeCantar());
+        }
+
+        for (Jugador jugador : equipoQuiere.obtenerIntegrantes()){
+            jugador.cambiarEstado(new EstadoPuedeCantarFlor());
+        }
+    }
+
     @Override
     public void cantarTruco(Equipo equipoCanta, Equipo equipoQuiere) {
 

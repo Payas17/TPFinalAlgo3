@@ -10,6 +10,8 @@ import modelo.Jugador;
 public interface EstadoDeJugador {
     void cantarEnvido(Equipo equipoCanta, Equipo equipoQuiere);
 
+    void cantarFlor(Equipo equipoCanta, Equipo equipoQuiere);
+
     void cantarTruco(Equipo equipoCanta, Equipo equipoQuiere);
 
     void aceptar(Jugada jugada);

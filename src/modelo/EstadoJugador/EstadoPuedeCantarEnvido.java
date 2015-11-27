@@ -1,6 +1,7 @@
 package modelo.EstadoJugador;
 
 import modelo.Equipo;
+import modelo.Errores.NoSePuedeCantarEsoError;
 import modelo.Errores.NoSePuedeJugarCarta;
 import modelo.Errores.NoTienElQuieroError;
 import modelo.Jugada.Jugada;
@@ -23,10 +24,20 @@ public class EstadoPuedeCantarEnvido implements EstadoDeJugador {
     }
 
     @Override
+    public void cantarFlor(Equipo equipoCanta, Equipo equipoQuiere) {
+        for (Jugador jugador : equipoCanta.obtenerIntegrantes()){
+            jugador.cambiarEstado(new EstadoNoPuedeCantar());
+        }
+
+        for (Jugador jugador : equipoQuiere.obtenerIntegrantes()){
+            jugador.cambiarEstado(new EstadoPuedeCantarFlor());
+        }
+    }
+
+    @Override
     public void cantarTruco(Equipo equipoCanta, Equipo equipoQuiere) {
         throw new NoTienElQuieroError();
     }
-
 
     @Override
     public void aceptar(Jugada jugada) {
