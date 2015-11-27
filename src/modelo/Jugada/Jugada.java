@@ -309,6 +309,7 @@ public class Jugada {
         cambiarEstadoAJugadores(partida.obtenerEquipo1(), partida.obtenerEquipo2());
     }
 
+
 }
 
 

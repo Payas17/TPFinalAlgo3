@@ -2,7 +2,7 @@ package modelo.EstadoJugador;
 
 import modelo.Equipo;
 import modelo.Errores.NoPuedeJugarError;
-import modelo.Errores.NoSePuedeJugarCarta;
+import modelo.Errores.NoSePuedeJugarCartaError;
 import modelo.Jugada.Jugada;
 import modelo.Jugador;
 
@@ -32,6 +32,6 @@ public class EstadoYaJugoCarta implements EstadoDeJugador {
 
     @Override
     public void jugarCarta(Jugador jugador) {
-        throw new NoSePuedeJugarCarta();
+        throw new NoSePuedeJugarCartaError();
     }
 }

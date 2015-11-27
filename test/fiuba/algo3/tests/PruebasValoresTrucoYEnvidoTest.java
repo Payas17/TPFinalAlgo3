@@ -7,7 +7,7 @@ import org.junit.Test;
 /**
  * Created by Lucio on 09/11/2015.
  */
-public class PruebasValoresTrucoYEnvido {
+public class PruebasValoresTrucoYEnvidoTest {
     @Test
     public void testValorEnvido1DeCopaIgualA1(){
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();

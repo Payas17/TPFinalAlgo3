@@ -2,7 +2,6 @@ package modelo.EstadoJugador;
 
 import modelo.Equipo;
 import modelo.Errores.NoSePuedeCantarEsoError;
-import modelo.Errores.NoTienElQuieroError;
 import modelo.Jugada.Jugada;
 import modelo.Jugador;
 

@@ -2,6 +2,7 @@ package modelo.EstadoJugador;
 
 import modelo.Equipo;
 import modelo.Errores.NoPuedeJugarError;
+import modelo.Errores.NoSePuedeCantarEsoError;
 import modelo.Jugada.Jugada;
 import modelo.Jugador;
 
@@ -21,7 +22,7 @@ public class EstadoNoPuedeCantar implements EstadoDeJugador{
 
     @Override
     public void cantarTruco(Equipo equipoCanta, Equipo equipoQuiere) {
-        throw new NoPuedeJugarError();
+        throw new NoSePuedeCantarEsoError();
     }
 
     @Override
