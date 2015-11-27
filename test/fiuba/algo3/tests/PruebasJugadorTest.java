@@ -1,9 +1,6 @@
 package fiuba.algo3.tests;
 
-import modelo.Carta.Carta;
-import modelo.Carta.Copa;
-import modelo.Carta.Espada;
-import modelo.Carta.Oro;
+import modelo.Carta.*;
 import modelo.Equipo;
 import modelo.Errores.*;
 import modelo.EstadoEnvido.EstadoFlor;
@@ -639,5 +636,252 @@ public class PruebasJugadorTest {
 
         jugador1.aceptarFlor(jugada);
 
+    }
+
+
+    @Test(expected = NoSePuedeCantarEsoError.class)
+    public void testJugador1CantaFlorJugador2NoAceptaYCantaRealEnvidoEntoncesLanzaError(){
+
+        Jugador jugador1 = new Jugador();
+        List<Jugador> jugadores1 = new ArrayList<>();
+        jugadores1.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Carta basto12 = new Basto(12, valoresTrucoYEnvido);
+        Carta basto7 = new Basto(7, valoresTrucoYEnvido);
+        Carta basto6 = new Basto(6, valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(basto12);
+        jugador1.agregarCarta(basto7);
+        jugador1.agregarCarta(basto6);
+
+        jugador2.agregarCarta(basto12);
+        jugador2.agregarCarta(basto7);
+        jugador2.agregarCarta(basto6);
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
+        jugador1.cantarFlor(jugada);
+        jugador2.noAceptarFlor(jugada);
+
+        jugador2.cantarRealEnvido(jugada);
+    }
+
+
+    @Test(expected = NoSePuedeCantarEsoError.class)
+    public void testJugador1CantaFlorJugador2NoAceptaYCantaFaltaEnvidoEntoncesLanzaError(){
+
+        Jugador jugador1 = new Jugador();
+        List<Jugador> jugadores1 = new ArrayList<>();
+        jugadores1.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Carta basto12 = new Basto(12, valoresTrucoYEnvido);
+        Carta basto7 = new Basto(7, valoresTrucoYEnvido);
+        Carta basto6 = new Basto(6, valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(basto12);
+        jugador1.agregarCarta(basto7);
+        jugador1.agregarCarta(basto6);
+
+        jugador2.agregarCarta(basto12);
+        jugador2.agregarCarta(basto7);
+        jugador2.agregarCarta(basto6);
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
+        jugador1.cantarFlor(jugada);
+        jugador2.noAceptarFlor(jugada);
+
+        jugador2.cantarFaltaEnvido(jugada);
+    }
+
+    @Test(expected = NoSePuedeCantarEsoError.class)
+    public void testJugador1CantaFlorJugador2NoAceptaFlorYNoAceptaEnvidoEntoncesLanzaError(){
+
+        Jugador jugador1 = new Jugador();
+        List<Jugador> jugadores1 = new ArrayList<>();
+        jugadores1.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Carta basto12 = new Basto(12, valoresTrucoYEnvido);
+        Carta basto7 = new Basto(7, valoresTrucoYEnvido);
+        Carta basto6 = new Basto(6, valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(basto12);
+        jugador1.agregarCarta(basto7);
+        jugador1.agregarCarta(basto6);
+
+        jugador2.agregarCarta(basto12);
+        jugador2.agregarCarta(basto7);
+        jugador2.agregarCarta(basto6);
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
+        jugador1.cantarFlor(jugada);
+        jugador2.noAceptarFlor(jugada);
+
+        jugador2.noAceptarEnvido(jugada);
+    }
+
+    @Test(expected = NoSePuedeCantarEsoError.class)
+    public void testJugador1CantaFlorJugador2NoAceptaYCantaFlorEntoncesLanzaError(){
+
+        Jugador jugador1 = new Jugador();
+        List<Jugador> jugadores1 = new ArrayList<>();
+        jugadores1.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Carta basto12 = new Basto(12, valoresTrucoYEnvido);
+        Carta basto7 = new Basto(7, valoresTrucoYEnvido);
+        Carta basto6 = new Basto(6, valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(basto12);
+        jugador1.agregarCarta(basto7);
+        jugador1.agregarCarta(basto6);
+
+        jugador2.agregarCarta(basto12);
+        jugador2.agregarCarta(basto7);
+        jugador2.agregarCarta(basto6);
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
+        jugador1.cantarFlor(jugada);
+        jugador2.noAceptarFlor(jugada);
+
+        jugador2.cantarFlor(jugada);
+    }
+
+    @Test(expected = NoSePuedeCantarEsoError.class)
+    public void testJugador1CantaFlorJugador2NoAceptaYCantaContraFlorEntoncesLanzaError(){
+
+        Jugador jugador1 = new Jugador();
+        List<Jugador> jugadores1 = new ArrayList<>();
+        jugadores1.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Carta basto12 = new Basto(12, valoresTrucoYEnvido);
+        Carta basto7 = new Basto(7, valoresTrucoYEnvido);
+        Carta basto6 = new Basto(6, valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(basto12);
+        jugador1.agregarCarta(basto7);
+        jugador1.agregarCarta(basto6);
+
+        jugador2.agregarCarta(basto12);
+        jugador2.agregarCarta(basto7);
+        jugador2.agregarCarta(basto6);
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
+        jugador1.cantarFlor(jugada);
+        jugador2.noAceptarFlor(jugada);
+
+        jugador2.cantarContraFlor(jugada);
+    }
+
+    @Test(expected = NoSePuedeCantarEsoError.class)
+    public void testJugador1CantaFlorJugador2NoAceptaYCantaContraFlorAlRestoEntoncesLanzaError(){
+
+        Jugador jugador1 = new Jugador();
+        List<Jugador> jugadores1 = new ArrayList<>();
+        jugadores1.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Carta basto12 = new Basto(12, valoresTrucoYEnvido);
+        Carta basto7 = new Basto(7, valoresTrucoYEnvido);
+        Carta basto6 = new Basto(6, valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(basto12);
+        jugador1.agregarCarta(basto7);
+        jugador1.agregarCarta(basto6);
+
+        jugador2.agregarCarta(basto12);
+        jugador2.agregarCarta(basto7);
+        jugador2.agregarCarta(basto6);
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
+        jugador1.cantarFlor(jugada);
+        jugador2.noAceptarFlor(jugada);
+
+        jugador2.cantarContraFlorAlResto(jugada);
+    }
+
+    @Test(expected = NoSePuedeCantarEsoError.class)
+    public void testJugador1CantaFlorJugador2NoAceptaFlorYLuegoAceptaFlorEntoncesLanzaError(){
+
+        Jugador jugador1 = new Jugador();
+        List<Jugador> jugadores1 = new ArrayList<>();
+        jugadores1.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Carta basto12 = new Basto(12, valoresTrucoYEnvido);
+        Carta basto7 = new Basto(7, valoresTrucoYEnvido);
+        Carta basto6 = new Basto(6, valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(basto12);
+        jugador1.agregarCarta(basto7);
+        jugador1.agregarCarta(basto6);
+
+        jugador2.agregarCarta(basto12);
+        jugador2.agregarCarta(basto7);
+        jugador2.agregarCarta(basto6);
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
+        jugador1.cantarFlor(jugada);
+        jugador2.noAceptarFlor(jugada);
+
+        jugador2.aceptarFlor(jugada);
     }
 }

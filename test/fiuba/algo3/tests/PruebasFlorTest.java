@@ -4,6 +4,7 @@ import modelo.*;
 import modelo.Carta.*;
 import modelo.Errores.NoSePuedeCantarEsoError;
 import modelo.Errores.NoTieneFlorError;
+import modelo.EstadoEnvido.EstadoContraFlorAlResto;
 import modelo.Jugada.Jugada;
 import modelo.Partida.Partida;
 import org.junit.Assert;
@@ -585,6 +586,42 @@ public class PruebasFlorTest {
         jugador1.cantarFlor(jugada);
     }
 
+    @Test
+    public void testFlorContraFlorContraFlorAlRestoFunciona(){
+
+        Jugador jugador1 = new Jugador();
+        List<Jugador> jugadores1 = new ArrayList<>();
+        jugadores1.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Carta basto12 = new Basto(12, valoresTrucoYEnvido);
+        Carta basto7 = new Basto(7, valoresTrucoYEnvido);
+        Carta basto6 = new Basto(6, valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(basto12);
+        jugador1.agregarCarta(basto7);
+        jugador1.agregarCarta(basto6);
+
+        jugador2.agregarCarta(basto12);
+        jugador2.agregarCarta(basto7);
+        jugador2.agregarCarta(basto6);
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
+        jugador1.cantarFlor(jugada);
+        jugador2.cantarContraFlor(jugada);
+        jugador1.cantarContraFlorAlResto(jugada);
+
+        Assert.assertEquals(jugada.obtenerEstadoEnvido().getClass(), EstadoContraFlorAlResto.class);
+    }
+
     @Test(expected = NoSePuedeCantarEsoError.class)
     public void testFlorContraFlorContraFlorLanzaErrorNoSePuedeCantarEso(){
 
@@ -823,6 +860,40 @@ public class PruebasFlorTest {
         jugador1.cantarFlor(jugada);
         jugador2.cantarContraFlorAlResto(jugada);
         jugador1.cantarFlor(jugada);
+    }
+
+    @Test(expected = NoSePuedeCantarEsoError.class)
+    public void testFlorContraFlorAlRestoContraFlorLanzaErrorNoSePuedeCantarEso(){
+
+        Jugador jugador1 = new Jugador();
+        List<Jugador> jugadores1 = new ArrayList<>();
+        jugadores1.add(jugador1);
+        Jugador jugador2 = new Jugador();
+        List<Jugador> jugadores2 = new ArrayList<>();
+        jugadores2.add(jugador2);
+
+        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
+        Carta basto12 = new Basto(12, valoresTrucoYEnvido);
+        Carta basto7 = new Basto(7, valoresTrucoYEnvido);
+        Carta basto6 = new Basto(6, valoresTrucoYEnvido);
+
+        jugador1.agregarCarta(basto12);
+        jugador1.agregarCarta(basto7);
+        jugador1.agregarCarta(basto6);
+
+        jugador2.agregarCarta(basto12);
+        jugador2.agregarCarta(basto7);
+        jugador2.agregarCarta(basto6);
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
+        jugador1.cantarFlor(jugada);
+        jugador2.cantarContraFlorAlResto(jugada);
+        jugador1.cantarContraFlor(jugada);
     }
 
     @Test(expected = NoSePuedeCantarEsoError.class)
