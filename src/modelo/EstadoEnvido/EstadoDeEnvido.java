@@ -1,9 +1,9 @@
 package modelo.EstadoEnvido;
 
 import modelo.Equipo;
-import modelo.Jugada.Jugada;
-import modelo.Jugada.JugadaPicaPica;
-import modelo.Partida.Partida;
+import modelo.Jugadas.Jugada;
+import modelo.Jugadas.JugadaPicaPica;
+
 
 /**
  * Created by Augusto on 14/11/2015.

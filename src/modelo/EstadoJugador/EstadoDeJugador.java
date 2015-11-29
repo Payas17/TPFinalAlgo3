@@ -1,7 +1,7 @@
 package modelo.EstadoJugador;
 
 import modelo.Equipo;
-import modelo.Jugada.Jugada;
+import modelo.Jugadas.Jugada;
 import modelo.Jugador;
 
 /**

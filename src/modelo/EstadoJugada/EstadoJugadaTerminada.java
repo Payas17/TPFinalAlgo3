@@ -2,7 +2,7 @@ package modelo.EstadoJugada;
 
 import modelo.Equipo;
 import modelo.Errores.JugadaTerminadaError;
-import modelo.Jugada.Jugada;
+import modelo.Jugadas.Jugada;
 
 /**
  * Created by Lucio on 15/11/2015.

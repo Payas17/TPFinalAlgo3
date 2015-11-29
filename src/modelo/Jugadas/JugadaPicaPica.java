@@ -1,11 +1,7 @@
-package modelo.Jugada;
+package modelo.Jugadas;
 
 import modelo.Equipo;
-import modelo.EstadoEnvido.EstadoSinEnvido;
-import modelo.EstadoJugada.EstadoPrimeraMano;
 import modelo.EstadoJugador.EstadoPie;
-import modelo.EstadoTruco.EstadoSinTruco;
-import modelo.Jugada.Jugada;
 import modelo.Jugador;
 import modelo.Partida.Partida;
 

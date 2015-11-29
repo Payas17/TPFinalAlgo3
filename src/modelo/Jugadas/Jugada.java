@@ -1,4 +1,4 @@
-package modelo.Jugada;
+package modelo.Jugadas;
 
 import modelo.Equipo;
 import modelo.Errores.NoTieneFlorError;

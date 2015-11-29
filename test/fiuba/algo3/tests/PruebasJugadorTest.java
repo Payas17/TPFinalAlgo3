@@ -5,7 +5,7 @@ import modelo.Equipo;
 import modelo.Errores.*;
 import modelo.EstadoEnvido.EstadoFlor;
 import modelo.EstadoEnvido.EstadoNoSePuedeCantarEnvido;
-import modelo.Jugada.Jugada;
+import modelo.Jugadas.Jugada;
 import modelo.Jugador;
 import modelo.Partida.Partida;
 import modelo.ValoresTrucoYEnvido;

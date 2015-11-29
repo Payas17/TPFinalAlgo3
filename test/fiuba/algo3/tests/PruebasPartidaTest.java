@@ -3,8 +3,9 @@ package fiuba.algo3.tests;
 import modelo.*;
 import modelo.Carta.*;
 import modelo.Errores.NoSePuedeJugarCartaError;
-import modelo.Jugada.Jugada;
-import modelo.Jugada.JugadaPicaPica;
+import modelo.Jugadas.Jugada;
+
+import modelo.Jugadas.JugadaPicaPica;
 import modelo.Partida.EstadoPartidaTerminada;
 import modelo.Partida.Partida;
 import org.junit.Assert;
@@ -191,7 +192,7 @@ public class PruebasPartidaTest {
         Carta espada4 = new Espada(4, valoresTrucoYEnvido);
 
 
-        //Nueva Jugada
+        //Nueva Jugadas
         jugador1.agregarCarta(copa10);
         jugador1.agregarCarta(copa4);
         jugador1.agregarCarta(copa5);
@@ -231,7 +232,7 @@ public class PruebasPartidaTest {
         jugador3.sacarCartas();
         jugador4.sacarCartas();
 
-        //Nueva Jugada
+        //Nueva Jugadas
         jugada = partida.crearJugada();
 
 
@@ -285,7 +286,7 @@ public class PruebasPartidaTest {
         jugador3.sacarCartas();
         jugador4.sacarCartas();
 
-        //Nueva Jugada
+        //Nueva Jugadas
         jugada = partida.crearJugada();
 
         jugador1.agregarCarta(espada10);
@@ -522,7 +523,7 @@ public class PruebasPartidaTest {
         Carta espada4 = new Espada(4, valoresTrucoYEnvido);
 
 
-        //Nueva Jugada
+        //Nueva Jugadas
         jugador1.agregarCarta(copa10);
         jugador1.agregarCarta(copa4);
         jugador1.agregarCarta(copa5);
@@ -562,7 +563,7 @@ public class PruebasPartidaTest {
         jugador3.sacarCartas();
         jugador4.sacarCartas();
 
-        //Nueva Jugada
+        //Nueva Jugadas
         jugada = partida.crearJugada();
 
 
@@ -616,7 +617,7 @@ public class PruebasPartidaTest {
         jugador3.sacarCartas();
         jugador4.sacarCartas();
 
-        //Nueva Jugada
+        //Nueva Jugadas
         jugada = partida.crearJugada();
 
         jugador1.agregarCarta(espada10);
@@ -846,7 +847,7 @@ public class PruebasPartidaTest {
         Partida partida = new Partida(equipo1, equipo2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
         Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
-        // Jugada jugada = new Jugada(equipo1,equipo2, mazoDeCartas);
+        // Jugadas jugada = new Jugadas(equipo1,equipo2, mazoDeCartas);
 
         equipo1.sumarPuntos(5);
 
@@ -1377,7 +1378,7 @@ public class PruebasPartidaTest {
         Carta espada4 = new Espada(4, valoresTrucoYEnvido);
 
 
-        //Nueva Jugada
+        //Nueva Jugadas
         jugador1.agregarCarta(copa10);
         jugador1.agregarCarta(copa4);
         jugador1.agregarCarta(copa5);
@@ -1509,7 +1510,7 @@ public class PruebasPartidaTest {
         jugador5.sacarCartas();
         jugador6.sacarCartas();
 
-        //Nueva Jugada normal
+        //Nueva Jugadas normal
         Jugada jugada2 = partida.crearJugada();
 
         jugador1.agregarCarta(copa10);

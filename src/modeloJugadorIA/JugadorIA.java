@@ -1,7 +1,8 @@
 package modeloJugadorIA;
 
 import modelo.Carta.Carta;
-import modelo.Jugada.Jugada;
+
+import modelo.Jugadas.Jugada;
 import modelo.Jugador;
 import modelo.Partida.Partida;
 

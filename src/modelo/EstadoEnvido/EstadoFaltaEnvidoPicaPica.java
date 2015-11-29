@@ -1,8 +1,9 @@
 package modelo.EstadoEnvido;
 
 import modelo.Errores.NoSePuedeCantarEsoError;
-import modelo.Jugada.Jugada;
-import modelo.Jugada.JugadaPicaPica;
+import modelo.Jugadas.Jugada;
+import modelo.Jugadas.JugadaPicaPica;
+
 
 /**
  * Created by Augusto on 22/11/2015.

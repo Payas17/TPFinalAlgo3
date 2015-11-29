@@ -4,7 +4,7 @@ import modelo.Carta.Carta;
 import modelo.Errores.CartaYaJugadaError;
 import modelo.EstadoJugador.EstadoDeJugador;
 import modelo.EstadoJugador.EstadoNoSeCantoNada;
-import modelo.Jugada.Jugada;
+import modelo.Jugadas.Jugada;
 
 import java.util.ArrayList;
 import java.util.List;

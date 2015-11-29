@@ -1,8 +1,9 @@
 package modelo.Partida;
 
 import modelo.*;
-import modelo.Jugada.Jugada;
-import modelo.Jugada.JugadaPicaPica;
+import modelo.Jugadas.Jugada;
+import modelo.Jugadas.JugadaPicaPica;
+
 
 import java.util.ArrayList;
 import java.util.List;

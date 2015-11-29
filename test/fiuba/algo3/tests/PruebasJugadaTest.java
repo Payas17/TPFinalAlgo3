@@ -4,7 +4,8 @@ import modelo.*;
 import modelo.Carta.*;
 import modelo.Errores.*;
 import modelo.EstadoEnvido.EstadoSinEnvido;
-import modelo.Jugada.Jugada;
+
+import modelo.Jugadas.Jugada;
 import modelo.Partida.Partida;
 import org.junit.Assert;
 import org.junit.Test;

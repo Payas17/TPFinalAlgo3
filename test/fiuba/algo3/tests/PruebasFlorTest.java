@@ -5,7 +5,7 @@ import modelo.Carta.*;
 import modelo.Errores.NoSePuedeCantarEsoError;
 import modelo.Errores.NoTieneFlorError;
 import modelo.EstadoEnvido.EstadoContraFlorAlResto;
-import modelo.Jugada.Jugada;
+import modelo.Jugadas.Jugada;
 import modelo.Partida.Partida;
 import org.junit.Assert;
 import org.junit.Test;

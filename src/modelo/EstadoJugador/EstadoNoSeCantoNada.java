@@ -2,9 +2,8 @@ package modelo.EstadoJugador;
 
 import modelo.Equipo;
 import modelo.Errores.NoSePuedeCantarEsoError;
-import modelo.Errores.NoTieneElQuieroError;
 import modelo.Errores.SoloJugadorPiePuedeCantarError;
-import modelo.Jugada.Jugada;
+import modelo.Jugadas.Jugada;
 import modelo.Jugador;
 
 /**
