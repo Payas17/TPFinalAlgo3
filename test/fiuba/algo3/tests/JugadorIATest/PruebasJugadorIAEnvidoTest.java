@@ -2,14 +2,21 @@ package fiuba.algo3.tests.JugadorIATest;
 
 
 import modelo.Carta.Carta;
+import modelo.Carta.Copa;
 import modelo.Carta.Espada;
 import modelo.Carta.Oro;
 
+import modelo.Equipo;
+import modelo.Jugador;
+import modelo.Partida.Partida;
 import modelo.ValoresTrucoYEnvido;
 import modeloJugadorIA.EstadoRealEnvidoInteligente;
 import modeloJugadorIA.JugadorIA;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -54,6 +61,10 @@ public class PruebasJugadorIAEnvidoTest {
 
           Assert.assertEquals(jugador.obtenerEstadoEnvido().getClass(), EstadoRealEnvidoInteligente.class);
      }
+
+
+
+
 
 
 }

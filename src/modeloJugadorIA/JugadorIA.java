@@ -1,25 +1,36 @@
 package modeloJugadorIA;
 
-
+import modelo.Carta.Carta;
+import modelo.Jugada.Jugada;
 import modelo.Jugador;
+import modelo.Partida.Partida;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 
 /**
  * Created by Augusto on 24/11/2015.
  */
-public class JugadorIA extends Jugador {
+public class JugadorIA {
 
     private Hashtable<Integer,EstadoEnvidoInteligente> contenedor;
 
     private EstadoEnvidoInteligente estadoEnvidoInteligente;
 
+    private Jugador jugador;
+
+    private List<Carta> cartas;
+
+    private List<Carta> cartasEnJuego;
+
     public JugadorIA(){
-        super();
+        jugador = new Jugador();
         contenedor = new Hashtable<>();
         setearEstadoEnvido();
+        cartas = new ArrayList<>();
+        cartasEnJuego = new ArrayList<>();
     }
-
 
     public EstadoEnvidoInteligente obtenerEstadoEnvido() {
         buscarEstadoEnvidoInteligente();
@@ -27,7 +38,7 @@ public class JugadorIA extends Jugador {
     }
 
     public void buscarEstadoEnvidoInteligente(){
-         cambiarEstadoEnvidoInteligente((contenedor.get(this.obtenerEnvido())));
+         cambiarEstadoEnvidoInteligente((contenedor.get(jugador.obtenerEnvido())));
     }
 
     public void cambiarEstadoEnvidoInteligente(EstadoEnvidoInteligente estadoEnvidoInteligente) {
@@ -54,6 +65,22 @@ public class JugadorIA extends Jugador {
 
         contenedor.put(37, new EstadoContraFlorInteligente());
         contenedor.put(38, new EstadoContraFlorAlRestoInteligente());
+
+    }
+
+    public void agregarCarta(Carta carta) {
+        jugador.agregarCarta(carta);
+        cartas.add(carta);
+    }
+
+    public void cantarEnvido(){
+
+    }
+
+    public void jugarCarta(Jugada jugada){
+
+        for(Jugador jugadorActual : jugada.obtenerEquipoQueNoContieneJugador(jugador).obtenerIntegrantes()){
+        }
 
     }
 }
