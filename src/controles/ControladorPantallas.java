@@ -14,6 +14,7 @@ import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 
 /**
@@ -36,8 +37,8 @@ public class ControladorPantallas extends StackPane{
 
         try {
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource(recurso));
-            Parent loadScreen = (Parent) myLoader.load();
-            ControladorDePantallas myScreenControler = ((ControladorDePantallas) myLoader.getController());
+            Parent loadScreen =  myLoader.load();
+            ControladorDePantallas myScreenControler =  myLoader.getController();
             myScreenControler.setearPadreDePantalla(this);
             agregarPantalla(nombre, loadScreen);
             return true;
@@ -53,8 +54,7 @@ public class ControladorPantallas extends StackPane{
         } else {
             System.out.println("Pantalla no ha sido cargada \n");
             return false;
-    }
-
+        }
     }
 
     private boolean hacerFadeIn(final String nombre) {
@@ -86,6 +86,17 @@ public class ControladorPantallas extends StackPane{
             fadeIn.play();
         }
         return true;
+    }
+
+    public ControlPantallaInicial obtenerControlPantallaInicial(){
+        URL lugar = getClass().getResource("/vista/PantallaInicial.fxml");
+        FXMLLoader myLoader = new FXMLLoader();
+        try{
+            Parent raiz = myLoader.load(lugar.openStream());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return myLoader.getController();
     }
 
 }

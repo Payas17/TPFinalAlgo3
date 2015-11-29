@@ -43,15 +43,16 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
     @Override
     public void setearPadreDePantalla(ControladorPantallas pantallaPadre) {
         miControlador=pantallaPadre;
-        inicializarPantalla2Jugadores();
+        RadioButton botonFlor = miControlador.obtenerControlPantallaInicial().obtenerBotonFlor();
+        inicializarPantalla2Jugadores(botonFlor);
     }
 
-    private void inicializarPantalla2Jugadores() {
-        seteoDePartida();
+    private void inicializarPantalla2Jugadores(RadioButton botonFlor) {
+        seteoDePartida(botonFlor);
 
     }
 
-    private void seteoDePartida() {
+    private void seteoDePartida(RadioButton botonFlor) {
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
         List<Jugador> jugadores = new ArrayList<>();
@@ -61,6 +62,11 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
         Equipo equipo1 = new Equipo(jugadores);
         Equipo equipo2 = new Equipo(jugadores2);
         Partida partida = new Partida(equipo1, equipo2);
+
+        if(botonFlor.isSelected()){
+            partida.jugarConFlor();
+        }
+
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
         Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
         lblEquipo1.setText(String.valueOf(equipo1.obtenerPuntos()));
@@ -70,7 +76,7 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
 
     @FXML
     public void irAPantallaInicial(ActionEvent actionEvent) {
-        miControlador.setearPantalla(FrameworkDePantalla.pantallaInicial);
+        miControlador.setearPantalla(FrameworkDePantalla.obtenerPantallaInicial());
     }
 }
 

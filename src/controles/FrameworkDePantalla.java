@@ -10,24 +10,37 @@ import javafx.stage.Stage;
  */
 public class FrameworkDePantalla extends Application {
 
-    public static String pantallaInicial = "pantallaInicial";
-    public static String pantallaInicialArchivo = "/vista/PantallaInicial.fxml";
-    public static String pantalla2Jugadores = "pantalla2Jugadores";
-    public static String pantalla2JugadoresArchivo = "/vista/Pantalla2Jugadores.fxml";
-    public static String pantalla4Jugadores = "pantalla4Jugadores";
-    public static String pantalla4JugadoresArchivo = "/vista/Pantalla4Jugadores.fxml";
-    public static String pantalla6Jugadores = "pantalla6Jugadores";
-    public static String pantalla6JugadoresArchivo = "/vista/Pantalla6Jugadores.fxml";
+    private static String pantallaInicial = "pantallaInicial";
+    private static String pantallaInicialArchivo = "/vista/PantallaInicial.fxml";
+    private static String pantalla2Jugadores = "pantalla2Jugadores";
+    private static String pantalla2JugadoresArchivo = "/vista/Pantalla2Jugadores.fxml";
+    private static String pantalla4Jugadores = "pantalla4Jugadores";
+    private static String pantalla4JugadoresArchivo = "/vista/Pantalla4Jugadores.fxml";
+    private static String pantalla6Jugadores = "pantalla6Jugadores";
+    private static String pantalla6JugadoresArchivo = "/vista/Pantalla6Jugadores.fxml";
     private static Stage primaryStage;
+
+    public static String obtenerPantallaInicial(){
+        return pantallaInicial;
+    }
+    public static  String obtenerPantalla2Jugadores(){
+        return pantalla2Jugadores;
+    }
+    public static String obtenerPantalla4Jugadores(){
+        return pantalla4Jugadores;
+    }
+    public static String obtenerPantalla6Jugadores(){
+        return pantalla6Jugadores;
+    }
 
    @Override
     public void start(Stage primaryStage) throws Exception {
        this.primaryStage = primaryStage;
         ControladorPantallas contenedorPrincipal = new ControladorPantallas();
-        contenedorPrincipal.cargarPantalla(FrameworkDePantalla.pantallaInicial, FrameworkDePantalla.pantallaInicialArchivo);
-        contenedorPrincipal.cargarPantalla(FrameworkDePantalla.pantalla2Jugadores, FrameworkDePantalla.pantalla2JugadoresArchivo);
-        contenedorPrincipal.cargarPantalla(FrameworkDePantalla.pantalla4Jugadores, FrameworkDePantalla.pantalla4JugadoresArchivo);
-        contenedorPrincipal.cargarPantalla(FrameworkDePantalla.pantalla6Jugadores, FrameworkDePantalla.pantalla6JugadoresArchivo);
+        contenedorPrincipal.cargarPantalla(pantallaInicial, pantallaInicialArchivo);
+        contenedorPrincipal.cargarPantalla(pantalla2Jugadores, pantalla2JugadoresArchivo);
+        contenedorPrincipal.cargarPantalla(pantalla4Jugadores, pantalla4JugadoresArchivo);
+        contenedorPrincipal.cargarPantalla(pantalla6Jugadores, pantalla6JugadoresArchivo);
 
 
         contenedorPrincipal.setearPantalla(FrameworkDePantalla.pantallaInicial);
@@ -35,6 +48,7 @@ public class FrameworkDePantalla extends Application {
         Group raiz = new Group();
         raiz.getChildren().addAll(contenedorPrincipal);
         Scene escena = new Scene(raiz);
+        primaryStage.setTitle("Truco Gay");
         primaryStage.setScene(escena);
         primaryStage.show();
     }

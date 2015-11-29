@@ -3,6 +3,7 @@ package controles;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.RadioButton;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,6 +15,8 @@ public class ControlPantallaInicial implements Initializable,ControladorDePantal
 
     private ControladorPantallas miControlador;
 
+    @FXML private RadioButton rdFlor;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -21,19 +24,25 @@ public class ControlPantallaInicial implements Initializable,ControladorDePantal
 
     @Override
     public void setearPadreDePantalla(ControladorPantallas pantallaPadre) {
+
         miControlador=pantallaPadre;
+
     }
 
     @FXML
     public void irAPantalla2Jugadores(ActionEvent actionEvent) {
-        miControlador.setearPantalla(FrameworkDePantalla.pantalla2Jugadores);
+        miControlador.setearPantalla(FrameworkDePantalla.obtenerPantalla2Jugadores());
     }
     @FXML
     public void irAPantalla4Jugadores(ActionEvent actionEvent) {
-        miControlador.setearPantalla(FrameworkDePantalla.pantalla4Jugadores);
+        miControlador.setearPantalla(FrameworkDePantalla.obtenerPantalla4Jugadores());
     }
     @FXML
     public void irAPantalla6Jugadores(ActionEvent actionEvent) {
-        miControlador.setearPantalla(FrameworkDePantalla.pantalla6Jugadores);
+        miControlador.setearPantalla(FrameworkDePantalla.obtenerPantalla6Jugadores());
+    }
+
+    public RadioButton obtenerBotonFlor() {
+        return rdFlor;
     }
 }

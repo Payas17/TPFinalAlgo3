@@ -26,7 +26,7 @@ public class ControlPantalla6Jugadores implements Initializable,ControladorDePan
 
     @FXML
     public void irAPantallaInicial(ActionEvent actionEvent) {
-        miControlador.setearPantalla(FrameworkDePantalla.pantallaInicial);
+        miControlador.setearPantalla(FrameworkDePantalla.obtenerPantallaInicial());
     }
 
     @Override

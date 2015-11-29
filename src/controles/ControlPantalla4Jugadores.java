@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.RadioButton;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,12 +26,14 @@ public class ControlPantalla4Jugadores implements Initializable, ControladorDePa
 
     @FXML
     public void irAPantallaInicial(ActionEvent actionEvent) {
-        miControlador.setearPantalla(FrameworkDePantalla.pantallaInicial);
+        miControlador.setearPantalla(FrameworkDePantalla.obtenerPantallaInicial());
     }
 
     @Override
     public void setearPadreDePantalla(ControladorPantallas pantallaPadre) {
         miControlador=pantallaPadre;
     }
+
+
 }
 
