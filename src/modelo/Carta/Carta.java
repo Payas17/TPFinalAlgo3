@@ -47,6 +47,10 @@ public abstract class Carta {
         return Math.max(this.obtenerValorEnvido(), unaCarta.obtenerValorEnvido());
     }
 
+    public int obtenerNumeroDeCarta(){
+        return numeroDeCarta;
+    }
+
 
     public abstract int devolverEnvido(Oro carta);
     public abstract int devolverEnvido(Basto carta);

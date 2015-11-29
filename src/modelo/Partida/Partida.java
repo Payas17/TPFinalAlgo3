@@ -81,4 +81,6 @@ public class Partida {
     public Mazo obtenerMazo() {
         return mazoDeCartas;
     }
+
+
 }

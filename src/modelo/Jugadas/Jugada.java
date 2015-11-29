@@ -64,6 +64,10 @@ public class Jugada {
         }
     }
 
+    public List<Jugador> obtenerOrdenJugadoresMano(){
+        return ordenJugadoresMano;
+    }
+
 
     private void inicializarJugadores() {
 
@@ -106,10 +110,9 @@ public class Jugada {
         this.estadoJugada = jugada;
     }
 
-    public Mano jugarMano() {
+    public void jugarMano() {
         Mano mano = new Mano(ordenJugadoresMano);
         EstadoJugada(mano);
-        return mano;
     }
 
 

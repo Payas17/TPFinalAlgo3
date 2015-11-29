@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.text.*?>
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.input.*?>
 <?import javafx.scene.layout.*?>
 
@@ -25,9 +23,6 @@
          </menus>
       </MenuBar>
       <Separator layoutX="152.0" layoutY="27.0" orientation="VERTICAL" prefHeight="676.0" prefWidth="3.0" />
-      <ImageView fx:id="imgCarta1" fitHeight="130.0" fitWidth="100.0" layoutX="425.0" layoutY="530.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imgCarta2" fitHeight="130.0" fitWidth="100.0" layoutX="542.0" layoutY="530.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imgCarta3" fitHeight="130.0" fitWidth="100.0" layoutX="649.0" layoutY="530.0" pickOnBounds="true" preserveRatio="true" />
       <RadioButton fx:id="rdJugador2" layoutX="500.0" layoutY="213.0" mnemonicParsing="false" text="Turno Jugador 2" textFill="#010701">
          <toggleGroup>
             <ToggleGroup fx:id="turno" />
@@ -39,7 +34,7 @@
       <Button fx:id="botonFaltaEnvido" layoutX="24.0" layoutY="254.0" mnemonicParsing="false" text="Cantar Falta Envido" />
       <Button fx:id="botonFlor" layoutX="24.0" layoutY="298.0" mnemonicParsing="false" text="Cantar Flor" />
       <Button fx:id="botonIrseAlMazo" layoutX="24.0" layoutY="338.0" mnemonicParsing="false" text="Irse al mazo" />
-      <Button fx:id="botonPasarTurno" layoutX="826.0" layoutY="595.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="130.0" text="Pasar el turno" />
+      <Button fx:id="botonPasarTurno" layoutX="826.0" layoutY="595.0" mnemonicParsing="false" onAction="#pasarElTurno" prefHeight="64.0" prefWidth="130.0" text="Pasar el turno" />
       <Label layoutX="10.0" layoutY="569.0" text="Equipo 1" />
       <Label layoutX="90.0" layoutY="569.0" text="Equipo 2" />
       <Label fx:id="lblEquipo1" contentDisplay="TOP" graphicTextGap="0.0" layoutX="10.0" layoutY="619.0" prefHeight="53.0" prefWidth="47.0" textAlignment="CENTER" textFill="#ee0a0a">
@@ -55,5 +50,8 @@
       <Button fx:id="botonEsconderCartas" layoutX="826.0" layoutY="505.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="130.0" text="Esconder Cartas" />
       <Label layoutX="187.0" layoutY="45.0" text="Mano: " />
       <Label fx:id="lblMano" layoutX="236.0" layoutY="41.0" prefHeight="25.0" prefWidth="157.0" />
+      <Button fx:id="carta1" layoutX="376.0" layoutY="565.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="118.0" text="Carta1" />
+      <Button fx:id="carta2" layoutX="516.0" layoutY="565.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="108.0" text="Carta2" />
+      <Button fx:id="carta3" layoutX="657.0" layoutY="565.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="118.0" text="Carta3" />
    </children>
 </Pane>

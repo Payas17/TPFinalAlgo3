@@ -12,7 +12,7 @@
             <Font name="Symbol" size="36.0" />
          </font>
       </Label>
-      <RadioButton fx:id="rdFlor" layoutX="361.0" layoutY="222.0" mnemonicParsing="false" text="Jugar con Flor" selected="true">
+      <RadioButton fx:id="rdFlor" layoutX="361.0" layoutY="222.0" mnemonicParsing="false" selected="true" text="Jugar con Flor">
          <toggleGroup>
             <ToggleGroup fx:id="flor" />
          </toggleGroup></RadioButton>

@@ -167,5 +167,9 @@ public class Jugador {
         cartas.removeAll(cartas);
     }
 
+    public List<Carta> obtenerCartasEnMano(){
+        return cartas;
+    }
+
 
 }
