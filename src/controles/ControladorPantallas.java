@@ -31,17 +31,8 @@ public class ControladorPantallas extends StackPane{
         pantallas.put(nombre,pantalla);
     }
 
-    public Node obtenerPantalla(String nombre){
-        return pantallas.get(nombre);
-    }
 
     public boolean cargarPantalla(String nombre, String recurso) throws IOException {
-        /*FXMLLoader cargador = new FXMLLoader(getClass().getResource(recurso));
-        Parent cargarPantalla = ((Parent)cargador.load());
-        ControladorDePantallas miControladorDePantallas = ((ControladorDePantallas)cargador.getController());
-        miControladorDePantallas.setearPadreDePantalla(this);
-        agregarPantalla(nombre,cargarPantalla);
-        return true;*/
 
         try {
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource(recurso));
@@ -57,40 +48,44 @@ public class ControladorPantallas extends StackPane{
     }
 
     public boolean setearPantalla(String nombre){
-        if (pantallas.get(nombre) != null) {   //screen loaded
-            final DoubleProperty opacity = opacityProperty();
-
-            if (!getChildren().isEmpty()) {    //if there is more than one screen
-                Timeline fade = new Timeline(
-                        new KeyFrame(Duration.ZERO, new KeyValue(opacity, 1.0)),
-                        new KeyFrame(new Duration(1000), new EventHandler<ActionEvent>() {
-                            @Override
-                            public void handle(ActionEvent t) {
-                                getChildren().remove(0);                    //remove the displayed screen
-                                getChildren().add(0, pantallas.get(nombre));
-                                FrameworkDePantalla.redimensionar();
-                                Timeline fadeIn = new Timeline(
-                                        new KeyFrame(Duration.ZERO, new KeyValue(opacity, 0.0)),
-                                        new KeyFrame(new Duration(800), new KeyValue(opacity, 1.0)));
-                                fadeIn.play();
-                            }
-                        }, new KeyValue(opacity, 0.0)));
-                fade.play();
-
-            } else {
-                setOpacity(0.0);
-                getChildren().add(pantallas.get(nombre));       //no one else been displayed, then just show
-                Timeline fadeIn = new Timeline(
-                        new KeyFrame(Duration.ZERO, new KeyValue(opacity, 0.0)),
-                        new KeyFrame(new Duration(2500), new KeyValue(opacity, 1.0)));
-                fadeIn.play();
-            }
-            return true;
+        if (pantallas.get(nombre) != null) {
+            return hacerFadeIn(nombre);
         } else {
             System.out.println("Pantalla no ha sido cargada \n");
             return false;
     }
 
+    }
+
+    private boolean hacerFadeIn(final String nombre) {
+        final DoubleProperty opacity = opacityProperty();
+
+        if (!getChildren().isEmpty()) {
+            Timeline fade = new Timeline(
+                    new KeyFrame(Duration.ZERO, new KeyValue(opacity, 1.0)),
+                    new KeyFrame(new Duration(1000), new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent t) {
+                            getChildren().remove(0);
+                            getChildren().add(0, pantallas.get(nombre));
+                            FrameworkDePantalla.redimensionar();
+                            Timeline fadeIn = new Timeline(
+                                    new KeyFrame(Duration.ZERO, new KeyValue(opacity, 0.0)),
+                                    new KeyFrame(new Duration(800), new KeyValue(opacity, 1.0)));
+                            fadeIn.play();
+                        }
+                    }, new KeyValue(opacity, 0.0)));
+            fade.play();
+
+        } else {
+            setOpacity(0.0);
+            getChildren().add(pantallas.get(nombre));
+            Timeline fadeIn = new Timeline(
+                    new KeyFrame(Duration.ZERO, new KeyValue(opacity, 0.0)),
+                    new KeyFrame(new Duration(2500), new KeyValue(opacity, 1.0)));
+            fadeIn.play();
+        }
+        return true;
     }
 
 }

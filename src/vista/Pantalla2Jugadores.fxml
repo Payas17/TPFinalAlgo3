@@ -8,12 +8,6 @@
 
 <Pane fx:id="Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.ControlPantalla2Jugadores">
    <children>
-      <TableView fx:id="tbEquipo2" layoutY="627.0" prefHeight="73.0" prefWidth="152.0">
-         <columns>
-            <TableColumn fx:id="tbEquipo1" prefWidth="75.0" text="Equipo 1" />
-            <TableColumn prefWidth="75.0" text="Equipo 2" />
-         </columns>
-      </TableView>
       <MenuBar fx:id="mbMenu" layoutY="2.0" prefHeight="25.0" prefWidth="1000.0">
          <menus>
             <Menu fx:id="archivo" text="_Archivo">
@@ -33,7 +27,21 @@
       <ImageView fx:id="imgCarta1" fitHeight="130.0" fitWidth="100.0" layoutX="425.0" layoutY="530.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imgCarta2" fitHeight="130.0" fitWidth="100.0" layoutX="542.0" layoutY="530.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imgCarta3" fitHeight="130.0" fitWidth="100.0" layoutX="649.0" layoutY="530.0" pickOnBounds="true" preserveRatio="true" />
-      <RadioButton fx:id="rdJugador2" layoutX="500.0" layoutY="213.0" mnemonicParsing="false" text="Turno Jugador 2" />
-      <RadioButton fx:id="rdJugador1" layoutX="500.0" layoutY="432.0" mnemonicParsing="false" text="Turno Jugador 1" />
+      <RadioButton fx:id="rdJugador2" layoutX="500.0" layoutY="213.0" mnemonicParsing="false" text="Turno Jugador 2">
+         <toggleGroup>
+            <ToggleGroup fx:id="turno" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="rdJugador1" layoutX="500.0" layoutY="432.0" mnemonicParsing="false" selected="true" text="Turno Jugador 1" toggleGroup="$turno" />
+      <Button fx:id="botonTruco" layoutX="22.0" layoutY="118.0" mnemonicParsing="false" text="Cantar Truco" />
+      <Button fx:id="botonEnvido" layoutX="24.0" layoutY="164.0" mnemonicParsing="false" text="Cantar Envido" />
+      <Button fx:id="botonRealEnvido" layoutX="24.0" layoutY="209.0" mnemonicParsing="false" text="Cantar Real Envido" />
+      <Button fx:id="botonFaltaEnvido" layoutX="24.0" layoutY="254.0" mnemonicParsing="false" text="Cantar Falta Envido" />
+      <Button fx:id="botonFlor" layoutX="24.0" layoutY="298.0" mnemonicParsing="false" text="Cantar Flor" />
+      <Button fx:id="botonIrseAlMazo" layoutX="24.0" layoutY="338.0" mnemonicParsing="false" text="Irse al mazo" />
+      <Button fx:id="botonPasarTurno" layoutX="826.0" layoutY="595.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="130.0" text="Pasar el turno" />
+      <TextField fx:id="txtEquipo1" layoutX="7.0" layoutY="595.0" />
+      <TextField fx:id="txtEquipo2" layoutX="7.0" layoutY="659.0" />
+      <Label layoutX="10.0" layoutY="569.0" text="Puntos equipo 1" />
+      <Label layoutX="8.0" layoutY="636.0" text="Puntos equipo 2" />
    </children>
 </Pane>

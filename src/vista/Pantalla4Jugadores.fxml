@@ -33,9 +33,12 @@
       <ImageView fx:id="imgCarta1" fitHeight="130.0" fitWidth="100.0" layoutX="425.0" layoutY="530.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imgCarta2" fitHeight="130.0" fitWidth="100.0" layoutX="542.0" layoutY="530.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imgCarta3" fitHeight="130.0" fitWidth="100.0" layoutX="649.0" layoutY="530.0" pickOnBounds="true" preserveRatio="true" />
-      <RadioButton fx:id="rdJugador4" layoutX="730.0" layoutY="219.0" mnemonicParsing="false" text="Turno Jugador 4" />
-      <RadioButton fx:id="rdJugador3" layoutX="730.0" layoutY="448.0" mnemonicParsing="false" text="Turno Jugador 3" />
-      <RadioButton fx:id="rdJugador2" layoutX="367.0" layoutY="219.0" mnemonicParsing="false" text="Turno Jugador 2" />
-      <RadioButton fx:id="rdJugador1" layoutX="367.0" layoutY="448.0" mnemonicParsing="false" text="Turno Jugador 1" />
+      <RadioButton fx:id="rdJugador4" layoutX="730.0" layoutY="219.0" mnemonicParsing="false" text="Turno Jugador 4">
+         <toggleGroup>
+            <ToggleGroup fx:id="turno" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="rdJugador3" layoutX="730.0" layoutY="448.0" mnemonicParsing="false" text="Turno Jugador 3" toggleGroup="$turno" />
+      <RadioButton fx:id="rdJugador2" layoutX="367.0" layoutY="219.0" mnemonicParsing="false" text="Turno Jugador 2" toggleGroup="$turno" />
+      <RadioButton fx:id="rdJugador1" layoutX="367.0" layoutY="448.0" mnemonicParsing="false" selected="true" text="Turno Jugador 1" toggleGroup="$turno" />
    </children>
 </Pane>

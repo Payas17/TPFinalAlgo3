@@ -24,7 +24,7 @@ public class FrameworkDePantalla extends Application {
     public void start(Stage primaryStage) throws Exception {
        this.primaryStage = primaryStage;
         ControladorPantallas contenedorPrincipal = new ControladorPantallas();
-       contenedorPrincipal.cargarPantalla(FrameworkDePantalla.pantallaInicial, FrameworkDePantalla.pantallaInicialArchivo);
+        contenedorPrincipal.cargarPantalla(FrameworkDePantalla.pantallaInicial, FrameworkDePantalla.pantallaInicialArchivo);
         contenedorPrincipal.cargarPantalla(FrameworkDePantalla.pantalla2Jugadores, FrameworkDePantalla.pantalla2JugadoresArchivo);
         contenedorPrincipal.cargarPantalla(FrameworkDePantalla.pantalla4Jugadores, FrameworkDePantalla.pantalla4JugadoresArchivo);
         contenedorPrincipal.cargarPantalla(FrameworkDePantalla.pantalla6Jugadores, FrameworkDePantalla.pantalla6JugadoresArchivo);
@@ -40,7 +40,9 @@ public class FrameworkDePantalla extends Application {
     }
     public static void redimensionar(){
         primaryStage.sizeToScene();
-        primaryStage.centerOnScreen(); }
+        primaryStage.centerOnScreen();
+    }
+
 
 
     public static void main(String[] args) {

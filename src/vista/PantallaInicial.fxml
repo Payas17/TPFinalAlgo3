@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
 <?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.ControlPantallaInicial">
@@ -13,9 +12,13 @@
             <Font name="RosewoodStd-Regular" size="36.0" />
          </font>
       </Label>
-      <RadioButton layoutX="361.0" layoutY="222.0" mnemonicParsing="false" text="Jugar con Flor" />
+      <RadioButton fx:id="rdFlor" layoutX="361.0" layoutY="222.0" mnemonicParsing="false" text="Jugar con Flor">
+         <toggleGroup>
+            <ToggleGroup fx:id="flor" />
+         </toggleGroup></RadioButton>
       <Button layoutX="191.0" layoutY="272.0" mnemonicParsing="false" onAction="#irAPantalla6Jugadores" text="6 jugadores" />
       <Button layoutX="191.0" layoutY="218.0" mnemonicParsing="false" onAction="#irAPantalla4Jugadores" text="4 Jugadores" />
       <Button layoutX="191.0" layoutY="168.0" mnemonicParsing="false" onAction="#irAPantalla2Jugadores" text="2 Jugadores" />
+      <RadioButton fx:id="rdSinFlor" layoutX="361.0" layoutY="264.0" mnemonicParsing="false" selected="true" text="Jugar sin Flor" toggleGroup="$flor" />
    </children>
 </AnchorPane>
