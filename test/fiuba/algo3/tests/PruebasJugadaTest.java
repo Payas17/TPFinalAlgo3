@@ -1290,9 +1290,7 @@ public class PruebasJugadaTest {
         jugador2.juegaCarta(espada1);
 
         jugada.jugarMano();
-
-        Assert.assertEquals(jugador1.obtenerEnvido(),23);
-        Assert.assertEquals(jugador2.obtenerEnvido(),3);
+        
         Assert.assertEquals(jugada.obtenerEquipoGanadorDeJugada(),equipo2);
         Assert.assertEquals(jugada.obtenerEquipoGanadorDeJugada().obtenerPuntos(),3);
         Assert.assertEquals(jugada.obtenerEquipo1().obtenerPuntos(),2);
@@ -1351,8 +1349,7 @@ public class PruebasJugadaTest {
 
         jugada.jugarMano();
 
-        Assert.assertEquals(jugador1.obtenerEnvido(),23);
-        Assert.assertEquals(jugador2.obtenerEnvido(),3);
+
         Assert.assertEquals(jugada.obtenerEquipoGanadorDeJugada(),equipo2);
         Assert.assertEquals(jugada.obtenerEquipoGanadorDeJugada().obtenerPuntos(),3);
         Assert.assertEquals(jugada.obtenerEquipo1().obtenerPuntos(),3);

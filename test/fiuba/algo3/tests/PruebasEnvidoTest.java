@@ -319,15 +319,15 @@ public class PruebasEnvidoTest {
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
 
-        jugador2.agregarCarta(basto12);
-        jugador2.agregarCarta(basto7);
-        jugador2.agregarCarta(basto6);
-
         Equipo equipo1 = new Equipo(jugadores1);
         Equipo equipo2 = new Equipo(jugadores2);
 
         Partida partida = new Partida(equipo1,equipo2);
         Jugada jugada = partida.crearJugada();
+
+        jugador2.agregarCarta(basto12);
+        jugador2.agregarCarta(basto7);
+        jugador2.agregarCarta(basto6);
 
         jugador1.cantarEnvido(jugada);
         jugador2.cantarFlor(jugada);
@@ -415,15 +415,15 @@ public class PruebasEnvidoTest {
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
 
-        jugador2.agregarCarta(basto12);
-        jugador2.agregarCarta(basto7);
-        jugador2.agregarCarta(basto6);
-
         Equipo equipo1 = new Equipo(jugadores1);
         Equipo equipo2 = new Equipo(jugadores2);
 
         Partida partida = new Partida(equipo1,equipo2);
         Jugada jugada = partida.crearJugada();
+
+        jugador2.agregarCarta(basto12);
+        jugador2.agregarCarta(basto7);
+        jugador2.agregarCarta(basto6);
 
         jugador1.cantarFaltaEnvido(jugada);
         jugador2.cantarFlor(jugada);

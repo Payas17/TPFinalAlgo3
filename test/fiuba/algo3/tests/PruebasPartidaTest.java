@@ -894,6 +894,30 @@ public class PruebasPartidaTest {
 
         JugadaPicaPica jugadaPP = partida.crearJugadaPicaPica();
 
+        jugador1.agregarCarta(copa10);
+        jugador1.agregarCarta(copa4);
+        jugador1.agregarCarta(copa5);
+
+        jugador2.agregarCarta(oro11);
+        jugador2.agregarCarta(oro4);
+        jugador2.agregarCarta(oro5);
+
+        jugador3.agregarCarta(espada12);
+        jugador3.agregarCarta(espada6);
+        jugador3.agregarCarta(espada7);
+
+        jugador4.agregarCarta(basto3);
+        jugador4.agregarCarta(basto4);
+        jugador4.agregarCarta(basto5);
+
+        jugador5.agregarCarta(espada10);
+        jugador5.agregarCarta(espada1);
+        jugador5.agregarCarta(espada4);
+
+        jugador6.agregarCarta(basto7);
+        jugador6.agregarCarta(basto6);
+        jugador6.agregarCarta(basto2);
+
         jugadaPP.armarEquiposParaPicaPica(jugador1, jugador6);
         partida.obtenerEquipo1();
         jugador1.cantarFlor(jugadaPP);
@@ -916,6 +940,30 @@ public class PruebasPartidaTest {
         Assert.assertEquals(equipo2.obtenerPuntos() , 5);
 
         JugadaPicaPica jugadaPP2 = partida.crearJugadaPicaPica();
+
+        jugador1.agregarCarta(copa10);
+        jugador1.agregarCarta(copa4);
+        jugador1.agregarCarta(copa5);
+
+        jugador2.agregarCarta(oro11);
+        jugador2.agregarCarta(oro4);
+        jugador2.agregarCarta(oro5);
+
+        jugador3.agregarCarta(espada12);
+        jugador3.agregarCarta(espada6);
+        jugador3.agregarCarta(espada7);
+
+        jugador4.agregarCarta(basto3);
+        jugador4.agregarCarta(basto4);
+        jugador4.agregarCarta(basto5);
+
+        jugador5.agregarCarta(espada10);
+        jugador5.agregarCarta(espada1);
+        jugador5.agregarCarta(espada4);
+
+        jugador6.agregarCarta(basto7);
+        jugador6.agregarCarta(basto6);
+        jugador6.agregarCarta(basto2);
 
         jugadaPP2.armarEquiposParaPicaPica(jugador2, jugador5);
         partida.obtenerEquipo1();
@@ -956,49 +1004,55 @@ public class PruebasPartidaTest {
         Carta copa10 = new Copa(10, valoresTrucoYEnvido);
         Carta copa4 = new Copa(4, valoresTrucoYEnvido);
         Carta copa5 = new Copa(5, valoresTrucoYEnvido);
-        jugador1.agregarCarta(copa10);
-        jugador1.agregarCarta(copa4);
-        jugador1.agregarCarta(copa5);
 
         Carta oro11 = new Oro(11, valoresTrucoYEnvido);
         Carta oro4 = new Oro(4, valoresTrucoYEnvido);
         Carta oro5 = new Oro(5, valoresTrucoYEnvido);
-        jugador2.agregarCarta(oro11);
-        jugador2.agregarCarta(oro4);
-        jugador2.agregarCarta(oro5);
 
         Carta espada12 = new Espada(12, valoresTrucoYEnvido);
         Carta espada6 = new Espada(6, valoresTrucoYEnvido);
         Carta espada7 = new Espada(7, valoresTrucoYEnvido);
-        jugador3.agregarCarta(espada12);
-        jugador3.agregarCarta(espada6);
-        jugador3.agregarCarta(espada7);
 
         Carta basto5 = new Basto(5, valoresTrucoYEnvido);
         Carta basto4 = new Basto(4, valoresTrucoYEnvido);
         Carta basto3 = new Basto(3, valoresTrucoYEnvido);
-        jugador4.agregarCarta(basto3);
-        jugador4.agregarCarta(basto4);
-        jugador4.agregarCarta(basto5);
 
         Carta espada10 = new Espada(10, valoresTrucoYEnvido);
         Carta espada1 = new Espada(1, valoresTrucoYEnvido);
         Carta espada4 = new Espada(4, valoresTrucoYEnvido);
-        jugador5.agregarCarta(espada10);
-        jugador5.agregarCarta(espada1);
-        jugador5.agregarCarta(espada4);
 
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
         Carta basto2 = new Basto(2, valoresTrucoYEnvido);
+
+        JugadaPicaPica jugadaPP = partida.crearJugadaPicaPica();
+
+        jugador1.agregarCarta(copa10);
+        jugador1.agregarCarta(copa4);
+        jugador1.agregarCarta(copa5);
+
+        jugador2.agregarCarta(oro11);
+        jugador2.agregarCarta(oro4);
+        jugador2.agregarCarta(oro5);
+
+        jugador3.agregarCarta(espada12);
+        jugador3.agregarCarta(espada6);
+        jugador3.agregarCarta(espada7);
+
+        jugador4.agregarCarta(basto3);
+        jugador4.agregarCarta(basto4);
+        jugador4.agregarCarta(basto5);
+
+        jugador5.agregarCarta(espada10);
+        jugador5.agregarCarta(espada1);
+        jugador5.agregarCarta(espada4);
+
         jugador6.agregarCarta(basto7);
         jugador6.agregarCarta(basto6);
         jugador6.agregarCarta(basto2);
 
-        JugadaPicaPica jugadaPP = partida.crearJugadaPicaPica();
 
         jugadaPP.armarEquiposParaPicaPica(jugador1, jugador6);
-        partida.obtenerEquipo1();
         jugador1.cantarFlor(jugadaPP);
         jugador6.aceptarFlor(jugadaPP);
 
@@ -1020,6 +1074,30 @@ public class PruebasPartidaTest {
 
         JugadaPicaPica jugadaPP2 = partida.crearJugadaPicaPica();
 
+        jugador1.agregarCarta(copa10);
+        jugador1.agregarCarta(copa4);
+        jugador1.agregarCarta(copa5);
+
+        jugador2.agregarCarta(oro11);
+        jugador2.agregarCarta(oro4);
+        jugador2.agregarCarta(oro5);
+
+        jugador3.agregarCarta(espada12);
+        jugador3.agregarCarta(espada6);
+        jugador3.agregarCarta(espada7);
+
+        jugador4.agregarCarta(basto3);
+        jugador4.agregarCarta(basto4);
+        jugador4.agregarCarta(basto5);
+
+        jugador5.agregarCarta(espada10);
+        jugador5.agregarCarta(espada1);
+        jugador5.agregarCarta(espada4);
+
+        jugador6.agregarCarta(basto7);
+        jugador6.agregarCarta(basto6);
+        jugador6.agregarCarta(basto2);
+
         jugadaPP2.armarEquiposParaPicaPica(jugador2, jugador5);
         partida.obtenerEquipo1();
         jugador2.irseAlMazo(jugadaPP2);
@@ -1031,11 +1109,36 @@ public class PruebasPartidaTest {
 
         Jugada jugada = partida.crearJugada();
 
+        jugador1.agregarCarta(copa10);
+        jugador1.agregarCarta(copa4);
+        jugador1.agregarCarta(copa5);
+
+        jugador2.agregarCarta(oro11);
+        jugador2.agregarCarta(oro4);
+        jugador2.agregarCarta(oro5);
+
+        jugador3.agregarCarta(espada12);
+        jugador3.agregarCarta(espada6);
+        jugador3.agregarCarta(espada7);
+
+        jugador4.agregarCarta(basto3);
+        jugador4.agregarCarta(basto4);
+        jugador4.agregarCarta(basto5);
+
+        jugador5.agregarCarta(espada10);
+        jugador5.agregarCarta(espada1);
+        jugador5.agregarCarta(espada4);
+
+        jugador6.agregarCarta(basto7);
+        jugador6.agregarCarta(basto6);
+        jugador6.agregarCarta(basto2);
+
         jugador1.juegaCarta(espada10);
         jugador4.juegaCarta(basto2);
         jugador2.juegaCarta(copa10);
         jugador5.juegaCarta(oro11);
         jugador3.juegaCarta(basto5);
+
         jugador6.cantarEnvido(jugada);
         jugador1.aceptarEnvido(jugada);
         jugador6.juegaCarta(espada12);
@@ -1046,8 +1149,8 @@ public class PruebasPartidaTest {
         jugador2.irseAlMazo(jugada);
 
 
-        Assert.assertTrue(equipo1.obtenerPuntos() == 4);
-        Assert.assertTrue(equipo2.obtenerPuntos() == 8);
+        Assert.assertEquals(equipo1.obtenerPuntos(),2);
+        Assert.assertEquals(equipo2.obtenerPuntos(),10);
 
 
     }
@@ -1081,46 +1184,52 @@ public class PruebasPartidaTest {
         Carta copa10 = new Copa(10, valoresTrucoYEnvido);
         Carta copa4 = new Copa(4, valoresTrucoYEnvido);
         Carta copa5 = new Copa(5, valoresTrucoYEnvido);
-        jugador1.agregarCarta(copa10);
-        jugador1.agregarCarta(copa4);
-        jugador1.agregarCarta(copa5);
 
         Carta oro11 = new Oro(11, valoresTrucoYEnvido);
         Carta oro4 = new Oro(4, valoresTrucoYEnvido);
         Carta oro5 = new Oro(5, valoresTrucoYEnvido);
-        jugador2.agregarCarta(oro11);
-        jugador2.agregarCarta(oro4);
-        jugador2.agregarCarta(oro5);
 
         Carta espada12 = new Espada(12, valoresTrucoYEnvido);
         Carta espada6 = new Espada(6, valoresTrucoYEnvido);
         Carta espada7 = new Espada(7, valoresTrucoYEnvido);
-        jugador3.agregarCarta(espada12);
-        jugador3.agregarCarta(espada6);
-        jugador3.agregarCarta(espada7);
 
         Carta basto5 = new Basto(5, valoresTrucoYEnvido);
         Carta basto4 = new Basto(4, valoresTrucoYEnvido);
         Carta basto3 = new Basto(3, valoresTrucoYEnvido);
-        jugador4.agregarCarta(basto3);
-        jugador4.agregarCarta(basto4);
-        jugador4.agregarCarta(basto5);
 
         Carta espada10 = new Espada(10, valoresTrucoYEnvido);
         Carta espada1 = new Espada(1, valoresTrucoYEnvido);
         Carta espada4 = new Espada(4, valoresTrucoYEnvido);
-        jugador5.agregarCarta(espada10);
-        jugador5.agregarCarta(espada1);
-        jugador5.agregarCarta(espada4);
 
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
         Carta basto2 = new Basto(2, valoresTrucoYEnvido);
+
+        JugadaPicaPica jugadaPP = partida.crearJugadaPicaPica();
+
+        jugador1.agregarCarta(copa10);
+        jugador1.agregarCarta(copa4);
+        jugador1.agregarCarta(copa5);
+
+        jugador2.agregarCarta(oro11);
+        jugador2.agregarCarta(oro4);
+        jugador2.agregarCarta(oro5);
+
+        jugador3.agregarCarta(espada12);
+        jugador3.agregarCarta(espada6);
+        jugador3.agregarCarta(espada7);
+
+        jugador4.agregarCarta(basto3);
+        jugador4.agregarCarta(basto4);
+        jugador4.agregarCarta(basto5);
+
+        jugador5.agregarCarta(espada10);
+        jugador5.agregarCarta(espada1);
+        jugador5.agregarCarta(espada4);
+
         jugador6.agregarCarta(basto7);
         jugador6.agregarCarta(basto6);
         jugador6.agregarCarta(basto2);
-
-        JugadaPicaPica jugadaPP = partida.crearJugadaPicaPica();
 
         jugadaPP.armarEquiposParaPicaPica(jugador1, jugador6);
         partida.obtenerEquipo1();
@@ -1159,6 +1268,7 @@ public class PruebasPartidaTest {
 
         equipo1.sumarPuntos(5);
 
+        JugadaPicaPica jugadaPP = partida.crearJugadaPicaPica();
         Carta copa10 = new Copa(10, valoresTrucoYEnvido);
         Carta copa4 = new Copa(4, valoresTrucoYEnvido);
         Carta copa5 = new Copa(5, valoresTrucoYEnvido);
@@ -1201,7 +1311,7 @@ public class PruebasPartidaTest {
         jugador6.agregarCarta(basto6);
         jugador6.agregarCarta(basto2);
 
-        JugadaPicaPica jugadaPP = partida.crearJugadaPicaPica();
+
 
         jugadaPP.armarEquiposParaPicaPica(jugador1, jugador6);
         partida.obtenerEquipo1();

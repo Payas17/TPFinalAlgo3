@@ -55,6 +55,13 @@ public class Jugada {
         this.equipo2 = partida.obtenerEquipo2();
 
         inicializarJugadores();
+        limpiarJugadores();
+    }
+
+    private void limpiarJugadores() {
+        for (Jugador jugador : ordenJugadores){
+            jugador.sacarCartas();
+        }
     }
 
 
@@ -71,6 +78,7 @@ public class Jugada {
         ordenJugadores.get(ordenJugadores.size()-2).cambiarEstado(new EstadoPie());
         ordenJugadoresMano = new ArrayList<>(ordenJugadores);
         mano = ordenJugadores.get(0);
+
     }
 
     private void EstadoJugada(Mano mano) {
@@ -264,7 +272,7 @@ public class Jugada {
     }
 
     public void cantarFlor(Jugador jugador) {
-        if (jugador.sumarEnvido(0,1) >= TANTO && jugador.sumarEnvido(0,2) >= TANTO){
+        if (jugador.tieneFlor()){
             this.estadoEnvido.cantarFlor(this);
         }
         else{

@@ -339,9 +339,7 @@ public class PruebasFlorTest {
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
 
-        jugador1.agregarCarta(basto12);
-        jugador1.agregarCarta(basto7);
-        jugador1.agregarCarta(basto6);
+
 
 
         Equipo equipo1 = new Equipo(jugadores1);
@@ -349,6 +347,10 @@ public class PruebasFlorTest {
 
         Partida partida = new Partida(equipo1,equipo2);
         Jugada jugada = partida.crearJugada();
+
+        jugador1.agregarCarta(basto12);
+        jugador1.agregarCarta(basto7);
+        jugador1.agregarCarta(basto6);
 
         jugador1.cantarFlor(jugada);
         jugador2.cantarEnvido(jugada);
@@ -370,9 +372,6 @@ public class PruebasFlorTest {
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
 
-        jugador1.agregarCarta(basto12);
-        jugador1.agregarCarta(basto7);
-        jugador1.agregarCarta(basto6);
 
 
         Equipo equipo1 = new Equipo(jugadores1);
@@ -380,6 +379,11 @@ public class PruebasFlorTest {
 
         Partida partida = new Partida(equipo1,equipo2);
         Jugada jugada = partida.crearJugada();
+
+        jugador1.agregarCarta(basto12);
+        jugador1.agregarCarta(basto7);
+        jugador1.agregarCarta(basto6);
+
 
         jugador1.cantarFlor(jugada);
         jugador2.cantarFaltaEnvido(jugada);
@@ -401,16 +405,18 @@ public class PruebasFlorTest {
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
 
-        jugador1.agregarCarta(basto12);
-        jugador1.agregarCarta(basto7);
-        jugador1.agregarCarta(basto6);
-
 
         Equipo equipo1 = new Equipo(jugadores1);
         Equipo equipo2 = new Equipo(jugadores2);
 
         Partida partida = new Partida(equipo1,equipo2);
         Jugada jugada = partida.crearJugada();
+
+        jugador1.agregarCarta(basto12);
+        jugador1.agregarCarta(basto7);
+        jugador1.agregarCarta(basto6);
+
+
 
         jugador1.cantarFlor(jugada);
         jugador2.cantarRealEnvido(jugada);
@@ -432,6 +438,12 @@ public class PruebasFlorTest {
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
 
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
         jugador1.agregarCarta(basto12);
         jugador1.agregarCarta(basto7);
         jugador1.agregarCarta(basto6);
@@ -439,12 +451,6 @@ public class PruebasFlorTest {
         jugador2.agregarCarta(basto12);
         jugador2.agregarCarta(basto7);
         jugador2.agregarCarta(basto6);
-
-        Equipo equipo1 = new Equipo(jugadores1);
-        Equipo equipo2 = new Equipo(jugadores2);
-
-        Partida partida = new Partida(equipo1,equipo2);
-        Jugada jugada = partida.crearJugada();
 
         jugador1.cantarFlor(jugada);
         jugador2.cantarFlor(jugada);
@@ -465,6 +471,14 @@ public class PruebasFlorTest {
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
 
+
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
         jugador1.agregarCarta(basto12);
         jugador1.agregarCarta(basto7);
         jugador1.agregarCarta(basto6);
@@ -472,12 +486,6 @@ public class PruebasFlorTest {
         jugador2.agregarCarta(basto12);
         jugador2.agregarCarta(basto7);
         jugador2.agregarCarta(basto6);
-
-        Equipo equipo1 = new Equipo(jugadores1);
-        Equipo equipo2 = new Equipo(jugadores2);
-
-        Partida partida = new Partida(equipo1,equipo2);
-        Jugada jugada = partida.crearJugada();
 
         jugador1.cantarFlor(jugada);
         jugador2.cantarContraFlor(jugada);
@@ -499,6 +507,13 @@ public class PruebasFlorTest {
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
 
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
         jugador1.agregarCarta(basto12);
         jugador1.agregarCarta(basto7);
         jugador1.agregarCarta(basto6);
@@ -507,11 +522,6 @@ public class PruebasFlorTest {
         jugador2.agregarCarta(basto7);
         jugador2.agregarCarta(basto6);
 
-        Equipo equipo1 = new Equipo(jugadores1);
-        Equipo equipo2 = new Equipo(jugadores2);
-
-        Partida partida = new Partida(equipo1,equipo2);
-        Jugada jugada = partida.crearJugada();
 
         jugador1.cantarFlor(jugada);
         jugador2.cantarContraFlor(jugada);
@@ -533,6 +543,14 @@ public class PruebasFlorTest {
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
 
+
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
         jugador1.agregarCarta(basto12);
         jugador1.agregarCarta(basto7);
         jugador1.agregarCarta(basto6);
@@ -540,12 +558,6 @@ public class PruebasFlorTest {
         jugador2.agregarCarta(basto12);
         jugador2.agregarCarta(basto7);
         jugador2.agregarCarta(basto6);
-
-        Equipo equipo1 = new Equipo(jugadores1);
-        Equipo equipo2 = new Equipo(jugadores2);
-
-        Partida partida = new Partida(equipo1,equipo2);
-        Jugada jugada = partida.crearJugada();
 
         jugador1.cantarFlor(jugada);
         jugador2.cantarContraFlor(jugada);
@@ -567,6 +579,14 @@ public class PruebasFlorTest {
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
 
+
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
         jugador1.agregarCarta(basto12);
         jugador1.agregarCarta(basto7);
         jugador1.agregarCarta(basto6);
@@ -574,12 +594,6 @@ public class PruebasFlorTest {
         jugador2.agregarCarta(basto12);
         jugador2.agregarCarta(basto7);
         jugador2.agregarCarta(basto6);
-
-        Equipo equipo1 = new Equipo(jugadores1);
-        Equipo equipo2 = new Equipo(jugadores2);
-
-        Partida partida = new Partida(equipo1,equipo2);
-        Jugada jugada = partida.crearJugada();
 
         jugador1.cantarFlor(jugada);
         jugador2.cantarContraFlor(jugada);
@@ -601,6 +615,14 @@ public class PruebasFlorTest {
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
 
+
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
         jugador1.agregarCarta(basto12);
         jugador1.agregarCarta(basto7);
         jugador1.agregarCarta(basto6);
@@ -608,12 +630,6 @@ public class PruebasFlorTest {
         jugador2.agregarCarta(basto12);
         jugador2.agregarCarta(basto7);
         jugador2.agregarCarta(basto6);
-
-        Equipo equipo1 = new Equipo(jugadores1);
-        Equipo equipo2 = new Equipo(jugadores2);
-
-        Partida partida = new Partida(equipo1,equipo2);
-        Jugada jugada = partida.crearJugada();
 
         jugador1.cantarFlor(jugada);
         jugador2.cantarContraFlor(jugada);
@@ -637,6 +653,14 @@ public class PruebasFlorTest {
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
 
+
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
         jugador1.agregarCarta(basto12);
         jugador1.agregarCarta(basto7);
         jugador1.agregarCarta(basto6);
@@ -644,12 +668,6 @@ public class PruebasFlorTest {
         jugador2.agregarCarta(basto12);
         jugador2.agregarCarta(basto7);
         jugador2.agregarCarta(basto6);
-
-        Equipo equipo1 = new Equipo(jugadores1);
-        Equipo equipo2 = new Equipo(jugadores2);
-
-        Partida partida = new Partida(equipo1,equipo2);
-        Jugada jugada = partida.crearJugada();
 
         jugador1.cantarFlor(jugada);
         jugador2.cantarContraFlor(jugada);
@@ -671,6 +689,14 @@ public class PruebasFlorTest {
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
 
+
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
         jugador1.agregarCarta(basto12);
         jugador1.agregarCarta(basto7);
         jugador1.agregarCarta(basto6);
@@ -678,12 +704,6 @@ public class PruebasFlorTest {
         jugador2.agregarCarta(basto12);
         jugador2.agregarCarta(basto7);
         jugador2.agregarCarta(basto6);
-
-        Equipo equipo1 = new Equipo(jugadores1);
-        Equipo equipo2 = new Equipo(jugadores2);
-
-        Partida partida = new Partida(equipo1,equipo2);
-        Jugada jugada = partida.crearJugada();
 
         jugador1.cantarFlor(jugada);
         jugador2.cantarContraFlor(jugada);
@@ -706,6 +726,14 @@ public class PruebasFlorTest {
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
 
+
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
         jugador1.agregarCarta(basto12);
         jugador1.agregarCarta(basto7);
         jugador1.agregarCarta(basto6);
@@ -713,12 +741,6 @@ public class PruebasFlorTest {
         jugador2.agregarCarta(basto12);
         jugador2.agregarCarta(basto7);
         jugador2.agregarCarta(basto6);
-
-        Equipo equipo1 = new Equipo(jugadores1);
-        Equipo equipo2 = new Equipo(jugadores2);
-
-        Partida partida = new Partida(equipo1,equipo2);
-        Jugada jugada = partida.crearJugada();
 
         jugador1.cantarFlor(jugada);
         jugador2.cantarContraFlor(jugada);
@@ -740,7 +762,10 @@ public class PruebasFlorTest {
         Carta basto12 = new Basto(12, valoresTrucoYEnvido);
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
-
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
         jugador1.agregarCarta(basto12);
         jugador1.agregarCarta(basto7);
         jugador1.agregarCarta(basto6);
@@ -749,11 +774,9 @@ public class PruebasFlorTest {
         jugador2.agregarCarta(basto7);
         jugador2.agregarCarta(basto6);
 
-        Equipo equipo1 = new Equipo(jugadores1);
-        Equipo equipo2 = new Equipo(jugadores2);
 
-        Partida partida = new Partida(equipo1,equipo2);
-        Jugada jugada = partida.crearJugada();
+
+
 
         jugador1.cantarFlor(jugada);
         jugador2.cantarContraFlorAlResto(jugada);
@@ -775,6 +798,14 @@ public class PruebasFlorTest {
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
 
+
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
         jugador1.agregarCarta(basto12);
         jugador1.agregarCarta(basto7);
         jugador1.agregarCarta(basto6);
@@ -782,12 +813,6 @@ public class PruebasFlorTest {
         jugador2.agregarCarta(basto12);
         jugador2.agregarCarta(basto7);
         jugador2.agregarCarta(basto6);
-
-        Equipo equipo1 = new Equipo(jugadores1);
-        Equipo equipo2 = new Equipo(jugadores2);
-
-        Partida partida = new Partida(equipo1,equipo2);
-        Jugada jugada = partida.crearJugada();
 
         jugador1.cantarFlor(jugada);
         jugador2.cantarContraFlorAlResto(jugada);
@@ -809,6 +834,12 @@ public class PruebasFlorTest {
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
 
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
         jugador1.agregarCarta(basto12);
         jugador1.agregarCarta(basto7);
         jugador1.agregarCarta(basto6);
@@ -816,12 +847,6 @@ public class PruebasFlorTest {
         jugador2.agregarCarta(basto12);
         jugador2.agregarCarta(basto7);
         jugador2.agregarCarta(basto6);
-
-        Equipo equipo1 = new Equipo(jugadores1);
-        Equipo equipo2 = new Equipo(jugadores2);
-
-        Partida partida = new Partida(equipo1,equipo2);
-        Jugada jugada = partida.crearJugada();
 
         jugador1.cantarFlor(jugada);
         jugador2.cantarContraFlorAlResto(jugada);
@@ -843,6 +868,14 @@ public class PruebasFlorTest {
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
 
+
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
         jugador1.agregarCarta(basto12);
         jugador1.agregarCarta(basto7);
         jugador1.agregarCarta(basto6);
@@ -850,12 +883,6 @@ public class PruebasFlorTest {
         jugador2.agregarCarta(basto12);
         jugador2.agregarCarta(basto7);
         jugador2.agregarCarta(basto6);
-
-        Equipo equipo1 = new Equipo(jugadores1);
-        Equipo equipo2 = new Equipo(jugadores2);
-
-        Partida partida = new Partida(equipo1,equipo2);
-        Jugada jugada = partida.crearJugada();
 
         jugador1.cantarFlor(jugada);
         jugador2.cantarContraFlorAlResto(jugada);
@@ -877,6 +904,14 @@ public class PruebasFlorTest {
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
 
+
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
         jugador1.agregarCarta(basto12);
         jugador1.agregarCarta(basto7);
         jugador1.agregarCarta(basto6);
@@ -884,12 +919,6 @@ public class PruebasFlorTest {
         jugador2.agregarCarta(basto12);
         jugador2.agregarCarta(basto7);
         jugador2.agregarCarta(basto6);
-
-        Equipo equipo1 = new Equipo(jugadores1);
-        Equipo equipo2 = new Equipo(jugadores2);
-
-        Partida partida = new Partida(equipo1,equipo2);
-        Jugada jugada = partida.crearJugada();
 
         jugador1.cantarFlor(jugada);
         jugador2.cantarContraFlorAlResto(jugada);
@@ -911,6 +940,14 @@ public class PruebasFlorTest {
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
 
+
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
         jugador1.agregarCarta(basto12);
         jugador1.agregarCarta(basto7);
         jugador1.agregarCarta(basto6);
@@ -918,12 +955,6 @@ public class PruebasFlorTest {
         jugador2.agregarCarta(basto12);
         jugador2.agregarCarta(basto7);
         jugador2.agregarCarta(basto6);
-
-        Equipo equipo1 = new Equipo(jugadores1);
-        Equipo equipo2 = new Equipo(jugadores2);
-
-        Partida partida = new Partida(equipo1,equipo2);
-        Jugada jugada = partida.crearJugada();
 
         jugador1.cantarFlor(jugada);
         jugador2.cantarContraFlorAlResto(jugada);
@@ -945,6 +976,14 @@ public class PruebasFlorTest {
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
 
+
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
         jugador1.agregarCarta(basto12);
         jugador1.agregarCarta(basto7);
         jugador1.agregarCarta(basto6);
@@ -952,12 +991,6 @@ public class PruebasFlorTest {
         jugador2.agregarCarta(basto12);
         jugador2.agregarCarta(basto7);
         jugador2.agregarCarta(basto6);
-
-        Equipo equipo1 = new Equipo(jugadores1);
-        Equipo equipo2 = new Equipo(jugadores2);
-
-        Partida partida = new Partida(equipo1,equipo2);
-        Jugada jugada = partida.crearJugada();
 
         jugador1.cantarFlor(jugada);
         jugador2.cantarContraFlorAlResto(jugada);
@@ -980,6 +1013,14 @@ public class PruebasFlorTest {
         Carta basto7 = new Basto(7, valoresTrucoYEnvido);
         Carta basto6 = new Basto(6, valoresTrucoYEnvido);
 
+
+
+        Equipo equipo1 = new Equipo(jugadores1);
+        Equipo equipo2 = new Equipo(jugadores2);
+
+        Partida partida = new Partida(equipo1,equipo2);
+        Jugada jugada = partida.crearJugada();
+
         jugador1.agregarCarta(basto12);
         jugador1.agregarCarta(basto7);
         jugador1.agregarCarta(basto6);
@@ -987,12 +1028,6 @@ public class PruebasFlorTest {
         jugador2.agregarCarta(basto12);
         jugador2.agregarCarta(basto7);
         jugador2.agregarCarta(basto6);
-
-        Equipo equipo1 = new Equipo(jugadores1);
-        Equipo equipo2 = new Equipo(jugadores2);
-
-        Partida partida = new Partida(equipo1,equipo2);
-        Jugada jugada = partida.crearJugada();
 
         jugador1.cantarFlor(jugada);
         jugador2.cantarContraFlorAlResto(jugada);

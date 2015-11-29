@@ -16,12 +16,11 @@ public class Jugador {
 
     final int TANTO = 20;
     private List<Carta> cartas;
-    private List<Carta> cartasEnJuego;
+    private Carta cartaEnJuego;
     private EstadoDeJugador estadoJugador;
 
     public Jugador(){
         this.cartas = new ArrayList<>();
-        this.cartasEnJuego = new ArrayList<>();
         estadoJugador = new EstadoNoSeCantoNada();
 
     }
@@ -32,7 +31,15 @@ public class Jugador {
 
     public int obtenerEnvido() {
 
-        return Math.max(Math.max(sumarEnvido(0,1), sumarEnvido(0, 2)),sumarEnvido(1, 2));
+        if (hayCartaEnJuego()){
+            return Math.max(Math.max(sumarEnvido(cartas.get(0),cartas.get(1)), sumarEnvido(cartas.get(0), cartaEnJuego)),sumarEnvido(cartas.get(1), cartaEnJuego));
+
+        }
+        return Math.max(Math.max(sumarEnvido(cartas.get(0),cartas.get(1)), sumarEnvido(cartas.get(0), cartas.get(2))),sumarEnvido(cartas.get(1), cartas.get(2)));
+    }
+
+    private boolean hayCartaEnJuego() {
+        return cartaEnJuego != null;
     }
 
     public int obtenerFlor(){
@@ -43,20 +50,21 @@ public class Jugador {
         return valorFlor;
     }
 
-    public int sumarEnvido(int pos1, int pos2) {
-        return this.cartas.get(pos1).sumarEnvido(this.cartas.get(pos2));
+    public int sumarEnvido(Carta unaCarta, Carta otraCarta) {
+        return unaCarta.sumarEnvido(otraCarta);
     }
 
     public void juegaCarta(Carta unaCarta) {
        this.estadoJugador.jugarCarta(this);
-        if (cartasEnJuego.contains(unaCarta)){
-            throw new CartaYaJugadaError();
-        }
-        this.cartasEnJuego.add(unaCarta);
+
+        this.cartaEnJuego = unaCarta;
+        cartas.remove(unaCarta);
     }
 
+
+
     public Carta obtenerCartaEnJuego(){
-        return this.cartasEnJuego.get(this.cartasEnJuego.size()-1);
+        return cartaEnJuego;
     }
 
     public void cantarEnvido(Jugada jugada) {
@@ -123,6 +131,15 @@ public class Jugador {
         jugada.noAceptarFlor(this);
     }
 
+    public boolean tieneFlor(){
+
+        if (hayCartaEnJuego()){
+            return sumarEnvido(cartas.get(0), cartas.get(1)) >= TANTO && sumarEnvido(cartas.get(0), cartaEnJuego) >= TANTO;
+
+        }
+        return sumarEnvido(cartas.get(0), cartas.get(1)) >= TANTO && sumarEnvido(cartas.get(0), cartas.get(2)) >= TANTO;
+    }
+
     public void cantarFlor(Jugada jugada){
         this.estadoJugador.cantarFlor(jugada.obtenerEquipoQueContieneJugador(this), jugada.obtenerEquipoQueNoContieneJugador(this));
         jugada.cantarFlor(this);
@@ -146,7 +163,7 @@ public class Jugador {
     }
 
     public void sacarCartas(){
-        cartasEnJuego.removeAll(cartasEnJuego);
+        cartaEnJuego = null;
         cartas.removeAll(cartas);
     }
 

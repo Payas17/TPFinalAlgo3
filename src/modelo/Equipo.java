@@ -47,7 +47,7 @@ public class Equipo {
         }
         return envidoMasAltoEquipo;
     }*/
-
+/*
     public int obtenerValorMaximaFlor() {
         int florMasAltaEquipo = 0;
         for (Jugador jugador : integrantes) {
@@ -57,7 +57,7 @@ public class Equipo {
         }
         return florMasAltaEquipo;
     }
-
+*/
     public void sumarPuntos(int puntos) {
         this.puntos += puntos;
     }
