@@ -4,6 +4,8 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import modelo.Equipo;
 import modelo.Jugador;
@@ -23,8 +25,9 @@ import java.util.ResourceBundle;
 public class ControlPantalla2Jugadores implements Initializable, ControladorDePantallas{
 
     private ControladorPantallas miControlador;
-    @FXML private TextField txtEquipo1;
-    @FXML private TextField txtEquipo2;
+    @FXML private Label lblEquipo1;
+    @FXML private Label lblEquipo2;
+    @FXML private RadioButton rdJugador2;
 
 
     @Override
@@ -60,8 +63,9 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
         Partida partida = new Partida(equipo1, equipo2);
         ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
         Mazo mazoDeCartas = new Mazo(valoresTrucoYEnvido);
-        txtEquipo1.setText(String.valueOf(equipo1.obtenerPuntos()));
-        txtEquipo2.setText(String.valueOf(equipo1.obtenerPuntos()));
+        lblEquipo1.setText(String.valueOf(equipo1.obtenerPuntos()));
+        lblEquipo2.setText(String.valueOf(equipo1.obtenerPuntos()));
+        rdJugador2.setDisable(true);
     }
 
     @FXML
