@@ -20,16 +20,12 @@ import modelo.ValoresTrucoYEnvido;
 
 import javax.swing.table.TableColumn;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 /**
  * Created by Augusto on 29/11/2015.
  */
 public class ControlPantalla2Jugadores implements Initializable, ControladorDePantallas {
-
 
     @FXML public Button carta1;
     @FXML public Button carta2;
@@ -42,8 +38,11 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
     @FXML public Label cartaEnJuego1J2;
     @FXML public VBox VboxJ1;
     @FXML public VBox VboxJ2;
+    @FXML public Button botonPasarTurno;
+    @FXML public Label lblMano;
 
     private ControladorPantallas miControlador;
+    private List<Jugador> orden;
 
     @FXML private Label lblEquipo1;
     @FXML private Label lblEquipo2;
@@ -54,6 +53,8 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
     private Jugada jugada;
     private int turnoJugador;
     private HashMap<Jugador, RadioButton> diccionarioBotones;
+    private Map<Jugador, VBox> diccionarioVBoxes;
+    private Map<Jugador,String> diccionarioNombreJugadores;
 
 
     @Override
@@ -94,15 +95,26 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
         diccionarioBotones.put(jugador1, rdJugador1);
         diccionarioBotones.put(jugador2, rdJugador2);
 
+        diccionarioVBoxes = new HashMap<>();
+        diccionarioVBoxes.put(jugador1,VboxJ1);
+        diccionarioVBoxes.put(jugador2,VboxJ2);
+
+        diccionarioNombreJugadores = new HashMap<>();
+        diccionarioNombreJugadores.put(jugador1, "Jugador 1");
+        diccionarioNombreJugadores.put(jugador2,"Jugador 2");
+
         if (botonFlor.isSelected()) {
             partida.jugarConFlor();
         }
 
         lblEquipo1.setText(String.valueOf(equipo1.obtenerPuntos()));
-        lblEquipo2.setText(String.valueOf(equipo1.obtenerPuntos()));
+        lblEquipo2.setText(String.valueOf(equipo2.obtenerPuntos()));
         rdJugador2.setDisable(true);
 
         jugada = partida.crearJugada();
+
+        lblMano.setText(diccionarioNombreJugadores.get(jugada.obtenerOrdenJugadoresMano().get(0)));
+
         partida.obtenerMazo().mezclar();
 
         jugador1.agregarCarta(partida.obtenerMazo().darCarta());
@@ -117,6 +129,7 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
         carta2.setText(String.valueOf(jugador1.obtenerCartasEnMano().get(1).obtenerNumeroDeCarta()) + " de " + (jugador1.obtenerCartasEnMano().get(1).getClass().getSimpleName()));
         carta3.setText(String.valueOf(jugador1.obtenerCartasEnMano().get(2).obtenerNumeroDeCarta()) + " de " + (jugador1.obtenerCartasEnMano().get(2).getClass().getSimpleName()));
 
+        botonPasarTurno.setDisable(true);
     }
 
     @FXML
@@ -125,21 +138,29 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
     }
 
     public void pasarElTurno(ActionEvent actionEvent) {
+
         carta1.setDisable(false);
         carta2.setDisable(false);
         carta3.setDisable(false);
 
-        List<Jugador> orden = jugada.obtenerOrdenJugadoresMano();
+        botonPasarTurno.setDisable(true);
+
+        orden = jugada.obtenerOrdenJugadoresMano();
         turnoJugador++;
+
+
+        if (turnoJugador >= orden.size()) {
+            jugada.jugarMano();
+            orden = jugada.obtenerOrdenJugadoresMano();
+            turnoJugador = 0;
+        }
+
 
         Jugador jugadorQueJuega = orden.get(turnoJugador);
 
         diccionarioBotones.get(jugadorQueJuega).setDisable(false);
         diccionarioBotones.get(jugadorQueJuega).setSelected(true);
 
-      //  if (turnoJugador > orden.size()) {
-            // jugada.jugarMano();
-      //  }
 
         for (Jugador jugadorActual : orden) {
             if (jugadorActual != jugadorQueJuega) {
@@ -147,20 +168,69 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
             }
         }
 
-   //       BotonCarta1EventHandler botonCarta1 = new BotonCarta1EventHandler(VboxJ1,VboxJ2);
-   //       carta1.setOnAction( botonCarta1 );
+
+        lblEquipo1.setText(String.valueOf(partida.obtenerEquipo1().obtenerPuntos()));
+        lblEquipo2.setText(String.valueOf(partida.obtenerEquipo2().obtenerPuntos()));
 
         carta1.setText(String.valueOf(jugadorQueJuega.obtenerCartasEnMano().get(0).obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartasEnMano().get(0).getClass().getSimpleName()));
         carta2.setText(String.valueOf(jugadorQueJuega.obtenerCartasEnMano().get(1).obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartasEnMano().get(1).getClass().getSimpleName()));
         carta3.setText(String.valueOf(jugadorQueJuega.obtenerCartasEnMano().get(2).obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartasEnMano().get(2).getClass().getSimpleName()));
 
+
+        if (jugada.estaTerminada()){
+            jugada = partida.crearJugada();
+            orden = jugada.obtenerOrdenJugadoresMesa();
+            repartirCartas();
+
+            limpiarLabels();
+
+            jugadorQueJuega = orden.get(turnoJugador);
+
+            diccionarioBotones.get(jugadorQueJuega).setDisable(false);
+            diccionarioBotones.get(jugadorQueJuega).setSelected(true);
+
+            for (Jugador jugadorActual : orden) {
+                if (jugadorActual != jugadorQueJuega) {
+                    diccionarioBotones.get(jugadorActual).setDisable(true);
+                }
+            }
+
+            carta1.setText(String.valueOf(jugadorQueJuega.obtenerCartasEnMano().get(0).obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartasEnMano().get(0).getClass().getSimpleName()));
+            carta2.setText(String.valueOf(jugadorQueJuega.obtenerCartasEnMano().get(1).obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartasEnMano().get(1).getClass().getSimpleName()));
+            carta3.setText(String.valueOf(jugadorQueJuega.obtenerCartasEnMano().get(2).obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartasEnMano().get(2).getClass().getSimpleName()));
+
+        }
+
+
+    }
+
+    private void limpiarLabels() {
+
+        for (VBox vbox: diccionarioVBoxes.values()){
+            for(Node label: vbox.getChildren()){
+                ((Label) label).setText("?");
+            }
+        }
+
+        lblMano.setText(diccionarioNombreJugadores.get(jugada.obtenerOrdenJugadoresMano().get(0)));
+
+    }
+
+    private void repartirCartas() {
+        partida.obtenerMazo().mezclar();
+
+        for (Jugador jugador : jugada.obtenerOrdenJugadoresMesa()){
+            jugador.agregarCarta(partida.obtenerMazo().darCarta());
+            jugador.agregarCarta(partida.obtenerMazo().darCarta());
+            jugador.agregarCarta(partida.obtenerMazo().darCarta());
+        }
     }
 
     public void jugarCarta1(ActionEvent actionEvent) {
         List<Jugador> orden = jugada.obtenerOrdenJugadoresMano();
         Jugador jugadorQueJuega = orden.get(turnoJugador);
 
-        for (Node label : VboxJ1.getChildren()) {
+        for (Node label : diccionarioVBoxes.get(jugadorQueJuega).getChildren()) {
             if(((Label)label).getText().equals("?")){
                 jugadorQueJuega.juegaCarta(jugadorQueJuega.obtenerCartasEnMano().get(0));
                 ((Label)label).setText(String.valueOf(jugadorQueJuega.obtenerCartaEnJuego().obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartaEnJuego().getClass().getSimpleName()));
@@ -172,13 +242,15 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
         carta1.setDisable(true);
         carta2.setDisable(true);
         carta3.setDisable(true);
+
+        botonPasarTurno.setDisable(false);
     }
 
     public void jugarCarta2(ActionEvent actionEvent) {
         List<Jugador> orden = jugada.obtenerOrdenJugadoresMano();
         Jugador jugadorQueJuega = orden.get(turnoJugador);
 
-        for (Node label : VboxJ1.getChildren()) {
+        for (Node label : diccionarioVBoxes.get(jugadorQueJuega).getChildren()) {
             if(((Label)label).getText().equals("?")){
                 jugadorQueJuega.juegaCarta(jugadorQueJuega.obtenerCartasEnMano().get(1));
                 ((Label)label).setText(String.valueOf(jugadorQueJuega.obtenerCartaEnJuego().obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartaEnJuego().getClass().getSimpleName()));
@@ -190,14 +262,14 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
         carta2.setDisable(true);
         carta3.setDisable(true);
 
-
+        botonPasarTurno.setDisable(false);
     }
 
     public void jugarCarta3(ActionEvent actionEvent) {
         List<Jugador> orden = jugada.obtenerOrdenJugadoresMano();
         Jugador jugadorQueJuega = orden.get(turnoJugador);
 
-        for (Node label : VboxJ1.getChildren()) {
+        for (Node label : diccionarioVBoxes.get(jugadorQueJuega).getChildren()) {
             if(((Label)label).getText().equals("?")){
                 jugadorQueJuega.juegaCarta(jugadorQueJuega.obtenerCartasEnMano().get(2));
                 ((Label)label).setText(String.valueOf(jugadorQueJuega.obtenerCartaEnJuego().obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartaEnJuego().getClass().getSimpleName()));
@@ -209,7 +281,7 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
         carta2.setDisable(true);
         carta3.setDisable(true);
 
-
+        botonPasarTurno.setDisable(false);
     }
 }
 

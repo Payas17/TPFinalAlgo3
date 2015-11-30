@@ -145,13 +145,6 @@ public class Jugador {
         jugada.cantarContraFlorAlResto();
     }
 
-    public void cambiarCartas(Mazo mazo) {
-        sacarCartas();
-        cartas.add(mazo.darCarta());
-        cartas.add(mazo.darCarta());
-        cartas.add(mazo.darCarta());
-    }
-
     public void sacarCartas() {
         cartaEnJuego = null;
         cartas.removeAll(cartas);
