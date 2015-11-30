@@ -3,7 +3,6 @@ package modelo.EstadoJugador;
 import modelo.Equipo;
 import modelo.Errores.NoSePuedeCantarEsoError;
 import modelo.Errores.SoloJugadorPiePuedeCantarError;
-import modelo.Jugadas.Jugada;
 import modelo.Jugador;
 
 /**
@@ -38,6 +37,6 @@ public class EstadoNoSeCantoNada implements EstadoDeJugador {
 
     @Override
     public void jugarCarta(Jugador jugador) {
-        jugador.cambiarEstado(new EstadoYaJugoCarta());
+        jugador.cambiarEstadoNormal(new EstadoYaJugoCarta());
     }
 }

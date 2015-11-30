@@ -10,6 +10,9 @@ public class configuracionJugadaNoSeCantoNada implements Configuracion {
     @Override
     public void setearConfiguaracionBotones(ControlPantalla2Jugadores control) {
 
+        control.obtenerBotonTruco().setDisable(false);
+        control.obtenerBotonReTruco().setDisable(true);
+        control.obtenerBotonVale4().setDisable(true);
         control.desactivarBotonesEnvido();
         control.obtenerBotonIrseAlMazo().setDisable(false);
         control.desactivarBotonesCarta(false);

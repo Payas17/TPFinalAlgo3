@@ -30,8 +30,8 @@ public class EstadoNoPuedeCantar implements EstadoDeJugador{
         throw new NoPuedeJugarError();
     }
 
-    @Override
-    public void jugarCarta(Jugador jugador) {
-        jugador.cambiarEstado(new EstadoYaJugoCarta());
+   @Override
+   public void jugarCarta(Jugador jugador) {
+        jugador.cambiarEstadoNormal(new EstadoYaJugoCarta());
     }
 }

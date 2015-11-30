@@ -29,7 +29,7 @@ public class ConfiguaracionNoPuedeCantar implements Configuracion{
         control.obtenerBotonNoAceptarEnvido().setDisable(true);
         control.obtenerBotonIrseAlMazo().setDisable(false);
         control.obtenerBotonFlor().setDisable(true);
-        control.desactivarBotonesCarta(true);
+        control.desactivarBotonesCarta(false);
         control.obtenerBotonPasarTurno().setDisable(true);
     }
 /*

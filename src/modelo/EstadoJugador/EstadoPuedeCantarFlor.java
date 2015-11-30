@@ -43,8 +43,8 @@ public class EstadoPuedeCantarFlor implements EstadoDeJugador {
 
     }
 
-    @Override
+   @Override
     public void jugarCarta(Jugador jugador) {
-        throw new NoSePuedeJugarCartaError();
+       throw new NoSePuedeJugarCartaError();
     }
 }

@@ -2,49 +2,40 @@ package modelo.EstadoJugador;
 
 import modelo.Equipo;
 import modelo.Errores.NoSePuedeCantarEsoError;
-import modelo.Jugadas.Jugada;
+import modelo.Errores.NoSePuedeJugarCartaError;
 import modelo.Jugador;
 
 /**
- * Created by Payas on 19/11/2015.
+ * Created by Payas on 30/11/2015.
  */
-public class EstadoPie implements EstadoDeJugador {
+public class EstadoTieneElQuieroDelTruco implements EstadoDeJugador {
     @Override
     public void cantarEnvido(Equipo equipoCanta, Equipo equipoQuiere) {
-        for (Jugador jugador : equipoCanta.obtenerIntegrantes()){
-            jugador.cambiarEstado(new EstadoNoPuedeCantar());
-        }
 
-        for (Jugador jugador : equipoQuiere.obtenerIntegrantes()){
-            jugador.cambiarEstado(new EstadoPuedeCantarEnvido());
-        }
+        throw new NoSePuedeCantarEsoError();
     }
 
     @Override
     public void cantarFlor(Equipo equipoCanta, Equipo equipoQuiere) {
-        for (Jugador jugador : equipoCanta.obtenerIntegrantes()){
-            jugador.cambiarEstado(new EstadoNoPuedeCantar());
-        }
-
-        for (Jugador jugador : equipoQuiere.obtenerIntegrantes()){
-            jugador.cambiarEstado(new EstadoPuedeCantarFlor());
-        }
+        throw new NoSePuedeCantarEsoError();
     }
 
     @Override
     public void cantarTruco(Equipo equipoCanta, Equipo equipoQuiere) {
+
         for (Jugador jugador : equipoCanta.obtenerIntegrantes()){
             jugador.cambiarEstado(new EstadoNoPuedeCantar());
         }
 
         for (Jugador jugador : equipoQuiere.obtenerIntegrantes()){
-            jugador.cambiarEstado(new EstadoPuedeCantarTrucoPrimeraMano());
+            jugador.cambiarEstado(new EstadoPuedeCantarTruco());
         }
     }
 
     @Override
     public void aceptar(Equipo equipoCanta, Equipo equipoQuiere) {
         throw new NoSePuedeCantarEsoError();
+
     }
 
     @Override
@@ -52,3 +43,4 @@ public class EstadoPie implements EstadoDeJugador {
        jugador.cambiarEstadoNormal(new EstadoYaJugoCarta());
     }
 }
+

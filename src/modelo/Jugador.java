@@ -18,10 +18,12 @@ public class Jugador {
     private List<Carta> cartas;
     private Carta cartaEnJuego;
     private EstadoDeJugador estadoJugador;
+    private EstadoDeJugador estadoJugadorViejo;
 
     public Jugador() {
         this.cartas = new ArrayList<>();
         estadoJugador = new EstadoNoSeCantoNada();
+        estadoJugadorViejo = new EstadoNoSeCantoNada();
 
     }
 
@@ -104,6 +106,13 @@ public class Jugador {
     }
 
     public void cambiarEstado(EstadoDeJugador estado) {
+
+        this.estadoJugador = estado;
+        this.estadoJugadorViejo = estado;
+    }
+
+    public void cambiarEstadoNormal(EstadoDeJugador estado) {
+
         this.estadoJugador = estado;
     }
 
@@ -156,5 +165,9 @@ public class Jugador {
 
     public EstadoDeJugador obtenerEstado(){
         return estadoJugador;
+    }
+
+    public EstadoDeJugador obtenerEstadoViejo() {
+        return estadoJugadorViejo;
     }
 }

@@ -1357,38 +1357,6 @@ public class PruebasJugadaTest {
 
     }
 
-    @Test(expected = NoSePuedeJugarCartaError.class)
-    public void testJugadorQuiereTirarCartaPeroNoPuedePorqueDebeAceptarElEnvido() {
-        Jugador jugador1 = new Jugador();
-        List<Jugador> jugadores = new ArrayList<>();
-        jugadores.add(jugador1);
-        Jugador jugador2 = new Jugador();
-        List<Jugador> jugadores2 = new ArrayList<>();
-        jugadores2.add(jugador2);
-        Equipo equipo1 = new Equipo(jugadores);
-        Equipo equipo2 = new Equipo(jugadores2);
-        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Partida partida = new Partida(equipo1,equipo2);
-
-        Jugada jugada = partida.crearJugada();
-        Carta copa10 = new Copa(10, valoresTrucoYEnvido);
-        Carta oro1 = new Oro(1, valoresTrucoYEnvido);
-        Carta oro3 = new Oro(3, valoresTrucoYEnvido);
-        Carta oro2 = new Oro(2, valoresTrucoYEnvido);
-        Carta espada10 = new Espada(10, valoresTrucoYEnvido);
-        Carta espada1 = new Espada(1, valoresTrucoYEnvido);
-
-        jugador1.agregarCarta(oro1);
-        jugador1.agregarCarta(oro2);
-        jugador1.agregarCarta(espada10);
-
-        jugador2.agregarCarta(copa10);
-        jugador2.agregarCarta(oro3);
-        jugador2.agregarCarta(espada1);
-
-        jugador1.cantarRealEnvido(jugada);
-        jugador2.juegaCarta(copa10);
-    }
     @Test
     public void testEquipo1SeVaAlMazoDespuesDelEnvido(){
         Jugador jugador1= new Jugador();

@@ -188,6 +188,9 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
 
         diccionarioConfiguracion = new HashMap<>();
 
+        diccionarioConfiguracion.put("EstadoTieneElQuieroDelTruco", new ConfiguracionJugadaTieneElQuieroTruco());
+        diccionarioConfiguracion.put("EstadoPuedeCantarTruco", new ConfiguracionJugadaPuedeCantarTruco());
+        diccionarioConfiguracion.put("EstadoPuedeCantarTrucoPrimeraMano", new ConfiguracionJugadaPuedeCantarTrucoPriemraMano());
         diccionarioConfiguracion.put("EstadoNoSeCantoNada", new configuracionJugadaNoSeCantoNada());
         diccionarioConfiguracion.put("EstadoPie",new configuracionJugadaPie());
         diccionarioConfiguracion.put("EstadoNoPuedeCantar",new ConfiguaracionNoPuedeCantar());
@@ -221,18 +224,6 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
             diccionarioConfiguracion.get(jugada.obtenerEstadoTruco().getClass().getSimpleName()).setearConfiguaracionBotones(this);
             turnoJugador = 0;
         }
-        jugadorQueJuega = orden.get(turnoJugador);
-        diccionarioConfiguracion.get(jugadorQueJuega.obtenerEstado().getClass().getSimpleName()).setearConfiguaracionBotones(this);
-        estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
-        estadoJugador.setText(jugadorQueJuega.obtenerEstado().getClass().getSimpleName());
-
-
-        actualizacionDeJugador(jugadorQueJuega);
-
-        actualizarPuntos();
-
-        mostrarCartasJugador(jugadorQueJuega);
-
         if (jugada.estaTerminada()) {
             jugada = partida.crearJugada();
             orden = jugada.obtenerOrdenJugadoresMesa();
@@ -245,6 +236,18 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
 
             mostrarCartasJugador(jugadorQueJuega);
         }
+        jugadorQueJuega = orden.get(turnoJugador);
+        diccionarioConfiguracion.get(jugadorQueJuega.obtenerEstado().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+        estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
+        estadoJugador.setText(jugadorQueJuega.obtenerEstado().getClass().getSimpleName());
+
+
+        actualizacionDeJugador(jugadorQueJuega);
+
+        actualizarPuntos();
+
+        mostrarCartasJugador(jugadorQueJuega);
+
     }
 
     private void actualizarPuntos() {

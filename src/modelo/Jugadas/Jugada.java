@@ -87,7 +87,7 @@ public class Jugada {
 
     private void estadoJugada(Mano mano) {
         for (Jugador jugador: ordenJugadores){
-            jugador.cambiarEstado(new EstadoNoSeCantoNada());
+           jugador.cambiarEstado(jugador.obtenerEstadoViejo());
         }
         if (mano.hayParda(equipo1,equipo2)){
             this.estadoJugada.manoEmpardada(this);
