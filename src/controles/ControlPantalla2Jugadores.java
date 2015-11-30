@@ -27,34 +27,79 @@ import java.util.*;
  */
 public class ControlPantalla2Jugadores implements Initializable, ControladorDePantallas {
 
-    @FXML public Button carta1;
-    @FXML public Button carta2;
-    @FXML public Button carta3;
-    @FXML public Label cartaEnJuego3J1;
-    @FXML public Label cartaEnJuego2J1;
-    @FXML public Label cartaEnJuego1J1;
-    @FXML public Label cartaEnJuego3J2;
-    @FXML public Label cartaEnJuego2J2;
-    @FXML public Label cartaEnJuego1J2;
-    @FXML public VBox VboxJ1;
-    @FXML public VBox VboxJ2;
-    @FXML public Button botonPasarTurno;
-    @FXML public Label lblMano;
+    @FXML
+    public Button carta1;
+    @FXML
+    public Button carta2;
+    @FXML
+    public Button carta3;
+    @FXML
+    public Label cartaEnJuego3J1;
+    @FXML
+    public Label cartaEnJuego2J1;
+    @FXML
+    public Label cartaEnJuego1J1;
+    @FXML
+    public Label cartaEnJuego3J2;
+    @FXML
+    public Label cartaEnJuego2J2;
+    @FXML
+    public Label cartaEnJuego1J2;
+    @FXML
+    public VBox VboxJ1;
+    @FXML
+    public VBox VboxJ2;
+    @FXML
+    public Button botonPasarTurno;
+    @FXML
+    public Label lblMano;
 
     private ControladorPantallas miControlador;
     private List<Jugador> orden;
 
-    @FXML private Label lblEquipo1;
-    @FXML private Label lblEquipo2;
-    @FXML private RadioButton rdJugador2;
-    @FXML private RadioButton rdJugador1;
+    @FXML
+    private Label lblEquipo1;
+    @FXML
+    private Label lblEquipo2;
+    @FXML
+    private RadioButton rdJugador2;
+    @FXML
+    private RadioButton rdJugador1;
+    @FXML
+    private Button botonTruco;
+    @FXML
+    private Button botonReTruco;
+    @FXML
+    private Button botonValeCuatro;
+    @FXML
+    private Button botonEnvido;
+    @FXML
+    private Button botonRealEnvido;
+    @FXML
+    private Button botonFaltaEnvido;
+    @FXML
+    private Button botonContraFlor;
+    @FXML
+    private Button botonContraFlorAlResto;
+    @FXML
+    private Button botonAceptarTruco;
+    @FXML
+    private Button botonNoAceptarTruco;
+    @FXML
+    private Button botonAceptarEnvido;
+    @FXML
+    private Button botonAceptarFlor;
+    @FXML
+    private Button botonNoAceptarFlor;
+
 
     private Partida partida;
     private Jugada jugada;
     private int turnoJugador;
+    private Jugador jugadorQueJuega;
     private HashMap<Jugador, RadioButton> diccionarioBotones;
     private Map<Jugador, VBox> diccionarioVBoxes;
-    private Map<Jugador,String> diccionarioNombreJugadores;
+    private Map<Jugador, String> diccionarioNombreJugadores;
 
 
     @Override
@@ -117,12 +162,12 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
         diccionarioBotones.put(jugador2, rdJugador2);
 
         diccionarioVBoxes = new HashMap<>();
-        diccionarioVBoxes.put(jugador1,VboxJ1);
-        diccionarioVBoxes.put(jugador2,VboxJ2);
+        diccionarioVBoxes.put(jugador1, VboxJ1);
+        diccionarioVBoxes.put(jugador2, VboxJ2);
 
         diccionarioNombreJugadores = new HashMap<>();
         diccionarioNombreJugadores.put(jugador1, "Jugador 1");
-        diccionarioNombreJugadores.put(jugador2,"Jugador 2");
+        diccionarioNombreJugadores.put(jugador2, "Jugador 2");
     }
 
     @FXML
@@ -146,7 +191,7 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
             orden = jugada.obtenerOrdenJugadoresMano();
             turnoJugador = 0;
         }
-        Jugador jugadorQueJuega = orden.get(turnoJugador);
+        jugadorQueJuega = orden.get(turnoJugador);
 
         actualizacionDeJugador(jugadorQueJuega);
 
@@ -154,7 +199,7 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
 
         mostrarCartasJugador(jugadorQueJuega);
 
-        if (jugada.estaTerminada()){
+        if (jugada.estaTerminada()) {
             jugada = partida.crearJugada();
             orden = jugada.obtenerOrdenJugadoresMesa();
             repartirCartas();
@@ -197,8 +242,8 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
     }
 
     private void limpiarLabels() {
-        for (VBox vbox: diccionarioVBoxes.values()){
-            for(Node label: vbox.getChildren()){
+        for (VBox vbox : diccionarioVBoxes.values()) {
+            for (Node label : vbox.getChildren()) {
                 ((Label) label).setText("?");
             }
         }
@@ -210,7 +255,7 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
     private void repartirCartas() {
         partida.obtenerMazo().mezclar();
 
-        for (Jugador jugador : jugada.obtenerOrdenJugadoresMesa()){
+        for (Jugador jugador : jugada.obtenerOrdenJugadoresMesa()) {
             jugador.agregarCarta(partida.obtenerMazo().darCarta());
             jugador.agregarCarta(partida.obtenerMazo().darCarta());
             jugador.agregarCarta(partida.obtenerMazo().darCarta());
@@ -219,13 +264,13 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
 
     public void jugarCarta1(ActionEvent actionEvent) {
         List<Jugador> orden = jugada.obtenerOrdenJugadoresMano();
-        Jugador jugadorQueJuega = orden.get(turnoJugador);
+        jugadorQueJuega = orden.get(turnoJugador);
 
         for (Node label : diccionarioVBoxes.get(jugadorQueJuega).getChildren()) {
-            if(((Label)label).getText().equals("?")){
+            if (((Label) label).getText().equals("?")) {
                 jugadorQueJuega.juegaCarta(jugadorQueJuega.obtenerCartasEnMano().get(0));
-                ((Label)label).setText(String.valueOf(jugadorQueJuega.obtenerCartaEnJuego().obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartaEnJuego().getClass().getSimpleName()));
-            break;
+                ((Label) label).setText(String.valueOf(jugadorQueJuega.obtenerCartaEnJuego().obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartaEnJuego().getClass().getSimpleName()));
+                break;
             }
 
         }
@@ -237,12 +282,28 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
 
     public void jugarCarta2(ActionEvent actionEvent) {
         List<Jugador> orden = jugada.obtenerOrdenJugadoresMano();
-        Jugador jugadorQueJuega = orden.get(turnoJugador);
+        jugadorQueJuega = orden.get(turnoJugador);
 
         for (Node label : diccionarioVBoxes.get(jugadorQueJuega).getChildren()) {
-            if(((Label)label).getText().equals("?")){
+            if (((Label) label).getText().equals("?")) {
                 jugadorQueJuega.juegaCarta(jugadorQueJuega.obtenerCartasEnMano().get(1));
-                ((Label)label).setText(String.valueOf(jugadorQueJuega.obtenerCartaEnJuego().obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartaEnJuego().getClass().getSimpleName()));
+                ((Label) label).setText(String.valueOf(jugadorQueJuega.obtenerCartaEnJuego().obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartaEnJuego().getClass().getSimpleName()));
+                break;
+            }
+        }
+        desactivarBotonesCarta(true);
+
+        botonPasarTurno.setDisable(false);
+    }
+
+    public void jugarCarta3(ActionEvent actionEvent) {
+        List<Jugador> orden = jugada.obtenerOrdenJugadoresMano();
+        jugadorQueJuega = orden.get(turnoJugador);
+
+        for (Node label : diccionarioVBoxes.get(jugadorQueJuega).getChildren()) {
+            if (((Label) label).getText().equals("?")) {
+                jugadorQueJuega.juegaCarta(jugadorQueJuega.obtenerCartasEnMano().get(2));
+                ((Label) label).setText(String.valueOf(jugadorQueJuega.obtenerCartaEnJuego().obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartaEnJuego().getClass().getSimpleName()));
                 break;
             }
 
@@ -252,21 +313,21 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
         botonPasarTurno.setDisable(false);
     }
 
-    public void jugarCarta3(ActionEvent actionEvent) {
-        List<Jugador> orden = jugada.obtenerOrdenJugadoresMano();
-        Jugador jugadorQueJuega = orden.get(turnoJugador);
+    public void cantarTruco(ActionEvent actionEvent) {
+        jugadorQueJuega.cantarTruco(jugada);
+        actualizarBotones();
+        Jugador jugadorQueResponde = jugada.obtenerEquipoQueNoContieneJugador(jugadorQueJuega).obtenerIntegrantes().get(0);
 
-        for (Node label : diccionarioVBoxes.get(jugadorQueJuega).getChildren()) {
-            if(((Label)label).getText().equals("?")){
-                jugadorQueJuega.juegaCarta(jugadorQueJuega.obtenerCartasEnMano().get(2));
-                ((Label)label).setText(String.valueOf(jugadorQueJuega.obtenerCartaEnJuego().obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartaEnJuego().getClass().getSimpleName()));
+    }
+
+    private void actualizarBotones() {
+        switch (jugada.obtenerEstadoTruco().getClass().getSimpleName()) {
+            case "EstadoSinTruco":
                 break;
-            }
-
+            case "EstadoTruco":
+                botonRealEnvido.setDisable(true);
         }
-        desactivarBotonesCarta(true);
 
-        botonPasarTurno.setDisable(false);
     }
 }
 

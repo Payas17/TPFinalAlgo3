@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.input.*?>
@@ -29,7 +28,7 @@
             <ToggleGroup fx:id="turno" />
          </toggleGroup></RadioButton>
       <RadioButton fx:id="rdJugador1" layoutX="500.0" layoutY="432.0" mnemonicParsing="false" pickOnBounds="false" selected="true" text="Turno Jugador 1" toggleGroup="$turno" />
-      <Button fx:id="botonTruco" layoutX="21.0" layoutY="204.0" mnemonicParsing="false" text="Cantar Truco">
+      <Button fx:id="botonTruco" layoutX="21.0" layoutY="204.0" mnemonicParsing="false" onAction="#cantarTruco" text="Cantar Truco">
          <font>
             <Font name="Bebas" size="12.0" />
          </font></Button>

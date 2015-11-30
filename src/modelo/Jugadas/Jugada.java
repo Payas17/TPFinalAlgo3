@@ -331,6 +331,10 @@ public class Jugada {
     public List<Jugador> obtenerOrdenJugadoresMesa() {
         return ordenJugadores;
     }
+
+    public EstadoDeTruco obtenerEstadoTruco() {
+        return estadoTruco;
+    }
 }
 
 
