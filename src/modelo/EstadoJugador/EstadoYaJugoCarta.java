@@ -26,7 +26,7 @@ public class EstadoYaJugoCarta implements EstadoDeJugador {
     }
 
     @Override
-    public void aceptar(Jugada jugada) {
+    public void aceptar(Equipo equipoCanta, Equipo equipoQuiere) {
         throw new NoPuedeJugarError();
     }
 

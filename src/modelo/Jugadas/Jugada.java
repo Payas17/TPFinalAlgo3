@@ -335,6 +335,10 @@ public class Jugada {
     public EstadoDeTruco obtenerEstadoTruco() {
         return estadoTruco;
     }
+
+    public EstadoDeJugada obtenerEstadoJugada() {
+        return estadoJugada;
+    }
 }
 
 

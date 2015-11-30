@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.input.*?>
@@ -119,11 +120,11 @@
             <Font name="Bebas" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="botonAceptarTruco" layoutX="191.0" layoutY="144.0" mnemonicParsing="false" text="Aceptar Truco" textFill="#0bda04" />
+      <Button fx:id="botonAceptarTruco" layoutX="191.0" layoutY="144.0" mnemonicParsing="false" onAction="#aceptarTruco" text="Aceptar Truco" textFill="#0bda04" />
       <Button fx:id="botonNoAceptarTruco" layoutX="185.0" layoutY="185.0" mnemonicParsing="false" text="No Aceptar Truco" textFill="#e80d0d" />
       <Button fx:id="botonAceptarEnvido" layoutX="193.0" layoutY="283.0" mnemonicParsing="false" text="Aceptar Envido" textFill="#0bda04" />
       <Button fx:id="botonNoAceptarEnvido" layoutX="189.0" layoutY="328.0" mnemonicParsing="false" text="No Aceptar Envido" textFill="#e80d0d" />
-      <Button fx:id="botonReTruco" layoutX="24.0" layoutY="159.0" mnemonicParsing="false" text="Cantar  ReTruco">
+      <Button fx:id="botonReTruco" layoutX="24.0" layoutY="159.0" mnemonicParsing="false" onAction="#cantarReTruco" text="Cantar  ReTruco">
          <font>
             <Font name="Bebas" size="12.0" />
          </font>
@@ -135,5 +136,10 @@
       </Button>
       <Button fx:id="botonAceptarFlor" layoutX="200.0" layoutY="396.0" mnemonicParsing="false" text="Aceptar Flor" textFill="#0bda04" />
       <Button fx:id="botonNoAceptarFlor" layoutX="197.0" layoutY="437.0" mnemonicParsing="false" text="No Aceptar Flor" textFill="#e80d0d" />
+      <Label layoutX="716.0" layoutY="83.0" text="JugadorQueJuega:" />
+      <Label layoutX="716.0" layoutY="111.0" prefHeight="17.0" prefWidth="93.0" text="Jugada:" />
+      <Label fx:id="estadoJugador" layoutX="826.0" layoutY="83.0" prefHeight="17.0" prefWidth="98.0" />
+      <Label text="Label" />
+      <Label fx:id="estadoJugada" layoutX="779.0" layoutY="111.0" prefHeight="17.0" prefWidth="101.0" />
    </children>
 </Pane>

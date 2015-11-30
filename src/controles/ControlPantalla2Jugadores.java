@@ -1,5 +1,6 @@
 package controles;
 
+import controles.Configuraciones.*;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,17 +9,12 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import modelo.Equipo;
 import modelo.Jugadas.Jugada;
 import modelo.Jugador;
-import modelo.Mazo;
 import modelo.Partida.Partida;
-import modelo.ValoresTrucoYEnvido;
 
-import javax.swing.table.TableColumn;
 import java.net.URL;
 import java.util.*;
 
@@ -53,6 +49,16 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
     public Button botonPasarTurno;
     @FXML
     public Label lblMano;
+    @FXML
+    public Button botonNoAceptarEnvido;
+    @FXML
+    public Button botonFlor;
+    @FXML
+    public Button botonIrseAlMazo;
+    @FXML
+    public Label estadoJugador;
+    @FXML
+    public Label estadoJugada;
 
     private ControladorPantallas miControlador;
     private List<Jugador> orden;
@@ -97,9 +103,10 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
     private Jugada jugada;
     private int turnoJugador;
     private Jugador jugadorQueJuega;
-    private HashMap<Jugador, RadioButton> diccionarioBotones;
+    private HashMap<Jugador, RadioButton> diccionarioJugadores;
     private Map<Jugador, VBox> diccionarioVBoxes;
     private Map<Jugador, String> diccionarioNombreJugadores;
+    private Map< String, Configuracion> diccionarioConfiguracion;
 
 
     @Override
@@ -141,6 +148,8 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
         rdJugador2.setDisable(true);
 
         jugada = partida.crearJugada();
+        jugadorQueJuega = jugador1;
+        orden = jugada.obtenerOrdenJugadoresMesa();
 
         limpiarLabels();
         desactivarBotonesCarta(false);
@@ -154,12 +163,20 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
         mostrarCartasJugador(jugador1);
 
         botonPasarTurno.setDisable(true);
+        diccionarioConfiguracion.get(jugada.obtenerEstadoJugada().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+        estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
+        estadoJugador.setText(jugador1.obtenerEstado().getClass().getSimpleName());
     }
 
+    public Jugada obtenerJugada(){
+        return jugada;
+    }
+
+
     private void setearDiccionarios(Jugador jugador1, Jugador jugador2) {
-        diccionarioBotones = new HashMap<>();
-        diccionarioBotones.put(jugador1, rdJugador1);
-        diccionarioBotones.put(jugador2, rdJugador2);
+        diccionarioJugadores = new HashMap<>();
+        diccionarioJugadores.put(jugador1, rdJugador1);
+        diccionarioJugadores.put(jugador2, rdJugador2);
 
         diccionarioVBoxes = new HashMap<>();
         diccionarioVBoxes.put(jugador1, VboxJ1);
@@ -168,6 +185,15 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
         diccionarioNombreJugadores = new HashMap<>();
         diccionarioNombreJugadores.put(jugador1, "Jugador 1");
         diccionarioNombreJugadores.put(jugador2, "Jugador 2");
+
+        diccionarioConfiguracion = new HashMap<>();
+
+        diccionarioConfiguracion.put("EstadoNoSeCantoNada", new configuracionJugadaNoSeCantoNada());
+        diccionarioConfiguracion.put("EstadoPie",new configuracionJugadaPie());
+        diccionarioConfiguracion.put("EstadoNoPuedeCantar",new ConfiguaracionNoPuedeCantar());
+        diccionarioConfiguracion.put("EstadoTruco",new ConfiguarcionTruco());
+        diccionarioConfiguracion.put("EstadoPrimeraMano", new ConfiguracionPrimeraMano());
+
     }
 
     @FXML
@@ -179,6 +205,8 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
 
     public void pasarElTurno(ActionEvent actionEvent) {
 
+
+
         desactivarBotonesCarta(false);
 
         botonPasarTurno.setDisable(true);
@@ -186,12 +214,18 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
         orden = jugada.obtenerOrdenJugadoresMano();
         turnoJugador++;
 
+
         if (turnoJugador >= orden.size()) {
             jugada.jugarMano();
             orden = jugada.obtenerOrdenJugadoresMano();
+            diccionarioConfiguracion.get(jugada.obtenerEstadoTruco().getClass().getSimpleName()).setearConfiguaracionBotones(this);
             turnoJugador = 0;
         }
         jugadorQueJuega = orden.get(turnoJugador);
+        diccionarioConfiguracion.get(jugadorQueJuega.obtenerEstado().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+        estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
+        estadoJugador.setText(jugadorQueJuega.obtenerEstado().getClass().getSimpleName());
+
 
         actualizacionDeJugador(jugadorQueJuega);
 
@@ -218,7 +252,7 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
         lblEquipo2.setText(String.valueOf(partida.obtenerEquipo2().obtenerPuntos()));
     }
 
-    private void desactivarBotonesCarta(boolean value) {
+    public void desactivarBotonesCarta(boolean value) {
         carta1.setDisable(value);
         carta2.setDisable(value);
         carta3.setDisable(value);
@@ -231,12 +265,12 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
     }
 
     private void actualizacionDeJugador(Jugador jugadorQueJuega) {
-        diccionarioBotones.get(jugadorQueJuega).setDisable(false);
-        diccionarioBotones.get(jugadorQueJuega).setSelected(true);
+        diccionarioJugadores.get(jugadorQueJuega).setDisable(false);
+        diccionarioJugadores.get(jugadorQueJuega).setSelected(true);
 
         for (Jugador jugadorActual : orden) {
             if (jugadorActual != jugadorQueJuega) {
-                diccionarioBotones.get(jugadorActual).setDisable(true);
+                diccionarioJugadores.get(jugadorActual).setDisable(true);
             }
         }
     }
@@ -252,7 +286,7 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
 
     }
 
-    private void repartirCartas() {
+    public void repartirCartas() {
         partida.obtenerMazo().mezclar();
 
         for (Jugador jugador : jugada.obtenerOrdenJugadoresMesa()) {
@@ -276,7 +310,7 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
         }
 
         desactivarBotonesCarta(true);
-
+        desactivarTodosLosBotones();
         botonPasarTurno.setDisable(false);
     }
 
@@ -292,7 +326,7 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
             }
         }
         desactivarBotonesCarta(true);
-
+        desactivarTodosLosBotones();
         botonPasarTurno.setDisable(false);
     }
 
@@ -309,24 +343,116 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
 
         }
         desactivarBotonesCarta(true);
-
+        desactivarTodosLosBotones();
         botonPasarTurno.setDisable(false);
     }
 
     public void cantarTruco(ActionEvent actionEvent) {
         jugadorQueJuega.cantarTruco(jugada);
-        actualizarBotones();
-        Jugador jugadorQueResponde = jugada.obtenerEquipoQueNoContieneJugador(jugadorQueJuega).obtenerIntegrantes().get(0);
+        Jugador jugadorQueContesta = jugada.obtenerEquipoQueNoContieneJugador(jugadorQueJuega).obtenerIntegrantes().get(0);
+        diccionarioConfiguracion.get(jugada.obtenerEstadoTruco().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+        estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
+        estadoJugador.setText(jugadorQueContesta.obtenerEstado().getClass().getSimpleName());
+        actualizacionDeJugador(jugadorQueContesta);
+        mostrarCartasJugador(jugadorQueContesta);
 
     }
 
-    private void actualizarBotones() {
-        switch (jugada.obtenerEstadoTruco().getClass().getSimpleName()) {
-            case "EstadoSinTruco":
-                break;
-            case "EstadoTruco":
-                botonRealEnvido.setDisable(true);
-        }
+
+
+    public Button obtenerBotonTruco(){
+        return botonTruco;
+    }
+    public Button obtenerBotonReTruco(){
+        return botonReTruco;
+    }
+    public Button obtenerBotonVale4(){
+        return botonValeCuatro;
+    }
+    public Button obtenerBotonAceptarTruco(){
+        return botonAceptarTruco;
+    }
+    public Button obtenerBotonNoAceptarTruco(){
+        return botonNoAceptarTruco;
+    }
+    public Button obtenerBotonEnvido(){
+        return botonEnvido;
+    }
+    public Button obtenerBotonRealEnvido(){
+        return botonRealEnvido;
+    }
+    public Button obtenerBotonFaltaEnvido(){
+        return botonFaltaEnvido;
+    }
+    public Button obtenerBotonAceptarEnvido(){
+        return botonAceptarEnvido;
+    }
+    public Button obtenerBotonAceptarFlor(){
+        return botonAceptarFlor;
+    }
+    public Button obtenerBotonNoAceptarEnvido(){
+        return botonNoAceptarEnvido;
+    }
+    public Button obtenerBotonNoAceptarFlor(){
+        return botonNoAceptarFlor;
+    }
+    public Button obtenerBotonFlor(){
+        return botonFlor;
+    }
+    public Button obtenerBotonContraFlor(){
+        return botonContraFlor;
+    }
+    public Button obtenerBotonContraFlorAlResto(){
+        return botonContraFlorAlResto;
+    }
+    public Button obtenerBotonIrseAlMazo(){
+        return botonIrseAlMazo;
+    }
+    public Button obtenerBotonPasarTurno(){
+        return botonPasarTurno;
+    }
+
+
+    public void aceptarTruco(ActionEvent actionEvent) {
+        Jugador jugadorQueContesta = jugada.obtenerEquipoQueNoContieneJugador(jugadorQueJuega).obtenerIntegrantes().get(0);
+        jugadorQueContesta.aceptarTruco(jugada);
+        diccionarioConfiguracion.get(jugadorQueJuega.obtenerEstado().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+        estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
+        estadoJugador.setText(jugadorQueJuega.obtenerEstado().getClass().getSimpleName());
+        desactivarBotonesCarta(false);
+        desactivarBotonesEnvido();
+
+        actualizacionDeJugador(jugadorQueJuega);
+        mostrarCartasJugador(jugadorQueJuega);
+    }
+
+    public void desactivarBotonesEnvido(){
+
+        botonEnvido.setDisable(true);
+        botonRealEnvido.setDisable(true);
+        botonFaltaEnvido.setDisable(true);
+        botonContraFlor.setDisable(true);
+        botonContraFlorAlResto.setDisable(true);
+        botonAceptarEnvido.setDisable(true);
+        botonAceptarFlor.setDisable(true);
+        botonNoAceptarFlor.setDisable(true);
+        botonFlor.setDisable(true);
+
+    }
+
+    public void desactivarBotonesTruco(){
+        botonTruco.setDisable(true);
+        botonReTruco.setDisable(true);
+        botonValeCuatro.setDisable(true);
+        botonAceptarTruco.setDisable(true);
+        botonNoAceptarTruco.setDisable(true);
+    }
+    public void desactivarTodosLosBotones(){
+        desactivarBotonesEnvido();
+        desactivarBotonesTruco();
+    }
+
+    public void cantarReTruco(ActionEvent actionEvent) {
 
     }
 }

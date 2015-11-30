@@ -70,12 +70,12 @@ public class Jugador {
     }
 
     public void aceptarEnvido(Jugada jugada) {
-        this.estadoJugador.aceptar(jugada);
+        this.estadoJugador.aceptar(jugada.obtenerEquipoQueContieneJugador(this),jugada.obtenerEquipoQueNoContieneJugador(this));
         jugada.aceptarEnvido();
     }
 
     public void noAceptarEnvido(Jugada jugada) {
-        this.estadoJugador.aceptar(jugada);
+        this.estadoJugador.aceptar(jugada.obtenerEquipoQueContieneJugador(this),jugada.obtenerEquipoQueNoContieneJugador(this));
         jugada.noAceptarEnvido(this);
     }
 
@@ -108,7 +108,7 @@ public class Jugador {
     }
 
     public void aceptarTruco(Jugada jugada) {
-        this.estadoJugador.aceptar(jugada);
+        this.estadoJugador.aceptar(jugada.obtenerEquipoQueContieneJugador(this),jugada.obtenerEquipoQueNoContieneJugador(this));
     }
 
     public void irseAlMazo(Jugada jugada) {
@@ -116,12 +116,12 @@ public class Jugador {
     }
 
     public void aceptarFlor(Jugada jugada) {
-        this.estadoJugador.aceptar(jugada);
+        this.estadoJugador.aceptar(jugada.obtenerEquipoQueContieneJugador(this),jugada.obtenerEquipoQueNoContieneJugador(this));
         jugada.aceptarFlor(this);
     }
 
     public void noAceptarFlor(Jugada jugada) {
-        this.estadoJugador.aceptar(jugada);
+        this.estadoJugador.aceptar(jugada.obtenerEquipoQueContieneJugador(this),jugada.obtenerEquipoQueNoContieneJugador(this));
         jugada.noAceptarFlor(this);
     }
 
@@ -152,5 +152,9 @@ public class Jugador {
 
     public List<Carta> obtenerCartasEnMano() {
         return cartas;
+    }
+
+    public EstadoDeJugador obtenerEstado(){
+        return estadoJugador;
     }
 }

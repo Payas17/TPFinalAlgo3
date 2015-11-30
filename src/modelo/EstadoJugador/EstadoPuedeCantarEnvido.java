@@ -39,12 +39,12 @@ public class EstadoPuedeCantarEnvido implements EstadoDeJugador {
     }
 
     @Override
-    public void aceptar(Jugada jugada) {
-        for (Jugador jugador :jugada.obtenerEquipo1().obtenerIntegrantes()){
+    public void aceptar(Equipo equipoCanta, Equipo equipoQuiere) {
+        for (Jugador jugador :equipoCanta.obtenerIntegrantes()){
             jugador.cambiarEstado(new EstadoPie());
         }
 
-        for (Jugador jugador : jugada.obtenerEquipo2().obtenerIntegrantes()){
+        for (Jugador jugador : equipoQuiere.obtenerIntegrantes()){
             jugador.cambiarEstado(new EstadoPie());
         }
 

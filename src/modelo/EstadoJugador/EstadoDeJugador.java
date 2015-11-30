@@ -14,7 +14,7 @@ public interface EstadoDeJugador {
 
     void cantarTruco(Equipo equipoCanta, Equipo equipoQuiere);
 
-    void aceptar(Jugada jugada);
+    void aceptar(Equipo equipoCanta, Equipo equipoQuiere);
 
     void jugarCarta(Jugador jugador);
 }
