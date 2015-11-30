@@ -45,4 +45,8 @@ public class ControlPantallaInicial implements Initializable,ControladorDePantal
     public RadioButton obtenerBotonFlor() {
         return rdFlor;
     }
+
+    public ControlPantallaInicial obtenerControlPantallaInicial(){
+        return this;
+    }
 }
