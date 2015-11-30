@@ -103,6 +103,7 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
     private Jugada jugada;
     private int turnoJugador;
     private Jugador jugadorQueJuega;
+    private Jugador jugadorQueContesta;
     private HashMap<Jugador, RadioButton> diccionarioJugadores;
     private Map<Jugador, VBox> diccionarioVBoxes;
     private Map<Jugador, String> diccionarioNombreJugadores;
@@ -188,6 +189,7 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
 
         diccionarioConfiguracion = new HashMap<>();
 
+      //  diccionarioConfiguracion.put("EstadorETruco",new ConfiguarcionReTruco());
         diccionarioConfiguracion.put("EstadoTieneElQuieroDelTruco", new ConfiguracionJugadaTieneElQuieroTruco());
         diccionarioConfiguracion.put("EstadoPuedeCantarTruco", new ConfiguracionJugadaPuedeCantarTruco());
         diccionarioConfiguracion.put("EstadoPuedeCantarTrucoPrimeraMano", new ConfiguracionJugadaPuedeCantarTrucoPriemraMano());
@@ -417,7 +419,8 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
 
 
     public void aceptarTruco(ActionEvent actionEvent) {
-        Jugador jugadorQueContesta = jugada.obtenerEquipoQueNoContieneJugador(jugadorQueJuega).obtenerIntegrantes().get(0);
+        jugadorQueContesta = jugada.obtenerEquipoQueNoContieneJugador(jugadorQueJuega).obtenerIntegrantes().get(0);
+
         jugadorQueContesta.aceptarTruco(jugada);
         diccionarioConfiguracion.get(jugadorQueJuega.obtenerEstado().getClass().getSimpleName()).setearConfiguaracionBotones(this);
         estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
@@ -456,6 +459,13 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
     }
 
     public void cantarReTruco(ActionEvent actionEvent) {
+        jugadorQueJuega.cantarReTruco(jugada);
+        jugadorQueContesta = jugada.obtenerEquipoQueNoContieneJugador(jugadorQueJuega).obtenerIntegrantes().get(0);
+        //diccionarioConfiguracion.get(jugada.obtenerEstadoTruco().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+        estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
+        estadoJugador.setText(jugadorQueContesta.obtenerEstado().getClass().getSimpleName());
+        actualizacionDeJugador(jugadorQueContesta);
+        mostrarCartasJugador(jugadorQueContesta);
 
     }
 }
