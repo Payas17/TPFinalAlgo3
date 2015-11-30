@@ -4,11 +4,13 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import modelo.Equipo;
 import modelo.Jugadas.Jugada;
 import modelo.Jugador;
@@ -32,6 +34,14 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
     @FXML public Button carta1;
     @FXML public Button carta2;
     @FXML public Button carta3;
+    @FXML public Label cartaEnJuego3J1;
+    @FXML public Label cartaEnJuego2J1;
+    @FXML public Label cartaEnJuego1J1;
+    @FXML public Label cartaEnJuego3J2;
+    @FXML public Label cartaEnJuego2J2;
+    @FXML public Label cartaEnJuego1J2;
+    @FXML public VBox VboxJ1;
+    @FXML public VBox VboxJ2;
 
     private ControladorPantallas miControlador;
 
@@ -115,6 +125,9 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
     }
 
     public void pasarElTurno(ActionEvent actionEvent) {
+        carta1.setDisable(false);
+        carta2.setDisable(false);
+        carta3.setDisable(false);
 
         List<Jugador> orden = jugada.obtenerOrdenJugadoresMano();
         turnoJugador++;
@@ -134,9 +147,68 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
             }
         }
 
+   //       BotonCarta1EventHandler botonCarta1 = new BotonCarta1EventHandler(VboxJ1,VboxJ2);
+   //       carta1.setOnAction( botonCarta1 );
+
         carta1.setText(String.valueOf(jugadorQueJuega.obtenerCartasEnMano().get(0).obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartasEnMano().get(0).getClass().getSimpleName()));
         carta2.setText(String.valueOf(jugadorQueJuega.obtenerCartasEnMano().get(1).obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartasEnMano().get(1).getClass().getSimpleName()));
         carta3.setText(String.valueOf(jugadorQueJuega.obtenerCartasEnMano().get(2).obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartasEnMano().get(2).getClass().getSimpleName()));
+
+    }
+
+    public void jugarCarta1(ActionEvent actionEvent) {
+        List<Jugador> orden = jugada.obtenerOrdenJugadoresMano();
+        Jugador jugadorQueJuega = orden.get(turnoJugador);
+
+        for (Node label : VboxJ1.getChildren()) {
+            if(((Label)label).getText().equals("?")){
+                jugadorQueJuega.juegaCarta(jugadorQueJuega.obtenerCartasEnMano().get(0));
+                ((Label)label).setText(String.valueOf(jugadorQueJuega.obtenerCartaEnJuego().obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartaEnJuego().getClass().getSimpleName()));
+            break;
+            }
+
+        }
+
+        carta1.setDisable(true);
+        carta2.setDisable(true);
+        carta3.setDisable(true);
+    }
+
+    public void jugarCarta2(ActionEvent actionEvent) {
+        List<Jugador> orden = jugada.obtenerOrdenJugadoresMano();
+        Jugador jugadorQueJuega = orden.get(turnoJugador);
+
+        for (Node label : VboxJ1.getChildren()) {
+            if(((Label)label).getText().equals("?")){
+                jugadorQueJuega.juegaCarta(jugadorQueJuega.obtenerCartasEnMano().get(1));
+                ((Label)label).setText(String.valueOf(jugadorQueJuega.obtenerCartaEnJuego().obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartaEnJuego().getClass().getSimpleName()));
+                break;
+            }
+
+        }
+        carta1.setDisable(true);
+        carta2.setDisable(true);
+        carta3.setDisable(true);
+
+
+    }
+
+    public void jugarCarta3(ActionEvent actionEvent) {
+        List<Jugador> orden = jugada.obtenerOrdenJugadoresMano();
+        Jugador jugadorQueJuega = orden.get(turnoJugador);
+
+        for (Node label : VboxJ1.getChildren()) {
+            if(((Label)label).getText().equals("?")){
+                jugadorQueJuega.juegaCarta(jugadorQueJuega.obtenerCartasEnMano().get(2));
+                ((Label)label).setText(String.valueOf(jugadorQueJuega.obtenerCartaEnJuego().obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartaEnJuego().getClass().getSimpleName()));
+                break;
+            }
+
+        }
+        carta1.setDisable(true);
+        carta2.setDisable(true);
+        carta3.setDisable(true);
+
 
     }
 }

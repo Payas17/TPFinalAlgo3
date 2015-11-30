@@ -1150,8 +1150,8 @@ public class PruebasPartidaTest {
         jugador2.irseAlMazo(jugada);
 
 
-        Assert.assertEquals(equipo1.obtenerPuntos(),2);
-        Assert.assertEquals(equipo2.obtenerPuntos(),10);
+        Assert.assertEquals(equipo1.obtenerPuntos(),4);
+        Assert.assertEquals(equipo2.obtenerPuntos(),8);
 
 
     }

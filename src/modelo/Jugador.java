@@ -19,7 +19,7 @@ public class Jugador {
     private Carta cartaEnJuego;
     private EstadoDeJugador estadoJugador;
 
-    public Jugador(){
+    public Jugador() {
         this.cartas = new ArrayList<>();
         estadoJugador = new EstadoNoSeCantoNada();
 
@@ -31,20 +31,13 @@ public class Jugador {
 
     public int obtenerEnvido() {
 
-        if (hayCartaEnJuego()){
-            return Math.max(Math.max(sumarEnvido(cartas.get(0),cartas.get(1)), sumarEnvido(cartas.get(0), cartaEnJuego)),sumarEnvido(cartas.get(1), cartaEnJuego));
-
-        }
-        return Math.max(Math.max(sumarEnvido(cartas.get(0),cartas.get(1)), sumarEnvido(cartas.get(0), cartas.get(2))),sumarEnvido(cartas.get(1), cartas.get(2)));
+        return Math.max(Math.max(sumarEnvido(cartas.get(0), cartas.get(1)), sumarEnvido(cartas.get(0), cartas.get(2))), sumarEnvido(cartas.get(1), cartas.get(2)));
     }
 
-    private boolean hayCartaEnJuego() {
-        return cartaEnJuego != null;
-    }
 
-    public int obtenerFlor(){
+    public int obtenerFlor() {
         int valorFlor = TANTO;
-        for(Carta carta:cartas){
+        for (Carta carta : cartas) {
             valorFlor += carta.obtenerValorEnvido();
         }
         return valorFlor;
@@ -55,15 +48,14 @@ public class Jugador {
     }
 
     public void juegaCarta(Carta unaCarta) {
-       this.estadoJugador.jugarCarta(this);
+        this.estadoJugador.jugarCarta(this);
 
         this.cartaEnJuego = unaCarta;
-        cartas.remove(unaCarta);
+
     }
 
 
-
-    public Carta obtenerCartaEnJuego(){
+    public Carta obtenerCartaEnJuego() {
         return cartaEnJuego;
     }
 
@@ -97,7 +89,9 @@ public class Jugador {
         jugada.cantarTruco();
     }
 
-    public void noAceptarTruco(Jugada jugada) { jugada.jugadorNoAceptaElTruco(this); }
+    public void noAceptarTruco(Jugada jugada) {
+        jugada.jugadorNoAceptaElTruco(this);
+    }
 
     public void cantarReTruco(Jugada jugada) {
         this.estadoJugador.cantarTruco(jugada.obtenerEquipoQueContieneJugador(this), jugada.obtenerEquipoQueNoContieneJugador(this));
@@ -126,21 +120,17 @@ public class Jugador {
         jugada.aceptarFlor(this);
     }
 
-    public void noAceptarFlor(Jugada jugada){
+    public void noAceptarFlor(Jugada jugada) {
         this.estadoJugador.aceptar(jugada);
         jugada.noAceptarFlor(this);
     }
 
-    public boolean tieneFlor(){
+    public boolean tieneFlor() {
 
-        if (hayCartaEnJuego()){
-            return sumarEnvido(cartas.get(0), cartas.get(1)) >= TANTO && sumarEnvido(cartas.get(0), cartaEnJuego) >= TANTO;
-
-        }
         return sumarEnvido(cartas.get(0), cartas.get(1)) >= TANTO && sumarEnvido(cartas.get(0), cartas.get(2)) >= TANTO;
     }
 
-    public void cantarFlor(Jugada jugada){
+    public void cantarFlor(Jugada jugada) {
         this.estadoJugador.cantarFlor(jugada.obtenerEquipoQueContieneJugador(this), jugada.obtenerEquipoQueNoContieneJugador(this));
         jugada.cantarFlor(this);
     }
@@ -162,14 +152,12 @@ public class Jugador {
         cartas.add(mazo.darCarta());
     }
 
-    public void sacarCartas(){
+    public void sacarCartas() {
         cartaEnJuego = null;
         cartas.removeAll(cartas);
     }
 
-    public List<Carta> obtenerCartasEnMano(){
+    public List<Carta> obtenerCartasEnMano() {
         return cartas;
     }
-
-
 }

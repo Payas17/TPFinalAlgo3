@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.input.*?>
@@ -23,7 +24,7 @@
          </menus>
       </MenuBar>
       <Separator layoutX="152.0" layoutY="27.0" orientation="VERTICAL" prefHeight="676.0" prefWidth="3.0" />
-      <RadioButton fx:id="rdJugador2" layoutX="500.0" layoutY="213.0" mnemonicParsing="false" text="Turno Jugador 2" textFill="#010701">
+      <RadioButton fx:id="rdJugador2" layoutX="500.0" layoutY="189.0" mnemonicParsing="false" text="Turno Jugador 2" textFill="#010701">
          <toggleGroup>
             <ToggleGroup fx:id="turno" />
          </toggleGroup></RadioButton>
@@ -50,8 +51,46 @@
       <Button fx:id="botonEsconderCartas" layoutX="826.0" layoutY="505.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="130.0" text="Esconder Cartas" />
       <Label layoutX="187.0" layoutY="45.0" text="Mano: " />
       <Label fx:id="lblMano" layoutX="236.0" layoutY="41.0" prefHeight="25.0" prefWidth="157.0" />
-      <Button fx:id="carta1" layoutX="376.0" layoutY="565.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="118.0" text="Carta1" />
-      <Button fx:id="carta2" layoutX="516.0" layoutY="565.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="108.0" text="Carta2" />
-      <Button fx:id="carta3" layoutX="657.0" layoutY="565.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="118.0" text="Carta3" />
+      <Button fx:id="carta1" layoutX="376.0" layoutY="565.0" mnemonicParsing="false" onAction="#jugarCarta1" prefHeight="88.0" prefWidth="118.0" text="Carta1" />
+      <Button fx:id="carta2" layoutX="516.0" layoutY="565.0" mnemonicParsing="false" onAction="#jugarCarta2" prefHeight="88.0" prefWidth="108.0" text="Carta2" />
+      <Button fx:id="carta3" layoutX="657.0" layoutY="565.0" mnemonicParsing="false" onAction="#jugarCarta3" prefHeight="88.0" prefWidth="118.0" text="Carta3" />
+      <VBox fx:id="VboxJ1" alignment="CENTER" layoutX="473.0" layoutY="324.0" prefHeight="78.0" prefWidth="151.0">
+         <children>
+            <Label fx:id="cartaEnJuego3J1" text="?" textFill="#0d00ff" textOverrun="CLIP">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="cartaEnJuego2J1" text="?" textFill="#fa0000">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="cartaEnJuego1J1" text="?">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox fx:id="VboxJ2" alignment="CENTER" layoutX="473.0" layoutY="228.0" prefHeight="78.0" prefWidth="151.0">
+         <children>
+            <Label fx:id="cartaEnJuego3J2" text="?" textFill="#0d00ff" textOverrun="CLIP">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="cartaEnJuego2J2" text="?" textFill="#fa0000">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="cartaEnJuego1J2" text="?">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
    </children>
 </Pane>
