@@ -8,8 +8,10 @@ import controles.ControlPantalla2Jugadores;
 public class ConfiguarcionFaltaEnvido implements Configuracion {
     @Override
     public void setearConfiguaracionBotones(ControlPantalla2Jugadores control) {
+        control.desactivarBotonesTruco();
         control.desactivarBotonesEnvido();
         control.obtenerBotonAceptarEnvido().setDisable(false);
         control.obtenerBotonNoAceptarEnvido().setDisable(false);
+        control.desactivarBotonesCarta(true);
     }
 }

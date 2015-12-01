@@ -140,5 +140,9 @@
       <Label layoutX="716.0" layoutY="111.0" prefHeight="17.0" prefWidth="93.0" text="Jugada:" />
       <Label fx:id="estadoJugador" layoutX="743.0" layoutY="83.0" prefHeight="17.0" prefWidth="248.0" />
       <Label fx:id="estadoJugada" layoutX="779.0" layoutY="111.0" prefHeight="17.0" prefWidth="101.0" />
+      <Label layoutX="508.0" layoutY="454.0" text="Tanto:" />
+      <Label layoutX="508.0" layoutY="163.0" text="Tanto:" />
+      <Label fx:id="tantoJugador2" layoutX="554.0" layoutY="163.0" prefHeight="17.0" prefWidth="47.0" />
+      <Label fx:id="tantoJugador1" layoutX="547.0" layoutY="454.0" prefHeight="17.0" prefWidth="47.0" />
    </children>
 </Pane>
