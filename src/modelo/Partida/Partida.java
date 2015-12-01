@@ -82,5 +82,13 @@ public class Partida {
         return mazoDeCartas;
     }
 
+    public boolean estaTerminada(){
+        return estadoDePartida.getClass() == EstadoPartidaTerminada.class;
+    }
+
+    public Equipo obtenerGanador(){
+        return (equipo1.obtenerPuntos() >= 30) ? equipo1 : equipo2;
+    }
+
 
 }
