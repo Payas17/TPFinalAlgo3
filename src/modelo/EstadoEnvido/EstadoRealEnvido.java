@@ -67,7 +67,11 @@ public class EstadoRealEnvido implements EstadoDeEnvido {
 
     @Override
     public void noAceptarEnvido(Equipo equipoGanador, Jugada jugada) {
+       if(jugada.obtenerPuntosEnvido() == 0){
+           equipoGanador.sumarPuntos(1);
+       }
         equipoGanador.sumarPuntos(jugada.obtenerPuntosEnvido());
+
     }
 
     @Override
