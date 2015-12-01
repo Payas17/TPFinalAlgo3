@@ -90,5 +90,9 @@ public class Partida {
         return (equipo1.obtenerPuntos() >= 30) ? equipo1 : equipo2;
     }
 
+    public boolean esConFlor(){
+        return flor;
+    }
+
 
 }

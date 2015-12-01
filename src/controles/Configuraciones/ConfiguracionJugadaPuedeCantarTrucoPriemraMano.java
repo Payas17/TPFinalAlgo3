@@ -25,7 +25,7 @@ public class ConfiguracionJugadaPuedeCantarTrucoPriemraMano implements Configura
         control.obtenerBotonNoAceptarFlor().setDisable(true);
         control.obtenerBotonNoAceptarEnvido().setDisable(true);
         control.obtenerBotonIrseAlMazo().setDisable(true);
-        control.obtenerBotonFlor().setDisable(false);
+        //control.obtenerBotonFlor().setDisable(false);
         control.desactivarBotonesCarta(true);
         control.obtenerBotonPasarTurno().setDisable(true);
     }

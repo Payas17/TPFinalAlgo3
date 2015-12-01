@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.text.*?>
-<?import java.lang.*?>
+
 <?import javafx.scene.input.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -21,7 +20,7 @@
                   </MenuItem>
             </items>
           </Menu>
-          <Menu fx:id="nosotros" mnemonicParsing="false"  text="Sobre Nosotros">
+          <Menu fx:id="nosotros" mnemonicParsing="false" text="Sobre Nosotros">
                <items>
                   <MenuItem fx:id="nuevaPartida1" mnemonicParsing="false" onAction="#irAInfo" text="Informacion" />
                </items></Menu>

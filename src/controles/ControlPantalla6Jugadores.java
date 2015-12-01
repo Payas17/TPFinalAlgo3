@@ -105,4 +105,5 @@ public class ControlPantalla6Jugadores extends ControladorDePantallas {
     public void irAInfo(ActionEvent actionEvent) {
         miControlador.setearPantalla(FrameworkDePantalla.obtenerPantallaSobreNosotros());
     }
+
 }

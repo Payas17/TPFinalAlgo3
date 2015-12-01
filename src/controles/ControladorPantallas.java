@@ -25,8 +25,10 @@ public class ControladorPantallas extends StackPane{
     private HashMap<String,Node> pantallas = new HashMap<>();
     private  ControladorDePantallas myScreenControler;
 
+    private HashMap<String,FXMLLoader> diccionarioLoaders;
     public ControladorPantallas(){
         super();
+        diccionarioLoaders = new HashMap<>();
     }
 
     public void agregarPantalla(String nombre, Node pantalla){
@@ -38,6 +40,7 @@ public class ControladorPantallas extends StackPane{
 
         try {
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource(recurso));
+            diccionarioLoaders.put(recurso,myLoader);
             Parent loadScreen =  myLoader.load();
             myScreenControler =  myLoader.getController();
             myScreenControler.setearPadreDePantalla(this);
@@ -90,24 +93,22 @@ public class ControladorPantallas extends StackPane{
     }
 
     public ControlPantallaInicial obtenerControlPantallaInicial(){
-        URL lugar = getClass().getResource("/vista/PantallaInicial.fxml");
-        FXMLLoader myLoader = new FXMLLoader();
-        try{
-            Parent raiz = myLoader.load(lugar.openStream());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        FXMLLoader myLoader = diccionarioLoaders.get("/vista/PantallaInicial.fxml");
         return myLoader.getController();
     }
 
     public ControlPantalla2Jugadores obtenerControlPantalla2Jugadores(){
-        URL lugar = getClass().getResource("/vista/Pantalla2Jugadores.fxml");
-        FXMLLoader myLoader = new FXMLLoader();
-        try{
-            Parent raiz = myLoader.load(lugar.openStream());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        FXMLLoader myLoader = diccionarioLoaders.get("/vista/Pantalla2Jugadores.fxml");
+        return myLoader.getController();
+    }
+
+    public ControlPantalla4Jugadores obtenerControlPantalla4Jugadores(){
+        FXMLLoader myLoader = diccionarioLoaders.get("/vista/Pantalla4Jugadores.fxml");
+        return myLoader.getController();
+    }
+
+    public ControlPantalla6Jugadores obtenerControlPantalla6Jugadores(){
+        FXMLLoader myLoader = diccionarioLoaders.get("/vista/Pantalla6Jugadores.fxml");
         return myLoader.getController();
     }
 

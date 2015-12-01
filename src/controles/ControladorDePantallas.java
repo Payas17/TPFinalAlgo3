@@ -319,6 +319,9 @@ public abstract class ControladorDePantallas implements Initializable {
         diccionarioConfiguracion.get(jugadorQueJuega.obtenerEstado().getClass().getSimpleName()).setearConfiguaracionBotones(this);
         diccionarioConfiguracion.get(jugada.obtenerEstadoTruco().getClass().getSimpleName()).setearConfiguaracionBotones(this);
         diccionarioConfiguracion.get(jugada.obtenerEstadoEnvido().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+        if (!partida.esConFlor()){
+            setearSinFlor();
+        }
         estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
         estadoJugador.setText(jugadorQueJuega.obtenerEstado().getClass().getSimpleName());
     }
@@ -338,6 +341,7 @@ public abstract class ControladorDePantallas implements Initializable {
             actualizacionDeJugador(jugadorQueJuega);
 
             mostrarCartasJugador(jugadorQueJuega);
+
         }
     }
 
@@ -569,6 +573,9 @@ public abstract class ControladorDePantallas implements Initializable {
         diccionarioConfiguracion.get(jugadorQueContesta.obtenerEstado().getClass().getSimpleName()).setearConfiguaracionBotones(this);
         diccionarioConfiguracion.get(jugada.obtenerEstadoTruco().getClass().getSimpleName()).setearConfiguaracionBotones(this);
         diccionarioConfiguracion.get(jugada.obtenerEstadoEnvido().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+        if (!partida.esConFlor()){
+            setearSinFlor();
+        }
         estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
         estadoJugador.setText(jugadorQueContesta.obtenerEstado().getClass().getSimpleName());
     }
@@ -683,6 +690,9 @@ public abstract class ControladorDePantallas implements Initializable {
         diccionarioConfiguracion.get(jugadorQueJuega.obtenerEstado().getClass().getSimpleName()).setearConfiguaracionBotones(this);
         diccionarioConfiguracion.get(jugada.obtenerEstadoTruco().getClass().getSimpleName()).setearConfiguaracionBotones(this);
         diccionarioConfiguracion.get(jugada.obtenerEstadoEnvido().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+        if (!partida.esConFlor()){
+            setearSinFlor();
+        }
         estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
         estadoJugador.setText(jugadorQueJuega.obtenerEstado().getClass().getSimpleName());
     }
@@ -694,8 +704,17 @@ public abstract class ControladorDePantallas implements Initializable {
 
     }
 
+    public void setearConFlor() {
+        partida.jugarConFlor();
 
+    }
 
+    public void setearSinFlor(){
+        this.botonFlor.setDisable(true);
+        botonContraFlor.setDisable(true);
+        botonContraFlorAlResto.setDisable(true);
+        botonAceptarFlor.setDisable(true);
+        botonNoAceptarFlor.setDisable(true);
 
-
+    }
 }

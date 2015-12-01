@@ -32,11 +32,9 @@ import java.util.*;
 public class ControlPantalla2Jugadores extends ControladorDePantallas {
 
 
-
     @Override
     public void setearPadreDePantalla(ControladorPantallas pantallaPadre) {
         miControlador = pantallaPadre;
-     //   RadioButton botonFlor = miControlador.obtenerControlPantallaInicial().obtenerBotonFlor();
         seteoDePartida();
     }
 
@@ -79,15 +77,6 @@ public class ControlPantalla2Jugadores extends ControladorDePantallas {
         botonPasarTurno.setDisable(true);
         diccionarioConfiguracion.get(jugada.obtenerEstadoJugada().getClass().getSimpleName()).setearConfiguaracionBotones(this);
 
-       // if (botonFlor.isSelected()) {
-      //      partida.jugarConFlor();
-       // }else{
-      //      this.botonFlor.setDisable(true);
-       //     botonContraFlor.setDisable(true);
-       //     botonContraFlorAlResto.setDisable(true);
-      //      botonAceptarFlor.setDisable(true);
-      //      botonNoAceptarFlor.setDisable(true);
-       // }
         estadoJugada.setText(jugada.obtenerEstadoJugada().getClass().getSimpleName());
         estadoJugador.setText(jugador1.obtenerEstado().getClass().getSimpleName());
     }
@@ -103,5 +92,7 @@ public class ControlPantalla2Jugadores extends ControladorDePantallas {
     public void irAInfo(ActionEvent actionEvent) {
         miControlador.setearPantalla(FrameworkDePantalla.obtenerPantallaSobreNosotros());
     }
+
+
 }
 

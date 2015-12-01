@@ -48,8 +48,19 @@ public class ControlPantallaInicial extends ControladorDePantallas {
         miControlador.setearPantalla(FrameworkDePantalla.obtenerPantalla6Jugadores());
     }
 
-   // public RadioButton obtenerBotonFlor() {
-  //      return rdFlor;
-  //  }
+    public void partidaConFlor(ActionEvent actionEvent) {
+
+        miControlador.obtenerControlPantalla2Jugadores().setearConFlor();
+        miControlador.obtenerControlPantalla4Jugadores().setearConFlor();
+        miControlador.obtenerControlPantalla6Jugadores().setearConFlor();
+
+    }
+
+    public void partidaSinFlor(ActionEvent actionEvent) {
+
+        miControlador.obtenerControlPantalla2Jugadores().setearSinFlor();
+        miControlador.obtenerControlPantalla4Jugadores().setearSinFlor();
+        miControlador.obtenerControlPantalla6Jugadores().setearSinFlor();
+    }
 
 }
