@@ -168,7 +168,7 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
 
         botonPasarTurno.setDisable(true);
         diccionarioConfiguracion.get(jugada.obtenerEstadoJugada().getClass().getSimpleName()).setearConfiguaracionBotones(this);
-        estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
+        estadoJugada.setText(jugada.obtenerEstadoJugada().getClass().getSimpleName());
         estadoJugador.setText(jugador1.obtenerEstado().getClass().getSimpleName());
     }
 
@@ -192,6 +192,7 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
 
         diccionarioConfiguracion = new HashMap<>();
 
+        diccionarioConfiguracion.put("EstadoValeCuatro",new ConfiguarcionValeCuatro());
         diccionarioConfiguracion.put("EstadoReTruco",new ConfiguarcionReTruco());
         diccionarioConfiguracion.put("EstadoTieneElQuieroDelTruco", new ConfiguracionJugadaTieneElQuieroTruco());
         diccionarioConfiguracion.put("EstadoPuedeCantarTruco", new ConfiguracionJugadaPuedeCantarTruco());
@@ -231,6 +232,24 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
 
             turnoJugador = 0;
         }
+        terminaLaJugada();
+
+        jugadorQueJuega = orden.get(turnoJugador);
+        diccionarioConfiguracion.get(jugadorQueJuega.obtenerEstado().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+        diccionarioConfiguracion.get(jugada.obtenerEstadoTruco().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+        estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
+        estadoJugador.setText(jugadorQueJuega.obtenerEstado().getClass().getSimpleName());
+
+
+        actualizacionDeJugador(jugadorQueJuega);
+
+        actualizarPuntos();
+
+        mostrarCartasJugador(jugadorQueJuega);
+
+    }
+
+    private void terminaLaJugada() {
         if (jugada.estaTerminada()) {
             jugada = partida.crearJugada();
             orden = jugada.obtenerOrdenJugadoresMesa();
@@ -243,18 +262,6 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
 
             mostrarCartasJugador(jugadorQueJuega);
         }
-        jugadorQueJuega = orden.get(turnoJugador);
-        diccionarioConfiguracion.get(jugadorQueJuega.obtenerEstado().getClass().getSimpleName()).setearConfiguaracionBotones(this);
-        estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
-        estadoJugador.setText(jugadorQueJuega.obtenerEstado().getClass().getSimpleName());
-
-
-        actualizacionDeJugador(jugadorQueJuega);
-
-        actualizarPuntos();
-
-        mostrarCartasJugador(jugadorQueJuega);
-
     }
 
     private void actualizarPuntos() {
@@ -361,6 +368,7 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
         jugadorQueJuega.cantarTruco(jugada);
         jugadorQueCanto = jugadorQueJuega;
         jugadorQueContesta = jugada.obtenerEquipoQueNoContieneJugador(jugadorQueJuega).obtenerIntegrantes().get(0);
+        diccionarioConfiguracion.get(jugadorQueContesta.obtenerEstado().getClass().getSimpleName()).setearConfiguaracionBotones(this);
         diccionarioConfiguracion.get(jugada.obtenerEstadoTruco().getClass().getSimpleName()).setearConfiguaracionBotones(this);
         estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
         estadoJugador.setText(jugadorQueContesta.obtenerEstado().getClass().getSimpleName());
@@ -435,29 +443,17 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
             mostrarCartasJugador(jugadorQueJuega);
         }else{
             jugadorQueContesta.aceptarTruco(jugada);
-
-            //diccionarioConfiguracion.get(jugada.obtenerEstadoTruco().getClass().getSimpleName()).setearConfiguaracionBotones(this);
             estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
             estadoJugador.setText(jugadorQueJuega.obtenerEstado().getClass().getSimpleName());
             actualizacionDeJugador(jugadorQueJuega);
             mostrarCartasJugador(jugadorQueJuega);
 
         }
-        desactivarBotonesCarta(false);
-        desactivarBotonesEnvido();
-
-        /*jugadorQueContesta = jugada.obtenerEquipoQueNoContieneJugador(jugadorQueJuega).obtenerIntegrantes().get(0);
-
-        jugadorQueContesta.aceptarTruco(jugada);
-        jugadorQueCanto = jugadorQueContesta;
         diccionarioConfiguracion.get(jugadorQueJuega.obtenerEstado().getClass().getSimpleName()).setearConfiguaracionBotones(this);
-        estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
-        estadoJugador.setText(jugadorQueJuega.obtenerEstado().getClass().getSimpleName());
+        diccionarioConfiguracion.get(jugada.obtenerEstadoTruco().getClass().getSimpleName()).setearConfiguaracionBotones(this);
         desactivarBotonesCarta(false);
         desactivarBotonesEnvido();
 
-        actualizacionDeJugador(jugadorQueJuega);
-        mostrarCartasJugador(jugadorQueJuega);*/
     }
 
     public void desactivarBotonesEnvido(){
@@ -491,20 +487,71 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
         if (jugadorQueJuega.obtenerEstado().getClass() == EstadoTieneElQuieroDelTruco.class){
             jugadorQueJuega.cantarReTruco(jugada);
             jugadorQueContesta = jugada.obtenerEquipoQueNoContieneJugador(jugadorQueJuega).obtenerIntegrantes().get(0);
-            //diccionarioConfiguracion.get(jugada.obtenerEstadoTruco().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+            diccionarioConfiguracion.get(jugadorQueContesta.obtenerEstado().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+            diccionarioConfiguracion.get(jugada.obtenerEstadoTruco().getClass().getSimpleName()).setearConfiguaracionBotones(this);
             estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
             estadoJugador.setText(jugadorQueContesta.obtenerEstado().getClass().getSimpleName());
             actualizacionDeJugador(jugadorQueContesta);
             mostrarCartasJugador(jugadorQueContesta);
         }else{
             jugadorQueContesta.cantarReTruco(jugada);
-            //diccionarioConfiguracion.get(jugada.obtenerEstadoTruco().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+            diccionarioConfiguracion.get(jugadorQueJuega.obtenerEstado().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+            diccionarioConfiguracion.get(jugada.obtenerEstadoTruco().getClass().getSimpleName()).setearConfiguaracionBotones(this);
             estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
             estadoJugador.setText(jugadorQueJuega.obtenerEstado().getClass().getSimpleName());
             actualizacionDeJugador(jugadorQueJuega);
             mostrarCartasJugador(jugadorQueJuega);
         }
         desactivarBotonesEnvido();
+    }
+
+    public void cantarVale4(ActionEvent actionEvent) {
+
+        if (jugadorQueJuega.obtenerEstado().getClass() == EstadoPuedeCantarTruco.class || jugadorQueJuega.obtenerEstado().getClass() == EstadoTieneElQuieroDelTruco.class){
+            jugadorQueJuega.cantarValeCuatro(jugada);
+            jugadorQueContesta = jugada.obtenerEquipoQueNoContieneJugador(jugadorQueJuega).obtenerIntegrantes().get(0);
+            diccionarioConfiguracion.get(jugadorQueContesta.obtenerEstado().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+            diccionarioConfiguracion.get(jugada.obtenerEstadoTruco().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+            estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
+            estadoJugador.setText(jugadorQueContesta.obtenerEstado().getClass().getSimpleName());
+            actualizacionDeJugador(jugadorQueContesta);
+            mostrarCartasJugador(jugadorQueContesta);
+        }else{
+            jugadorQueContesta.cantarValeCuatro(jugada);
+            diccionarioConfiguracion.get(jugadorQueJuega.obtenerEstado().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+            diccionarioConfiguracion.get(jugada.obtenerEstadoTruco().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+            estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
+            estadoJugador.setText(jugadorQueJuega.obtenerEstado().getClass().getSimpleName());
+            actualizacionDeJugador(jugadorQueJuega);
+            mostrarCartasJugador(jugadorQueJuega);
+        }
+
+        desactivarBotonesEnvido();
+
+    }
+
+    public void noAceptarTruco(ActionEvent actionEvent) {
+        jugadorQueContesta.noAceptarTruco(jugada);
+        terminaLaJugada();
+        actualizarPuntos();
+        jugadorQueJuega = orden.get(turnoJugador);
+        diccionarioConfiguracion.get(jugadorQueJuega.obtenerEstado().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+        diccionarioConfiguracion.get(jugada.obtenerEstadoTruco().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+        estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
+        estadoJugador.setText(jugadorQueJuega.obtenerEstado().getClass().getSimpleName());
+
+
+    }
+
+    public void irseAlMazo(ActionEvent actionEvent) {
+        jugadorQueJuega.irseAlMazo(jugada);
+        terminaLaJugada();
+        actualizarPuntos();
+        jugadorQueJuega = orden.get(turnoJugador);
+        diccionarioConfiguracion.get(jugadorQueJuega.obtenerEstado().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+        diccionarioConfiguracion.get(jugada.obtenerEstadoTruco().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+        estadoJugada.setText(jugada.obtenerEstadoTruco().getClass().getSimpleName());
+        estadoJugador.setText(jugadorQueJuega.obtenerEstado().getClass().getSimpleName());
     }
 }
 

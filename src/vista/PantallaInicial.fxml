@@ -7,7 +7,7 @@
 
 <AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.ControlPantallaInicial">
    <children>
-      <Label layoutX="100.0" layoutY="48.0" prefHeight="59.0" prefWidth="400.0" text="Bienvenido a TrucoGay" textAlignment="CENTER" textFill="#f222cb" textOverrun="CLIP">
+      <Label layoutX="100.0" layoutY="48.0" prefHeight="59.0" prefWidth="400.0" text="Bienvenido al Truco" textAlignment="CENTER" textFill="#f222cb" textOverrun="CLIP">
          <font>
             <Font name="Symbol" size="36.0" />
          </font>

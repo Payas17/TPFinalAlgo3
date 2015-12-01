@@ -32,24 +32,5 @@ public class configuracionJugadaPie implements Configuracion{
         control.desactivarBotonesCarta(false);
         control.obtenerBotonPasarTurno().setDisable(true);
     }
-/*
-    @Override
-    public void botonesTruco(ControlPantalla2Jugadores control, EstadoTruco estado) {
 
-    }
-
-    @Override
-    public void botonesTruco(ControlPantalla2Jugadores control, EstadoSinTruco estado) {
-
-    }
-
-    @Override
-    public void botonesTruco(ControlPantalla2Jugadores control, EstadoReTruco estado) {
-
-    }
-
-    @Override
-    public void botonesTruco(ControlPantalla2Jugadores control, EstadoValeCuatro estado) {
-
-    }*/
 }

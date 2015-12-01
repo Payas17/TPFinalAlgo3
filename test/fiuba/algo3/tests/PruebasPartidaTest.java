@@ -870,8 +870,6 @@ public class PruebasPartidaTest {
         jugador6.cantarTruco(jugadaPP);
         jugador1.noAceptarTruco(jugadaPP);
 
-        jugadaPP.jugarMano();
-
         partida.calcularPuntosPicaPica(jugadaPP);
 
         Assert.assertEquals(equipo1.obtenerPuntos() , 7);
@@ -1003,7 +1001,6 @@ public class PruebasPartidaTest {
         jugador6.cantarTruco(jugadaPP);
         jugador1.noAceptarTruco(jugadaPP);
 
-        jugadaPP.jugarMano();
 
         partida.calcularPuntosPicaPica(jugadaPP);
 

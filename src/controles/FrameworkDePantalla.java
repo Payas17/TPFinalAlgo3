@@ -48,7 +48,7 @@ public class FrameworkDePantalla extends Application {
         Group raiz = new Group();
         raiz.getChildren().addAll(contenedorPrincipal);
         Scene escena = new Scene(raiz);
-        primaryStage.setTitle("Truco Gay");
+        primaryStage.setTitle("Truco");
         primaryStage.setScene(escena);
         primaryStage.show();
     }

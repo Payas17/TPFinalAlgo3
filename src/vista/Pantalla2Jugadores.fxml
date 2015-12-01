@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
+
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.input.*?>
@@ -49,7 +49,7 @@
          <font>
             <Font name="Bebas" size="12.0" />
          </font></Button>
-      <Button fx:id="botonIrseAlMazo" layoutX="20.0" layoutY="505.0" mnemonicParsing="false" text="Irse al mazo">
+      <Button fx:id="botonIrseAlMazo" layoutX="20.0" layoutY="505.0" mnemonicParsing="false" onAction="#irseAlMazo" text="Irse al mazo">
          <font>
             <Font name="Allstar Regular" size="17.0" />
          </font></Button>
@@ -121,7 +121,7 @@
          </font>
       </Button>
       <Button fx:id="botonAceptarTruco" layoutX="191.0" layoutY="144.0" mnemonicParsing="false" onAction="#aceptarTruco" text="Aceptar Truco" textFill="#0bda04" />
-      <Button fx:id="botonNoAceptarTruco" layoutX="185.0" layoutY="185.0" mnemonicParsing="false" text="No Aceptar Truco" textFill="#e80d0d" />
+      <Button fx:id="botonNoAceptarTruco" layoutX="185.0" layoutY="185.0" mnemonicParsing="false" onAction="#noAceptarTruco" text="No Aceptar Truco" textFill="#e80d0d" />
       <Button fx:id="botonAceptarEnvido" layoutX="193.0" layoutY="283.0" mnemonicParsing="false" text="Aceptar Envido" textFill="#0bda04" />
       <Button fx:id="botonNoAceptarEnvido" layoutX="189.0" layoutY="328.0" mnemonicParsing="false" text="No Aceptar Envido" textFill="#e80d0d" />
       <Button fx:id="botonReTruco" layoutX="24.0" layoutY="159.0" mnemonicParsing="false" onAction="#cantarReTruco" text="Cantar  ReTruco">
@@ -129,7 +129,7 @@
             <Font name="Bebas" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="botonValeCuatro" layoutX="24.0" layoutY="119.0" mnemonicParsing="false" text="Cantar Vale Cuatro">
+      <Button fx:id="botonValeCuatro" layoutX="24.0" layoutY="119.0" mnemonicParsing="false" onAction="#cantarVale4" text="Cantar Vale Cuatro">
          <font>
             <Font name="Bebas" size="12.0" />
          </font>

@@ -12,13 +12,5 @@ import modelo.EstadoTruco.EstadoValeCuatro;
 public interface Configuracion {
 
     void setearConfiguaracionBotones(ControlPantalla2Jugadores control);
-/*
-    void botonesTruco(ControlPantalla2Jugadores control,EstadoTruco estado);
 
-    void botonesTruco(ControlPantalla2Jugadores control,EstadoSinTruco estado);
-
-    void botonesTruco(ControlPantalla2Jugadores control,EstadoReTruco estado);
-
-    void botonesTruco(ControlPantalla2Jugadores control,EstadoValeCuatro estado);
-   */
 }

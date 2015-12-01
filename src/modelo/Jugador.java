@@ -122,6 +122,7 @@ public class Jugador {
 
     public void irseAlMazo(Jugada jugada) {
         jugada.irseAlMazo(jugada.obtenerEquipoQueNoContieneJugador(this));
+
     }
 
     public void aceptarFlor(Jugada jugada) {

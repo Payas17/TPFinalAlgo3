@@ -5,6 +5,7 @@ package modelo.EstadoJugada;
 import modelo.Equipo;
 import modelo.EstadoEnvido.EstadoNoSePuedeCantarEnvido;
 import modelo.EstadoEnvido.EstadoSinEnvido;
+import modelo.EstadoTruco.EstadoSinTruco;
 import modelo.Jugadas.Jugada;
 
 /**
@@ -35,7 +36,7 @@ public class EstadoPrimeraMano implements EstadoDeJugada {
     }
     @Override
     public void irseAlMazo(Equipo equipo, Jugada jugada){
-        if (jugada.obtenerEstadoEnvido().getClass()== EstadoSinEnvido.class){
+        if (jugada.obtenerEstadoEnvido().getClass()== EstadoSinEnvido.class && jugada.obtenerEstadoTruco().getClass()== EstadoSinTruco.class){
             equipo.sumarPuntos(1);
         }
         jugada.asignarGanadorDeJugada(equipo);

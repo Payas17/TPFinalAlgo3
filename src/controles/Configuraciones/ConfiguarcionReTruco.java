@@ -11,12 +11,5 @@ public class ConfiguarcionReTruco implements Configuracion {
 
         control.obtenerBotonTruco().setDisable(true);
         control.obtenerBotonReTruco().setDisable(true);
-        control.obtenerBotonVale4().setDisable(false);
-        control.obtenerBotonAceptarTruco().setDisable(false);
-        control.obtenerBotonNoAceptarTruco().setDisable(false);
-        control.obtenerBotonNoAceptarEnvido().setDisable(true);
-        control.obtenerBotonIrseAlMazo().setDisable(false);
-        control.desactivarBotonesCarta(true);
-        control.obtenerBotonPasarTurno().setDisable(true);
     }
 }

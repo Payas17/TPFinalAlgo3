@@ -168,6 +168,7 @@ public class Jugada {
 
     public void jugadorNoAceptaElTruco(Jugador jugador) {
         obtenerEquipoQueNoContieneJugador(jugador).sumarPuntos(contarPuntosDeTruco() - 1);
+        terminarJugada();
     }
 
     public void cambiarEstadoTruco(EstadoDeTruco estadoTruco) {
@@ -269,7 +270,9 @@ public class Jugada {
     }
 
     public void irseAlMazo(Equipo equipo) {
+
         this.estadoJugada.irseAlMazo(equipo, this);
+        terminarJugada();
     }
 
     public void cantarContraFlor() {

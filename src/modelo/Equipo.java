@@ -38,26 +38,6 @@ public class Equipo {
         return integrantes.contains(jugador);
     }
 
-    /*
-    public int obtenerValorMaximoEnvido() {
-        int envidoMasAltoEquipo = integrantes.get(0).obtenerEnvido();
-
-        for (Jugador jugador :integrantes){
-            envidoMasAltoEquipo = Math.max(envidoMasAltoEquipo,jugador.obtenerEnvido());
-        }
-        return envidoMasAltoEquipo;
-    }*/
-/*
-    public int obtenerValorMaximaFlor() {
-        int florMasAltaEquipo = 0;
-        for (Jugador jugador : integrantes) {
-            if (jugador.sumarEnvido(0, 1) >= TANTO && jugador.sumarEnvido(0, 2) >= TANTO) {
-                florMasAltaEquipo = jugador.obtenerFlor();
-            }
-        }
-        return florMasAltaEquipo;
-    }
-*/
     public void sumarPuntos(int puntos) {
         this.puntos += puntos;
     }
