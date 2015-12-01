@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.ControlSobreNosotros">
+   <children>
+      <VBox layoutX="105.0" layoutY="130.0" prefHeight="197.0" prefWidth="367.0">
+         <children>
+            <Label text="Realizador por:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Agustin Payaslian" textFill="#c41238">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label text="Augusto Arturi" textFill="#c41238">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label text=" Lucio Lopez Lecube" textFill="#c41238">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Label layoutX="77.0" layoutY="369.0" prefHeight="17.0" prefWidth="367.0" text="Facultad de Buenos Aires | Algoritmos III | Catedra Fontela">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="175.0" layoutY="96.0" text="2015 - 2do Cuatrimestre">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -20,7 +20,7 @@
                   </MenuItem>
                </items>
             </Menu>
-            <Menu fx:id="nosotros" mnemonicParsing="false" text="Sobre Nosotros" />
+            <Menu fx:id="nosotros" mnemonicParsing="false" onAction="#irASobreNosotros" text="Sobre Nosotros" />
          </menus>
       </MenuBar>
       <Separator layoutX="312.0" layoutY="25.0" orientation="VERTICAL" prefHeight="676.0" prefWidth="3.0" />

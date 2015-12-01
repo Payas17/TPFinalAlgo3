@@ -355,7 +355,7 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
     }
 
     public void jugarCarta1(ActionEvent actionEvent) {
-        elegirCarta( jugadorQueJuega.obtenerCartasEnMano().get(0));
+        elegirCarta(jugadorQueJuega.obtenerCartasEnMano().get(0));
     }
 
     private void elegirCarta( Carta unaCarta) {
@@ -381,7 +381,7 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
     }
 
     public void jugarCarta3(ActionEvent actionEvent) {
-        elegirCarta( jugadorQueJuega.obtenerCartasEnMano().get(2));
+        elegirCarta(jugadorQueJuega.obtenerCartasEnMano().get(2));
     }
 
     public void cantarTruco(ActionEvent actionEvent) {
@@ -656,6 +656,9 @@ public class ControlPantalla2Jugadores implements Initializable, ControladorDePa
 
     }
 
-
+    @FXML
+    public void irASobreNosotros(ActionEvent actionEvent) {
+        miControlador.setearPantalla(FrameworkDePantalla.obtenerPantallaSobreNosotros());
+    }
 }
 

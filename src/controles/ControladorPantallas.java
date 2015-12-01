@@ -23,6 +23,7 @@ import java.util.HashMap;
 public class ControladorPantallas extends StackPane{
 
     private HashMap<String,Node> pantallas = new HashMap<>();
+    private  ControladorDePantallas myScreenControler;
 
     public ControladorPantallas(){
         super();
@@ -38,7 +39,7 @@ public class ControladorPantallas extends StackPane{
         try {
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource(recurso));
             Parent loadScreen =  myLoader.load();
-            ControladorDePantallas myScreenControler =  myLoader.getController();
+            myScreenControler =  myLoader.getController();
             myScreenControler.setearPadreDePantalla(this);
             agregarPantalla(nombre, loadScreen);
             return true;
@@ -49,6 +50,7 @@ public class ControladorPantallas extends StackPane{
     }
 
     public boolean setearPantalla(String nombre){
+        obtenerControlPantalla2Jugadores().setearPadreDePantalla(this);
         if (pantallas.get(nombre) != null) {
             return hacerFadeIn(nombre);
         } else {
@@ -90,6 +92,17 @@ public class ControladorPantallas extends StackPane{
 
     public ControlPantallaInicial obtenerControlPantallaInicial(){
         URL lugar = getClass().getResource("/vista/PantallaInicial.fxml");
+        FXMLLoader myLoader = new FXMLLoader();
+        try{
+            Parent raiz = myLoader.load(lugar.openStream());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return myLoader.getController();
+    }
+
+    public ControlPantalla2Jugadores obtenerControlPantalla2Jugadores(){
+        URL lugar = getClass().getResource("/vista/Pantalla2Jugadores.fxml");
         FXMLLoader myLoader = new FXMLLoader();
         try{
             Parent raiz = myLoader.load(lugar.openStream());

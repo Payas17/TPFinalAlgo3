@@ -33,4 +33,9 @@ public class ControlPantalla6Jugadores implements Initializable,ControladorDePan
     public void setearPadreDePantalla(ControladorPantallas pantallaPadre) {
         miControlador=pantallaPadre;
     }
+
+    @FXML
+    public void irASobreNosotros(ActionEvent actionEvent) {
+        miControlador.setearPantalla(FrameworkDePantalla.obtenerPantallaSobreNosotros());
+    }
 }

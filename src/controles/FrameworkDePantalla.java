@@ -18,6 +18,9 @@ public class FrameworkDePantalla extends Application {
     private static String pantalla4JugadoresArchivo = "/vista/Pantalla4Jugadores.fxml";
     private static String pantalla6Jugadores = "pantalla6Jugadores";
     private static String pantalla6JugadoresArchivo = "/vista/Pantalla6Jugadores.fxml";
+    private static String sobreNosotros = "sobreNosotros";
+    private static String sobreNosotrosArchivo = "/vista/SobreNosotros.fxml";
+
     private static Stage primaryStage;
 
     public static String obtenerPantallaInicial(){
@@ -32,6 +35,8 @@ public class FrameworkDePantalla extends Application {
     public static String obtenerPantalla6Jugadores(){
         return pantalla6Jugadores;
     }
+    public static String obtenerPantallaSobreNosotros() {return sobreNosotros;
+    }
 
    @Override
     public void start(Stage primaryStage) throws Exception {
@@ -41,6 +46,7 @@ public class FrameworkDePantalla extends Application {
         contenedorPrincipal.cargarPantalla(pantalla2Jugadores, pantalla2JugadoresArchivo);
         contenedorPrincipal.cargarPantalla(pantalla4Jugadores, pantalla4JugadoresArchivo);
         contenedorPrincipal.cargarPantalla(pantalla6Jugadores, pantalla6JugadoresArchivo);
+        contenedorPrincipal.cargarPantalla(sobreNosotros,sobreNosotrosArchivo);
 
 
         contenedorPrincipal.setearPantalla(FrameworkDePantalla.pantallaInicial);
@@ -62,4 +68,6 @@ public class FrameworkDePantalla extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+
 }

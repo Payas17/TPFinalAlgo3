@@ -9,4 +9,6 @@ public interface ControladorDePantallas {
 
     void setearPadreDePantalla(ControladorPantallas unaPantalla);
 
+
+
 }
