@@ -1,6 +1,7 @@
 package controles;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
@@ -16,9 +17,11 @@ public class ControlSobreNosotros extends ControladorDePantallas implements Init
 
     }
 
+    @FXML
     @Override
     void irAPantallaInicial(ActionEvent actionEvent) {
 
+        miControlador.setearPantalla(FrameworkDePantalla.obtenerPantallaInicial());
     }
 
     @Override

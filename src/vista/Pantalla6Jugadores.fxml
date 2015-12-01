@@ -21,7 +21,10 @@
                   </MenuItem>
             </items>
           </Menu>
-          <Menu fx:id="nosotros" mnemonicParsing="false" onAction="#irASobreNosotros" text="Sobre Nosotros" />
+          <Menu fx:id="nosotros" mnemonicParsing="false"  text="Sobre Nosotros">
+               <items>
+                  <MenuItem fx:id="nuevaPartida1" mnemonicParsing="false" onAction="#irAInfo" text="Informacion" />
+               </items></Menu>
         </menus>
       </MenuBar>
       <RadioButton fx:id="rdJugador4" layoutX="645.0" layoutY="80.0" mnemonicParsing="false" text="Turno Jugador 4">

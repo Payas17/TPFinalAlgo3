@@ -37,6 +37,10 @@ public abstract class ControladorDePantallas implements Initializable {
     @FXML
     protected RadioButton rdJugador3;
     @FXML
+    protected RadioButton rdJugador5;
+    @FXML
+    protected RadioButton rdJugador6;
+    @FXML
     protected Button carta1;
     @FXML
     protected Button carta2;
@@ -123,17 +127,14 @@ public abstract class ControladorDePantallas implements Initializable {
     @FXML
     public Label tantoJugador3;
     @FXML
+    protected VBox VboxJ5;
+    @FXML
+    protected VBox VboxJ6;
+    @FXML
     public Label tantoJugador5;
     @FXML
     public Label tantoJugador6;
-    @FXML
-    public RadioButton rdJugador5;
-    @FXML
-    public RadioButton rdJugador6;
-    @FXML
-    public VBox VboxJ6;
-    @FXML
-    public VBox VboxJ5;
+
 
 
     protected Partida partida;

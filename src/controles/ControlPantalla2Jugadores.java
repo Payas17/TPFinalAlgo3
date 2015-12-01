@@ -92,15 +92,16 @@ public class ControlPantalla2Jugadores extends ControladorDePantallas {
         estadoJugador.setText(jugador1.obtenerEstado().getClass().getSimpleName());
     }
 
+    @FXML
     @Override
     public void irAPantallaInicial(ActionEvent actionEvent) {
         seteoDePartida();
         miControlador.setearPantalla(FrameworkDePantalla.obtenerPantallaInicial());
     }
 
-
-    public void irASobreNosotros(ActionEvent actionEvent) {
-
+    @FXML
+    public void irAInfo(ActionEvent actionEvent) {
+        miControlador.setearPantalla(FrameworkDePantalla.obtenerPantallaSobreNosotros());
     }
 }
 

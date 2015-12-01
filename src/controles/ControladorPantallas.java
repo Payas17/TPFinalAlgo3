@@ -50,7 +50,6 @@ public class ControladorPantallas extends StackPane{
     }
 
     public boolean setearPantalla(String nombre){
-        obtenerControlPantalla2Jugadores().setearPadreDePantalla(this);
         if (pantallas.get(nombre) != null) {
             return hacerFadeIn(nombre);
         } else {
