@@ -149,6 +149,7 @@ public class Jugada {
             terminarJugada();
         } else {
             cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
+            cambiarEstadoTruco(new EstadoSinTruco());
         }
     }
 
@@ -159,6 +160,7 @@ public class Jugada {
             terminarJugada();
         } else {
             cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
+            cambiarEstadoTruco(new EstadoSinTruco());
         }
     }
 

@@ -21,8 +21,7 @@ public class EstadoRealEnvido implements EstadoDeEnvido {
 
     @Override
     public void cantarRealEnvido(Jugada jugada) {
-        jugada.sumarPuntosEnvido(jugada.obtenerEstadoEnvido().obtenerPuntos());
-        jugada.cambiarEstadoEnvido(new EstadoRealEnvidoRealEnvido());
+        throw new NoSePuedeCantarEsoError();
     }
 
     @Override

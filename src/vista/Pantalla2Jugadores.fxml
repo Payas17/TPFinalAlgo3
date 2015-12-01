@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.input.*?>
@@ -33,15 +33,15 @@
          <font>
             <Font name="Bebas" size="12.0" />
          </font></Button>
-      <Button fx:id="botonEnvido" layoutX="23.0" layoutY="250.0" mnemonicParsing="false" text="Cantar  Envido">
+      <Button fx:id="botonEnvido" layoutX="23.0" layoutY="250.0" mnemonicParsing="false" onAction="#cantarEnvido" text="Cantar  Envido">
          <font>
             <Font name="Bebas" size="12.0" />
          </font></Button>
-      <Button fx:id="botonRealEnvido" layoutX="23.0" layoutY="295.0" mnemonicParsing="false" text="Cantar  Real Envido">
+      <Button fx:id="botonRealEnvido" layoutX="23.0" layoutY="295.0" mnemonicParsing="false" onAction="#cantarRealEnvido" text="Cantar  Real Envido">
          <font>
             <Font name="Bebas" size="12.0" />
          </font></Button>
-      <Button fx:id="botonFaltaEnvido" layoutX="23.0" layoutY="340.0" mnemonicParsing="false" text="Cantar Falta Envido">
+      <Button fx:id="botonFaltaEnvido" layoutX="23.0" layoutY="340.0" mnemonicParsing="false" onAction="#cantarFaltaEnvido" text="Cantar Falta Envido">
          <font>
             <Font name="Bebas" size="12.0" />
          </font></Button>
@@ -122,8 +122,8 @@
       </Button>
       <Button fx:id="botonAceptarTruco" layoutX="191.0" layoutY="144.0" mnemonicParsing="false" onAction="#aceptarTruco" text="Aceptar Truco" textFill="#0bda04" />
       <Button fx:id="botonNoAceptarTruco" layoutX="185.0" layoutY="185.0" mnemonicParsing="false" onAction="#noAceptarTruco" text="No Aceptar Truco" textFill="#e80d0d" />
-      <Button fx:id="botonAceptarEnvido" layoutX="193.0" layoutY="283.0" mnemonicParsing="false" text="Aceptar Envido" textFill="#0bda04" />
-      <Button fx:id="botonNoAceptarEnvido" layoutX="189.0" layoutY="328.0" mnemonicParsing="false" text="No Aceptar Envido" textFill="#e80d0d" />
+      <Button fx:id="botonAceptarEnvido" layoutX="193.0" layoutY="283.0" mnemonicParsing="false" onAction="#aceptarEnvido" text="Aceptar Envido" textFill="#0bda04" />
+      <Button fx:id="botonNoAceptarEnvido" layoutX="189.0" layoutY="328.0" mnemonicParsing="false" onAction="#noAceptarEnvido" text="No Aceptar Envido" textFill="#e80d0d" />
       <Button fx:id="botonReTruco" layoutX="24.0" layoutY="159.0" mnemonicParsing="false" onAction="#cantarReTruco" text="Cantar  ReTruco">
          <font>
             <Font name="Bebas" size="12.0" />

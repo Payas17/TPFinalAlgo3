@@ -25,7 +25,7 @@ public class ControlPantallaInicial implements Initializable,ControladorDePantal
     @Override
     public void setearPadreDePantalla(ControladorPantallas pantallaPadre) {
 
-        miControlador=pantallaPadre;
+        miControlador = pantallaPadre;
 
     }
 
@@ -46,7 +46,4 @@ public class ControlPantallaInicial implements Initializable,ControladorDePantal
         return rdFlor;
     }
 
-    public ControlPantallaInicial obtenerControlPantallaInicial(){
-        return this;
-    }
 }

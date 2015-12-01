@@ -172,7 +172,7 @@ public class PruebasEnvidoTest {
         Assert.assertEquals(jugada.obtenerEstadoEnvido().obtenerPuntos(), 3);
     }
 
-    @Test
+    @Test(expected = NoSePuedeCantarEsoError.class)
     public void testEquipo1CantaRealEnvidoEquipo2CantaRealEnvidoYElEstadoDeEnvidoEsRealEnvidoRealEnvido(){
 
         Jugador jugador1 = new Jugador();
@@ -192,7 +192,6 @@ public class PruebasEnvidoTest {
         jugador1.cantarRealEnvido(jugada);
         jugador2.cantarRealEnvido(jugada);
 
-        Assert.assertEquals(jugada.obtenerEstadoEnvido().getClass(), EstadoRealEnvidoRealEnvido.class);
     }
 
     @Test
@@ -697,7 +696,7 @@ public class PruebasEnvidoTest {
         jugador1.cantarContraFlor(jugada);
     }
 
-    @Test
+    @Test(expected = NoSePuedeCantarEsoError.class)
     public void tesRealEnvidoRealEnvidoFaltaEnvidoNoAceptarYEstadoDeEnvidoEsEstadoNoSePuedeCantarEnvido(){
 
         Jugador jugador1 = new Jugador();
@@ -725,10 +724,7 @@ public class PruebasEnvidoTest {
 
         jugador1.cantarRealEnvido(jugada);
         jugador2.cantarRealEnvido(jugada);
-        jugador1.cantarFaltaEnvido(jugada);
-        jugador2.noAceptarEnvido(jugada);
 
-        Assert.assertEquals(jugada.obtenerEstadoEnvido().getClass(), EstadoNoSePuedeCantarEnvido.class);
     }
 
     @Test(expected = NoSePuedeCantarEsoError.class)
@@ -829,7 +825,7 @@ public class PruebasEnvidoTest {
         jugador1.cantarRealEnvido(jugada);
     }
 
-    @Test
+    @Test(expected = NoSePuedeCantarEsoError.class)
     public void testRealEnvidoRealEnvidoNoAceptarYElEstadoDeEnvidoNoSePuedeCantarEnvido(){
 
         Jugador jugador1 = new Jugador();
@@ -848,12 +844,10 @@ public class PruebasEnvidoTest {
 
         jugador1.cantarRealEnvido(jugada);
         jugador2.cantarRealEnvido(jugada);
-        jugador1.noAceptarEnvido(jugada);
 
-        Assert.assertEquals(jugada.obtenerEstadoEnvido().getClass(), EstadoNoSePuedeCantarEnvido.class);
     }
 
-    @Test
+    @Test(expected = NoSePuedeCantarEsoError.class)
     public void testRealEnvidoRealEnvidoYEstadoEnvidoEsEstadoRealEnvidoRealEnvido(){
 
         Jugador jugador1 = new Jugador();
@@ -881,7 +875,6 @@ public class PruebasEnvidoTest {
         jugador1.cantarRealEnvido(jugada);
         jugador2.cantarRealEnvido(jugada);
 
-        Assert.assertEquals(jugada.obtenerEstadoEnvido().getClass(),EstadoRealEnvidoRealEnvido.class);
     }
 
     @Test(expected = NoSePuedeCantarEsoError.class)

@@ -12,13 +12,13 @@
             <Font name="Symbol" size="36.0" />
          </font>
       </Label>
-      <RadioButton fx:id="rdFlor" layoutX="361.0" layoutY="222.0" mnemonicParsing="false" selected="true" text="Jugar con Flor">
+      <RadioButton fx:id="rdFlor" layoutX="361.0" layoutY="222.0" mnemonicParsing="false" selected="false" text="Jugar con Flor">
          <toggleGroup>
             <ToggleGroup fx:id="flor" />
          </toggleGroup></RadioButton>
       <Button layoutX="191.0" layoutY="272.0" mnemonicParsing="false" onAction="#irAPantalla6Jugadores" text="6 jugadores" />
       <Button layoutX="191.0" layoutY="218.0" mnemonicParsing="false" onAction="#irAPantalla4Jugadores" text="4 Jugadores" />
       <Button layoutX="191.0" layoutY="168.0" mnemonicParsing="false" onAction="#irAPantalla2Jugadores" text="2 Jugadores" />
-      <RadioButton fx:id="rdSinFlor" layoutX="361.0" layoutY="264.0" mnemonicParsing="false" text="Jugar sin Flor" toggleGroup="$flor" />
+      <RadioButton fx:id="rdSinFlor" layoutX="361.0" layoutY="264.0" mnemonicParsing="false" selected="false" text="Jugar sin Flor" toggleGroup="$flor" />
    </children>
 </AnchorPane>
