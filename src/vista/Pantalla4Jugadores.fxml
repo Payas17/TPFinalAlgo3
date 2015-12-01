@@ -7,7 +7,7 @@
 <?import javafx.scene.input.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:id="Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.ControlPantalla2Jugadores">
+<Pane fx:id="Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.ControlPantalla4Jugadores">
    <children>
       <MenuBar fx:id="mbMenu" layoutY="2.0" prefHeight="25.0" prefWidth="1000.0">
          <menus>
@@ -24,12 +24,12 @@
             <Menu fx:id="nosotros" mnemonicParsing="false" text="Sobre Nosotros" />
          </menus>
       </MenuBar>
-      <RadioButton fx:id="rdJugador4" layoutX="761.0" layoutY="121.0" mnemonicParsing="false" text="Turno Jugador 4">
+      <RadioButton fx:id="rdJugador4" layoutX="380.0" layoutY="126.0" mnemonicParsing="false" text="Turno Jugador 4">
          <toggleGroup>
             <ToggleGroup fx:id="turno" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="rdJugador3" layoutX="753.0" layoutY="423.0" mnemonicParsing="false" text="Turno Jugador 3" toggleGroup="$turno" />
-      <RadioButton fx:id="rdJugador2" layoutX="363.0" layoutY="121.0" mnemonicParsing="false" text="Turno Jugador 2" toggleGroup="$turno" />
+      <RadioButton fx:id="rdJugador3" layoutX="689.0" layoutY="132.0" mnemonicParsing="false" text="Turno Jugador 3" toggleGroup="$turno" />
+      <RadioButton fx:id="rdJugador2" layoutX="684.0" layoutY="426.0" mnemonicParsing="false" text="Turno Jugador 2" toggleGroup="$turno" />
       <RadioButton fx:id="rdJugador1" layoutX="369.0" layoutY="423.0" mnemonicParsing="false" selected="true" text="Turno Jugador 1" toggleGroup="$turno" />
       <Button fx:id="botonNoAceptarFlor" layoutX="207.0" layoutY="447.0" mnemonicParsing="false" text="No Aceptar Flor" textFill="#e80d0d" />
       <Button fx:id="botonAceptarFlor" layoutX="210.0" layoutY="406.0" mnemonicParsing="false" text="Aceptar Flor" textFill="#0bda04" />
@@ -90,7 +90,7 @@
          </font>
       </Button>
       <Separator layoutX="321.0" layoutY="25.0" orientation="VERTICAL" prefHeight="676.0" prefWidth="3.0" />
-      <VBox fx:id="VboxJ2" alignment="CENTER" layoutX="358.0" layoutY="188.0" prefHeight="78.0" prefWidth="151.0">
+      <VBox fx:id="VboxJ2" alignment="CENTER" layoutX="659.0" layoutY="330.0" prefHeight="78.0" prefWidth="151.0">
          <children>
             <Label fx:id="cartaEnJuego3J21" text="?" textFill="#0d00ff" textOverrun="CLIP">
                <font>
@@ -128,7 +128,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="VboxJ4" alignment="CENTER" layoutX="739.0" layoutY="180.0" prefHeight="78.0" prefWidth="151.0">
+      <VBox fx:id="VboxJ4" alignment="CENTER" layoutX="358.0" layoutY="185.0" prefHeight="78.0" prefWidth="151.0">
          <children>
             <Label fx:id="cartaEnJuego3J22" text="?" textFill="#0d00ff" textOverrun="CLIP">
                <font>
@@ -147,7 +147,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="VboxJ3" alignment="CENTER" layoutX="739.0" layoutY="311.0" prefHeight="78.0" prefWidth="151.0">
+      <VBox fx:id="VboxJ3" alignment="CENTER" layoutX="662.0" layoutY="185.0" prefHeight="78.0" prefWidth="151.0">
          <children>
             <Label fx:id="cartaEnJuego3J23" text="?" textFill="#0d00ff" textOverrun="CLIP">
                <font>
@@ -166,14 +166,14 @@
             </Label>
          </children>
       </VBox>
-      <Label fx:id="tantoJugador2" layoutX="430.0" layoutY="154.0" prefHeight="17.0" prefWidth="47.0" />
-      <Label layoutX="384.0" layoutY="154.0" text="Tanto:" />
+      <Label fx:id="tantoJugador2" layoutX="751.0" layoutY="459.0" prefHeight="17.0" prefWidth="47.0" />
+      <Label layoutX="705.0" layoutY="459.0" text="Tanto:" />
       <Label fx:id="tantoJugador1" layoutX="422.0" layoutY="451.0" prefHeight="17.0" prefWidth="47.0" />
       <Label layoutX="376.0" layoutY="451.0" text="Tanto:" />
-      <Label fx:id="tantoJugador4" layoutX="812.0" layoutY="154.0" prefHeight="17.0" prefWidth="47.0" />
-      <Label layoutX="766.0" layoutY="154.0" text="Tanto:" />
-      <Label fx:id="tantoJugador3" layoutX="812.0" layoutY="451.0" prefHeight="17.0" prefWidth="47.0" />
-      <Label layoutX="766.0" layoutY="451.0" text="Tanto:" />
+      <Label fx:id="tantoJugador4" layoutX="431.0" layoutY="159.0" prefHeight="17.0" prefWidth="47.0" />
+      <Label layoutX="385.0" layoutY="159.0" text="Tanto:" />
+      <Label fx:id="tantoJugador3" layoutX="748.0" layoutY="160.0" prefHeight="17.0" prefWidth="47.0" />
+      <Label layoutX="702.0" layoutY="160.0" text="Tanto:" />
       <Label fx:id="estadoJugada" layoutX="543.0" layoutY="84.0" prefHeight="17.0" prefWidth="101.0" />
       <Label fx:id="estadoJugador" layoutX="507.0" layoutY="56.0" prefHeight="17.0" prefWidth="248.0" />
       <Label layoutX="480.0" layoutY="84.0" prefHeight="17.0" prefWidth="93.0" text="Jugada:" />
@@ -185,5 +185,15 @@
       <Button fx:id="carta1" layoutX="358.0" layoutY="573.0" mnemonicParsing="false" onAction="#jugarCarta1" prefHeight="88.0" prefWidth="118.0" text="Carta1" />
       <Button fx:id="botonEsconderCartas" layoutX="808.0" layoutY="513.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="130.0" text="Esconder Cartas" />
       <Button fx:id="botonPasarTurno" layoutX="808.0" layoutY="604.0" mnemonicParsing="false" onAction="#pasarElTurno" prefHeight="64.0" prefWidth="130.0" text="Pasar el turno" />
+      <Label fx:id="lblEquipo2" contentDisplay="TOP" graphicTextGap="0.0" layoutX="100.0" layoutY="629.0" prefHeight="53.0" prefWidth="47.0" textAlignment="CENTER" textFill="#ee0a0a">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblEquipo1" contentDisplay="TOP" graphicTextGap="0.0" layoutX="20.0" layoutY="629.0" prefHeight="53.0" prefWidth="47.0" textAlignment="CENTER" textFill="#ee0a0a">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

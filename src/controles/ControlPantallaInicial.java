@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
 /**
  * Created by Augusto on 29/11/2015.
  */
-public class ControlPantallaInicial implements Initializable,ControladorDePantallas {
+public class ControlPantallaInicial extends ControladorDePantallas {
 
     private ControladorPantallas miControlador;
 
@@ -20,6 +20,11 @@ public class ControlPantallaInicial implements Initializable,ControladorDePantal
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+    }
+
+    @Override
+    void irAPantallaInicial(ActionEvent actionEvent) {
 
     }
 
@@ -43,8 +48,8 @@ public class ControlPantallaInicial implements Initializable,ControladorDePantal
         miControlador.setearPantalla(FrameworkDePantalla.obtenerPantalla6Jugadores());
     }
 
-    public RadioButton obtenerBotonFlor() {
-        return rdFlor;
-    }
+   // public RadioButton obtenerBotonFlor() {
+  //      return rdFlor;
+  //  }
 
 }

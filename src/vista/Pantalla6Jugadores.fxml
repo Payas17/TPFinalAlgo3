@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:id="Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1168.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.ControlPantalla2Jugadores">
+<Pane fx:id="Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1168.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.ControlPantalla6Jugadores">
    <children>
       <MenuBar fx:id="mbMenu" layoutY="2.0" prefHeight="25.0" prefWidth="1168.0">
         <menus>
@@ -28,11 +28,11 @@
          <toggleGroup>
             <ToggleGroup fx:id="turno" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="rdJugador3" layoutX="369.0" layoutY="207.0" mnemonicParsing="false" text="Turno Jugador 3" toggleGroup="$turno" />
-      <RadioButton fx:id="rdJugador2" layoutX="369.0" layoutY="327.0" mnemonicParsing="false" text="Turno Jugador 2" toggleGroup="$turno" />
+      <RadioButton fx:id="rdJugador3" layoutX="991.0" layoutY="233.0" mnemonicParsing="false" text="Turno Jugador 3" toggleGroup="$turno" />
+      <RadioButton fx:id="rdJugador2" layoutX="991.0" layoutY="341.0" mnemonicParsing="false" text="Turno Jugador 2" toggleGroup="$turno" />
       <RadioButton fx:id="rdJugador1" layoutX="655.0" layoutY="458.0" mnemonicParsing="false" selected="true" text="Turno Jugador 1" toggleGroup="$turno" />
-      <RadioButton fx:id="rdJugador6" layoutX="921.0" layoutY="317.0" mnemonicParsing="false" text="Turno Jugador 6" toggleGroup="$turno" />
-      <RadioButton fx:id="rdJugador5" layoutX="913.0" layoutY="206.0" mnemonicParsing="false" text="Turno Jugador 5" toggleGroup="$turno" />
+      <RadioButton fx:id="rdJugador6" layoutX="375.0" layoutY="337.0" mnemonicParsing="false" text="Turno Jugador 6" toggleGroup="$turno" />
+      <RadioButton fx:id="rdJugador5" layoutX="377.0" layoutY="220.0" mnemonicParsing="false" text="Turno Jugador 5" toggleGroup="$turno" />
       <Button fx:id="botonNoAceptarFlor" layoutX="207.0" layoutY="447.0" mnemonicParsing="false" text="No Aceptar Flor" textFill="#e80d0d" />
       <Button fx:id="botonAceptarFlor" layoutX="210.0" layoutY="406.0" mnemonicParsing="false" text="Aceptar Flor" textFill="#0bda04" />
       <Button fx:id="botonValeCuatro" layoutX="34.0" layoutY="129.0" mnemonicParsing="false" onAction="#cantarVale4" text="Cantar Vale Cuatro">
@@ -115,16 +115,16 @@
       <Button fx:id="botonPasarTurno" layoutX="968.0" layoutY="584.0" mnemonicParsing="false" onAction="#pasarElTurno" prefHeight="64.0" prefWidth="130.0" text="Pasar el turno" />
       <Label fx:id="tantoJugador1" layoutX="705.0" layoutY="485.0" prefHeight="17.0" prefWidth="47.0" />
       <Label layoutX="666.0" layoutY="485.0" text="Tanto:" />
-      <Label fx:id="tantoJugador2" layoutX="419.0" layoutY="358.0" prefHeight="17.0" prefWidth="47.0" />
-      <Label layoutX="380.0" layoutY="358.0" text="Tanto:" />
-      <Label fx:id="tantoJugador3" layoutX="415.0" layoutY="234.0" prefHeight="17.0" prefWidth="47.0" />
-      <Label layoutX="376.0" layoutY="234.0" text="Tanto:" />
+      <Label fx:id="tantoJugador2" layoutX="1041.0" layoutY="372.0" prefHeight="17.0" prefWidth="47.0" />
+      <Label layoutX="1002.0" layoutY="372.0" text="Tanto:" />
+      <Label fx:id="tantoJugador3" layoutX="1037.0" layoutY="260.0" prefHeight="17.0" prefWidth="47.0" />
+      <Label layoutX="998.0" layoutY="260.0" text="Tanto:" />
       <Label fx:id="tantoJugador4" layoutX="698.0" layoutY="105.0" prefHeight="17.0" prefWidth="47.0" />
       <Label layoutX="659.0" layoutY="105.0" text="Tanto:" />
-      <Label fx:id="tantoJugador5" layoutX="990.0" layoutY="233.0" prefHeight="17.0" prefWidth="47.0" />
-      <Label layoutX="951.0" layoutY="233.0" text="Tanto:" />
-      <Label fx:id="tantoJugador6" layoutX="991.0" layoutY="340.0" prefHeight="17.0" prefWidth="47.0" />
-      <Label layoutX="952.0" layoutY="340.0" text="Tanto:" />
+      <Label fx:id="tantoJugador5" layoutX="454.0" layoutY="247.0" prefHeight="17.0" prefWidth="47.0" />
+      <Label layoutX="415.0" layoutY="247.0" text="Tanto:" />
+      <Label fx:id="tantoJugador6" layoutX="445.0" layoutY="360.0" prefHeight="17.0" prefWidth="47.0" />
+      <Label layoutX="406.0" layoutY="360.0" text="Tanto:" />
       <VBox fx:id="VboxJ1" alignment="CENTER" layoutX="623.0" layoutY="363.0" prefHeight="78.0" prefWidth="151.0">
          <children>
             <Label fx:id="cartaEnJuego3J1" text="?" textFill="#0d00ff" textOverrun="CLIP">
@@ -144,7 +144,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="VboxJ2" alignment="CENTER" layoutX="502.0" layoutY="299.0" prefHeight="78.0" prefWidth="151.0">
+      <VBox fx:id="VboxJ2" alignment="CENTER" layoutX="814.0" layoutY="325.0" prefHeight="78.0" prefWidth="151.0">
          <children>
             <Label fx:id="cartaEnJuego3J2" text="?" textFill="#0d00ff" textOverrun="CLIP">
                <font>
@@ -163,7 +163,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="VboxJ3" alignment="CENTER" layoutX="502.0" layoutY="190.0" prefHeight="78.0" prefWidth="151.0">
+      <VBox fx:id="VboxJ3" alignment="CENTER" layoutX="814.0" layoutY="211.0" prefHeight="78.0" prefWidth="151.0">
          <children>
             <Label fx:id="cartaEnJuego3J3" text="?" textFill="#0d00ff" textOverrun="CLIP">
                <font>
@@ -201,7 +201,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="VboxJ6" alignment="CENTER" layoutX="745.0" layoutY="304.0" prefHeight="78.0" prefWidth="151.0">
+      <VBox fx:id="VboxJ6" alignment="CENTER" layoutX="479.0" layoutY="324.0" prefHeight="78.0" prefWidth="151.0">
          <children>
             <Label fx:id="cartaEnJuego3J6" text="?" textFill="#0d00ff" textOverrun="CLIP">
                <font>
@@ -220,7 +220,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="VboxJ5" alignment="CENTER" layoutX="745.0" layoutY="189.0" prefHeight="78.0" prefWidth="151.0">
+      <VBox fx:id="VboxJ5" alignment="CENTER" layoutX="479.0" layoutY="208.0" prefHeight="78.0" prefWidth="151.0">
          <children>
             <Label fx:id="cartaEnJuego3J5" text="?" textFill="#0d00ff" textOverrun="CLIP">
                <font>

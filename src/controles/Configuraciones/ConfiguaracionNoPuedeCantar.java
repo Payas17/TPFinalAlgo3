@@ -1,6 +1,7 @@
 package controles.Configuraciones;
 
 import controles.ControlPantalla2Jugadores;
+import controles.ControladorDePantallas;
 import modelo.EstadoTruco.EstadoReTruco;
 import modelo.EstadoTruco.EstadoSinTruco;
 import modelo.EstadoTruco.EstadoTruco;
@@ -11,7 +12,7 @@ import modelo.EstadoTruco.EstadoValeCuatro;
  */
 public class ConfiguaracionNoPuedeCantar implements Configuracion{
     @Override
-    public void setearConfiguaracionBotones(ControlPantalla2Jugadores control) {
+    public void setearConfiguaracionBotones(ControladorDePantallas control) {
 
         control.obtenerBotonTruco().setDisable(true);
         control.obtenerBotonReTruco().setDisable(true);
