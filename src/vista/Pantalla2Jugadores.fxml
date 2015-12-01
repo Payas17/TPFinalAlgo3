@@ -136,9 +136,9 @@
       </Button>
       <Button fx:id="botonAceptarFlor" layoutX="200.0" layoutY="396.0" mnemonicParsing="false" text="Aceptar Flor" textFill="#0bda04" />
       <Button fx:id="botonNoAceptarFlor" layoutX="197.0" layoutY="437.0" mnemonicParsing="false" text="No Aceptar Flor" textFill="#e80d0d" />
-      <Label layoutX="716.0" layoutY="83.0" text="JugadorQueJuega:" />
+      <Label layoutX="645.0" layoutY="83.0" text="JugadorQueJuega:" />
       <Label layoutX="716.0" layoutY="111.0" prefHeight="17.0" prefWidth="93.0" text="Jugada:" />
-      <Label fx:id="estadoJugador" layoutX="826.0" layoutY="83.0" prefHeight="17.0" prefWidth="98.0" />
+      <Label fx:id="estadoJugador" layoutX="743.0" layoutY="83.0" prefHeight="17.0" prefWidth="248.0" />
       <Label fx:id="estadoJugada" layoutX="779.0" layoutY="111.0" prefHeight="17.0" prefWidth="101.0" />
    </children>
 </Pane>

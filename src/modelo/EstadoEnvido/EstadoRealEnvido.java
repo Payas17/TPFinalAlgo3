@@ -31,7 +31,6 @@ public class EstadoRealEnvido implements EstadoDeEnvido {
         jugada.cambiarEstadoEnvido(new EstadoFaltaEnvido());
     }
 
-
     @Override
     public int obtenerPuntos() {
         return PUNTOS;
