@@ -638,13 +638,8 @@ public abstract class ControladorDePantallas implements Initializable {
     private void terminarPartida(ActionEvent actionEvent) {
         if (partida.estaTerminada()){
 
-            Stage ventana = new Stage();
-            Label ganador = new Label();
-            ganador.setText(partida.obtenerGanador().getNombre());
-            Scene scene = new Scene(ganador,300, 250);
-            ventana.setScene(scene);
-            ventana.show();
-            irAPantallaInicial(actionEvent);
+            miControlador.obtenerControlPantallaGanador().setearGanador(partida.obtenerGanador().getNombre());
+            miControlador.setearPantalla(FrameworkDePantalla.obtenerPantallaGanador());
         }
     }
 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.ControlPantallaGanador">
+   <children>
+      <Label layoutX="26.0" layoutY="20.0" prefHeight="119.0" prefWidth="582.0" text="FELICITACIONES" textFill="#cd1a8e">
+         <font>
+            <Font name="Tahoma" size="72.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblEquipoGanador" contentDisplay="CENTER" layoutX="145.0" layoutY="165.0" prefHeight="65.0" prefWidth="389.0">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="101.0" layoutY="263.0" prefHeight="92.0" prefWidth="465.0" text="HA GANADO LA PARTIDA" textFill="#cd1a8e">
+         <font>
+            <Font name="Tahoma" size="36.0" />
+         </font>
+      </Label>
+      <Button layoutX="257.0" layoutY="355.0" mnemonicParsing="false" onAction="#irAPantallaInicial" text="Volver al inicio" />
+   </children>
+</Pane>

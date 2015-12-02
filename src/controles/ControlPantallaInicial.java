@@ -63,4 +63,8 @@ public class ControlPantallaInicial extends ControladorDePantallas {
         miControlador.obtenerControlPantalla6Jugadores().setearSinFlor();
     }
 
+    @FXML
+    public void irASobreNosotros(ActionEvent actionEvent) {
+        miControlador.setearPantalla(FrameworkDePantalla.obtenerPantallaSobreNosotros());
+    }
 }
