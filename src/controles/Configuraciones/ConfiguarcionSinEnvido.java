@@ -9,6 +9,7 @@ import controles.ControladorDePantallas;
 public class ConfiguarcionSinEnvido implements Configuracion {
     @Override
     public void setearConfiguaracionBotones(ControladorDePantallas control) {
+        control.obtenerBotonNoAceptarEnvido().setDisable(true);
 
     }
 }

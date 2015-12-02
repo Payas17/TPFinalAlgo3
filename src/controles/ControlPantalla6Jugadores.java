@@ -22,14 +22,8 @@ import java.util.ResourceBundle;
 public class ControlPantalla6Jugadores extends ControladorDePantallas {
 
 
-    @Override
-    public void setearPadreDePantalla(ControladorPantallas pantallaPadre) {
 
-        miControlador=pantallaPadre;
-        seteoDePartida();
-    }
-
-    private void seteoDePartida() {
+    public void seteoDePartida() {
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
         Jugador jugador3 = new Jugador();
@@ -78,28 +72,11 @@ public class ControlPantalla6Jugadores extends ControladorDePantallas {
         mostrarCartasJugador(jugador1);
 
         botonPasarTurno.setDisable(true);
-        diccionarioConfiguracion.get(jugada.obtenerEstadoJugada().getClass().getSimpleName()).setearConfiguaracionBotones(this);
-        diccionarioConfiguracion.get(jugador1.obtenerEstado().getClass().getSimpleName()).setearConfiguaracionBotones(this);
+        setearJugadorQueDebeMostrar(jugador1);
+        jugadorQueContesta = jugador1;
 
-        // if (botonFlor.isSelected()) {
-        //      partida.jugarConFlor();
-        // }else{
-        //      this.botonFlor.setDisable(true);
-        //     botonContraFlor.setDisable(true);
-        //     botonContraFlorAlResto.setDisable(true);
-        //      botonAceptarFlor.setDisable(true);
-        //      botonNoAceptarFlor.setDisable(true);
-        // }
-        estadoJugada.setText(jugada.obtenerEstadoJugada().getClass().getSimpleName());
-        estadoJugador.setText(jugador1.obtenerEstado().getClass().getSimpleName());
     }
 
-    @FXML
-    @Override
-    public void irAPantallaInicial(ActionEvent actionEvent) {
-        seteoDePartida();
-        miControlador.setearPantalla(FrameworkDePantalla.obtenerPantallaInicial());
-    }
 
     @FXML
     public void irAInfo(ActionEvent actionEvent) {

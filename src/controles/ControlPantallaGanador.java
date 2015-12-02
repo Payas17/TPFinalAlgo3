@@ -12,9 +12,10 @@ public class ControlPantallaGanador extends ControladorDePantallas{
 @FXML
     public Label lblEquipoGanador;
 
+
     @Override
-    void setearPadreDePantalla(ControladorPantallas unaPantalla) {
-        miControlador = unaPantalla;
+    void seteoDePartida() {
+
     }
 
     @FXML

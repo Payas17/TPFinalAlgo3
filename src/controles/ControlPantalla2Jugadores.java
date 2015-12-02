@@ -38,7 +38,7 @@ public class ControlPantalla2Jugadores extends ControladorDePantallas {
         seteoDePartida();
     }
 
-    private void seteoDePartida() {
+    public void seteoDePartida() {
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
         List<Jugador> jugadores = new ArrayList<>();
@@ -75,18 +75,11 @@ public class ControlPantalla2Jugadores extends ControladorDePantallas {
         mostrarCartasJugador(jugador1);
 
         botonPasarTurno.setDisable(true);
-        diccionarioConfiguracion.get(jugada.obtenerEstadoJugada().getClass().getSimpleName()).setearConfiguaracionBotones(this);
-
-        estadoJugada.setText(jugada.obtenerEstadoJugada().getClass().getSimpleName());
-        estadoJugador.setText(jugador1.obtenerEstado().getClass().getSimpleName());
+        setearJugadorQueDebeMostrar(jugador1);
+        jugadorQueContesta = jugador1;
     }
 
-    @FXML
-    @Override
-    public void irAPantallaInicial(ActionEvent actionEvent) {
-        seteoDePartida();
-        miControlador.setearPantalla(FrameworkDePantalla.obtenerPantallaInicial());
-    }
+
 
     @FXML
     public void irAInfo(ActionEvent actionEvent) {

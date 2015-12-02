@@ -17,15 +17,14 @@ public class ControlSobreNosotros extends ControladorDePantallas implements Init
 
     }
 
-    @FXML
-    @Override
-    void irAPantallaInicial(ActionEvent actionEvent) {
-
-        miControlador.setearPantalla(FrameworkDePantalla.obtenerPantallaInicial());
-    }
 
     @Override
     public void setearPadreDePantalla(ControladorPantallas unaPantalla) {
         miControlador = unaPantalla;
+    }
+
+    @Override
+    void seteoDePartida() {
+
     }
 }

@@ -8,10 +8,7 @@ import modelo.EstadoEnvido.EstadoSinEnvido;
 import modelo.EstadoJugada.EstadoDeJugada;
 import modelo.EstadoJugada.EstadoJugadaTerminada;
 import modelo.EstadoJugada.EstadoPrimeraMano;
-import modelo.EstadoJugador.EstadoNoSeCantoNada;
-import modelo.EstadoJugador.EstadoSeCantoTrucoPrimeraMano;
-import modelo.EstadoJugador.EstadoPie;
-import modelo.EstadoJugador.EstadoYaJugoCarta;
+import modelo.EstadoJugador.*;
 import modelo.EstadoTruco.EstadoDeTruco;
 import modelo.EstadoTruco.EstadoSinTruco;
 import modelo.Jugador;
@@ -88,7 +85,7 @@ public class Jugada {
 
     private void estadoJugada(Mano mano) {
         for (Jugador jugador: ordenJugadores){
-            if (jugador.obtenerEstadoViejo().getClass() == EstadoPie.class || jugador.obtenerEstadoViejo().getClass() == EstadoSeCantoTrucoPrimeraMano.class){
+            if (jugador.obtenerEstadoViejo().getClass() == EstadoPie.class || jugador.obtenerEstadoViejo().getClass() == EstadoPuedeCantarTrucoPrimeraMano.class){
                 jugador.cambiarEstado(new EstadoNoSeCantoNada());
             }else{
                 jugador.cambiarEstado(jugador.obtenerEstadoViejo());

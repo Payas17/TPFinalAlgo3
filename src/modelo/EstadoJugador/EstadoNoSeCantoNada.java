@@ -26,7 +26,7 @@ public class EstadoNoSeCantoNada implements EstadoDeJugador {
         }
 
         for (Jugador jugador : equipoQuiere.obtenerIntegrantes()){
-            jugador.cambiarEstado(new EstadoSeCantoTrucoPrimeraMano());
+            jugador.cambiarEstado(new EstadoPuedeCantarTrucoPrimeraMano());
         }
     }
 

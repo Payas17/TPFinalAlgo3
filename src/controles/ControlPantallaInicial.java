@@ -23,15 +23,17 @@ public class ControlPantallaInicial extends ControladorDePantallas {
 
     }
 
-    @Override
-    void irAPantallaInicial(ActionEvent actionEvent) {
 
-    }
 
     @Override
     public void setearPadreDePantalla(ControladorPantallas pantallaPadre) {
 
         miControlador = pantallaPadre;
+
+    }
+
+    @Override
+    void seteoDePartida() {
 
     }
 
