@@ -61,6 +61,7 @@ public class ControlPantalla2Jugadores extends ControladorDePantallas {
 
         jugada = partida.crearJugada();
         jugadorQueJuega = jugador1;
+        jugadorQueContesta = jugador1;
         orden = jugada.obtenerOrdenJugadoresMesa();
 
         limpiarLabels();

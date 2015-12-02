@@ -277,6 +277,7 @@ public class Jugada {
 
     public void cantarContraFlor() {
         estadoEnvido.cantarContraFlor(this);
+        puntosEnvido = 6;
     }
 
     public void cantarContraFlorAlResto() {
@@ -286,6 +287,7 @@ public class Jugada {
     public void cantarFlor(Jugador jugador) {
         if (jugador.tieneFlor()){
             this.estadoEnvido.cantarFlor(this);
+            puntosEnvido = 3;
         }
         else{
             throw new NoTieneFlorError();
@@ -299,6 +301,7 @@ public class Jugada {
             terminarJugada();
         } else {
             cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
+            cambiarEstadoTruco(new EstadoSinTruco());
         }
     }
 
@@ -309,6 +312,7 @@ public class Jugada {
             terminarJugada();
         } else {
             cambiarEstadoEnvido(new EstadoNoSePuedeCantarEnvido());
+            cambiarEstadoTruco(new EstadoSinTruco());
         }
     }
 

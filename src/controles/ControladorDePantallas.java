@@ -6,21 +6,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import modelo.Carta.Carta;
 import modelo.EstadoJugador.EstadoPie;
 import modelo.EstadoJugador.EstadoPuedeCantarEnvido;
-import modelo.EstadoJugador.EstadoPuedeCantarTruco;
-import modelo.EstadoJugador.EstadoTieneElQuieroDelTruco;
 import modelo.Jugadas.Jugada;
 import modelo.Jugador;
 import modelo.Partida.Partida;
-
 import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
@@ -32,6 +27,8 @@ import java.util.ResourceBundle;
  */
 public abstract class ControladorDePantallas implements Initializable {
 
+    @FXML
+    public Button botonEsconderCartas;
     @FXML
     protected RadioButton rdJugador4;
     @FXML
@@ -263,6 +260,11 @@ public abstract class ControladorDePantallas implements Initializable {
     }
     protected void setearConfiguraciones() {
 
+
+        diccionarioConfiguracion.put("EstadoPuedeCantarFlor", new ConfiguarcionJugadoPuedeCantarFlor());
+        diccionarioConfiguracion.put("EstadoContraFlor", new ConfiguarcionJugadaContraFlor());
+        diccionarioConfiguracion.put("EstadoContraFlorAlResto", new ConfiguarcionJugadaContraFlorAlResto());
+        diccionarioConfiguracion.put("EstadoFlor", new ConfiguracionJugadaFlor());
         diccionarioConfiguracion.put("EstadoSeCantoTrucoPrimeraMano", new ConfiguarcionNoSeCantoNadaPrimeraMano());
         diccionarioConfiguracion.put("EstadoFaltaEnvido", new ConfiguarcionFaltaEnvido());
         diccionarioConfiguracion.put("EstadoRealEnvido", new ConfiguarcionRealEnvido());
@@ -460,6 +462,84 @@ public abstract class ControladorDePantallas implements Initializable {
 
     }
 
+    public void cantarFlor(ActionEvent actionEvent) {
+        for (Jugador jugador : jugada.obtenerEquipoQueContieneJugador(jugadorQueContesta).obtenerIntegrantes()){
+            if (jugador.tieneFlor()){
+                jugador.cambiarEstado(new EstadoPuedeCantarEnvido());
+                jugador.cantarFlor(jugada);
+                break;
+            }
+        }
+
+        jugadorQueContesta = jugada.obtenerEquipoQueNoContieneJugador(jugadorQueContesta).obtenerIntegrantes().get(0);
+        setearJugadorQueDebeMostrar(jugadorQueContesta);
+
+    }
+
+    public void cantarContraFlor(ActionEvent actionEvent) {
+        for (Jugador jugador : jugada.obtenerEquipoQueContieneJugador(jugadorQueContesta).obtenerIntegrantes()){
+            if (jugador.tieneFlor()){
+                jugador.cambiarEstado(new EstadoPuedeCantarEnvido());
+                jugador.cantarContraFlor(jugada);
+                break;
+            }
+        }
+        jugadorQueContesta = jugada.obtenerEquipoQueNoContieneJugador(jugadorQueContesta).obtenerIntegrantes().get(0);
+        setearJugadorQueDebeMostrar(jugadorQueContesta);
+    }
+
+    public void cantarContraFlorAlResto(ActionEvent actionEvent) {
+
+        for (Jugador jugador : jugada.obtenerEquipoQueContieneJugador(jugadorQueContesta).obtenerIntegrantes()){
+            if (jugador.tieneFlor()){
+                jugador.cambiarEstado(new EstadoPuedeCantarEnvido());
+                jugador.cantarContraFlorAlResto(jugada);
+                break;
+            }
+        }
+        jugadorQueContesta = jugada.obtenerEquipoQueNoContieneJugador(jugadorQueContesta).obtenerIntegrantes().get(0);
+        setearJugadorQueDebeMostrar(jugadorQueContesta);
+    }
+
+    public void aceptarFlor(ActionEvent actionEvent) {
+
+        for (Jugador jugador : jugada.obtenerEquipoQueContieneJugador(jugadorQueContesta).obtenerIntegrantes()){
+            if (jugador.tieneFlor()){
+                jugador.cambiarEstado(new EstadoPuedeCantarEnvido());
+                jugador.aceptarFlor(jugada);
+                break;
+            }
+        }
+        for(Jugador jugador: orden) {
+            if(jugador.tieneFlor())
+                diccionarioLabels.get(jugador).setText(String.valueOf(jugador.obtenerFlor()));
+        }
+        actualizarPuntos();
+        terminarPartida(actionEvent);
+        jugadorQueContesta = jugada.obtenerEquipoQueNoContieneJugador(jugadorQueContesta).obtenerIntegrantes().get(0);
+        setearJugadorQueDebeMostrar(jugadorQueJuega);
+    }
+
+    public void noAceptarFlor(ActionEvent actionEvent) {
+
+
+        jugadorQueContesta.noAceptarFlor(jugada);
+
+        actualizarPuntos();
+        terminarPartida(actionEvent);
+        jugadorQueContesta = jugada.obtenerEquipoQueNoContieneJugador(jugadorQueContesta).obtenerIntegrantes().get(0);
+        setearJugadorQueDebeMostrar(jugadorQueJuega);
+
+    }
+
+    public void esconderCartas(ActionEvent actionEvent) {
+
+        carta1.setText("");
+        carta2.setText("");
+        carta3.setText("");
+
+    }
+
     private void actualizacionDeJugador(Jugador jugadorQueJuega) {
         diccionarioJugadores.get(jugadorQueJuega).setDisable(false);
         diccionarioJugadores.get(jugadorQueJuega).setSelected(true);
@@ -486,7 +566,9 @@ public abstract class ControladorDePantallas implements Initializable {
 
     public void setearConFlor() {
         partida.jugarConFlor();
-        this.botonFlor.setDisable(false);
+        if (jugadorQueJuega.tieneFlor() && jugadorQueJuega.obtenerEstado().getClass() == EstadoPie.class) {
+            obtenerBotonFlor().setDisable(false);
+        }
 
     }
 
@@ -633,4 +715,15 @@ public abstract class ControladorDePantallas implements Initializable {
     public Button obtenerBotonPasarTurno(){
         return botonPasarTurno;
     }
+
+    public Jugador obtenerJugadorQueContesta(){
+
+        return jugadorQueContesta;
+    }
+
+    public Partida obtenerPartida(){
+        return partida;
+    }
+
+
 }

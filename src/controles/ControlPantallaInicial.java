@@ -18,11 +18,6 @@ public class ControlPantallaInicial extends ControladorDePantallas {
 
     @FXML private RadioButton rdFlor;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
-
 
 
     @Override

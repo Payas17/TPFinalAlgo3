@@ -12,11 +12,6 @@ import java.util.ResourceBundle;
  */
 public class ControlSobreNosotros extends ControladorDePantallas implements Initializable {
     ControladorPantallas miControlador;
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
-
 
     @Override
     public void setearPadreDePantalla(ControladorPantallas unaPantalla) {

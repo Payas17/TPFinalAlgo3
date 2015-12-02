@@ -28,6 +28,7 @@ public class EstadoContraFlorAlResto implements EstadoDeEnvido {
 
     @Override
     public int obtenerPuntos() {
+
         return 0;
     }
 
@@ -54,7 +55,7 @@ public class EstadoContraFlorAlResto implements EstadoDeEnvido {
 
     @Override
     public void noAceptarFlor(Equipo equipo, Jugada jugada) {
-        equipo.sumarPuntos(jugada.obtenerEstadoEnvido().obtenerPuntos());
+        equipo.sumarPuntos(jugada.obtenerPuntosEnvido());
     }
 
     @Override

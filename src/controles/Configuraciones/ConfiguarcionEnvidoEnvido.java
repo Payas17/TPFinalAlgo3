@@ -17,5 +17,6 @@ public class ConfiguarcionEnvidoEnvido implements Configuracion {
         control.obtenerBotonNoAceptarEnvido().setDisable(false);
         control.desactivarBotonesCarta(true);
         control.obtenerBotonFlor().setDisable(true);
+        control.desactivarBotonesTruco();
     }
 }

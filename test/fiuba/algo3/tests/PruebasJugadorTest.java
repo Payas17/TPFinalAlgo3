@@ -676,7 +676,7 @@ public class PruebasJugadorTest {
     }
 
 
-    @Test(expected = NoSePuedeCantarEsoError.class)
+    @Test(expected = SoloJugadorPiePuedeCantarError.class)
     public void testJugador1CantaFlorJugador2NoAceptaYCantaFaltaEnvidoEntoncesLanzaError(){
 
         Jugador jugador1 = new Jugador();
@@ -750,7 +750,7 @@ public class PruebasJugadorTest {
         jugador2.noAceptarEnvido(jugada);
     }
 
-    @Test(expected = NoSePuedeCantarEsoError.class)
+    @Test(expected = SoloJugadorPiePuedeCantarError.class)
     public void testJugador1CantaFlorJugador2NoAceptaYCantaFlorEntoncesLanzaError(){
 
         Jugador jugador1 = new Jugador();
@@ -787,7 +787,7 @@ public class PruebasJugadorTest {
         jugador2.cantarFlor(jugada);
     }
 
-    @Test(expected = NoSePuedeCantarEsoError.class)
+    @Test(expected = SoloJugadorPiePuedeCantarError.class)
     public void testJugador1CantaFlorJugador2NoAceptaYCantaContraFlorEntoncesLanzaError(){
 
         Jugador jugador1 = new Jugador();
@@ -824,7 +824,7 @@ public class PruebasJugadorTest {
         jugador2.cantarContraFlor(jugada);
     }
 
-    @Test(expected = NoSePuedeCantarEsoError.class)
+    @Test(expected = SoloJugadorPiePuedeCantarError.class)
     public void testJugador1CantaFlorJugador2NoAceptaYCantaContraFlorAlRestoEntoncesLanzaError(){
 
         Jugador jugador1 = new Jugador();

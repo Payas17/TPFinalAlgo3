@@ -34,11 +34,11 @@ public class EstadoPuedeCantarFlor implements EstadoDeJugador {
     @Override
     public void aceptar(Equipo equipoCanta, Equipo equipoQuiere) {
         for (Jugador jugador :equipoCanta.obtenerIntegrantes()){
-            jugador.cambiarEstado(new EstadoPie());
+            jugador.cambiarEstado(new EstadoNoSeCantoNada());
         }
 
         for (Jugador jugador : equipoQuiere.obtenerIntegrantes()){
-            jugador.cambiarEstado(new EstadoPie());
+            jugador.cambiarEstado(new EstadoNoSeCantoNada());
         }
 
     }

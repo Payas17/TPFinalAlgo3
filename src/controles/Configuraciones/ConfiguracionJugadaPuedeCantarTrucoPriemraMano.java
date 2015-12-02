@@ -2,6 +2,7 @@ package controles.Configuraciones;
 
 import controles.ControlPantalla2Jugadores;
 import controles.ControladorDePantallas;
+import modelo.Jugador;
 
 /**
  * Created by Payas on 30/11/2015.
@@ -25,8 +26,18 @@ public class ConfiguracionJugadaPuedeCantarTrucoPriemraMano implements Configura
         control.obtenerBotonNoAceptarFlor().setDisable(true);
         control.obtenerBotonNoAceptarEnvido().setDisable(true);
         control.obtenerBotonIrseAlMazo().setDisable(true);
-        //control.obtenerBotonFlor().setDisable(false);
         control.desactivarBotonesCarta(true);
         control.obtenerBotonPasarTurno().setDisable(true);
+        for(Jugador jugador: control.obtenerJugada().obtenerEquipoQueContieneJugador(control.obtenerJugadorQueContesta()).obtenerIntegrantes() ) {
+
+            if (jugador.tieneFlor()) {
+                control.obtenerBotonFlor().setDisable(false);
+                break;
+
+            } else {
+                control.obtenerBotonFlor().setDisable(true);
+
+            }
+        }
     }
 }

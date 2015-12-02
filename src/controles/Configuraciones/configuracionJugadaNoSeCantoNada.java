@@ -18,6 +18,7 @@ public class configuracionJugadaNoSeCantoNada implements Configuracion {
         control.obtenerBotonIrseAlMazo().setDisable(false);
         control.desactivarBotonesCarta(false);
         control.obtenerBotonPasarTurno().setDisable(true);
+        control.obtenerBotonFlor().setDisable(true);
     }
 
 }

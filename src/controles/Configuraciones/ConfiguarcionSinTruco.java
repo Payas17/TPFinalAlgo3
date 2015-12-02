@@ -10,7 +10,7 @@ public class ConfiguarcionSinTruco implements Configuracion {
     @Override
     public void setearConfiguaracionBotones(ControladorDePantallas control) {
 
-        control.obtenerBotonTruco().setDisable(false);
+       // control.obtenerBotonTruco().setDisable(false);
         control.obtenerBotonReTruco().setDisable(true);
         control.obtenerBotonVale4().setDisable(true);
         control.obtenerBotonAceptarTruco().setDisable(true);
