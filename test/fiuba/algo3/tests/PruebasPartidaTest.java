@@ -1412,8 +1412,8 @@ public class PruebasPartidaTest {
 
         partida.calcularPuntosPicaPica(jugadaPP2);
 
-        Assert.assertEquals(equipo1.obtenerPuntos(),12);
-        Assert.assertEquals(equipo2.obtenerPuntos(),3);
+        Assert.assertEquals(equipo1.obtenerPuntos(),5);
+        Assert.assertEquals(equipo2.obtenerPuntos(),10);
 
         //Nueva jugada pica pica
 
@@ -1434,8 +1434,8 @@ public class PruebasPartidaTest {
         jugador6.cantarTruco(jugadaPP3);
         jugador2.noAceptarTruco(jugadaPP3);
 
-        Assert.assertEquals(equipo1.obtenerPuntos(),12);
-        Assert.assertEquals(equipo2.obtenerPuntos(),3);
+        Assert.assertEquals(equipo1.obtenerPuntos(),5);
+        Assert.assertEquals(equipo2.obtenerPuntos(),10);
 
         jugador1.sacarCartas();
         jugador2.sacarCartas();
@@ -1484,7 +1484,9 @@ public class PruebasPartidaTest {
         jugada2.jugarMano();
 
         jugador5.cantarTruco(jugada2);
-        jugador6.noAceptarTruco(jugada2);
+        jugador1.cantarReTruco(jugada2);
+        jugador5.cantarValeCuatro(jugada2);
+        jugador1.noAceptarTruco(jugada2);
 
         jugador1.sacarCartas();
         jugador2.sacarCartas();
@@ -1494,8 +1496,8 @@ public class PruebasPartidaTest {
         jugador6.sacarCartas();
 
 
-        Assert.assertEquals(equipo1.obtenerPuntos(), 13);
-        Assert.assertEquals(equipo2.obtenerPuntos(), 3);
+        Assert.assertEquals(equipo1.obtenerPuntos(), 5);
+        Assert.assertEquals(equipo2.obtenerPuntos(), 13);
 
 
         //Termino partida normal arranca PICA PICA
@@ -1530,9 +1532,10 @@ public class PruebasPartidaTest {
 
         partida.calcularPuntosPicaPica(jugadaPP4);
 
-        Assert.assertEquals(equipo1.obtenerPuntos(), 23);
-        Assert.assertEquals(equipo2.obtenerPuntos(), 3);
+        Assert.assertEquals(equipo1.obtenerPuntos(), 15);
+        Assert.assertEquals(equipo2.obtenerPuntos(), 13);
 
+        equipo2.sumarPuntos(7);
         //Nuevo pica pica
         JugadaPicaPica jugadaPP5 = partida.crearJugadaPicaPica();
 
@@ -1564,8 +1567,8 @@ public class PruebasPartidaTest {
 
         partida.calcularPuntosPicaPica(jugadaPP5);
 
-        Assert.assertEquals(equipo1.obtenerPuntos(), 33);
-        Assert.assertEquals(equipo2.obtenerPuntos(), 3);
+        Assert.assertEquals(equipo1.obtenerPuntos(), 15);
+        Assert.assertEquals(equipo2.obtenerPuntos(), 30);
 
         Assert.assertEquals(partida.obtenerEstado().getClass(), EstadoPartidaTerminada.class);
 

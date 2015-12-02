@@ -21,6 +21,11 @@ public class JugadaPicaPica extends Jugada {
     }
 
     @Override
+    public void limpiarJugadores() {
+
+    }
+
+    @Override
     public void cantarFaltaEnvido() {
         this.estadoEnvido.cantarFaltaEnvidoPicaPica(this);
     }

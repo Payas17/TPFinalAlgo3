@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
  */
 public class ControlPantallaInicial extends ControladorDePantallas {
 
+    public RadioButton rdSinFlor;
     private ControladorPantallas miControlador;
 
     @FXML private RadioButton rdFlor;

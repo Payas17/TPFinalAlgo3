@@ -55,4 +55,8 @@ public class Equipo {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public void borrarPuntos() {
+        puntos = 0;
+    }
 }

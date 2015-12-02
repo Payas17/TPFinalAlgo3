@@ -8,6 +8,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.layout.VBox;
 import modelo.Equipo;
+import modelo.EstadoJugador.EstadoPuedeCantarEnvido;
+import modelo.Jugadas.Jugada;
+import modelo.Jugadas.JugadaPicaPica;
 import modelo.Jugador;
 import modelo.Partida.Partida;
 
@@ -22,6 +25,7 @@ import java.util.ResourceBundle;
 public class ControlPantalla6Jugadores extends ControladorDePantallas {
 
 
+    private int cantidadDePicaPica;
 
     public void seteoDePartida() {
         Jugador jugador1 = new Jugador();
@@ -74,6 +78,8 @@ public class ControlPantalla6Jugadores extends ControladorDePantallas {
         botonPasarTurno.setDisable(true);
         setearJugadorQueDebeMostrar(jugador1);
         jugadorQueContesta = jugador1;
+        cantidadDePicaPica =0;
+
 
     }
 
@@ -82,5 +88,100 @@ public class ControlPantalla6Jugadores extends ControladorDePantallas {
     public void irAInfo(ActionEvent actionEvent) {
         miControlador.setearPantalla(FrameworkDePantalla.obtenerPantallaSobreNosotros());
     }
+
+    @Override
+    public void terminaLaJugada(ActionEvent actionEvent) {
+        terminarPartida(actionEvent);
+        if (jugada.estaTerminada()) {
+
+            if(jugada.obtenerEquipo1().obtenerIntegrantes().size() == 1) {
+                partida.calcularPuntosPicaPica((JugadaPicaPica)jugada);
+                actualizarPuntos();
+            }
+            jugada.limpiarJugadores();
+            if ((partida.obtenerEquipo1().obtenerPuntos() >= 5 || (partida.obtenerEquipo2()).obtenerPuntos() >= 5) && (partida.obtenerEquipo1().obtenerPuntos() < 25 || (partida.obtenerEquipo2()).obtenerPuntos() < 25) && cantidadDePicaPica < 3) {
+
+                jugada = partida.crearJugadaPicaPica();
+                orden = jugada.obtenerOrdenJugadoresMano();
+                if (cantidadDePicaPica == 0){
+                    repartirCartas();
+                }
+                ((JugadaPicaPica) jugada).armarEquiposParaPicaPica(orden.get(cantidadDePicaPica), orden.get(cantidadDePicaPica + 3));
+                jugadorQueJuega = orden.get(cantidadDePicaPica);
+                orden = jugada.obtenerOrdenJugadoresMano();
+
+                cantidadDePicaPica ++;
+
+            } else {
+
+                jugada = partida.crearJugada();
+                if (cantidadDePicaPica == 3) {
+                    Jugador jugadorQuePongoUltimo = jugada.obtenerOrdenJugadoresMesa().remove(0);
+                    jugada.obtenerOrdenJugadoresMesa().add(jugadorQuePongoUltimo);
+                }
+                orden = jugada.obtenerOrdenJugadoresMesa();
+                turnoJugador = 0;
+                jugadorQueJuega = orden.get(turnoJugador);
+                repartirCartas();
+                cantidadDePicaPica = 0;
+            }
+
+
+            jugadorQueContesta = jugadorQueJuega;
+            limpiarLabels();
+
+            actualizacionDeJugador(jugadorQueJuega);
+            mostrarCartasJugador(jugadorQueJuega);
+
+        }
+    }
+
+    @Override
+    public void aceptarEnvido(ActionEvent actionEvent) {
+
+        super.aceptarEnvido(actionEvent);
+        if(jugada.obtenerEquipo1().obtenerIntegrantes().size() == 1) {
+            partida.calcularPuntosPicaPica((JugadaPicaPica)jugada);
+            actualizarPuntos();
+        }
+        //partida.borrarPuntosPicaPica(jugada);
+
+    }
+
+    public void noAceptarEnvido(ActionEvent actionEvent) {
+
+        super.noAceptarEnvido(actionEvent);
+        if(jugada.obtenerEquipo1().obtenerIntegrantes().size() == 1) {
+            partida.calcularPuntosPicaPica((JugadaPicaPica)jugada);
+            actualizarPuntos();
+        }
+       // partida.borrarPuntosPicaPica( jugada);
+
+    }
+
+    public void aceptarFlor(ActionEvent actionEvent) {
+
+        super.aceptarFlor(actionEvent);
+        if(jugada.obtenerEquipo1().obtenerIntegrantes().size() == 1) {
+            partida.calcularPuntosPicaPica((JugadaPicaPica)jugada);
+            actualizarPuntos();
+        }
+       // partida.borrarPuntosPicaPica( jugada);
+    }
+
+    public void noAceptarFlor(ActionEvent actionEvent) {
+
+        super.noAceptarFlor(actionEvent);
+        if(jugada.obtenerEquipo1().obtenerIntegrantes().size() == 1) {
+            partida.calcularPuntosPicaPica((JugadaPicaPica)jugada);
+            actualizarPuntos();
+        }
+       // partida.borrarPuntosPicaPica( jugada);
+
+    }
+
+
+
+
 
 }

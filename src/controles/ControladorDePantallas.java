@@ -261,6 +261,8 @@ public abstract class ControladorDePantallas implements Initializable {
     protected void setearConfiguraciones() {
 
 
+        diccionarioConfiguracion.put("EstadoContraFlorAlRestoPicaPica", new ConfiguarcionJugadaContraFlorAlResto());
+        diccionarioConfiguracion.put("EstadoFaltaEnvidoPicaPica", new ConfiguarcionFaltaEnvido());
         diccionarioConfiguracion.put("EstadoPuedeCantarFlor", new ConfiguarcionJugadoPuedeCantarFlor());
         diccionarioConfiguracion.put("EstadoContraFlor", new ConfiguarcionJugadaContraFlor());
         diccionarioConfiguracion.put("EstadoContraFlorAlResto", new ConfiguarcionJugadaContraFlorAlResto());
@@ -316,7 +318,7 @@ public abstract class ControladorDePantallas implements Initializable {
 
     }
 
-    private void terminaLaJugada(ActionEvent actionEvent) {
+    public void terminaLaJugada(ActionEvent actionEvent) {
         terminarPartida(actionEvent);
         if (jugada.estaTerminada()) {
 
@@ -335,7 +337,7 @@ public abstract class ControladorDePantallas implements Initializable {
         }
     }
 
-    private void terminarPartida(ActionEvent actionEvent) {
+    protected void terminarPartida(ActionEvent actionEvent) {
         if (partida.estaTerminada()){
 
             desactivarTodosLosBotones();
@@ -401,7 +403,7 @@ public abstract class ControladorDePantallas implements Initializable {
         jugadorQueContesta.noAceptarTruco(jugada);
         actualizarPuntos();
         terminaLaJugada(actionEvent);
-        jugadorQueJuega = orden.get(turnoJugador);
+      //  jugadorQueJuega = orden.get(turnoJugador);
         setearJugadorQueDebeMostrar(jugadorQueJuega);
 
 
@@ -412,7 +414,7 @@ public abstract class ControladorDePantallas implements Initializable {
         jugadorQueJuega.irseAlMazo(jugada);
         actualizarPuntos();
         terminaLaJugada(actionEvent);
-        jugadorQueJuega = orden.get(turnoJugador);
+       // jugadorQueJuega = orden.get(turnoJugador);
         setearJugadorQueDebeMostrar(jugadorQueJuega);
     }
 
@@ -540,7 +542,7 @@ public abstract class ControladorDePantallas implements Initializable {
 
     }
 
-    private void actualizacionDeJugador(Jugador jugadorQueJuega) {
+    protected void actualizacionDeJugador(Jugador jugadorQueJuega) {
         diccionarioJugadores.get(jugadorQueJuega).setDisable(false);
         diccionarioJugadores.get(jugadorQueJuega).setSelected(true);
 

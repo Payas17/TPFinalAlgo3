@@ -65,13 +65,26 @@ public class Partida {
     }
 
 
-    public void calcularPuntosPicaPica(Jugada jugada) {
-        equipo1.sumarPuntos(jugada.obtenerEquipo1().obtenerPuntos());
-        equipo2.sumarPuntos(jugada.obtenerEquipo2().obtenerPuntos());
+    public void calcularPuntosPicaPica(JugadaPicaPica jugada) {
+        if (equipo1.contieneJugador(jugada.obtenerEquipo1().obtenerIntegrantes().get(0))) {
+            equipo1.sumarPuntos(jugada.obtenerEquipo1().obtenerPuntos());
+            equipo2.sumarPuntos(jugada.obtenerEquipo2().obtenerPuntos());
+        }else{
+            equipo2.sumarPuntos(jugada.obtenerEquipo1().obtenerPuntos());
+            equipo1.sumarPuntos(jugada.obtenerEquipo2().obtenerPuntos());
+        }
 
         if (equipo1.obtenerPuntos() >= MAX_PUNTAJE_PARTIDA || equipo2.obtenerPuntos() >= MAX_PUNTAJE_PARTIDA ){
             cambiarEstado(new EstadoPartidaTerminada());
         }
+    }
+
+
+
+    public void borrarPuntosPicaPica(Jugada jugada){
+        jugada.obtenerEquipo1().borrarPuntos();
+        jugada.obtenerEquipo2().borrarPuntos();
+
     }
 
     public JugadaPicaPica crearJugadaPicaPica() {
