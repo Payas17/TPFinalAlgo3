@@ -115,6 +115,13 @@ public class Jugada {
     public void jugarMano() {
         Mano mano = new Mano(ordenJugadoresMano);
         estadoJugada(mano);
+        limpiarCartasEnJuegoJugadores();
+    }
+
+    private void limpiarCartasEnJuegoJugadores() {
+        for (Jugador jugador : ordenJugadores){
+            jugador.limpiarCartaEnJuego();
+        }
     }
 
 

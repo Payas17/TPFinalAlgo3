@@ -373,7 +373,6 @@ public abstract class ControladorDePantallas implements Initializable {
     }
 
     public void aceptarTruco(ActionEvent actionEvent) {
-
         jugadorQueContesta.aceptarTruco(jugada);
         setearJugadorQueDebeMostrar(jugadorQueJuega);
         desactivarBotonesCarta(false);

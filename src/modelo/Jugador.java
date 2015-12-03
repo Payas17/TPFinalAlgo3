@@ -164,6 +164,10 @@ public class Jugador {
         return cartas;
     }
 
+    public void limpiarCartaEnJuego(){
+        cartaEnJuego = null;
+    }
+
     public EstadoDeJugador obtenerEstado(){
         return estadoJugador;
     }
