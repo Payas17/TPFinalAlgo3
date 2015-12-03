@@ -27,6 +27,7 @@ public class ControlPantallaGanador extends ControladorDePantallas{
 
     @FXML
     public void setearGanador(String nombre) {
+
         lblEquipoGanador.setText(nombre);
     }
 }

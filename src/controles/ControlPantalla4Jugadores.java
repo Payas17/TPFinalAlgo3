@@ -58,19 +58,23 @@ public class ControlPantalla4Jugadores extends ControladorDePantallas {
         orden = jugada.obtenerOrdenJugadoresMesa();
 
         limpiarLabels();
-        desactivarBotonesCarta(false);
+        listaDeCartasJugadas = new ArrayList<>();
+
 
         lblMano.setText(diccionarioNombreJugadores.get(jugada.obtenerOrdenJugadoresMano().get(0)));
 
         partida.obtenerMazo().mezclar();
 
         repartirCartas();
+        desactivarBotonesCarta(false);
 
         mostrarCartasJugador(jugador1);
 
         botonPasarTurno.setDisable(true);
         setearJugadorQueDebeMostrar(jugador1);
         jugadorQueContesta = jugador1;
+        botonEsconderCartas.setDisable(true);
+
     }
 
 

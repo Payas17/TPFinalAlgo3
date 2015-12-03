@@ -53,6 +53,7 @@ public class ControladorPantallas extends StackPane{
     }
 
     public boolean setearPantalla(String nombre){
+        obtenerControlPantallaInicial().setearBotonEnSinFlor();
         if (pantallas.get(nombre) != null) {
             return hacerFadeIn(nombre);
         } else {

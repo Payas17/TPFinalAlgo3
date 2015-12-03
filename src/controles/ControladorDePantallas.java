@@ -144,6 +144,7 @@ public abstract class ControladorDePantallas implements Initializable {
     protected Map<Jugador, Label> diccionarioLabels;
     protected Map<Jugador, String> diccionarioNombreJugadores;
     protected Map< String, Configuracion> diccionarioConfiguracion;
+    protected List<Carta> listaDeCartasJugadas;
 
 
     public void setearPadreDePantalla(ControladorPantallas unaPantalla){
@@ -314,6 +315,7 @@ public abstract class ControladorDePantallas implements Initializable {
         jugadorQueJuega = orden.get(turnoJugador);
         jugadorQueContesta = jugadorQueJuega;
         setearJugadorQueDebeMostrar(jugadorQueJuega);
+        botonEsconderCartas.setDisable(true);
 
 
     }
@@ -539,6 +541,7 @@ public abstract class ControladorDePantallas implements Initializable {
         carta1.setText("");
         carta2.setText("");
         carta3.setText("");
+        botonEsconderCartas.setDisable(true);
 
     }
 
@@ -592,9 +595,20 @@ public abstract class ControladorDePantallas implements Initializable {
         carta1.setDisable(value);
         carta2.setDisable(value);
         carta3.setDisable(value);
+        if (listaDeCartasJugadas.contains(jugadorQueJuega.obtenerCartasEnMano().get(0))){
+            carta1.setDisable(true);
+        }
+        if (listaDeCartasJugadas.contains(jugadorQueJuega.obtenerCartasEnMano().get(1))){
+            carta2.setDisable(true);
+        }
+        if (listaDeCartasJugadas.contains(jugadorQueJuega.obtenerCartasEnMano().get(2))){
+            carta3.setDisable(true);
+        }
+
     }
 
     protected void mostrarCartasJugador(Jugador jugadorQueJuega) {
+
         carta1.setText(String.valueOf(jugadorQueJuega.obtenerCartasEnMano().get(0).obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartasEnMano().get(0).getClass().getSimpleName()));
         carta2.setText(String.valueOf(jugadorQueJuega.obtenerCartasEnMano().get(1).obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartasEnMano().get(1).getClass().getSimpleName()));
         carta3.setText(String.valueOf(jugadorQueJuega.obtenerCartasEnMano().get(2).obtenerNumeroDeCarta()) + " de " + (jugadorQueJuega.obtenerCartasEnMano().get(2).getClass().getSimpleName()));
@@ -636,7 +650,9 @@ public abstract class ControladorDePantallas implements Initializable {
         }
         desactivarBotonesCarta(true);
         desactivarTodosLosBotones();
+        botonEsconderCartas.setDisable(false);
         botonPasarTurno.setDisable(false);
+        listaDeCartasJugadas.add(unaCarta);
     }
 
     public void desactivarBotonesEnvido(){

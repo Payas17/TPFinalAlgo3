@@ -65,4 +65,9 @@ public class ControlPantallaInicial extends ControladorDePantallas {
     public void irASobreNosotros(ActionEvent actionEvent) {
         miControlador.setearPantalla(FrameworkDePantalla.obtenerPantallaSobreNosotros());
     }
+
+    public void setearBotonEnSinFlor(){
+        rdSinFlor.setSelected(true);
+        rdFlor.setSelected(false);
+    }
 }

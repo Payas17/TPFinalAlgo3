@@ -64,21 +64,24 @@ public class ControlPantalla6Jugadores extends ControladorDePantallas {
         jugadorQueJuega = jugador1;
         orden = jugada.obtenerOrdenJugadoresMesa();
 
+        listaDeCartasJugadas = new ArrayList<>();
         limpiarLabels();
-        desactivarBotonesCarta(false);
+
 
         lblMano.setText(diccionarioNombreJugadores.get(jugada.obtenerOrdenJugadoresMano().get(0)));
 
         partida.obtenerMazo().mezclar();
 
         repartirCartas();
-
+        desactivarBotonesCarta(false);
         mostrarCartasJugador(jugador1);
 
         botonPasarTurno.setDisable(true);
         setearJugadorQueDebeMostrar(jugador1);
         jugadorQueContesta = jugador1;
         cantidadDePicaPica =0;
+        botonEsconderCartas.setDisable(true);
+
 
 
     }
@@ -132,6 +135,7 @@ public class ControlPantalla6Jugadores extends ControladorDePantallas {
 
             actualizacionDeJugador(jugadorQueJuega);
             mostrarCartasJugador(jugadorQueJuega);
+            botonEsconderCartas.setDisable(true);
 
         }
     }
