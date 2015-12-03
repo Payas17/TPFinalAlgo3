@@ -840,57 +840,6 @@ public class PruebasJugadaTest {
         Assert.assertEquals(jugada.obtenerEquipoGanadorDeJugada(), equipo1);
     }
 
-    @Test(expected = JugadaTerminadaError.class)
-    public void testJugadaYaTerminadaDevuelveErrorSiSigueOtraMano(){
-
-        Jugador jugador1= new Jugador();
-        List<Jugador> jugadores = new ArrayList<>();
-        jugadores.add(jugador1);
-        Jugador jugador2 = new Jugador();
-        List<Jugador> jugadores2 = new ArrayList<>();
-        jugadores2.add(jugador2);
-        Equipo equipo1 = new Equipo(jugadores);
-        Equipo equipo2 = new Equipo(jugadores2);
-        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Partida partida = new Partida(equipo1,equipo2);
-
-        Jugada jugada = partida.crearJugada();
-
-        Carta espada10 = new Espada(10,valoresTrucoYEnvido);
-        Carta basto10 = new Basto(10,valoresTrucoYEnvido);
-
-        jugador1.agregarCarta(espada10);
-        jugador2.agregarCarta(basto10);
-
-        jugador1.juegaCarta(espada10);
-        jugador2.juegaCarta(basto10);
-
-        jugada.jugarMano();
-
-        Carta copa1 = new Copa(1,valoresTrucoYEnvido);
-        Carta oro1 = new Oro(1,valoresTrucoYEnvido);
-
-        jugador1.agregarCarta(copa1);
-        jugador2.agregarCarta(oro1);
-
-        jugador1.juegaCarta(copa1);
-        jugador2.juegaCarta(oro1);
-
-        jugada.jugarMano();
-
-        Carta copa2 = new Copa(2,valoresTrucoYEnvido);
-        Carta oro2 = new Oro(2,valoresTrucoYEnvido);
-
-        jugador1.agregarCarta(copa2);
-        jugador2.agregarCarta(oro2);
-
-        jugador1.juegaCarta(copa2);
-        jugador2.juegaCarta(oro2);
-
-        jugada.jugarMano();
-
-        jugada.jugarMano();
-    }
     @Test
     public void testEstanEmpatadosYEnTerceraEmpardanYGanaElJugadorQueHizoPrimera(){
 
