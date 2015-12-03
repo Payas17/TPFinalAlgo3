@@ -117,4 +117,9 @@ public class ControladorPantallas extends StackPane{
         FXMLLoader myLoader = diccionarioLoaders.get("/vista/PantallaGanador.fxml");
         return myLoader.getController();
     }
+
+    public ControlPantallaJugadorIA obtenerControlPantallaJugadorIA() {
+        FXMLLoader myLoader = diccionarioLoaders.get("/vista/PantallaJugadorIA.fxml");
+        return myLoader.getController();
+    }
 }

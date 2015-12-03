@@ -323,7 +323,7 @@ public abstract class ControladorDePantallas implements Initializable {
     public void terminaLaJugada(ActionEvent actionEvent) {
         terminarPartida(actionEvent);
         if (jugada.estaTerminada()) {
-
+            listaDeCartasJugadas.removeAll(listaDeCartasJugadas);
             jugada = partida.crearJugada();
             orden = jugada.obtenerOrdenJugadoresMesa();
             repartirCartas();
@@ -362,7 +362,7 @@ public abstract class ControladorDePantallas implements Initializable {
     }
 
     public void jugarCarta3(ActionEvent actionEvent) {
-        elegirCarta( jugadorQueJuega.obtenerCartasEnMano().get(2));
+        elegirCarta(jugadorQueJuega.obtenerCartasEnMano().get(2));
     }
 
     public void cantarTruco(ActionEvent actionEvent) {

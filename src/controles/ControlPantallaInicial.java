@@ -51,6 +51,7 @@ public class ControlPantallaInicial extends ControladorDePantallas {
         miControlador.obtenerControlPantalla2Jugadores().setearConFlor();
         miControlador.obtenerControlPantalla4Jugadores().setearConFlor();
         miControlador.obtenerControlPantalla6Jugadores().setearConFlor();
+        miControlador.obtenerControlPantallaJugadorIA().setearConFlor();
 
     }
 
@@ -59,6 +60,7 @@ public class ControlPantallaInicial extends ControladorDePantallas {
         miControlador.obtenerControlPantalla2Jugadores().setearSinFlor();
         miControlador.obtenerControlPantalla4Jugadores().setearSinFlor();
         miControlador.obtenerControlPantalla6Jugadores().setearSinFlor();
+        miControlador.obtenerControlPantallaJugadorIA().setearSinFlor();
     }
 
     @FXML
@@ -69,5 +71,9 @@ public class ControlPantallaInicial extends ControladorDePantallas {
     public void setearBotonEnSinFlor(){
         rdSinFlor.setSelected(true);
         rdFlor.setSelected(false);
+    }
+
+    public void irAPantallaJugadorIA(ActionEvent actionEvent) {
+        miControlador.setearPantalla(FrameworkDePantalla.obtenerPantallaJugadorIA());
     }
 }

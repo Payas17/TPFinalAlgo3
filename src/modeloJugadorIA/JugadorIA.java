@@ -77,7 +77,7 @@ public class JugadorIA {
     }
 
     public void cantar(Jugada jugada, Partida partida){
-        if (jugador.obtenerEstado().getClass() == EstadoNoSeCantoNada.class ||jugador.obtenerEstado().getClass() == EstadoPuedeCantarTruco.class ){
+        if (jugador.obtenerEstado().getClass() == EstadoNoSeCantoNada.class ||jugador.obtenerEstado().getClass() == EstadoPuedeCantarTruco.class ||jugador.obtenerEstado().getClass() == EstadoPuedeCantarTrucoPrimeraMano.class ){
             decisionCantoTruco(jugada);
         }
         else{
@@ -86,13 +86,13 @@ public class JugadorIA {
     }
 
     private void decisionCantoTruco(Jugada jugada) {
-        if (jugador.obtenerEstado().getClass() == EstadoPuedeCantarTruco.class) {
+        if (jugador.obtenerEstado().getClass() == EstadoPuedeCantarTruco.class || jugador.obtenerEstado().getClass() == EstadoPuedeCantarTrucoPrimeraMano.class) {
             List<Carta> cartas = obtenerCartasQueGananLaMano(obtenerMaxCartaEquipoRival(jugada));
-            if (cartas.size() == 2 && cartas.get(0).obtenerValorTruco() >= 9 && cartas.get(1).obtenerValorTruco() >= 9) {
+            //if (cartas.size() == 2 && cartas.get(0).obtenerValorTruco() >= 9 && cartas.get(1).obtenerValorTruco() >= 9) {
                 jugador.aceptarTruco(jugada);
-            } else {
-                jugador.noAceptarTruco(jugada);
-            }
+           // } else {
+            //    jugador.noAceptarTruco(jugada);
+           // }
         } else {
             jugador.cantarTruco(jugada);
         }
@@ -177,5 +177,11 @@ public class JugadorIA {
 
     public Carta obtenerCartaEnJuego() {
         return jugador.obtenerCartaEnJuego();
+    }
+
+    public Jugador obtenerJugador (){return jugador;}
+
+    public void limpiarCartas(){
+        cartasPorJugar.removeAll(cartasPorJugar);
     }
 }

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane fx:id="Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.ControlPantallaJugadorIA">
+   <children>
+      <MenuBar fx:id="mbMenu" layoutY="2.0" prefHeight="25.0" prefWidth="1000.0">
+         <menus>
+            <Menu fx:id="archivo" text="_Archivo">
+               <items>
+                  <MenuItem fx:id="nuevaPartida" mnemonicParsing="false" onAction="#irAPantallaInicial" text="Nueva Partida" />
+                  <MenuItem fx:id="salir" onAction="#accionSalir" text="_Salir">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="X" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+               </items>
+            </Menu>
+            <Menu fx:id="nosotros" mnemonicParsing="false" text="Sobre Nosotros">
+               <items>
+                  <MenuItem fx:id="nuevaPartida1" mnemonicParsing="false" onAction="#irAInfo" text="Informacion" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <Separator layoutX="312.0" layoutY="25.0" orientation="VERTICAL" prefHeight="676.0" prefWidth="3.0" />
+      <RadioButton fx:id="rdJugador2" layoutX="500.0" layoutY="189.0" mnemonicParsing="false" text="Turno Jugador 2" textFill="#010701">
+         <toggleGroup>
+            <ToggleGroup fx:id="turno" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rdJugador1" layoutX="500.0" layoutY="432.0" mnemonicParsing="false" pickOnBounds="false" selected="true" text="Turno Jugador 1" toggleGroup="$turno" />
+      <Button fx:id="botonTruco" layoutX="21.0" layoutY="204.0" mnemonicParsing="false" onAction="#cantarTruco" text="Cantar Truco">
+         <font>
+            <Font name="Bebas" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="botonEnvido" layoutX="23.0" layoutY="250.0" mnemonicParsing="false" onAction="#cantarEnvido" text="Cantar  Envido">
+         <font>
+            <Font name="Bebas" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="botonRealEnvido" layoutX="23.0" layoutY="295.0" mnemonicParsing="false" onAction="#cantarRealEnvido" text="Cantar  Real Envido">
+         <font>
+            <Font name="Bebas" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="botonFaltaEnvido" layoutX="23.0" layoutY="340.0" mnemonicParsing="false" onAction="#cantarFaltaEnvido" text="Cantar Falta Envido">
+         <font>
+            <Font name="Bebas" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="botonFlor" layoutX="20.0" layoutY="383.0" mnemonicParsing="false" onAction="#cantarFlor" text="Cantar Flor">
+         <font>
+            <Font name="Bebas" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="botonIrseAlMazo" layoutX="20.0" layoutY="505.0" mnemonicParsing="false" onAction="#irseAlMazo" text="Irse al mazo">
+         <font>
+            <Font name="Allstar Regular" size="17.0" />
+         </font>
+      </Button>
+      <Button fx:id="botonPasarTurno" layoutX="826.0" layoutY="596.0" mnemonicParsing="false" onAction="#pasarElTurno" prefHeight="64.0" prefWidth="130.0" text="Pasar el turno" />
+      <Label layoutX="10.0" layoutY="569.0" text="Equipo 1" />
+      <Label layoutX="90.0" layoutY="569.0" text="Maquina" />
+      <Label fx:id="lblEquipo1" contentDisplay="TOP" graphicTextGap="0.0" layoutX="10.0" layoutY="619.0" prefHeight="53.0" prefWidth="47.0" textAlignment="CENTER" textFill="#ee0a0a">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblEquipo2" contentDisplay="TOP" graphicTextGap="0.0" layoutX="90.0" layoutY="619.0" prefHeight="53.0" prefWidth="47.0" textAlignment="CENTER" textFill="#ee0a0a">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="botonEsconderCartas" layoutX="826.0" layoutY="505.0" mnemonicParsing="false" onAction="#esconderCartas" prefHeight="64.0" prefWidth="130.0" text="Esconder Cartas" />
+      <Label layoutX="775.0" layoutY="58.0" text="Mano: " />
+      <Label fx:id="lblMano" layoutX="813.0" layoutY="54.0" prefHeight="25.0" prefWidth="157.0" />
+      <Button fx:id="carta1" layoutX="376.0" layoutY="565.0" mnemonicParsing="false" onAction="#jugarCarta1" prefHeight="88.0" prefWidth="118.0" text="Carta1" />
+      <Button fx:id="carta2" layoutX="516.0" layoutY="565.0" mnemonicParsing="false" onAction="#jugarCarta2" prefHeight="88.0" prefWidth="108.0" text="Carta2" />
+      <Button fx:id="carta3" layoutX="657.0" layoutY="565.0" mnemonicParsing="false" onAction="#jugarCarta3" prefHeight="88.0" prefWidth="118.0" text="Carta3" />
+      <VBox fx:id="VboxJ1" alignment="CENTER" layoutX="473.0" layoutY="324.0" prefHeight="78.0" prefWidth="151.0">
+         <children>
+            <Label fx:id="cartaEnJuego3J1" text="?" textFill="#0d00ff" textOverrun="CLIP">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="cartaEnJuego2J1" text="?" textFill="#fa0000">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="cartaEnJuego1J1" text="?">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox fx:id="VboxJ2" alignment="CENTER" layoutX="473.0" layoutY="228.0" prefHeight="78.0" prefWidth="151.0">
+         <children>
+            <Label fx:id="cartaEnJuego3J2" text="?" textFill="#0d00ff" textOverrun="CLIP">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="cartaEnJuego2J2" text="?" textFill="#fa0000">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="cartaEnJuego1J2" text="?">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Button fx:id="botonContraFlor" layoutX="18.0" layoutY="420.0" mnemonicParsing="false" onAction="#cantarContraFlor" text="Cantar ContraFlor">
+         <font>
+            <Font name="Bebas" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="botonContraFlorAlResto" layoutX="17.0" layoutY="458.0" mnemonicParsing="false" onAction="#cantarContraFlorAlResto" text="Cantar Contra Flor Al Resto">
+         <font>
+            <Font name="Bebas" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="botonAceptarTruco" layoutX="191.0" layoutY="144.0" mnemonicParsing="false" onAction="#aceptarTruco" text="Aceptar Truco" textFill="#0bda04" />
+      <Button fx:id="botonNoAceptarTruco" layoutX="185.0" layoutY="185.0" mnemonicParsing="false" onAction="#noAceptarTruco" text="No Aceptar Truco" textFill="#e80d0d" />
+      <Button fx:id="botonAceptarEnvido" layoutX="193.0" layoutY="283.0" mnemonicParsing="false" onAction="#aceptarEnvido" text="Aceptar Envido" textFill="#0bda04" />
+      <Button fx:id="botonNoAceptarEnvido" layoutX="189.0" layoutY="328.0" mnemonicParsing="false" onAction="#noAceptarEnvido" text="No Aceptar Envido" textFill="#e80d0d" />
+      <Button fx:id="botonReTruco" layoutX="24.0" layoutY="159.0" mnemonicParsing="false" onAction="#cantarReTruco" text="Cantar  ReTruco">
+         <font>
+            <Font name="Bebas" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="botonValeCuatro" layoutX="24.0" layoutY="119.0" mnemonicParsing="false" onAction="#cantarVale4" text="Cantar Vale Cuatro">
+         <font>
+            <Font name="Bebas" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="botonAceptarFlor" layoutX="200.0" layoutY="396.0" mnemonicParsing="false" onAction="#aceptarFlor" text="Aceptar Flor" textFill="#0bda04" />
+      <Button fx:id="botonNoAceptarFlor" layoutX="197.0" layoutY="437.0" mnemonicParsing="false" onAction="#noAceptarFlor" text="No Aceptar Flor" textFill="#e80d0d" />
+      <Label layoutX="645.0" layoutY="83.0" text="JugadorQueJuega:" />
+      <Label layoutX="716.0" layoutY="111.0" prefHeight="17.0" prefWidth="93.0" text="Jugada:" />
+      <Label fx:id="estadoJugador" layoutX="743.0" layoutY="83.0" prefHeight="17.0" prefWidth="248.0" />
+      <Label fx:id="estadoJugada" layoutX="779.0" layoutY="111.0" prefHeight="17.0" prefWidth="101.0" />
+      <Label layoutX="508.0" layoutY="454.0" text="Tanto:" />
+      <Label layoutX="508.0" layoutY="163.0" text="Tanto:" />
+      <Label fx:id="tantoJugador2" layoutX="554.0" layoutY="163.0" prefHeight="17.0" prefWidth="47.0" />
+      <Label fx:id="tantoJugador1" layoutX="547.0" layoutY="454.0" prefHeight="17.0" prefWidth="47.0" />
+   </children>
+</Pane>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -20,5 +20,6 @@
       <Button layoutX="191.0" layoutY="218.0" mnemonicParsing="false" onAction="#irAPantalla4Jugadores" text="4 Jugadores" />
       <Button layoutX="191.0" layoutY="168.0" mnemonicParsing="false" onAction="#irAPantalla2Jugadores" text="2 Jugadores" />
       <RadioButton fx:id="rdSinFlor" layoutX="361.0" layoutY="264.0" mnemonicParsing="false" onAction="#partidaSinFlor" selected="true" text="Jugar sin Flor" toggleGroup="$flor" />
+      <Button layoutX="191.0" layoutY="320.0" mnemonicParsing="false" onAction="#irAPantallaJugadorIA" prefHeight="25.0" prefWidth="91.0" text="1 vs. Maquina" />
    </children>
 </AnchorPane>

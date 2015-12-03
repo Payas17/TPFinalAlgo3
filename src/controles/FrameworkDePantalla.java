@@ -22,6 +22,9 @@ public class FrameworkDePantalla extends Application {
     private static String sobreNosotrosArchivo = "/vista/SobreNosotros.fxml";
     private static String pantallaGanador= "pantallaGanador";
     private static String pantallaGanadorArchivo= "/vista/PantallaGanador.fxml";
+    private static String pantallaJugadorIA= "pantallaJugadorIA";
+    private static String pantallaJugadorIAArchivo= "/vista/PantallaJugadorIA.fxml";
+
 
 
     private static Stage primaryStage;
@@ -40,18 +43,21 @@ public class FrameworkDePantalla extends Application {
     }
     public static String obtenerPantallaSobreNosotros() {return sobreNosotros;}
     public static String obtenerPantallaGanador() {return pantallaGanador;}
+    public static String obtenerPantallaJugadorIA() {return pantallaJugadorIA;
+    }
 
 
    @Override
     public void start(Stage primaryStage) throws Exception {
        this.primaryStage = primaryStage;
         ControladorPantallas contenedorPrincipal = new ControladorPantallas();
-        contenedorPrincipal.cargarPantalla(pantallaInicial, pantallaInicialArchivo);
-        contenedorPrincipal.cargarPantalla(pantalla2Jugadores, pantalla2JugadoresArchivo);
-        contenedorPrincipal.cargarPantalla(pantalla4Jugadores, pantalla4JugadoresArchivo);
-        contenedorPrincipal.cargarPantalla(pantalla6Jugadores, pantalla6JugadoresArchivo);
-        contenedorPrincipal.cargarPantalla(sobreNosotros,sobreNosotrosArchivo);
-        contenedorPrincipal.cargarPantalla(pantallaGanador, pantallaGanadorArchivo);
+       contenedorPrincipal.cargarPantalla(pantallaInicial, pantallaInicialArchivo);
+       contenedorPrincipal.cargarPantalla(pantalla2Jugadores, pantalla2JugadoresArchivo);
+       contenedorPrincipal.cargarPantalla(pantalla4Jugadores, pantalla4JugadoresArchivo);
+       contenedorPrincipal.cargarPantalla(pantalla6Jugadores, pantalla6JugadoresArchivo);
+       contenedorPrincipal.cargarPantalla(sobreNosotros,sobreNosotrosArchivo);
+       contenedorPrincipal.cargarPantalla(pantallaGanador, pantallaGanadorArchivo);
+       contenedorPrincipal.cargarPantalla(pantallaJugadorIA, pantallaJugadorIAArchivo);
 
         contenedorPrincipal.setearPantalla(FrameworkDePantalla.pantallaInicial);
 

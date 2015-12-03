@@ -567,54 +567,6 @@ public class PruebasJugadorIATest {
         Assert.assertEquals(jugada.obtenerEstadoTruco().getClass(), EstadoTruco.class);
     }
 
-    @Test
-    public void testJugadorIALeCantanReTrucoSinJugarNadaYNoAceptaPorqueTiene2CartasMenorAUn2EnSegundaMano(){
-        Jugador jugador1 = new Jugador();
-        List<Jugador> jugadores = new ArrayList<>();
-        jugadores.add(jugador1);
-        Jugador jugador2 = new Jugador();
-
-        List<Jugador> jugadores2 = new ArrayList<>();
-        JugadorIA jugadorIA = new JugadorIA(jugador2);
-        jugadores2.add(jugador2);
-
-        Equipo equipo1 = new Equipo(jugadores);
-        Equipo equipo2 = new Equipo(jugadores2);
-        ValoresTrucoYEnvido valoresTrucoYEnvido = new ValoresTrucoYEnvido();
-        Partida partida = new Partida(equipo1, equipo2);
-
-        Jugada jugada = partida.crearJugada();
-
-        Carta basto3 = new Basto(3, valoresTrucoYEnvido);
-        Carta copa1 = new Copa(1, valoresTrucoYEnvido);
-        Carta oro12 = new Oro(12, valoresTrucoYEnvido);
-
-        jugadorIA.agregarCarta(basto3);
-        jugadorIA.agregarCarta(copa1);
-        jugadorIA.agregarCarta(oro12);
-
-        Carta copa10 = new Copa(10, valoresTrucoYEnvido);
-        Carta copa7 = new Copa(7, valoresTrucoYEnvido);
-        Carta copa2 = new Copa(2, valoresTrucoYEnvido);
-
-        jugador1.agregarCarta(copa10);
-        jugador1.agregarCarta(copa7);
-        jugador1.agregarCarta(copa2);
-
-        jugador1.juegaCarta(copa2);
-        jugadorIA.jugarCarta(jugada);
-
-        Assert.assertEquals(jugadorIA.obtenerCartaEnJuego(), basto3);
-
-        jugada.jugarMano();
-
-        jugadorIA.cantar(jugada,partida);
-        jugador1.cantarReTruco(jugada);
-        jugadorIA.cantar(jugada,partida);
-
-
-        Assert.assertEquals(jugada.obtenerEstadoJugada().getClass(), EstadoJugadaTerminada.class);
-    }
 
     @Test
     public void testJugadorIATiene31DeEnvidoLeCantanFaltaEnvidoYAcepta() {
