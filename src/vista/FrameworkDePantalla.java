@@ -1,5 +1,6 @@
-package controles;
+package vista;
 
+import controles.ControladorPantallas;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -11,19 +12,19 @@ import javafx.stage.Stage;
 public class FrameworkDePantalla extends Application {
 
     private static String pantallaInicial = "pantallaInicial";
-    private static String pantallaInicialArchivo = "/vista/PantallaInicial.fxml";
+    private static String pantallaInicialArchivo = "/vista/Pantallas/PantallaInicial.fxml";
     private static String pantalla2Jugadores = "pantalla2Jugadores";
-    private static String pantalla2JugadoresArchivo = "/vista/Pantalla2Jugadores.fxml";
+    private static String pantalla2JugadoresArchivo = "/vista/Pantallas/Pantalla2Jugadores.fxml";
     private static String pantalla4Jugadores = "pantalla4Jugadores";
-    private static String pantalla4JugadoresArchivo = "/vista/Pantalla4Jugadores.fxml";
+    private static String pantalla4JugadoresArchivo = "/vista/Pantallas/Pantalla4Jugadores.fxml";
     private static String pantalla6Jugadores = "pantalla6Jugadores";
-    private static String pantalla6JugadoresArchivo = "/vista/Pantalla6Jugadores.fxml";
+    private static String pantalla6JugadoresArchivo = "/vista/Pantallas/Pantalla6Jugadores.fxml";
     private static String sobreNosotros = "sobreNosotros";
-    private static String sobreNosotrosArchivo = "/vista/SobreNosotros.fxml";
+    private static String sobreNosotrosArchivo = "/vista/Pantallas/SobreNosotros.fxml";
     private static String pantallaGanador= "pantallaGanador";
-    private static String pantallaGanadorArchivo= "/vista/PantallaGanador.fxml";
+    private static String pantallaGanadorArchivo= "/vista/Pantallas/PantallaGanador.fxml";
     private static String pantallaJugadorIA= "pantallaJugadorIA";
-    private static String pantallaJugadorIAArchivo= "/vista/PantallaJugadorIA.fxml";
+    private static String pantallaJugadorIAArchivo= "/vista/Pantallas/PantallaJugadorIA.fxml";
 
 
 

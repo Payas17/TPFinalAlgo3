@@ -1,29 +1,13 @@
 package controles;
 
-import controles.Configuraciones.*;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import modelo.Carta.Carta;
 import modelo.Equipo;
-import modelo.EstadoJugador.EstadoPie;
-import modelo.EstadoJugador.EstadoPuedeCantarEnvido;
-import modelo.EstadoJugador.EstadoPuedeCantarTruco;
-import modelo.EstadoJugador.EstadoTieneElQuieroDelTruco;
-import modelo.Jugadas.Jugada;
 import modelo.Jugador;
 import modelo.Partida.Partida;
+import vista.FrameworkDePantalla;
 
 
-import java.net.URL;
 import java.util.*;
 
 /**

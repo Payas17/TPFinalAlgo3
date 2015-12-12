@@ -1,8 +1,6 @@
 package modeloJugadorIA;
 
-import modelo.Errores.NoSePuedeCantarEsoError;
 import modelo.EstadoEnvido.EstadoEnvido;
-import modelo.EstadoEnvido.EstadoEnvidoEnvido;
 import modelo.EstadoEnvido.EstadoRealEnvido;
 import modelo.EstadoEnvido.EstadoSinEnvido;
 import modelo.EstadoJugador.EstadoPuedeCantarFlor;

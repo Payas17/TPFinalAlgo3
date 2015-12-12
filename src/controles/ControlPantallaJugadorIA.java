@@ -6,12 +6,12 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import modelo.Carta.*;
 import modelo.Equipo;
-import modelo.EstadoJugador.EstadoPie;
 import modelo.EstadoJugador.EstadoPuedeCantarEnvido;
 import modelo.Jugador;
 import modelo.Partida.Partida;
 import modelo.ValoresTrucoYEnvido;
 import modeloJugadorIA.JugadorIA;
+import vista.FrameworkDePantalla;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -3,6 +3,7 @@ package controles;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import vista.FrameworkDePantalla;
 
 /**
  * Created by Augusto on 01/12/2015.

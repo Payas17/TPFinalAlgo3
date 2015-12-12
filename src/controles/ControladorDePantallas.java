@@ -16,6 +16,8 @@ import modelo.EstadoJugador.EstadoPuedeCantarEnvido;
 import modelo.Jugadas.Jugada;
 import modelo.Jugador;
 import modelo.Partida.Partida;
+import vista.FrameworkDePantalla;
+
 import java.net.URL;
 import java.util.HashMap;
 import java.util.List;

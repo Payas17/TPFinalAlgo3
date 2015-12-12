@@ -1,23 +1,15 @@
 package controles;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.layout.VBox;
 import modelo.Equipo;
-import modelo.EstadoJugador.EstadoPuedeCantarEnvido;
-import modelo.Jugadas.Jugada;
 import modelo.Jugadas.JugadaPicaPica;
 import modelo.Jugador;
 import modelo.Partida.Partida;
+import vista.FrameworkDePantalla;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
 /**
  * Created by Augusto on 28/11/2015.

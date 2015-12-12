@@ -205,8 +205,15 @@
 		<jar destfile="${build}/dist/algo3.jar" basedir="${build}/classes"/>
 	</target>
 
-	<target name="ejecutar.aplicacion" depends="empaquetar">
-		<java classname="fiuba.algo3.ejemplo1.Foo" fork="true">
+	<target name="empaquetar.fxml" depends="compilar.paquete">
+		<copydir src="src/vista/Pantallas"
+				 dest="${build}/vista/Pantallas"
+				 includes="**/*.fxml"/>
+		<jar destfile="${build}/dist/algo3.jar" basedir="${build}/classes"/>
+	</target>
+
+	<target name="ejecutar.aplicacion" depends="empaquetar.fxml">
+		<java classname="vista.FrameworkDePantalla" fork="true">
 			<classpath refid="classpath" />
 			<classpath location="${build}/dist/algo3.jar" />
 		</java>
